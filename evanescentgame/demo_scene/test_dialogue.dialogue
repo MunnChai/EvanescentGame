@@ -1,0 +1,27 @@
+~ test
+Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
+Nathan: Here are some choices.
+- First one
+	Nathan: You picked the first one.
+- Second one
+	Nathan: You picked the second one.
+- Start again => test
+- End the conversation => END
+Nathan: For more information see the online documentation.
+=> END
+
+~ talking_to_ghost
+NPC: Ahhh you are a ghost
+Me: Yes I am a ghost
+=> END
+
+~ test_item_ghost
+Evan: Man, I wish I had real hands to grab this.
+=> END
+
+~ test_item_human
+Evan: Wow, I can grab this now!
+- Grab
+	Evan: I grabbed it
+- Leave
+=> END

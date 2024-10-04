@@ -1,0 +1,50 @@
+[gd_scene load_steps=11 format=3 uid="uid://ccwc4s7e5nmbf"]
+
+[ext_resource type="Script" path="res://instances/npc/npc.gd" id="1_0upfg"]
+[ext_resource type="Texture2D" uid="uid://bjkq2gq42u2rj" path="res://assets/player/test_player.png" id="1_co6pp"]
+[ext_resource type="PackedScene" uid="uid://cfx3wanmlsj0" path="res://components/interactable_area/interactable_area.tscn" id="2_mnng2"]
+[ext_resource type="PackedScene" uid="uid://cemmf570s8hey" path="res://components/dialogue_emitter/dialogue_emitter.tscn" id="3_kdiqa"]
+[ext_resource type="Resource" uid="uid://8ctajnr773an" path="res://demo_scene/test_dialogue.dialogue" id="5_5k2ni"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="6_5geya"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="7_10pel"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o2g0p"]
+size = Vector2(20, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_erhn5"]
+size = Vector2(59, 43)
+
+[sub_resource type="Resource" id="Resource_qwk3k"]
+script = ExtResource("7_10pel")
+duration = 1.0
+transition = 7
+ease = 2
+
+[node name="Npc" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_0upfg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_co6pp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_o2g0p")
+
+[node name="InteractableArea" parent="." instance=ExtResource("2_mnng2")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableArea"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_erhn5")
+
+[node name="DialogueEmitter" parent="." instance=ExtResource("3_kdiqa")]
+dialogue_resource = ExtResource("5_5k2ni")
+
+[node name="GroundRayCast" type="RayCast2D" parent="."]
+target_position = Vector2(0, 35)
+
+[node name="PhantomCamera2D" type="Node2D" parent="."]
+script = ExtResource("6_5geya")
+tween_resource = SubResource("Resource_qwk3k")
+
+[connection signal="player_interacted" from="InteractableArea" to="." method="on_player_interacted"]

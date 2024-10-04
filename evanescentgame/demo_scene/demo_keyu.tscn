@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6b5tiim2qutb"]
+
+[ext_resource type="PackedScene" uid="uid://bpqo103lmn4jo" path="res://instances/item/item.tscn" id="1_fec57"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eptpl"]
+
+[node name="Item" instance=ExtResource("1_fec57")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableArea" index="0"]
+shape = SubResource("RectangleShape2D_eptpl")
