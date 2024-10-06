@@ -44,6 +44,7 @@ dialogue_resource = ExtResource("5_5k2ni")
 target_position = Vector2(0, 35)
 
 [node name="PhantomCamera2D" type="Node2D" parent="."]
+position = Vector2(0, -30)
 script = ExtResource("6_5geya")
 tween_resource = SubResource("Resource_qwk3k")
 
