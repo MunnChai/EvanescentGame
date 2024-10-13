@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://d3hlyb2sekm1j"]
 
 [ext_resource type="PackedScene" uid="uid://blp4jjwokkgxj" path="res://locations/location.tscn" id="1_ag4cn"]
-[ext_resource type="TileSet" uid="uid://b0ik5iqgovpsy" path="res://demo_scene/demo_tiles.tres" id="2_kg5tm"]
+[ext_resource type="TileSet" uid="uid://b0ik5iqgovpsy" path="res://demo_scene/initial_gameplay_demo/demo_tiles.tres" id="2_kg5tm"]
 [ext_resource type="PackedScene" uid="uid://b04og7mf6cqys" path="res://instances/door/door.tscn" id="3_0yrli"]
-[ext_resource type="PackedScene" uid="uid://c6b5tiim2qutb" path="res://demo_scene/demo_keyu.tscn" id="4_3kap1"]
+[ext_resource type="PackedScene" uid="uid://c6b5tiim2qutb" path="res://demo_scene/initial_gameplay_demo/demo_keyu.tscn" id="4_3kap1"]
 
 [node name="TestLocation" instance=ExtResource("1_ag4cn")]
 
