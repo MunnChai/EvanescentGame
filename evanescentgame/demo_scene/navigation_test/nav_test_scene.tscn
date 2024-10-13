@@ -22,4 +22,4 @@ position = Vector2(281, 164)
 zoom = Vector2(0.25, 0.25)
 
 [node name="Npc" parent="." instance=ExtResource("4_yaxwl")]
-position = Vector2(-214, 184)
+position = Vector2(-200, 198)

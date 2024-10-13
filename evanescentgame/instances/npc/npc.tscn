@@ -48,4 +48,7 @@ position = Vector2(0, -30)
 script = ExtResource("6_5geya")
 tween_resource = SubResource("Resource_qwk3k")
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
+
 [connection signal="player_interacted" from="InteractableArea" to="." method="on_player_interacted"]

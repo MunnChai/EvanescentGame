@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var player: Player = get_tree().get_nodes_in_group("player")[0]
 @onready var phantom_camera_2d: PhantomCamera2D = $PhantomCamera2D
 @onready var interactable_area: InteractableArea = $InteractableArea
+@onready var navigation_agent_2d = $NavigationAgent2D
 
 const SPEED: float = 125.0
 const SPRINT_MULTIPLIER: float = 1.5
@@ -18,8 +19,10 @@ var currently_held_item: Item = null
 
 func _physics_process(delta):
 	if (is_possessed):
-		handle_movement(delta)
+		handle_player_movement(delta)
 		handle_input(delta)
+	else:
+		handle_npc_movement(delta)
 
 func on_player_interacted():
 	if (player.is_possessing):
@@ -44,7 +47,7 @@ func handle_input(delta: float):
 	if (Input.is_action_just_pressed("jump") and is_on_floor()):
 		velocity.y -= JUMP_VELOCITY
 
-func handle_movement(delta: float):
+func handle_player_movement(delta: float):
 	if (not is_on_floor()):
 		velocity.y += GRAVITY * delta
 		
@@ -57,8 +60,23 @@ func handle_movement(delta: float):
 	
 	var direction = Input.get_axis("move_left", "move_right")
 	if direction:
-		velocity.x = direction * true_speed
+		velocity.x = move_toward(velocity.x, direction * true_speed, true_speed)
 	else:
 		velocity.x = move_toward(velocity.x, 0, true_speed)
 	
 	move_and_slide()
+
+func handle_npc_movement(delta: float):
+	if (not navigation_agent_2d.is_navigation_finished()):
+		var direction: float = sign(navigation_agent_2d.get_next_path_position().x - global_position.x)
+		
+		velocity.x = move_toward(velocity.x, direction * SPEED, SPEED)
+		
+		move_and_slide()
+
+func navigate_to(target_position: Vector2, location):
+	# If location != current_location, navigate to location_exit
+	
+	# navigate to location
+	navigation_agent_2d.target_position = target_position
+	print("Navigating to: ", target_position)

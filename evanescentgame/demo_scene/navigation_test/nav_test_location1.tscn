@@ -1,7 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://c65smuxbqv4p1"]
+[gd_scene load_steps=7 format=3 uid="uid://c65smuxbqv4p1"]
 
 [ext_resource type="PackedScene" uid="uid://blp4jjwokkgxj" path="res://locations/location.tscn" id="1_bj3xx"]
 [ext_resource type="TileSet" uid="uid://b0ik5iqgovpsy" path="res://demo_scene/initial_gameplay_demo/demo_tiles.tres" id="2_7t1qt"]
+[ext_resource type="PackedScene" uid="uid://ccwc4s7e5nmbf" path="res://instances/npc/npc.tscn" id="3_2ni30"]
+[ext_resource type="Script" path="res://demo_scene/navigation_test/navigation_tester.gd" id="4_b1oyp"]
+[ext_resource type="PackedScene" uid="uid://brm7k4yr1lcxw" path="res://instances/player/player.tscn" id="5_vt0jd"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_d4qbl"]
+vertices = PackedVector2Array(182, 22, -150, 22, -150, -30, 182, -30)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-160, -40, 192, -40, 192, 32, -160, 32)])
+source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="Location" instance=ExtResource("1_bj3xx")]
 
@@ -12,3 +21,20 @@ layer_0/tile_data = PackedInt32Array(131068, 65537, 0, 131069, 65537, 0, 131070,
 
 [node name="LocationExit" parent="." index="1"]
 position = Vector2(-123, 1)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." index="2"]
+navigation_polygon = SubResource("NavigationPolygon_d4qbl")
+
+[node name="Npc" parent="." index="3" instance=ExtResource("3_2ni30")]
+position = Vector2(168, 8)
+
+[node name="NavTester" type="Node2D" parent="." index="4" node_paths=PackedStringArray("npc")]
+script = ExtResource("4_b1oyp")
+npc = NodePath("../Npc")
+
+[node name="Player" parent="." index="5" instance=ExtResource("5_vt0jd")]
+
+[node name="Camera2D" type="Camera2D" parent="." index="6"]
+zoom = Vector2(0.5, 0.5)
+
+[editable path="Npc"]
