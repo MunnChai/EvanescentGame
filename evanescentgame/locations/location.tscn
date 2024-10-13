@@ -1,3 +1,7 @@
-[gd_scene format=3 uid="uid://blp4jjwokkgxj"]
+[gd_scene load_steps=2 format=3 uid="uid://blp4jjwokkgxj"]
+
+[ext_resource type="PackedScene" uid="uid://wflq4srocbke" path="res://components/location_exit/location_exit.tscn" id="1_daxts"]
 
 [node name="Location" type="Node2D"]
+
+[node name="LocationExit" parent="." instance=ExtResource("1_daxts")]
