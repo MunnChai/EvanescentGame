@@ -8,6 +8,7 @@
 [node name="TestScene" type="Node2D"]
 
 [node name="TestLocation" parent="." instance=ExtResource("1_22i7o")]
+script = null
 
 [node name="Npc" parent="." instance=ExtResource("2_24hvg")]
 position = Vector2(269, 6)

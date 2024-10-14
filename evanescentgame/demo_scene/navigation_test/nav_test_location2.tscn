@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://b63tai0wim342"]
+[gd_scene load_steps=4 format=3 uid="uid://b63tai0wim342"]
 
 [ext_resource type="PackedScene" uid="uid://blp4jjwokkgxj" path="res://locations/location.tscn" id="1_t1t86"]
 [ext_resource type="TileSet" uid="uid://b0ik5iqgovpsy" path="res://demo_scene/initial_gameplay_demo/demo_tiles.tres" id="2_ggwi6"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_84w44"]
+vertices = PackedVector2Array(182, -78, 182, -42, 118, -42, -86, -78, -86, 22, 118, 22)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(192, -32, 192, -88, -96, -88, -96, 32, 128, 32, 128, -32)])
+source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="Location" instance=ExtResource("1_t1t86")]
 
@@ -12,3 +18,6 @@ layer_0/tile_data = PackedInt32Array(131067, 1, 1, 131068, 65537, 1, 131069, 655
 
 [node name="LocationExit" parent="." index="1"]
 position = Vector2(162, -54)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." index="2"]
+navigation_polygon = SubResource("NavigationPolygon_84w44")

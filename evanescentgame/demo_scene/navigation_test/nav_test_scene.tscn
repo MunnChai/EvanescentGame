@@ -1,15 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://5ctubd6guebj"]
+[gd_scene load_steps=6 format=3 uid="uid://5ctubd6guebj"]
 
 [ext_resource type="PackedScene" uid="uid://c65smuxbqv4p1" path="res://demo_scene/navigation_test/nav_test_location1.tscn" id="1_4iy2l"]
 [ext_resource type="PackedScene" uid="uid://b63tai0wim342" path="res://demo_scene/navigation_test/nav_test_location2.tscn" id="2_fes4b"]
 [ext_resource type="PackedScene" uid="uid://bvwy0smk7tc1n" path="res://demo_scene/navigation_test/nav_test_location3.tscn" id="3_2o2vj"]
+[ext_resource type="Script" path="res://demo_scene/navigation_test/navigation_tester.gd" id="4_a8vhn"]
 [ext_resource type="PackedScene" uid="uid://ccwc4s7e5nmbf" path="res://instances/npc/npc.tscn" id="4_yaxwl"]
 
 [node name="NavTestScene" type="Node2D"]
 
 [node name="Locations" type="Node2D" parent="."]
 
-[node name="Location" parent="Locations" instance=ExtResource("1_4iy2l")]
+[node name="Location1" parent="Locations" instance=ExtResource("1_4iy2l")]
 position = Vector2(-353, 191)
 
 [node name="Location2" parent="Locations" instance=ExtResource("2_fes4b")]
@@ -21,5 +22,41 @@ position = Vector2(281, 164)
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.25, 0.25)
 
-[node name="Npc" parent="." instance=ExtResource("4_yaxwl")]
-position = Vector2(-200, 198)
+[node name="NavTester" type="Node2D" parent="." node_paths=PackedStringArray("npc", "locations")]
+script = ExtResource("4_a8vhn")
+npc = NodePath("../Npc")
+locations = NodePath("../Locations")
+
+[node name="LocationButtons" type="VBoxContainer" parent="NavTester"]
+offset_left = -633.0
+offset_top = -273.0
+offset_right = -315.0
+offset_bottom = -124.0
+
+[node name="Button" type="Button" parent="NavTester"]
+offset_left = -631.0
+offset_top = -348.0
+offset_right = -378.0
+offset_bottom = -286.0
+text = "Navigate To Position"
+
+[node name="IsNavigating" type="Label" parent="NavTester"]
+visible = false
+offset_left = -364.0
+offset_top = -328.0
+offset_right = -137.0
+offset_bottom = -305.0
+text = "Click Somewhere to navigate!"
+
+[node name="CurrentLocation" type="Label" parent="NavTester"]
+offset_left = -625.0
+offset_top = -100.0
+offset_right = -398.0
+offset_bottom = -77.0
+text = "Current Location: None"
+
+[node name="Npc" parent="." node_paths=PackedStringArray("starting_location") instance=ExtResource("4_yaxwl")]
+position = Vector2(-200, 183)
+starting_location = NodePath("../Locations/Location1")
+
+[connection signal="pressed" from="NavTester/Button" to="NavTester" method="set_choosing_position"]
