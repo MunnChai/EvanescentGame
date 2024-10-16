@@ -55,6 +55,7 @@ tween_resource = SubResource("Resource_qwk3k")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 10.0
+path_max_distance = 10.0
 debug_enabled = true
 
 [connection signal="player_interacted" from="InteractableArea" to="." method="on_player_interacted"]

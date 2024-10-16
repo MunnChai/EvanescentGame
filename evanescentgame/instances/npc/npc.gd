@@ -84,7 +84,7 @@ func handle_npc_movement(delta: float):
 		var x_distance: float = current_node.x - global_position.x
 		var x_direction: float = sign(x_distance)
 		
-		velocity.x = move_toward(velocity.x, x_direction * SPEED, SPEED / 2)
+		velocity.x = move_toward(velocity.x, x_direction * SPEED, SPEED / 4)
 		
 		var path = navigation_agent_2d.get_current_navigation_path()
 		var next_index = navigation_agent_2d.get_current_navigation_path_index() + 1
@@ -93,18 +93,18 @@ func handle_npc_movement(delta: float):
 		
 			var next_node_angle: float = (current_node - next_node).normalized().angle()
 			var next_node_degrees: float = rad_to_deg(next_node_angle)
-			
+			print(next_node_degrees)
 			if (abs(x_distance) < NEAR_DISTANCE and 
-				next_node_degrees > 45 and 
-				next_node_degrees < 135 and 
+				next_node_degrees > 40 and 
+				next_node_degrees < 140 and 
 				is_on_floor()):
 				velocity.y -= JUMP_VELOCITY
 		
 		if (velocity.y < 0):
-			velocity.x = move_toward(velocity.x, 0, SPEED / 2)
+			velocity.x = move_toward(velocity.x, 0, SPEED / 4)
 		
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, SPEED / 4)
 	
 	
 	move_and_slide()
