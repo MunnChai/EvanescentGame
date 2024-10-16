@@ -73,19 +73,22 @@ func handle_player_movement(delta: float):
 	move_and_slide()
 
 func handle_npc_movement(delta: float):
+	# Apply gravity
 	if (not is_on_floor()):
 		velocity.y += GRAVITY * delta
 	
 	if (not navigation_agent_2d.is_navigation_finished()):
-		const NEAR_DISTANCE: float = 10
-		const JUMP_DISTANCE: float = -10
+		const NEAR_DISTANCE: float = 10 # Near distance threshold to next node
 		
+		# Get next node in the path to the target position, and the direction from the NPC to that node
 		var current_node = navigation_agent_2d.get_next_path_position()
 		var x_distance: float = current_node.x - global_position.x
 		var x_direction: float = sign(x_distance)
 		
+		# Move towards the next node
 		velocity.x = move_toward(velocity.x, x_direction * SPEED, SPEED / 4)
 		
+		# Get NEXT next node and check if it is valid
 		var path = navigation_agent_2d.get_current_navigation_path()
 		var next_index = navigation_agent_2d.get_current_navigation_path_index() + 1
 		if (next_index < path.size()):
@@ -93,14 +96,17 @@ func handle_npc_movement(delta: float):
 		
 			var next_node_angle: float = (current_node - next_node).normalized().angle()
 			var next_node_degrees: float = rad_to_deg(next_node_angle)
-			print(next_node_degrees)
+			
+			# If NPC is at the next node, calculate the angle to the NEXT next node to see if a jump is necessary
 			if (abs(x_distance) < NEAR_DISTANCE and 
 				next_node_degrees > 40 and 
 				next_node_degrees < 140 and 
 				is_on_floor()):
+				
+				# Jump
 				velocity.y -= JUMP_VELOCITY
 		
-		if (velocity.y < 0):
+		if (velocity.y < 0): # Stay still while jumping, just helps to not stray too far off the path
 			velocity.x = move_toward(velocity.x, 0, SPEED / 4)
 		
 	else:
