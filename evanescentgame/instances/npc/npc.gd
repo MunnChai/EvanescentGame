@@ -77,12 +77,35 @@ func handle_npc_movement(delta: float):
 		velocity.y += GRAVITY * delta
 	
 	if (not navigation_agent_2d.is_navigation_finished()):
+		const NEAR_DISTANCE: float = 10
+		const JUMP_DISTANCE: float = -10
 		
-		var direction: float = sign(navigation_agent_2d.get_next_path_position().x - global_position.x)
+		var current_node = navigation_agent_2d.get_next_path_position()
+		var x_distance: float = current_node.x - global_position.x
+		var x_direction: float = sign(x_distance)
 		
-		velocity.x = move_toward(velocity.x, direction * SPEED, SPEED)
+		velocity.x = move_toward(velocity.x, x_direction * SPEED, SPEED / 2)
+		
+		var path = navigation_agent_2d.get_current_navigation_path()
+		var next_index = navigation_agent_2d.get_current_navigation_path_index() + 1
+		if (next_index < path.size()):
+			var next_node = path[next_index]
+		
+			var next_node_angle: float = (current_node - next_node).normalized().angle()
+			var next_node_degrees: float = rad_to_deg(next_node_angle)
+			
+			if (abs(x_distance) < NEAR_DISTANCE and 
+				next_node_degrees > 45 and 
+				next_node_degrees < 135 and 
+				is_on_floor()):
+				velocity.y -= JUMP_VELOCITY
+		
+		if (velocity.y < 0):
+			velocity.x = move_toward(velocity.x, 0, SPEED / 2)
+		
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+	
 	
 	move_and_slide()
 

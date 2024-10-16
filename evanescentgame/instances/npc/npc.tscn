@@ -21,34 +21,40 @@ transition = 7
 ease = 2
 
 [node name="Npc" type="CharacterBody2D"]
+position = Vector2(0, -1)
 collision_layer = 4
 script = ExtResource("1_0upfg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -23)
 texture = ExtResource("1_co6pp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2.5)
+position = Vector2(0, -20.5)
 shape = SubResource("RectangleShape2D_o2g0p")
 
 [node name="InteractableArea" parent="." instance=ExtResource("2_mnng2")]
+position = Vector2(0, -23)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableArea"]
 position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_erhn5")
 
 [node name="DialogueEmitter" parent="." instance=ExtResource("3_kdiqa")]
+position = Vector2(0, -23)
 dialogue_resource = ExtResource("5_5k2ni")
 
 [node name="GroundRayCast" type="RayCast2D" parent="."]
+position = Vector2(0, -23)
 target_position = Vector2(0, 35)
 
 [node name="PhantomCamera2D" type="Node2D" parent="."]
-position = Vector2(0, -30)
+position = Vector2(0, -53)
 script = ExtResource("6_5geya")
 tween_resource = SubResource("Resource_qwk3k")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 10.0
 debug_enabled = true
 
 [connection signal="player_interacted" from="InteractableArea" to="." method="on_player_interacted"]
