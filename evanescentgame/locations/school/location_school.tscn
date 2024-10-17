@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ba4io0vme1s7c"]
+
+[ext_resource type="PackedScene" uid="uid://blp4jjwokkgxj" path="res://locations/location.tscn" id="1_bxyyn"]
+[ext_resource type="TileSet" uid="uid://b0ik5iqgovpsy" path="res://demo_scene/initial_gameplay_demo/demo_tiles.tres" id="2_bd5hf"]
+
+[node name="School" instance=ExtResource("1_bxyyn")]
+
+[node name="TileMap" type="TileMap" parent="." index="0"]
+tile_set = ExtResource("2_bd5hf")
+format = 2
+layer_0/tile_data = PackedInt32Array(131069, 1, 2, 131070, 65537, 2, 131071, 65537, 2, 65536, 65537, 2, 65537, 65537, 2, 65538, 65537, 2, 65539, 65537, 2, 65540, 131073, 2, 131068, 131073, 2, 131067, 1, 2, 65531, 1, 0, 65532, 65537, 0, -65540, 1, 0, -65541, 131073, 2, -131077, 131073, 0, -196613, 1, 2, -196612, 65537, 2, -65539, 131073, 0, -3, 131073, 1, 65533, 131073, 1, -196611, 131073, 2)

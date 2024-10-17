@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://cpiebxlknogvc"]
+
+[ext_resource type="Script" path="res://top_level_scenes/overworld/overworld_manager.gd" id="1_5y34q"]
+[ext_resource type="PackedScene" uid="uid://brm7k4yr1lcxw" path="res://instances/player/player.tscn" id="1_juc8k"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_ylwwl"]
+[ext_resource type="PackedScene" uid="uid://rviju0lx5pre" path="res://locations/funeral_venue/location_funeral_venue.tscn" id="3_qdm2x"]
+[ext_resource type="PackedScene" uid="uid://ba4io0vme1s7c" path="res://locations/school/location_school.tscn" id="3_udvda"]
+[ext_resource type="PackedScene" uid="uid://qxsjk3i2orwj" path="res://locations/evan_house/location_evan_house.tscn" id="4_tf3o0"]
+[ext_resource type="PackedScene" uid="uid://dnwaf4gu81ddo" path="res://locations/cousin_house/location_cousin_house.tscn" id="5_daq0y"]
+[ext_resource type="PackedScene" uid="uid://iecgb5paqxrh" path="res://locations/police_station/location_police_station.tscn" id="6_speeq"]
+
+[node name="Overworld" type="Node"]
+script = ExtResource("1_5y34q")
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Locations" type="Node2D" parent="World"]
+
+[node name="FuneralVenue" parent="World/Locations" instance=ExtResource("3_qdm2x")]
+
+[node name="School" parent="World/Locations" instance=ExtResource("3_udvda")]
+position = Vector2(1000, 0)
+
+[node name="EvanHouse" parent="World/Locations" instance=ExtResource("4_tf3o0")]
+position = Vector2(2000, 0)
+
+[node name="CousinHouse" parent="World/Locations" instance=ExtResource("5_daq0y")]
+position = Vector2(3000, 0)
+
+[node name="PoliceStation" parent="World/Locations" instance=ExtResource("6_speeq")]
+position = Vector2(4000, 0)
+
+[node name="NPC" type="Node2D" parent="World"]
+
+[node name="Player" parent="World" instance=ExtResource("1_juc8k")]
+position = Vector2(130, 6)
+
+[node name="Camera2D" type="Camera2D" parent="World"]
+position = Vector2(130, -24)
+
+[node name="PhantomCameraHost" type="Node" parent="World/Camera2D"]
+script = ExtResource("2_ylwwl")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

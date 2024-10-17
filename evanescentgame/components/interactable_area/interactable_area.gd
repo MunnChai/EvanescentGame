@@ -26,6 +26,7 @@ func disable():
 	$Label.visible = false
 
 func _on_body_entered(body):
+	print("BDODOOY")
 	if (body is Player):
 		player_in = true
 		$Label.visible = true

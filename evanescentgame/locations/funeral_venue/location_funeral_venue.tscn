@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://rviju0lx5pre"]
+
+[ext_resource type="PackedScene" uid="uid://blp4jjwokkgxj" path="res://locations/location.tscn" id="1_tf2o3"]
+[ext_resource type="TileSet" uid="uid://b0ik5iqgovpsy" path="res://demo_scene/initial_gameplay_demo/demo_tiles.tres" id="2_uk37i"]
+
+[node name="FuneralVenue" instance=ExtResource("1_tf2o3")]
+
+[node name="TileMap" type="TileMap" parent="." index="0"]
+tile_set = ExtResource("2_uk37i")
+format = 2
+layer_0/tile_data = PackedInt32Array(65536, 65537, 2, 65537, 65537, 2, 65538, 65537, 2, 65539, 65537, 2, 65540, 131073, 2, 131071, 65537, 2, 131070, 65537, 2, 131069, 65537, 2, 131068, 65537, 2, 131067, 1, 2, -196613, 131073, 0, -131077, 131073, 1, -65541, 65537, 1, -5, 131073, 2, 65531, 131073, 1, -65540, 131073, 2, -196612, 65537, 2, -196611, 131073, 2)

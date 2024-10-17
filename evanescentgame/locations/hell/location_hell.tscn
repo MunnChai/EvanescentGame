@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dec1686itnjia"]
+[gd_scene load_steps=3 format=3 uid="uid://dec1686itnjia"]
 
+[ext_resource type="Script" path="res://locations/location.gd" id="1_5qs4x"]
 [ext_resource type="TileSet" uid="uid://b0ik5iqgovpsy" path="res://demo_scene/initial_gameplay_demo/demo_tiles.tres" id="1_ogsqp"]
 
 [node name="Location" type="Node2D"]
+script = ExtResource("1_5qs4x")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_ogsqp")

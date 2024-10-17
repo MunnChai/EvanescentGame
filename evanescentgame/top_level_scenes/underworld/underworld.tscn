@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://byuxpv2q8tskb"]
+
+[ext_resource type="Script" path="res://top_level_scenes/underworld/underworld_manager.gd" id="1_ykwur"]
+[ext_resource type="TileSet" uid="uid://b0ik5iqgovpsy" path="res://demo_scene/initial_gameplay_demo/demo_tiles.tres" id="2_kduh1"]
+[ext_resource type="PackedScene" uid="uid://brm7k4yr1lcxw" path="res://instances/player/player.tscn" id="3_qgk6a"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_vl5io"]
+[ext_resource type="PackedScene" uid="uid://cfx3wanmlsj0" path="res://components/interactable_area/interactable_area.tscn" id="5_ix0o7"]
+[ext_resource type="Texture2D" uid="uid://b03fer3ti2iyc" path="res://icon.svg" id="6_t4u02"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1knb1"]
+
+[node name="Underworld" type="Node"]
+script = ExtResource("1_ykwur")
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="World"]
+tile_set = ExtResource("2_kduh1")
+format = 2
+layer_0/tile_data = PackedInt32Array(131066, 1, 2, 131067, 65537, 2, 131068, 65537, 2, 131069, 65537, 2, 131070, 65537, 2, 131071, 65537, 2, 65536, 65537, 2, 65537, 65537, 2, 65538, 65537, 2, 65539, 65537, 2, 65540, 65537, 2, 65541, 131073, 2, -196614, 131073, 0, -131078, 131073, 1, -65542, 65537, 1, -6, 131073, 2, 65530, 131073, 1, -65541, 65537, 2, -196612, 131073, 0, -131076, 131073, 2, -65540, 131073, 2, -4, 131073, 2, 65532, 131073, 1)
+
+[node name="Player" parent="World" instance=ExtResource("3_qgk6a")]
+position = Vector2(-3, 10)
+
+[node name="Camera2D" type="Camera2D" parent="World"]
+position = Vector2(-3, -20)
+
+[node name="PhantomCameraHost" type="Node" parent="World/Camera2D"]
+script = ExtResource("4_vl5io")
+
+[node name="InteractableArea" parent="World" instance=ExtResource("5_ix0o7")]
+position = Vector2(168, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/InteractableArea"]
+shape = SubResource("RectangleShape2D_1knb1")
+
+[node name="Sprite2D" type="Sprite2D" parent="World/InteractableArea"]
+position = Vector2(0, 1)
+scale = Vector2(0.0625, 0.0625)
+texture = ExtResource("6_t4u02")
+
+[node name="Label2" type="Label" parent="World/InteractableArea"]
+offset_left = -21.0
+offset_top = 9.0
+offset_right = 24.0
+offset_bottom = 22.0
+theme_override_font_sizes/font_size = 9
+text = "Leave Hell"
+metadata/_edit_use_anchors_ = true
+
+[node name="UI" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="player_interacted" from="World/InteractableArea" to="." method="load_overworld"]

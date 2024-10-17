@@ -1,10 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://wflq4srocbke"]
+[gd_scene load_steps=4 format=3 uid="uid://wflq4srocbke"]
 
 [ext_resource type="PackedScene" uid="uid://cfx3wanmlsj0" path="res://components/interactable_area/interactable_area.tscn" id="1_nkhhj"]
+[ext_resource type="Texture2D" uid="uid://b03fer3ti2iyc" path="res://icon.svg" id="1_sv17m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_00x8u"]
 
 [node name="LocationExit" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1875, 0.1875)
+texture = ExtResource("1_sv17m")
 
 [node name="InteractableArea" parent="." instance=ExtResource("1_nkhhj")]
 
