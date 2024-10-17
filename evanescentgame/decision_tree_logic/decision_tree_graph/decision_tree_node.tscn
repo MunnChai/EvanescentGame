@@ -35,11 +35,10 @@ slot/1/right_icon = null
 slot/1/draw_stylebox = true
 script = ExtResource("1_mcfk4")
 
-[node name="TextEdit" type="TextEdit" parent="."]
+[node name="Description" type="TextEdit" parent="."]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
+scroll_fit_content_height = true
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 2
-
-[connection signal="delete_request" from="." to="." method="_on_delete_request"]

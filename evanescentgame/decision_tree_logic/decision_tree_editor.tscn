@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b27j65wswj7vi"]
+[gd_scene load_steps=4 format=3 uid="uid://b27j65wswj7vi"]
 
 [ext_resource type="Script" path="res://decision_tree_logic/decision_tree_editor.gd" id="1_sun7k"]
+[ext_resource type="PackedScene" uid="uid://cojk4litcs52k" path="res://decision_tree_logic/decision_tree_graph/decision_tree_graph.tscn" id="2_s7u3b"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_luaup"]
 
@@ -13,10 +14,18 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sun7k")
 
-[node name="GraphEdit" type="GraphEdit" parent="."]
+[node name="DecisionTreeGraph" parent="." instance=ExtResource("2_s7u3b")]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 25.0
+offset_right = 1280.0
+offset_bottom = 645.0
+grow_horizontal = 1
+grow_vertical = 1
+scroll_offset = Vector2(-320, -440)
+right_disconnects = true
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
@@ -26,4 +35,6 @@ theme_override_font_sizes/font_size = 8
 theme_override_styles/focus = SubResource("StyleBoxEmpty_luaup")
 text = "Add Node"
 
+[connection signal="connection_request" from="DecisionTreeGraph" to="." method="on_connection_request"]
+[connection signal="disconnection_request" from="DecisionTreeGraph" to="." method="on_disconnection_request"]
 [connection signal="pressed" from="Button" to="." method="add_new_node"]
