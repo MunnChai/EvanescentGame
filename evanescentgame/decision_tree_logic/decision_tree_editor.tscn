@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://b27j65wswj7vi"]
+
+[ext_resource type="Script" path="res://decision_tree_logic/decision_tree_editor.gd" id="1_sun7k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_luaup"]
+
+[node name="DecisionTreeGraph" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sun7k")
+
+[node name="GraphEdit" type="GraphEdit" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 55.0
+offset_bottom = 25.0
+theme_override_font_sizes/font_size = 8
+theme_override_styles/focus = SubResource("StyleBoxEmpty_luaup")
+text = "Add Node"
+
+[connection signal="pressed" from="Button" to="." method="add_new_node"]

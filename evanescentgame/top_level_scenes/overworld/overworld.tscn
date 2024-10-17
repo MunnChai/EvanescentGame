@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cpiebxlknogvc"]
+[gd_scene load_steps=10 format=3 uid="uid://cpiebxlknogvc"]
 
 [ext_resource type="Script" path="res://top_level_scenes/overworld/overworld_manager.gd" id="1_5y34q"]
 [ext_resource type="PackedScene" uid="uid://brm7k4yr1lcxw" path="res://instances/player/player.tscn" id="1_juc8k"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://qxsjk3i2orwj" path="res://locations/evan_house/location_evan_house.tscn" id="4_tf3o0"]
 [ext_resource type="PackedScene" uid="uid://dnwaf4gu81ddo" path="res://locations/cousin_house/location_cousin_house.tscn" id="5_daq0y"]
 [ext_resource type="PackedScene" uid="uid://iecgb5paqxrh" path="res://locations/police_station/location_police_station.tscn" id="6_speeq"]
+[ext_resource type="PackedScene" uid="uid://ccwc4s7e5nmbf" path="res://instances/npc/npc.tscn" id="7_ow5sy"]
 
 [node name="Overworld" type="Node"]
 script = ExtResource("1_5y34q")
@@ -30,7 +31,16 @@ position = Vector2(3000, 0)
 [node name="PoliceStation" parent="World/Locations" instance=ExtResource("6_speeq")]
 position = Vector2(4000, 0)
 
-[node name="NPC" type="Node2D" parent="World"]
+[node name="NPCs" type="Node2D" parent="World"]
+
+[node name="Npc1" parent="World/NPCs" instance=ExtResource("7_ow5sy")]
+position = Vector2(-105, 27)
+
+[node name="Npc2" parent="World/NPCs" instance=ExtResource("7_ow5sy")]
+position = Vector2(1958, 24)
+
+[node name="Npc3" parent="World/NPCs" instance=ExtResource("7_ow5sy")]
+position = Vector2(1146, 27)
 
 [node name="Player" parent="World" instance=ExtResource("1_juc8k")]
 position = Vector2(130, 6)
