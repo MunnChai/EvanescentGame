@@ -1,0 +1,65 @@
+[gd_resource type="Resource" script_class="DecisionTreeGraphData" load_steps=9 format=3 uid="uid://d01kwjhtyhrlw"]
+
+[ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_node_resource.gd" id="1_2pdkb"]
+[ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_resource.gd" id="1_fxyf4"]
+
+[sub_resource type="Resource" id="Resource_w0ayp"]
+script = ExtResource("1_2pdkb")
+name = "_GraphNode_60"
+position_offset = Vector2(360, 0)
+data = null
+
+[sub_resource type="Resource" id="Resource_u6kmp"]
+script = ExtResource("1_2pdkb")
+name = "_GraphNode_39"
+position_offset = Vector2(0, 120)
+data = null
+
+[sub_resource type="Resource" id="Resource_5aju3"]
+script = ExtResource("1_2pdkb")
+name = "DecisionTreeNode"
+position_offset = Vector2(100, -220)
+data = null
+
+[sub_resource type="Resource" id="Resource_uky56"]
+script = ExtResource("1_2pdkb")
+name = "_GraphNode_46"
+position_offset = Vector2(-360, 100)
+data = null
+
+[sub_resource type="Resource" id="Resource_wojml"]
+script = ExtResource("1_2pdkb")
+name = "_GraphNode_90"
+position_offset = Vector2(-380, -40)
+data = null
+
+[sub_resource type="Resource" id="Resource_ismgy"]
+script = ExtResource("1_2pdkb")
+name = "_GraphNode_53"
+position_offset = Vector2(-180, -320)
+data = null
+
+[resource]
+script = ExtResource("1_fxyf4")
+connections = [{
+"from_node": &"DecisionTreeNode",
+"from_port": 0,
+"to_node": &"_GraphNode_60",
+"to_port": 0
+}, {
+"from_node": &"_GraphNode_39",
+"from_port": 0,
+"to_node": &"_GraphNode_60",
+"to_port": 0
+}, {
+"from_node": &"_GraphNode_53",
+"from_port": 0,
+"to_node": &"DecisionTreeNode",
+"to_port": 0
+}, {
+"from_node": &"_GraphNode_46",
+"from_port": 0,
+"to_node": &"_GraphNode_39",
+"to_port": 0
+}]
+nodes = [SubResource("Resource_w0ayp"), SubResource("Resource_u6kmp"), SubResource("Resource_5aju3"), SubResource("Resource_uky56"), SubResource("Resource_wojml"), SubResource("Resource_ismgy")]

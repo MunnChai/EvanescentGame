@@ -3,7 +3,6 @@ extends CharacterBody2D
 
 const SPEED: float = 175.0
 
-@onready var phantom_camera_2d = $PhantomCamera2D
 @onready var sprite_2d = $Sprite2D
 
 var is_possessing: bool = false
@@ -28,7 +27,7 @@ func _physics_process(delta: float):
 		global_position = currently_possessed_npc.global_position
 
 func handle_input(delta: float):
-	if (Input.is_action_just_pressed("exit_possessee")):
+	if (Input.is_action_just_pressed("exit_possessee") and is_possessing):
 		stop_possessing()
 
 func handle_movement(delta: float):

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cojk4litcs52k"]
+
+[node name="GraphEdit" type="GraphEdit"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 960.0
+offset_bottom = 440.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+scroll_offset = Vector2(-320, -620)

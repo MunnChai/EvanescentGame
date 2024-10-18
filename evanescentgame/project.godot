@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="EvanescentGame"
-run/main_scene="res://ui/main_menu/main_menu.tscn"
+run/main_scene="res://top_level_scenes/main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
-PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+SceneLoader="*res://singletons/scene_loader.gd"
 
 [dialogue_manager]
 
@@ -86,6 +86,7 @@ locale/translations_pot_files=PackedStringArray("res://demo_scene/initial_gamepl
 [layer_names]
 
 2d_physics/layer_1="Ground"
+2d_navigation/layer_1="NPCNav"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="NPC"
 
