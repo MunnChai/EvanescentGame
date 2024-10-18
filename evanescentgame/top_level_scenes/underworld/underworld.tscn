@@ -13,6 +13,13 @@ script = ExtResource("1_ykwur")
 
 [node name="World" type="Node2D" parent="."]
 
+[node name="Label" type="Label" parent="World"]
+offset_left = -62.0
+offset_top = -65.0
+offset_right = 62.0
+offset_bottom = -42.0
+text = "Welcome to hell"
+
 [node name="TileMap" type="TileMap" parent="World"]
 tile_set = ExtResource("2_kduh1")
 format = 2
