@@ -3,7 +3,6 @@ extends CharacterBody2D
 
 @onready var ground_ray_cast: RayCast2D = $GroundRayCast
 @onready var player: Player = get_tree().get_nodes_in_group("player")[0]
-@onready var phantom_camera_2d: PhantomCamera2D = $PhantomCamera2D
 @onready var interactable_area: InteractableArea = $InteractableArea
 @onready var navigation_agent_2d = $NavigationAgent2D
 
@@ -37,13 +36,11 @@ func on_player_interacted():
 		player.possess(self)
 
 func become_possessed():
-	phantom_camera_2d.priority = 20
 	is_possessed = true
 	interactable_area.disable()
 
 func become_unpossessed():
 	is_possessed = false
-	phantom_camera_2d.priority = 0
 	interactable_area.enable()
 
 func add_to_inventory(item: Item):

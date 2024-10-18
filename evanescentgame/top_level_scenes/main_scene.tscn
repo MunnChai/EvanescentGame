@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cux0fbvcc761t"]
+[gd_scene load_steps=6 format=3 uid="uid://cux0fbvcc761t"]
 
 [ext_resource type="PackedScene" uid="uid://brm7k4yr1lcxw" path="res://instances/player/player.tscn" id="1_7twnf"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_4xp2h"]
 [ext_resource type="PackedScene" uid="uid://ba4io0vme1s7c" path="res://locations/school/location_school.tscn" id="4_gbafg"]
 [ext_resource type="PackedScene" uid="uid://qxsjk3i2orwj" path="res://locations/evan_house/location_evan_house.tscn" id="5_nf5ki"]
 [ext_resource type="PackedScene" uid="uid://dnwaf4gu81ddo" path="res://locations/cousin_house/location_cousin_house.tscn" id="6_5wxff"]
@@ -14,9 +13,6 @@ position = Vector2(-232, 264)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-232, 234)
-
-[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
-script = ExtResource("2_4xp2h")
 
 [node name="Locations" type="Node2D" parent="."]
 

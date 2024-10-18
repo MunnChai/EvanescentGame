@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://byuxpv2q8tskb"]
+[gd_scene load_steps=7 format=3 uid="uid://byuxpv2q8tskb"]
 
 [ext_resource type="Script" path="res://top_level_scenes/underworld/underworld_manager.gd" id="1_ykwur"]
 [ext_resource type="TileSet" uid="uid://b0ik5iqgovpsy" path="res://demo_scene/initial_gameplay_demo/demo_tiles.tres" id="2_kduh1"]
 [ext_resource type="PackedScene" uid="uid://brm7k4yr1lcxw" path="res://instances/player/player.tscn" id="3_qgk6a"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_vl5io"]
 [ext_resource type="PackedScene" uid="uid://cfx3wanmlsj0" path="res://components/interactable_area/interactable_area.tscn" id="5_ix0o7"]
 [ext_resource type="Texture2D" uid="uid://b03fer3ti2iyc" path="res://icon.svg" id="6_t4u02"]
 
@@ -24,9 +23,6 @@ position = Vector2(-3, 10)
 
 [node name="Camera2D" type="Camera2D" parent="World"]
 position = Vector2(-3, -20)
-
-[node name="PhantomCameraHost" type="Node" parent="World/Camera2D"]
-script = ExtResource("4_vl5io")
 
 [node name="InteractableArea" parent="World" instance=ExtResource("5_ix0o7")]
 position = Vector2(168, 3)

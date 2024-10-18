@@ -3,7 +3,6 @@ extends CharacterBody2D
 
 const SPEED: float = 175.0
 
-@onready var phantom_camera_2d = $PhantomCamera2D
 @onready var sprite_2d = $Sprite2D
 
 var is_possessing: bool = false
