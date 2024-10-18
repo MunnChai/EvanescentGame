@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8koojhsdp5f6"]
+[gd_scene load_steps=4 format=3 uid="uid://c8koojhsdp5f6"]
 
 [ext_resource type="PackedScene" uid="uid://d3hlyb2sekm1j" path="res://demo_scene/initial_gameplay_demo/demo_location.tscn" id="1_22i7o"]
 [ext_resource type="PackedScene" uid="uid://ccwc4s7e5nmbf" path="res://instances/npc/npc.tscn" id="2_24hvg"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_0gid3"]
 [ext_resource type="PackedScene" uid="uid://brm7k4yr1lcxw" path="res://instances/player/player.tscn" id="4_kj5m6"]
 
 [node name="TestScene" type="Node2D"]
@@ -14,9 +13,6 @@ position = Vector2(269, 6)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-122, -21)
-
-[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
-script = ExtResource("3_0gid3")
 
 [node name="Player" parent="." instance=ExtResource("4_kj5m6")]
 position = Vector2(-122, 9)
