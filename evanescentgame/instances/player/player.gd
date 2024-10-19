@@ -2,6 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 const SPEED: float = 175.0
+const ACCEL_DECAY_CONST: float = 10.0 # How fast should smoothing be
 
 @onready var sprite_2d = $Sprite2D
 
@@ -35,7 +36,7 @@ func handle_movement(delta: float):
 	var direction_y = Input.get_axis("move_up", "move_down")
 	
 	# velocity = velocity.move_toward(Vector2(direction_x, direction_y).normalized() * SPEED, SPEED)
-	velocity = Vector2(MathUtil.decay(velocity, Vector2(direction_x, direction_y).normalized() * SPEED, 10.0, delta))
+	velocity = Vector2(MathUtil.decay(velocity, Vector2(direction_x, direction_y).normalized() * SPEED, ACCEL_DECAY_CONST, delta))
 	
 	move_and_slide()
 

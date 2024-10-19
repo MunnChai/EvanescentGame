@@ -1,0 +1,14 @@
+~ talking_to_devil
+Lady Devil: Ah. Let's see... one, four. Here you are.
+Lady Devil: Welcome, Evan. How may I help you?
+- Where am I?
+	Lady Devil: Long story short. You're in hell.
+- Who the hell are you?
+	Lady Devil: You may refer to me as Lady Devil.
+Lady Devil: As boss of hell, you will now die (more).
+=> END
+
+~ repeat_to_devil
+Lady Devil: Why are you still here?
+Me: Idk lmao
+=> END
