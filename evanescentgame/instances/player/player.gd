@@ -1,6 +1,7 @@
 class_name Player
 extends CharacterBody2D
 
+## CONSTANTS
 const SPEED: float = 175.0
 const ACCEL_DECAY_CONST: float = 10.0 # How fast should smoothing be
 
