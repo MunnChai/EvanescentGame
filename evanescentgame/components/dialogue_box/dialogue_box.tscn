@@ -93,6 +93,7 @@ Panel/styles/panel = SubResource("StyleBoxFlat_uy0d5")
 
 [sub_resource type="Gradient" id="Gradient_d3gjr"]
 interpolation_mode = 2
+offsets = PackedFloat32Array(0.404412, 1)
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_46ymv"]
@@ -137,6 +138,23 @@ grow_vertical = 0
 scale = Vector2(0.255, 0.255)
 theme_override_styles/panel = SubResource("StyleBoxTexture_migmg")
 
+[node name="NextLabel" type="RichTextLabel" parent="Balloon/Panel"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.501961)
+layout_mode = 2
+offset_left = 784.314
+offset_top = 86.2745
+offset_right = 1195.31
+offset_bottom = 134.275
+size_flags_vertical = 8
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("2_vtkqp")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "[right]Enter to continue"
+fit_content = true
+scroll_active = false
+
 [node name="Dialogue" type="MarginContainer" parent="Balloon/Panel"]
 layout_mode = 1
 anchors_preset = 15
@@ -173,7 +191,6 @@ theme_override_fonts/normal_font = ExtResource("2_vtkqp")
 theme_override_fonts/bold_font = ExtResource("2_y3hkj")
 theme_override_font_sizes/normal_font_size = 36
 text = "Dialogue... "
-seconds_per_step = 0.03
 pause_at_characters = ".?!,:"
 
 [node name="Responses" type="MarginContainer" parent="Balloon"]

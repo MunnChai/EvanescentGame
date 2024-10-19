@@ -8,23 +8,37 @@ Lost Soul: Woe, woe, woe!
 => END
 
 ~ lost_soul_repeat_1
-Lost Soul: [[...|Gah!]]
+% Lost Soul: ...
+% Lost Soul: Gah!
+% Lost Soul: [speed=0.1]Brrrrr.
 => END
 
 # King Lear Lines Demo Testing
 ~ lost_soul_2
-Lost Soul: Thou shouldst not have been old till thou hadst been wise.
+Lost Soul: Blow, winds, and crack your cheeks! rage! blow!
+			You cataracts and hurricanoes, spout
+			Till you have drench’d our steeples, drown’d the cocks!
 - What?
-	Lost Soul: Blow winds and crack your cheeks! Rage, blow,
-				You cataracts and hurricanoes!
 - Where are we?
-	Lost Soul: I am a man 
-				More sinned against than sinning.
-Lost Soul: They told me I was everything: 'tis a lie, I am no ague-proof.
+Lost Soul: You sulph’rous and thought-executing fires,
+			Vaunt-couriers to oak-cleaving thunderbolts,
+			Singe my white head! And thou, all-shaking thunder,
+Lost Soul: Strike flat the thick rotundity o’ th’ world,
+			Crack Nature’s moulds, all germains spill at once,
+			That makes ingrateful man!
+Lost Soul: Rumble thy bellyful! Spit, fire! spout, rain!
+			Nor rain, wind, thunder, fire are my daughters.
+			I tax not you, you elements, with unkindness.
+Lost Soul: ...
+Lost Soul: [speed=0.7]Your horrible pleasure. Here I stand your slave,
+						A poor, infirm, weak, and despis’d old man.
+						But yet I call you servile ministers,
+Lost Soul: So old and white as this! O! O! ’tis foul!
+- ...
 => END
 
 ~ lost_soul_repeat_2
-Lost Soul: Get thee glass eyes, 
-			And like a scurvy politician seem 
-			To see the things thou dost not. 
+% Lost Soul: Do you see this? Look on her, look, her lips,
+				Look there, look there!
+% Lost Soul: ...
 => END

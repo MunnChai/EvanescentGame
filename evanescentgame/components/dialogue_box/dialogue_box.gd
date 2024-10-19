@@ -29,10 +29,12 @@ var _locale: String = TranslationServer.get_locale()
 
 @onready var hidden_anchor = $Hidden
 @onready var visible_anchor = $Visible
+@onready var next_label = %NextLabel
 
 ## The current line
 var dialogue_line: DialogueLine:
 	set(next_dialogue_line):
+		next_label.hide()
 		is_waiting_for_input = false
 		balloon.focus_mode = Control.FOCUS_ALL
 		balloon.grab_focus()
@@ -67,7 +69,7 @@ var dialogue_line: DialogueLine:
 			await dialogue_label.finished_typing
 
 		# Wait for input
-		print("PRESS ENTER OR SOMETHING TO GO TO NEXT LINE")
+		next_label.show()
 		if dialogue_line.responses.size() > 0:
 			balloon.focus_mode = Control.FOCUS_NONE
 			responses_menu.show()
