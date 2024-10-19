@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://bl4i87ah7mem7"
+path="res://.godot/imported/lost_soul.dialogue-f55d162de417e60583bce37436f737af.tres"
+
+[deps]
+
+source_file="res://dialogue/lost_soul/lost_soul.dialogue"
+dest_files=["res://.godot/imported/lost_soul.dialogue-f55d162de417e60583bce37436f737af.tres"]
+
+[params]
+
+defaults=true

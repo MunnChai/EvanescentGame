@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ceyeqghg7xwnv"]
 
 [ext_resource type="PackedScene" uid="uid://ccwc4s7e5nmbf" path="res://instances/npc/npc.tscn" id="1_qr0bo"]
-[ext_resource type="Script" path="res://instances/devil/devil.gd" id="2_jv2jd"]
+[ext_resource type="Script" path="res://instances/npc/devil/devil.gd" id="2_jv2jd"]
 [ext_resource type="Resource" uid="uid://dut136huhsw2f" path="res://dialogue/devil/devil_first_encounter.dialogue" id="2_objkd"]
 
 [node name="Devil" instance=ExtResource("1_qr0bo")]

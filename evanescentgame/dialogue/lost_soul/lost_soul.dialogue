@@ -1,0 +1,30 @@
+~ lost_soul_1
+Lost Soul: Woe is me. Oh, woe is me.
+Lost Soul: Woe, woe, woe!
+- Who are you?
+	Lost Soul: ...
+- Where are we?
+	Lost Soul: ...
+=> END
+
+~ lost_soul_repeat_1
+Lost Soul: ...
+=> END
+
+# King Lear Lines Demo Testing
+~ lost_soul_2
+Lost Soul: Thou shouldst not have been old till thou hadst been wise.
+- What?
+	Lost Soul: Blow winds and crack your cheeks! Rage, blow,
+				You cataracts and hurricanoes!
+- Where are we?
+	Lost Soul: I am a man 
+				More sinned against than sinning.
+Lost Soul: They told me I was everything: 'tis a lie, I am no ague-proof.
+=> END
+
+~ lost_soul_repeat_2
+Lost Soul: Get thee glass eyes, 
+			And like a scurvy politician seem 
+			To see the things thou dost not. 
+=> END

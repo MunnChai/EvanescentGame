@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://byuxpv2q8tskb"]
+[gd_scene load_steps=9 format=3 uid="uid://byuxpv2q8tskb"]
 
 [ext_resource type="Script" path="res://top_level_scenes/underworld/underworld_manager.gd" id="1_ykwur"]
 [ext_resource type="TileSet" uid="uid://b0ik5iqgovpsy" path="res://demo_scene/initial_gameplay_demo/demo_tiles.tres" id="2_kduh1"]
 [ext_resource type="PackedScene" uid="uid://brm7k4yr1lcxw" path="res://instances/player/player.tscn" id="3_qgk6a"]
-[ext_resource type="PackedScene" uid="uid://ceyeqghg7xwnv" path="res://instances/devil/devil.tscn" id="4_vijld"]
+[ext_resource type="PackedScene" uid="uid://ceyeqghg7xwnv" path="res://instances/npc/devil/devil.tscn" id="4_vijld"]
 [ext_resource type="PackedScene" uid="uid://cfx3wanmlsj0" path="res://components/interactable_area/interactable_area.tscn" id="5_ix0o7"]
 [ext_resource type="Texture2D" uid="uid://b03fer3ti2iyc" path="res://icon.svg" id="6_t4u02"]
+[ext_resource type="PackedScene" uid="uid://bhuujnk6hju6e" path="res://instances/npc/lost_soul/lost_soul.tscn" id="7_erlmb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1knb1"]
 
@@ -53,6 +54,13 @@ offset_bottom = 22.0
 theme_override_font_sizes/font_size = 9
 text = "Leave Hell"
 metadata/_edit_use_anchors_ = true
+
+[node name="LostSoul" parent="World" instance=ExtResource("7_erlmb")]
+position = Vector2(-150, -20)
+
+[node name="LostSoul2" parent="World" instance=ExtResource("7_erlmb")]
+position = Vector2(-329, -39)
+num = 2
 
 [node name="UI" type="Control" parent="."]
 visible = false
