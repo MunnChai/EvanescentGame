@@ -34,7 +34,8 @@ func handle_movement(delta: float):
 	var direction_x = Input.get_axis("move_left", "move_right")
 	var direction_y = Input.get_axis("move_up", "move_down")
 	
-	velocity = velocity.move_toward(Vector2(direction_x, direction_y).normalized() * SPEED, SPEED)
+	# velocity = velocity.move_toward(Vector2(direction_x, direction_y).normalized() * SPEED, SPEED)
+	velocity = Vector2(MathUtil.decay(velocity, Vector2(direction_x, direction_y).normalized() * SPEED, 10.0, delta))
 	
 	move_and_slide()
 
