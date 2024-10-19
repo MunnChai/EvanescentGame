@@ -35,7 +35,7 @@ position = Vector2(-3, -20)
 position = Vector2(-513, 12)
 
 [node name="InteractableArea" parent="World" instance=ExtResource("5_ix0o7")]
-position = Vector2(168, 3)
+position = Vector2(-869, -16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/InteractableArea"]
 shape = SubResource("RectangleShape2D_1knb1")
