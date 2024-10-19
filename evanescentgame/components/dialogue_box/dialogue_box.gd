@@ -1,4 +1,8 @@
+class_name DialogueBox
 extends CanvasLayer
+
+## CUSTOM DIALOGUE BOX building upon Dialogue Manager functionality
+
 ## A basic dialogue balloon for use with Dialogue Manager.
 
 ## The action to use for advancing the dialogue
@@ -21,6 +25,11 @@ var will_hide_balloon: bool = false
 
 var _locale: String = TranslationServer.get_locale()
 
+@onready var dialogue_box_control = %Balloon
+
+@onready var hidden_anchor = $Hidden
+@onready var visible_anchor = $Visible
+
 ## The current line
 var dialogue_line: DialogueLine:
 	set(next_dialogue_line):
@@ -30,7 +39,7 @@ var dialogue_line: DialogueLine:
 
 		# The dialogue has finished so close the balloon
 		if not next_dialogue_line:
-			queue_free()
+			_hide_balloon()
 			return
 
 		# If the node isn't ready yet then none of the labels will be ready yet either
@@ -58,6 +67,7 @@ var dialogue_line: DialogueLine:
 			await dialogue_label.finished_typing
 
 		# Wait for input
+		print("PRESS ENTER OR SOMETHING TO GO TO NEXT LINE")
 		if dialogue_line.responses.size() > 0:
 			balloon.focus_mode = Control.FOCUS_NONE
 			responses_menu.show()
@@ -84,6 +94,12 @@ var dialogue_line: DialogueLine:
 ## The menu of responses
 @onready var responses_menu: DialogueResponsesMenu = %ResponsesMenu
 
+func _show_balloon() -> void:
+	get_tree().create_tween().tween_property(dialogue_box_control, "position", visible_anchor.position, 0.3).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+func _hide_balloon() -> void:
+	get_tree().create_tween().tween_property(dialogue_box_control, "position", hidden_anchor.position, 0.15).set_ease(Tween.EASE_OUT)
+	await get_tree().create_timer(0.15).timeout
+	queue_free()
 
 func _ready() -> void:
 	balloon.hide()
@@ -114,6 +130,13 @@ func start(dialogue_resource: DialogueResource, title: String, extra_game_states
 	temporary_game_states =  [self] + extra_game_states
 	is_waiting_for_input = false
 	resource = dialogue_resource
+	
+	dialogue_box_control.position = hidden_anchor.position
+	
+	# ANIMATE SHOW UP
+	balloon.show()
+	_show_balloon()
+	
 	self.dialogue_line = await resource.get_next_dialogue_line(title, temporary_game_states)
 
 

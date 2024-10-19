@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ccwc4s7e5nmbf" path="res://instances/npc/npc.tscn" id="1_ogdn5"]
 [ext_resource type="Script" path="res://instances/npc/lost_soul/lost_soul.gd" id="2_ymxn8"]
-[ext_resource type="Resource" uid="uid://bl4i87ah7mem7" path="res://dialogue/lost_soul/lost_soul.dialogue" id="3_4tih4"]
+[ext_resource type="Resource" uid="uid://bl4i87ah7mem7" path="res://assets/dialogue/lost_soul/lost_soul.dialogue" id="3_4tih4"]
 
 [node name="LostSoul" instance=ExtResource("1_ogdn5")]
 script = ExtResource("2_ymxn8")

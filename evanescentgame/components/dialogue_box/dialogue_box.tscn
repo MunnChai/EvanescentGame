@@ -1,8 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://13s5spsk34qu"]
+[gd_scene load_steps=15 format=3 uid="uid://13s5spsk34qu"]
 
-[ext_resource type="Script" path="res://dialogue/dialogue_box/balloon.gd" id="1_s2gbs"]
-[ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_hfvdi"]
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_reponses_menu.gd" id="3_1j1j0"]
+[ext_resource type="Script" path="res://components/dialogue_box/dialogue_box.gd" id="1_dwrcf"]
+[ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_q7lnr"]
+[ext_resource type="FontFile" uid="uid://byvk43qeri2e" path="res://assets/fonts/EBGaramond-Regular.ttf" id="2_vtkqp"]
+[ext_resource type="FontFile" uid="uid://dbun3p6thcp3t" path="res://assets/fonts/Pixica-Bold.ttf" id="2_y3hkj"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_reponses_menu.gd" id="3_ygiw3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_235ry"]
 content_margin_left = 6.0
@@ -100,9 +102,14 @@ fill_to = Vector2(0, 1)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_migmg"]
 texture = SubResource("GradientTexture2D_46ymv")
 
-[node name="ExampleBalloon" type="CanvasLayer"]
+[node name="DialogueBox" type="CanvasLayer"]
 layer = 100
-script = ExtResource("1_s2gbs")
+script = ExtResource("1_dwrcf")
+
+[node name="Hidden" type="Node2D" parent="."]
+position = Vector2(2.08165e-12, -87)
+
+[node name="Visible" type="Node2D" parent="."]
 
 [node name="Balloon" type="Control" parent="."]
 unique_name_in_owner = true
@@ -110,6 +117,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -87.0
+offset_bottom = -87.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_qq3yp")
@@ -122,7 +131,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -180.0
 offset_right = 935.0
-offset_bottom = 29.0
+offset_bottom = 165.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.255, 0.255)
@@ -138,6 +147,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 64
 theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 32
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Balloon/Panel/Dialogue"]
 layout_mode = 2
@@ -147,18 +158,23 @@ unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.501961)
 layout_mode = 2
 mouse_filter = 1
-theme_override_font_sizes/normal_font_size = 32
+theme_override_fonts/normal_font = ExtResource("2_vtkqp")
+theme_override_font_sizes/normal_font_size = 36
 bbcode_enabled = true
 text = "Character"
 fit_content = true
 scroll_active = false
 
-[node name="DialogueLabel" parent="Balloon/Panel/Dialogue/VBoxContainer" instance=ExtResource("2_hfvdi")]
+[node name="DialogueLabel" parent="Balloon/Panel/Dialogue/VBoxContainer" instance=ExtResource("2_q7lnr")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/normal_font_size = 32
-text = "Dialogue..."
+theme_override_fonts/normal_font = ExtResource("2_vtkqp")
+theme_override_fonts/bold_font = ExtResource("2_y3hkj")
+theme_override_font_sizes/normal_font_size = 36
+text = "Dialogue... "
+seconds_per_step = 0.03
+pause_at_characters = ".?!,:"
 
 [node name="Responses" type="MarginContainer" parent="Balloon"]
 layout_mode = 1
@@ -168,9 +184,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = 67.0
-offset_top = -161.0
+offset_top = -140.0
 offset_right = 384.0
-offset_bottom = 7.0
+offset_bottom = 28.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.25, 0.25)
@@ -180,12 +196,13 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_constants/separation = 2
-script = ExtResource("3_1j1j0")
+script = ExtResource("3_ygiw3")
 response_template = NodePath("ResponseExample")
 
 [node name="ResponseExample" type="Button" parent="Balloon/Responses/ResponsesMenu"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+theme_override_fonts/font = ExtResource("2_vtkqp")
+theme_override_font_sizes/font_size = 36
 text = "Response Example"
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
