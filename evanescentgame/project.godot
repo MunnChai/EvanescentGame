@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 SceneLoader="*res://singletons/scene_loader.gd"
+GameTemp="*res://singletons/game_temp.gd"
 
 [dialogue_manager]
 
