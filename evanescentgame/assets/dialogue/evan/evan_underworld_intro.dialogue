@@ -11,4 +11,5 @@
 ???: [speed=0.3]Huh.
 ???: ...
 ???: Strange.
+do CameraShake.add_trauma(0.5)
 => END

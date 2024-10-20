@@ -61,6 +61,7 @@ target_node = NodePath("../Player")
 
 [node name="Player" parent="World" instance=ExtResource("3_qgk6a")]
 unique_name_in_owner = true
+position = Vector2(0, 8)
 
 [node name="Devil" parent="World" instance=ExtResource("4_vijld")]
 position = Vector2(760, 32)
