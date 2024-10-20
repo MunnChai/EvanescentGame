@@ -7,6 +7,14 @@ extends Node
 ## For inspiration/source:
 ## https://www.youtube.com/watch?v=tu-Qe66AvtY
 
+## ASSUMING: Only one camera is ever used or similar shake is ok,
+## Aka no need for camera-unique shaking
+## Otherwise, global/something else is needed for universal access
+
+## BUG:
+## Magnitude seems all over the place.
+## Figure out noise/standardize and make deterministic the shaking...
+
 const DECAY = 0.5  # How quickly the shaking stops [0, 1].
 const MAX_OFFSET = Vector2(64, 64)  # Maximum hor/ver shake in pixels.
 const MAX_ROLL = 0.5  # Maximum rotation in radians (use sparingly).

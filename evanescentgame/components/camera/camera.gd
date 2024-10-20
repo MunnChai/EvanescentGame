@@ -4,7 +4,6 @@ extends Camera2D
 ## Camera with follow smoothing and average behaviour
 
 # TODO
-# Camera shake & camera kick
 # Better "box" before moving
 # Target switching
 # Average position between weighted targets
