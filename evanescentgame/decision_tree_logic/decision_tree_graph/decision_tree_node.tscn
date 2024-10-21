@@ -35,7 +35,7 @@ slot/1/right_icon = null
 slot/1/draw_stylebox = true
 script = ExtResource("1_mcfk4")
 
-[node name="Description" type="TextEdit" parent="."]
+[node name="Title" type="TextEdit" parent="."]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 scroll_fit_content_height = true

@@ -9,4 +9,4 @@ offset_bottom = 440.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.25, 0.25)
-scroll_offset = Vector2(-320, -620)
+scroll_offset = Vector2(-320, -440)
