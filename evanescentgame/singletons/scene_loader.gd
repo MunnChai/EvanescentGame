@@ -18,7 +18,9 @@ func load_scene(scene_path):
 		ResourceLoader.load_threaded_request(scene_path)
 	
 	# Free the current scene
-	get_tree().current_scene.queue_free()
+	var current_scene = get_tree().current_scene
+	get_tree().current_scene = null
+	current_scene.queue_free()
 	
 	# Begin loading next scene
 	is_loading = true

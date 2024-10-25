@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DecisionTreeGraphData" load_steps=7 format=3]
+[gd_resource type="Resource" script_class="DecisionTreeGraphData" load_steps=7 format=3 uid="uid://btm4fqpx8mr8j"]
 
 [ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_node_resource.gd" id="1_6u18e"]
 [ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_resource.gd" id="1_fxyf4"]
@@ -77,7 +77,7 @@ data = {
 
 [resource]
 script = ExtResource("1_fxyf4")
-connections = Array[Dictionary]([{
+connections = [{
 "from_node": &"GraphNode2",
 "from_port": 0,
 "to_node": &"GraphNode4",
@@ -102,5 +102,5 @@ connections = Array[Dictionary]([{
 "from_port": 1,
 "to_node": &"GraphNode5",
 "to_port": 0
-}])
+}]
 nodes = [SubResource("Resource_gw548"), SubResource("Resource_ugbrf"), SubResource("Resource_ndw4e"), SubResource("Resource_0yl0p")]
