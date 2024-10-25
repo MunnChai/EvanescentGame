@@ -22,7 +22,7 @@ func _process(delta):
 
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
-		print("Saving graph data...")
+		
 		save_graph_data()
 		print("Closing!")
 		get_tree().quit()
@@ -124,6 +124,7 @@ func load_graph_data(file_name: String):
 		pass
 
 func save_graph_data():
+	print("Saving graph data...")
 	var graph_data = DecisionTreeGraphData.new()
 	graph_data.connections = graph.get_connection_list()
 	for node in graph.get_children():
@@ -140,7 +141,7 @@ func save_graph_data():
 	if (msg == OK):
 		print("Saved Graph Data!")
 	else:
-		print("Error saving graph_data")
+		print("Error saving graph_data: ", msg)
 
 
 

@@ -15,10 +15,18 @@ var data = {}
 @onready var function_name = %FunctionName
 @onready var param_container = %ParamContainer
 
+var param_hboxes: Array = []
 var alt_path_hboxes: Array = []
 
 func _ready():
+	# Add default path slot
 	set_slot(DEFAULT_SLOT_INDEX, true, SlotType.DECISION, Color.WHITE, true, SlotType.DECISION, Color.GREEN)
+
+
+
+
+
+# Adding alternate paths
 
 func add_slot(condition_name: String = "Condition" + str(get_output_port_count())):
 	var slot_index = DEFAULT_SLOT_INDEX + 1 + get_output_port_count()
@@ -45,7 +53,8 @@ func add_slot(condition_name: String = "Condition" + str(get_output_port_count()
 func on_path_remove_button_pressed(path_hbox: HBoxContainer):
 	var children = get_children()
 	var index = children.find(path_hbox)
-	path_hbox.queue_free()
+	
+	# PSEUDOCODE OF BELOW:
 	# Clear last slot
 	# For each connection to this node, 
 	# if the from_port is equal to index, delete connection
@@ -57,19 +66,13 @@ func on_path_remove_button_pressed(path_hbox: HBoxContainer):
 	for connection in all_connections:
 		if (connection["from_node"] == name):
 			this_connections.append(connection)
-	#print("ThisNodeConnections: ", this_connections)
-	
-	#print("Slot removing index: ", index - DEFAULT_SLOT_INDEX - 1)
 	
 	this_connections.sort_custom(sort_by_port)
-	
-	#print("Sorted connections: ", this_connections)
 	
 	# If there is a connection at this slot, remove the connection
 	for connection in this_connections:
 		if (connection["from_port"] == index - DEFAULT_SLOT_INDEX - 1):
 			graph_edit.disconnection_request.emit(connection["from_node"], connection["from_port"], connection["to_node"], connection["to_port"])
-			#print("Removing slot: ", connection["from_port"])
 			break
 	
 	# Move any connections below this slot UP
@@ -77,9 +80,9 @@ func on_path_remove_button_pressed(path_hbox: HBoxContainer):
 		if (connection["from_port"] > index - DEFAULT_SLOT_INDEX - 1):
 			graph_edit.disconnection_request.emit(connection["from_node"], connection["from_port"], connection["to_node"], connection["to_port"])
 			graph_edit.connection_request.emit(connection["from_node"], connection["from_port"] - 1, connection["to_node"], connection["to_port"])
-			#print("Moving slot: ", connection["from_port"], " to ", connection["from_port"] - 1)
 	
 	alt_path_hboxes.erase(path_hbox)
+	path_hbox.queue_free()
 
 
 func sort_by_port(connection1: Dictionary, connection2: Dictionary):
@@ -88,12 +91,50 @@ func sort_by_port(connection1: Dictionary, connection2: Dictionary):
 	return false
 
 
-func add_title_bar():
-	var titlebar = get_titlebar_hbox()
-	titlebar.remove_child(titlebar.get_child(0))
-	var text_edit = $Description.duplicate()
-	text_edit.custom_minimum_size = Vector2(0, 40)
-	titlebar.add_child(text_edit)
+
+# Adding parameters
+
+func add_parameter(selected_id: int = 0, value: String = ""):
+	var param_hbox = HBoxContainer.new()
+	
+	var remove_button = Button.new()
+	remove_button.text = "RemoveParam"
+	remove_button.pressed.connect(on_param_remove_button_pressed.bind(param_hbox))
+	
+	var option_button = OptionButton.new()
+	option_button.add_item("Vector2")
+	option_button.add_item("String")
+	option_button.item_selected.connect(on_param_type_selected.bind(param_hbox))
+	option_button.select(selected_id)
+	
+	var param_text_edit = TextEdit.new()
+	param_text_edit.custom_minimum_size = Vector2(0, 40)
+	param_text_edit.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	param_text_edit.text = value
+	
+	param_hbox.add_child(remove_button)
+	param_hbox.add_child(option_button)
+	param_hbox.add_child(param_text_edit)
+	param_container.add_child(param_hbox)
+	param_hboxes.append(param_hbox)
+
+func on_param_type_selected(index: int, hbox: HBoxContainer):
+	match (index):
+		0:
+			print(0)
+		1:
+			print(1)
+
+func on_param_remove_button_pressed(param_hbox):
+	param_hboxes.erase(param_hbox)
+	param_hbox.queue_free()
+
+
+
+
+
+
+# Saving and loading nodes
 
 func init_node(node_data: DecisionTreeNodeData):
 	name = node_data.name
@@ -110,19 +151,11 @@ func set_node_data():
 	function_name.text = data["function_name"]
 	
 	for parameter in data["parameters"]:
-		pass
+		add_parameter(parameter["type"], parameter["value"])
 	
 	var i = 0
 	for path in data["alt_paths"]:
 		add_slot(path["condition"])
-		#print("Adding path: ", path)
-
-#@export var data = {
-	#"title": "",
-	#"description": "",
-	#"function_name": "",
-	#"alt_paths": []
-#}
 
 
 func save_node_data():
@@ -130,11 +163,21 @@ func save_node_data():
 	data["description"] = description.text
 	data["npc_name"] = npc_name.text
 	data["function_name"] = function_name.text
-	data["parameters"] = [] # TODO: CHANGE THIS
-	 
+	
+	var parameter_array = []
+	for param_hbox in param_hboxes:
+		var param_type = param_hbox.get_child(1)
+		var param_text = param_hbox.get_child(2)
+		var dict = {
+			"type": param_type.get_selected_id(),
+			"value": param_text.text
+		}
+		parameter_array.append(dict)
+	data["parameters"] = parameter_array # TODO: CHANGE THIS
+	
 	var alt_path_array = []
 	for alt_path in alt_path_hboxes:
-		var condition_text_edit = alt_path.get_child(1)
+		var condition_text_edit = alt_path.get_child(1) # HARD CODED, BE CAREFUL HERE
 		var dict = {
 			"condition": condition_text_edit.text
 		}

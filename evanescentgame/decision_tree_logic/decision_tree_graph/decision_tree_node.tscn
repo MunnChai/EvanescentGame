@@ -149,6 +149,9 @@ text = "Parameters"
 unique_name_in_owner = true
 layout_mode = 2
 
+[node name="HBoxContainer" type="HBoxContainer" parent="FunctionContainer/VBoxContainer/ParamContainer"]
+layout_mode = 2
+
 [node name="Button" type="Button" parent="FunctionContainer/VBoxContainer"]
 layout_mode = 2
 text = "AddParam"
@@ -161,4 +164,5 @@ text = "Alternate Paths"
 layout_mode = 2
 text = "Add New Path"
 
+[connection signal="pressed" from="FunctionContainer/VBoxContainer/Button" to="." method="add_parameter"]
 [connection signal="pressed" from="Button" to="." method="add_slot"]
