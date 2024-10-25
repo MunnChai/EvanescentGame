@@ -1,74 +1,93 @@
-[gd_resource type="Resource" script_class="DecisionTreeGraphData" load_steps=8 format=3]
+[gd_resource type="Resource" script_class="DecisionTreeGraphData" load_steps=7 format=3]
 
-[ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_node_resource.gd" id="1_4jk0m"]
+[ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_node_resource.gd" id="1_cyxks"]
 [ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_resource.gd" id="1_fxyf4"]
 
-[sub_resource type="Resource" id="Resource_yd7of"]
-script = ExtResource("1_4jk0m")
+[sub_resource type="Resource" id="Resource_n52pp"]
+script = ExtResource("1_cyxks")
 name = "GraphNode5"
-position_offset = Vector2(600, 20)
-size = Vector2(180, 104)
+position_offset = Vector2(940, -140)
+size = Vector2(363.18, 551.026)
 data = {
+"alt_paths": [],
+"description": "",
+"function_name": "",
+"npc_name": "",
+"parameters": [],
 "title": ""
 }
 
-[sub_resource type="Resource" id="Resource_xil3y"]
-script = ExtResource("1_4jk0m")
-name = "GraphNode4"
-position_offset = Vector2(340, 260)
-size = Vector2(180, 104)
-data = {
-"title": ""
-}
-
-[sub_resource type="Resource" id="Resource_sxnml"]
-script = ExtResource("1_4jk0m")
+[sub_resource type="Resource" id="Resource_ohglc"]
+script = ExtResource("1_cyxks")
 name = "GraphNode3"
-position_offset = Vector2(-440, 80)
-size = Vector2(180, 104)
+position_offset = Vector2(500, 440)
+size = Vector2(324.205, 576.359)
 data = {
-"title": ""
+"alt_paths": [],
+"description": "",
+"function_name": "",
+"npc_name": "",
+"parameters": [],
+"title": "Example Alternate Path"
 }
 
-[sub_resource type="Resource" id="Resource_6np6w"]
-script = ExtResource("1_4jk0m")
-name = "GraphNode1"
-position_offset = Vector2(20, 100)
-size = Vector2(180, 104)
-data = {
-"title": "Hello"
-}
-
-[sub_resource type="Resource" id="Resource_f6ntr"]
-script = ExtResource("1_4jk0m")
+[sub_resource type="Resource" id="Resource_gon66"]
+script = ExtResource("1_cyxks")
 name = "GraphNode2"
-position_offset = Vector2(320, -80)
-size = Vector2(180, 104)
+position_offset = Vector2(0, 0)
+size = Vector2(283.952, 522)
 data = {
-"title": "....Test"
+"alt_paths": [{
+"condition": "Condition1"
+}, {
+"condition": "Condition2"
+}],
+"description": "",
+"function_name": "",
+"npc_name": "",
+"parameters": [],
+"title": "Starting point!"
+}
+
+[sub_resource type="Resource" id="Resource_l2v7b"]
+script = ExtResource("1_cyxks")
+name = "GraphNode4"
+position_offset = Vector2(480, -220)
+size = Vector2(355.385, 539.333)
+data = {
+"alt_paths": [{
+"condition": "Condition1"
+}, {
+"condition": "Condition2"
+}],
+"description": "This is what the ",
+"function_name": "",
+"npc_name": "",
+"parameters": [],
+"title": "Example Default Path"
 }
 
 [resource]
 script = ExtResource("1_fxyf4")
 connections = Array[Dictionary]([{
-"from_node": &"GraphNode1",
-"from_port": 0,
-"to_node": &"GraphNode2",
-"to_port": 0
-}, {
-"from_node": &"GraphNode3",
+"from_node": &"GraphNode2",
 "from_port": 0,
 "to_node": &"GraphNode4",
 "to_port": 0
 }, {
+"from_node": &"GraphNode2",
+"from_port": 2,
+"to_node": &"GraphNode3",
+"to_port": 0
+}, {
 "from_node": &"GraphNode4",
-"from_port": 0,
+"from_port": 1,
 "to_node": &"GraphNode5",
 "to_port": 0
 }, {
 "from_node": &"GraphNode3",
 "from_port": 0,
-"to_node": &"GraphNode2",
+"to_node": &"GraphNode5",
 "to_port": 0
 }])
-nodes = [SubResource("Resource_yd7of"), SubResource("Resource_xil3y"), SubResource("Resource_sxnml"), SubResource("Resource_6np6w"), SubResource("Resource_f6ntr")]
+nodes = [SubResource("Resource_n52pp"), SubResource("Resource_ohglc"), SubResource("Resource_gon66"), SubResource("Resource_l2v7b")]

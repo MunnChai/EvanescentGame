@@ -9,6 +9,9 @@ func _ready():
 	# So the window will not close before finishing saving
 	get_tree().set_auto_accept_quit(false)
 	
+	graph.add_valid_left_disconnect_type(DecisionTreeGraphNode.SlotType.DECISION)
+	graph.remove_valid_right_disconnect_type(DecisionTreeGraphNode.SlotType.DECISION)
+	
 	load_graph_data("res://decision_tree_logic/save_data/decision_tree_save_data.tres")
 
 func _process(delta):
@@ -42,12 +45,15 @@ func init_graph(graph_data: DecisionTreeGraphData):
 
 func add_new_node():
 	var node_scene = DECISION_TREE_NODE.instantiate()
-	node_scene.name = "GraphNode" + str(graph.get_children().size() + 1)
 	
 	undoRedo.create_action("Added Node: " + node_scene.name)
 	undoRedo.add_do_method(graph.add_child.bind(node_scene))
 	undoRedo.add_undo_method(graph.remove_child.bind(node_scene))
 	undoRedo.commit_action()
+	
+	var node_data = DecisionTreeNodeData.new()
+	node_data.name = "GraphNode" + str(graph.get_children().size() + 1)
+	node_scene.init_node(node_data)
 
 
 
@@ -74,11 +80,12 @@ func on_connection_request(from_node: String, from_slot: int, to_node: String, t
 	undoRedo.add_do_method(graph.connect_node.bind(from_node, from_slot, to_node, to_slot))
 	undoRedo.add_undo_method(graph.disconnect_node.bind(from_node, from_slot, to_node, to_slot))
 	undoRedo.commit_action()
+	#print("Connected node ", from_node, " slot ", from_slot, ", to ", to_node, " slot ", to_slot)
 
 func on_disconnection_request(from_node: String, from_slot: int, to_node: String, to_slot: int):
-	undoRedo.create_action("Connected Nodes: " + from_node + ", " + to_node)
-	undoRedo.add_undo_method(graph.disconnect_node.bind(from_node, from_slot, to_node, to_slot))
-	undoRedo.add_do_method(graph.connect_node.bind(from_node, from_slot, to_node, to_slot))
+	undoRedo.create_action("Disconnected Nodes: " + from_node + ", " + to_node)
+	undoRedo.add_do_method(graph.disconnect_node.bind(from_node, from_slot, to_node, to_slot))
+	undoRedo.add_undo_method(graph.connect_node.bind(from_node, from_slot, to_node, to_slot))
 	undoRedo.commit_action()
 
 func _delete_nodes_request(nodes: Array):

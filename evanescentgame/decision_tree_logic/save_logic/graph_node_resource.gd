@@ -7,5 +7,8 @@ extends Resource
 @export var data = {
 	"title": "",
 	"description": "",
+	"npc_name": "",
 	"function_name": "",
+	"parameters": [],
+	"alt_paths": []
 }
