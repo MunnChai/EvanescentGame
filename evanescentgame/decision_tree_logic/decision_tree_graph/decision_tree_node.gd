@@ -27,7 +27,7 @@ func add_slot(condition_name: String = "Condition" + str(get_output_port_count()
 	
 	var remove_button = Button.new()
 	remove_button.text = "RemovePath"
-	remove_button.pressed.connect(on_remove_button_pressed.bind(path_hbox))
+	remove_button.pressed.connect(on_path_remove_button_pressed.bind(path_hbox))
 	
 	set_slot(slot_index, false, SlotType.DECISION, Color.WHITE, true, SlotType.DECISION, Color.RED)
 	#print("Adding at slot ", slot_index - DEFAULT_SLOT_INDEX - 1)
@@ -42,7 +42,7 @@ func add_slot(condition_name: String = "Condition" + str(get_output_port_count()
 	add_child(path_hbox)
 	alt_path_hboxes.append(path_hbox)
 
-func on_remove_button_pressed(path_hbox: HBoxContainer):
+func on_path_remove_button_pressed(path_hbox: HBoxContainer):
 	var children = get_children()
 	var index = children.find(path_hbox)
 	path_hbox.queue_free()
