@@ -4,14 +4,17 @@ const DECISION_TREE_NODE = preload("res://decision_tree_logic/decision_tree_grap
 
 @onready var graph: GraphEdit = $DecisionTreeGraph
 
-# Called when the node enters the scene tree for the first time.
+
+# General node functions
+
 func _ready():
 	# So the window will not close before finishing saving
 	get_tree().set_auto_accept_quit(false)
 	
+	# So you can disconnect nodes from either end of the connection
 	graph.add_valid_left_disconnect_type(DecisionTreeGraphNode.SlotType.DECISION)
-	graph.remove_valid_right_disconnect_type(DecisionTreeGraphNode.SlotType.DECISION)
 	
+	# Load graph data from save resource
 	load_graph_data("res://decision_tree_logic/save_data/decision_tree_save_data.tres")
 
 func _process(delta):
@@ -21,6 +24,7 @@ func _process(delta):
 		handle_redo()
 
 func _notification(what):
+	# Runs on close window request
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		
 		save_graph_data()
@@ -34,6 +38,8 @@ func _notification(what):
 
 # Graph Node Logic
 
+# Adds nodes to graph and initializes them with their respective node data
+# Adds connections to graph
 func init_graph(graph_data: DecisionTreeGraphData):
 	for node_data: DecisionTreeNodeData in graph_data.nodes:
 		var node = DECISION_TREE_NODE.instantiate()
@@ -43,6 +49,7 @@ func init_graph(graph_data: DecisionTreeGraphData):
 	for connection in graph_data.connections:
 		graph.connect_node(connection["from_node"], connection["from_port"], connection["to_node"], connection["to_port"])
 
+# Adds a node to the graph and initializes it with a new node data resource
 func add_new_node():
 	var node_scene = DECISION_TREE_NODE.instantiate()
 	
@@ -111,22 +118,18 @@ func _delete_nodes_request(nodes: Array):
 
 # Graph Saving Logic
 
-func load_graph_data(file_name: String):
-	if (ResourceLoader.exists(file_name)):
-		var graph_data = ResourceLoader.load(file_name)
+func load_graph_data(file_path: String):
+	if (ResourceLoader.exists(file_path)):
+		var graph_data = ResourceLoader.load(file_path)
 		if graph_data is DecisionTreeGraphData:
 			init_graph(graph_data)
-		else:
-			# Error loading data
-			pass
 	else:
-		# File not found
-		pass
+		print("Graph Data file not found: ", file_path)
 
 func save_graph_data():
 	print("Saving graph data...")
 	var graph_data = DecisionTreeGraphData.new()
-	graph_data.connections = graph.get_connection_list()
+	
 	for node in graph.get_children():
 		if (node is DecisionTreeGraphNode):
 			node.save_node_data()
@@ -136,6 +139,8 @@ func save_graph_data():
 			node_data.data = node.data
 			node_data.size = node.size
 			graph_data.nodes.append(node_data)
+	
+	graph_data.connections = graph.get_connection_list()
 	
 	var msg = ResourceSaver.save(graph_data, "res://decision_tree_logic/save_data/decision_tree_save_data.tres") 
 	if (msg == OK):

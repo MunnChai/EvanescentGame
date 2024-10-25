@@ -29,24 +29,31 @@ func _ready():
 # Adding alternate paths
 
 func add_slot(condition_name: String = "Condition" + str(get_output_port_count())):
+	# Get slot index
 	var slot_index = DEFAULT_SLOT_INDEX + 1 + get_output_port_count()
 	
+	# Create new container
 	var path_hbox = HBoxContainer.new()
 	
+	# Create button for removing container and slot
 	var remove_button = Button.new()
 	remove_button.text = "RemovePath"
 	remove_button.pressed.connect(on_path_remove_button_pressed.bind(path_hbox))
 	
+	# Create slot
 	set_slot(slot_index, false, SlotType.DECISION, Color.WHITE, true, SlotType.DECISION, Color.RED)
-	#print("Adding at slot ", slot_index - DEFAULT_SLOT_INDEX - 1)
 	
+	# Create text box for condition
 	var condition_text_edit = TextEdit.new()
 	condition_text_edit.custom_minimum_size = Vector2(0, 40)
 	condition_text_edit.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	condition_text_edit.text = condition_name;
 	
+	# Add remove button and text box to container
 	path_hbox.add_child(remove_button)
 	path_hbox.add_child(condition_text_edit)
+	
+	# Add container to self and append it to an array for easy access (when saving)
 	add_child(path_hbox)
 	alt_path_hboxes.append(path_hbox)
 
@@ -93,25 +100,30 @@ func sort_by_port(connection1: Dictionary, connection2: Dictionary):
 
 
 # Adding parameters
-
+# Adds a parameter container to self
 func add_parameter(selected_id: int = 0, value: String = ""):
+	# Create container
 	var param_hbox = HBoxContainer.new()
 	
+	# Create button to remove self
 	var remove_button = Button.new()
 	remove_button.text = "RemoveParam"
 	remove_button.pressed.connect(on_param_remove_button_pressed.bind(param_hbox))
 	
+	# Create dropdown for parameter type
 	var option_button = OptionButton.new()
 	option_button.add_item("Vector2")
-	option_button.add_item("String")
+	option_button.add_item("String") 
 	option_button.item_selected.connect(on_param_type_selected.bind(param_hbox))
 	option_button.select(selected_id)
 	
+	# TODO: THIS IS STILL A WORK IN PROGRESS! I'm not exactly sure how I want to represent different types
 	var param_text_edit = TextEdit.new()
 	param_text_edit.custom_minimum_size = Vector2(0, 40)
 	param_text_edit.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	param_text_edit.text = value
 	
+	# Add components to container, add container to self, add container to array for easy access (for saving)
 	param_hbox.add_child(remove_button)
 	param_hbox.add_child(option_button)
 	param_hbox.add_child(param_text_edit)
@@ -166,14 +178,14 @@ func save_node_data():
 	
 	var parameter_array = []
 	for param_hbox in param_hboxes:
-		var param_type = param_hbox.get_child(1)
+		var param_type = param_hbox.get_child(1) # HARD CODED, BE CAREFUL HERE
 		var param_text = param_hbox.get_child(2)
 		var dict = {
 			"type": param_type.get_selected_id(),
 			"value": param_text.text
 		}
 		parameter_array.append(dict)
-	data["parameters"] = parameter_array # TODO: CHANGE THIS
+	data["parameters"] = parameter_array
 	
 	var alt_path_array = []
 	for alt_path in alt_path_hboxes:
