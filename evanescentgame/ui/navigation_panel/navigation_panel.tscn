@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://ui/navigation_panel/navigation_panel.gd" id="1_tyrlj"]
 
 [node name="NavigationPanel" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -63,3 +64,4 @@ text = "Exit"
 [connection signal="pressed" from="Panel/Button" to="." method="button1_pressed"]
 [connection signal="pressed" from="Panel/Button2" to="." method="button2_pressed"]
 [connection signal="pressed" from="Panel/Button3" to="." method="button3_pressed"]
+[connection signal="pressed" from="Panel/Exit" to="." method="_on_exit_pressed"]

@@ -1,23 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://lutalx7jcmpb"]
+[gd_scene load_steps=5 format=3 uid="uid://lutalx7jcmpb"]
 
 [ext_resource type="TileSet" uid="uid://b0ik5iqgovpsy" path="res://demo_scene/initial_gameplay_demo/demo_tiles.tres" id="1_bep3n"]
+[ext_resource type="Script" path="res://ui/navigation_panel/loc3.gd" id="1_x56hd"]
 [ext_resource type="PackedScene" uid="uid://wflq4srocbke" path="res://components/location_exit/location_exit.tscn" id="2_lwrif"]
 [ext_resource type="Texture2D" uid="uid://b03fer3ti2iyc" path="res://icon.svg" id="3_461op"]
 
 [node name="Loc3" type="Node2D"]
+script = ExtResource("1_x56hd")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_bep3n")
 format = 2
 layer_0/tile_data = PackedInt32Array(131072, 1, 268435457, 196608, 65537, 1, 262144, 65537, 1, 327680, 65537, 1, 393216, 65537, 1, 327681, 65537, 1, 393217, 65537, 1, 327682, 65537, 1, 393218, 65537, 1, 393219, 65537, 1, 393224, 65537, 1, 327689, 65537, 1, 393225, 65537, 1, 327690, 65537, 1, 393226, 65537, 1, 131083, 1, 1, 196619, 65537, 1, 262155, 65537, 1, 327691, 65537, 1, 393227, 65537, 1, 65536, 1, 268435457, 196609, 65537, 0, 262145, 65537, 1, 196610, 65537, 268435459, 262146, 65537, 1, 262147, 65537, 268435459, 327683, 65537, 1, 327684, 65537, 268435459, 393220, 65537, 1, 393221, 65537, 0, 393222, 65537, 0, 327687, 65537, 3, 393223, 65537, 1, 262152, 65537, 3, 327688, 65537, 1, 196617, 65537, 3, 262153, 65537, 1, 196618, 65537, 0, 262154, 65537, 1, 65547, 1, 1, 0, 65537, 1, 11, 65537, 1, 1, 65537, 2, 2, 65537, 2, 3, 65537, 2, 4, 65537, 2, 5, 65537, 2, 6, 65537, 2, 7, 65537, 2, 8, 65537, 2, 9, 65537, 2, 10, 65537, 2)
-
-[node name="LocationExit" parent="." instance=ExtResource("2_lwrif")]
-position = Vector2(189, 175)
-
-[node name="Sprite2D" type="Sprite2D" parent="LocationExit"]
-position = Vector2(8.58307e-06, 1.43051e-06)
-scale = Vector2(0.15, 0.15)
-texture = ExtResource("3_461op")
 
 [node name="Label" type="Label" parent="."]
 offset_left = 177.0
@@ -29,3 +23,13 @@ text = "  ╱|、
 (˚ˎ 。7  
  |、˜〵          
 じしˍ,)ノ"
+
+[node name="LocationExit" parent="." instance=ExtResource("2_lwrif")]
+position = Vector2(189, 175)
+
+[node name="Sprite2D" type="Sprite2D" parent="LocationExit"]
+position = Vector2(8.58307e-06, 1.43051e-06)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("3_461op")
+
+[connection signal="player_interacted" from="LocationExit" to="." method="_on_location_exit_player_interacted"]

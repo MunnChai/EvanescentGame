@@ -1,6 +1,7 @@
 class_name LocationExit
 extends Node2D
 
+signal player_interacted
 #@onready var nav_panel_scene: PackedScene = preload("res://ui/navigation_panel/navigation_panel.tscn")
 
 # Called when the node enters the scene tree for the first time.
@@ -14,4 +15,6 @@ func _process(delta):
 
  
 func _on_interactable_player_interacted():
-	get_tree().change_scene_to_file("res://ui/navigation_panel/navigation_panel.tscn")
+	#get_tree().change_scene_to_file("res://ui/navigation_panel/navigation_panel.tscn")
+	#pause()
+	player_interacted.emit()
