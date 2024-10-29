@@ -156,6 +156,15 @@ layout_mode = 2
 layout_mode = 2
 text = "AddParam"
 
+[node name="FunctionTimeLabel" type="Label" parent="FunctionContainer/VBoxContainer"]
+layout_mode = 2
+text = "Function Time"
+
+[node name="FunctionTime" type="SpinBox" parent="FunctionContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
 [node name="AlternatePaths" type="Label" parent="."]
 layout_mode = 2
 text = "Alternate Paths"

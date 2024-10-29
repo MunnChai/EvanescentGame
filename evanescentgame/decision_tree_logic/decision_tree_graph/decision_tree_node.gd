@@ -14,6 +14,7 @@ var data = {}
 @onready var npc_name = $NPCName
 @onready var function_name = %FunctionName
 @onready var param_container = %ParamContainer
+@onready var function_time = %FunctionTime
 
 var param_hboxes: Array = []
 var alt_path_hboxes: Array = []
@@ -161,6 +162,7 @@ func set_node_data():
 	description.text = data["description"]
 	npc_name.text = data["npc_name"]
 	function_name.text = data["function_name"]
+	function_time.value = data["next_function_time"]
 	
 	for parameter in data["parameters"]:
 		add_parameter(parameter["type"], parameter["value"])
@@ -175,6 +177,7 @@ func save_node_data():
 	data["description"] = description.text
 	data["npc_name"] = npc_name.text
 	data["function_name"] = function_name.text
+	data["next_function_time"] = function_time.value
 	
 	var parameter_array = []
 	for param_hbox in param_hboxes:

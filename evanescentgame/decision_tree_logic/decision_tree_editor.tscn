@@ -34,7 +34,7 @@ theme_override_font_sizes/font_size = 8
 theme_override_styles/focus = SubResource("StyleBoxEmpty_luaup")
 text = "Add Node"
 
-[node name="AddNodeButton2" type="Button" parent="."]
+[node name="SaveButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 55.0
 offset_right = 110.0
@@ -47,4 +47,4 @@ text = "Save Graph"
 [connection signal="delete_nodes_request" from="DecisionTreeGraph" to="." method="_delete_nodes_request"]
 [connection signal="disconnection_request" from="DecisionTreeGraph" to="." method="on_disconnection_request"]
 [connection signal="pressed" from="AddNodeButton" to="." method="add_new_node"]
-[connection signal="pressed" from="AddNodeButton2" to="." method="save_graph_data"]
+[connection signal="pressed" from="SaveButton" to="." method="save_graph_data"]

@@ -1,78 +1,51 @@
-[gd_resource type="Resource" script_class="DecisionTreeGraphData" load_steps=7 format=3 uid="uid://btm4fqpx8mr8j"]
+[gd_resource type="Resource" script_class="DecisionTreeGraphData" load_steps=6 format=3 uid="uid://btm4fqpx8mr8j"]
 
-[ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_node_resource.gd" id="1_6u18e"]
+[ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_node_resource.gd" id="1_bq1jf"]
 [ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_resource.gd" id="1_fxyf4"]
 
-[sub_resource type="Resource" id="Resource_gw548"]
-script = ExtResource("1_6u18e")
+[sub_resource type="Resource" id="Resource_trvjd"]
+script = ExtResource("1_bq1jf")
 name = "GraphNode2"
 position_offset = Vector2(0, 0)
-size = Vector2(484.205, 630)
+size = Vector2(180, 508)
 data = {
-"alt_paths": [{
-"condition": "Condition1"
-}, {
-"condition": "Condition2"
-}],
-"description": "This is a short description of a node in the decision tree. 
-Press Enter to start a new line!",
-"function_name": "navigate_to",
-"npc_name": "Evan",
-"parameters": [{
-"type": 1,
-"value": "Test"
-}, {
-"type": 0,
-"value": "Vector2... todo"
-}],
+"alt_paths": [],
+"description": "",
+"function_name": "jump",
+"next_function_time": 0.0,
+"npc_name": "",
+"parameters": [],
 "title": "Start"
 }
 
-[sub_resource type="Resource" id="Resource_ugbrf"]
-script = ExtResource("1_6u18e")
-name = "GraphNode4"
-position_offset = Vector2(600, -200)
-size = Vector2(287.801, 480)
-data = {
-"alt_paths": [{
-"condition": "Condition1"
-}],
-"description": "",
-"function_name": "",
-"npc_name": "",
-"parameters": [],
-"title": "DefaultPath1"
-}
-
-[sub_resource type="Resource" id="Resource_ndw4e"]
-script = ExtResource("1_6u18e")
-name = "GraphNode5"
-position_offset = Vector2(1000, -240)
-size = Vector2(396.687, 482)
-data = {
-"alt_paths": [],
-"description": "",
-"function_name": "print_something",
-"npc_name": "",
-"parameters": [{
-"type": 1,
-"value": "hahaha"
-}],
-"title": "AlternatePath"
-}
-
-[sub_resource type="Resource" id="Resource_0yl0p"]
-script = ExtResource("1_6u18e")
+[sub_resource type="Resource" id="Resource_pqkud"]
+script = ExtResource("1_bq1jf")
 name = "GraphNode3"
-position_offset = Vector2(1000, 280)
-size = Vector2(432.396, 557.867)
+position_offset = Vector2(400, 0)
+size = Vector2(180, 508)
 data = {
 "alt_paths": [],
 "description": "",
-"function_name": "",
+"function_name": "jump",
+"next_function_time": 5.0,
 "npc_name": "",
 "parameters": [],
-"title": "AnotherAlternatePath"
+"title": ""
+}
+
+[sub_resource type="Resource" id="Resource_3u0r2"]
+script = ExtResource("1_bq1jf")
+name = "GraphNode4"
+position_offset = Vector2(800, 0)
+size = Vector2(180, 508)
+data = {
+"alt_paths": [],
+"description": "",
+"function_name": "jump",
+"next_function_time": 8.0,
+"npc_name": "",
+"parameters": [],
+"title": ""
 }
 
 [resource]
@@ -80,27 +53,12 @@ script = ExtResource("1_fxyf4")
 connections = [{
 "from_node": &"GraphNode2",
 "from_port": 0,
-"to_node": &"GraphNode4",
-"to_port": 0
-}, {
-"from_node": &"GraphNode2",
-"from_port": 2,
 "to_node": &"GraphNode3",
 "to_port": 0
 }, {
-"from_node": &"GraphNode4",
+"from_node": &"GraphNode3",
 "from_port": 0,
-"to_node": &"GraphNode3",
-"to_port": 0
-}, {
-"from_node": &"GraphNode2",
-"from_port": 1,
 "to_node": &"GraphNode4",
-"to_port": 0
-}, {
-"from_node": &"GraphNode4",
-"from_port": 1,
-"to_node": &"GraphNode5",
 "to_port": 0
 }]
-nodes = [SubResource("Resource_gw548"), SubResource("Resource_ugbrf"), SubResource("Resource_ndw4e"), SubResource("Resource_0yl0p")]
+nodes = [SubResource("Resource_trvjd"), SubResource("Resource_pqkud"), SubResource("Resource_3u0r2")]
