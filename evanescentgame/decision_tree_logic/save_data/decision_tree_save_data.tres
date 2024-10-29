@@ -1,65 +1,106 @@
-[gd_resource type="Resource" script_class="DecisionTreeGraphData" load_steps=9 format=3 uid="uid://d01kwjhtyhrlw"]
+[gd_resource type="Resource" script_class="DecisionTreeGraphData" load_steps=7 format=3 uid="uid://btm4fqpx8mr8j"]
 
-[ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_node_resource.gd" id="1_2pdkb"]
+[ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_node_resource.gd" id="1_6u18e"]
 [ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_resource.gd" id="1_fxyf4"]
 
-[sub_resource type="Resource" id="Resource_w0ayp"]
-script = ExtResource("1_2pdkb")
-name = "_GraphNode_60"
-position_offset = Vector2(360, 0)
-data = null
+[sub_resource type="Resource" id="Resource_gw548"]
+script = ExtResource("1_6u18e")
+name = "GraphNode2"
+position_offset = Vector2(0, 0)
+size = Vector2(484.205, 630)
+data = {
+"alt_paths": [{
+"condition": "Condition1"
+}, {
+"condition": "Condition2"
+}],
+"description": "This is a short description of a node in the decision tree. 
+Press Enter to start a new line!",
+"function_name": "navigate_to",
+"npc_name": "Evan",
+"parameters": [{
+"type": 1,
+"value": "Test"
+}, {
+"type": 0,
+"value": "Vector2... todo"
+}],
+"title": "Start"
+}
 
-[sub_resource type="Resource" id="Resource_u6kmp"]
-script = ExtResource("1_2pdkb")
-name = "_GraphNode_39"
-position_offset = Vector2(0, 120)
-data = null
+[sub_resource type="Resource" id="Resource_ugbrf"]
+script = ExtResource("1_6u18e")
+name = "GraphNode4"
+position_offset = Vector2(600, -200)
+size = Vector2(287.801, 480)
+data = {
+"alt_paths": [{
+"condition": "Condition1"
+}],
+"description": "",
+"function_name": "",
+"npc_name": "",
+"parameters": [],
+"title": "DefaultPath1"
+}
 
-[sub_resource type="Resource" id="Resource_5aju3"]
-script = ExtResource("1_2pdkb")
-name = "DecisionTreeNode"
-position_offset = Vector2(100, -220)
-data = null
+[sub_resource type="Resource" id="Resource_ndw4e"]
+script = ExtResource("1_6u18e")
+name = "GraphNode5"
+position_offset = Vector2(1000, -240)
+size = Vector2(396.687, 482)
+data = {
+"alt_paths": [],
+"description": "",
+"function_name": "print_something",
+"npc_name": "",
+"parameters": [{
+"type": 1,
+"value": "hahaha"
+}],
+"title": "AlternatePath"
+}
 
-[sub_resource type="Resource" id="Resource_uky56"]
-script = ExtResource("1_2pdkb")
-name = "_GraphNode_46"
-position_offset = Vector2(-360, 100)
-data = null
-
-[sub_resource type="Resource" id="Resource_wojml"]
-script = ExtResource("1_2pdkb")
-name = "_GraphNode_90"
-position_offset = Vector2(-380, -40)
-data = null
-
-[sub_resource type="Resource" id="Resource_ismgy"]
-script = ExtResource("1_2pdkb")
-name = "_GraphNode_53"
-position_offset = Vector2(-180, -320)
-data = null
+[sub_resource type="Resource" id="Resource_0yl0p"]
+script = ExtResource("1_6u18e")
+name = "GraphNode3"
+position_offset = Vector2(1000, 280)
+size = Vector2(432.396, 557.867)
+data = {
+"alt_paths": [],
+"description": "",
+"function_name": "",
+"npc_name": "",
+"parameters": [],
+"title": "AnotherAlternatePath"
+}
 
 [resource]
 script = ExtResource("1_fxyf4")
 connections = [{
-"from_node": &"DecisionTreeNode",
+"from_node": &"GraphNode2",
 "from_port": 0,
-"to_node": &"_GraphNode_60",
+"to_node": &"GraphNode4",
 "to_port": 0
 }, {
-"from_node": &"_GraphNode_39",
-"from_port": 0,
-"to_node": &"_GraphNode_60",
+"from_node": &"GraphNode2",
+"from_port": 2,
+"to_node": &"GraphNode3",
 "to_port": 0
 }, {
-"from_node": &"_GraphNode_53",
+"from_node": &"GraphNode4",
 "from_port": 0,
-"to_node": &"DecisionTreeNode",
+"to_node": &"GraphNode3",
 "to_port": 0
 }, {
-"from_node": &"_GraphNode_46",
-"from_port": 0,
-"to_node": &"_GraphNode_39",
+"from_node": &"GraphNode2",
+"from_port": 1,
+"to_node": &"GraphNode4",
+"to_port": 0
+}, {
+"from_node": &"GraphNode4",
+"from_port": 1,
+"to_node": &"GraphNode5",
 "to_port": 0
 }]
-nodes = [SubResource("Resource_w0ayp"), SubResource("Resource_u6kmp"), SubResource("Resource_5aju3"), SubResource("Resource_uky56"), SubResource("Resource_wojml"), SubResource("Resource_ismgy")]
+nodes = [SubResource("Resource_gw548"), SubResource("Resource_ugbrf"), SubResource("Resource_ndw4e"), SubResource("Resource_0yl0p")]
