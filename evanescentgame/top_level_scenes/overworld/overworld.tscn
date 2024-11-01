@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cpiebxlknogvc"]
+[gd_scene load_steps=13 format=3 uid="uid://cpiebxlknogvc"]
 
 [ext_resource type="Script" path="res://top_level_scenes/overworld/overworld_manager.gd" id="1_5y34q"]
 [ext_resource type="PackedScene" uid="uid://brm7k4yr1lcxw" path="res://instances/player/player.tscn" id="1_juc8k"]
@@ -8,14 +8,18 @@
 [ext_resource type="PackedScene" uid="uid://dnwaf4gu81ddo" path="res://locations/cousin_house/location_cousin_house.tscn" id="5_daq0y"]
 [ext_resource type="PackedScene" uid="uid://iecgb5paqxrh" path="res://locations/police_station/location_police_station.tscn" id="6_speeq"]
 [ext_resource type="PackedScene" uid="uid://ccwc4s7e5nmbf" path="res://instances/npc/npc.tscn" id="7_ow5sy"]
-[ext_resource type="Resource" uid="uid://btm4fqpx8mr8j" path="res://decision_tree_logic/save_data/decision_tree_save_data.tres" id="8_8jpnr"]
+[ext_resource type="Resource" uid="uid://4q2nbudk3t14" path="res://decision_tree_logic/save_data/decision_tree_save_data.tres" id="8_8jpnr"]
+[ext_resource type="Script" path="res://decision_tree_logic/example_condition_setter.gd" id="10_iyjii"]
+[ext_resource type="PackedScene" uid="uid://cfx3wanmlsj0" path="res://components/interactable_area/interactable_area.tscn" id="11_55s0b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hr6pk"]
 
 [node name="Overworld" type="Node"]
 script = ExtResource("1_5y34q")
 
 [node name="World" type="Node2D" parent="."]
 
-[node name="Locations" type="Node2D" parent="World"]
+[node name="Locations" type="Node2D" parent="World" groups=["locationManager"]]
 
 [node name="FuneralVenue" parent="World/Locations" instance=ExtResource("3_qdm2x")]
 
@@ -33,8 +37,9 @@ position = Vector2(4000, 0)
 
 [node name="NPCs" type="Node2D" parent="World"]
 
-[node name="Npc1" parent="World/NPCs" instance=ExtResource("7_ow5sy")]
+[node name="Npc1" parent="World/NPCs" node_paths=PackedStringArray("starting_location") instance=ExtResource("7_ow5sy")]
 position = Vector2(-105, 27)
+starting_location = NodePath("../../Locations/FuneralVenue")
 graph_data = ExtResource("8_8jpnr")
 
 [node name="Npc2" parent="World/NPCs" instance=ExtResource("7_ow5sy")]
@@ -49,8 +54,52 @@ position = Vector2(-21, 7)
 [node name="Camera2D" type="Camera2D" parent="World"]
 position = Vector2(130, -24)
 
+[node name="LocationHelper" type="Node2D" parent="World"]
+position = Vector2(-105, -25)
+
+[node name="ExampleCondition" type="Node2D" parent="World"]
+position = Vector2(-28, -61)
+script = ExtResource("10_iyjii")
+condition_to_set = "isButton1Pressed"
+button_name = "button1"
+
+[node name="InteractableArea" parent="World/ExampleCondition" instance=ExtResource("11_55s0b")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/ExampleCondition/InteractableArea"]
+shape = SubResource("RectangleShape2D_hr6pk")
+
+[node name="Label" type="Label" parent="World/ExampleCondition"]
+offset_left = -15.0
+offset_top = -7.0
+offset_right = 19.0
+offset_bottom = 7.0
+theme_override_font_sizes/font_size = 10
+metadata/_edit_use_anchors_ = true
+
+[node name="ExampleCondition2" type="Node2D" parent="World"]
+position = Vector2(90, -59)
+script = ExtResource("10_iyjii")
+condition_to_set = "isButton2Pressed"
+button_name = "button2"
+
+[node name="InteractableArea" parent="World/ExampleCondition2" instance=ExtResource("11_55s0b")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/ExampleCondition2/InteractableArea"]
+shape = SubResource("RectangleShape2D_hr6pk")
+
+[node name="Label" type="Label" parent="World/ExampleCondition2"]
+offset_left = -16.0
+offset_top = -7.0
+offset_right = 18.0
+offset_bottom = 7.0
+theme_override_font_sizes/font_size = 10
+metadata/_edit_use_anchors_ = true
+
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[connection signal="player_interacted" from="World/ExampleCondition/InteractableArea" to="World/ExampleCondition" method="set_button_1_pressed_true"]
+[connection signal="player_interacted" from="World/ExampleCondition2/InteractableArea" to="World/ExampleCondition2" method="set_button_1_pressed_true"]

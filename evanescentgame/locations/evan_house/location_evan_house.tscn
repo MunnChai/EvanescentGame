@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://qxsjk3i2orwj"]
+[gd_scene load_steps=4 format=3 uid="uid://qxsjk3i2orwj"]
 
 [ext_resource type="PackedScene" uid="uid://blp4jjwokkgxj" path="res://locations/location.tscn" id="1_7ytg5"]
 [ext_resource type="TileSet" uid="uid://b0ik5iqgovpsy" path="res://demo_scene/initial_gameplay_demo/demo_tiles.tres" id="2_pyo8x"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_v8vop"]
+vertices = PackedVector2Array(158, 30, -62, 30, -62, 26, 158, 26)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(168, 40, -72, 40, -72, 16, 168, 16)])
+source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="EvanHouse" instance=ExtResource("1_7ytg5")]
 
@@ -9,3 +15,6 @@
 tile_set = ExtResource("2_pyo8x")
 format = 2
 layer_0/tile_data = PackedInt32Array(131068, 131073, 2, 131069, 1, 2, 131070, 1, 2, 131071, 65537, 2, 65536, 65537, 2, 65537, 65537, 2, 65538, 65537, 2, 65539, 65537, 2, 65540, 131073, 2, 131067, 1, 2, -131077, 131073, 0, -65541, 65537, 1, -5, 1, 1, -65540, 131073, 0, -196613, 1, 2, -196612, 131073, 0, -196611, 131073, 0, 65531, 1, 1, 65532, 131073, 0, 65533, 131073, 0)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." index="2"]
+navigation_polygon = SubResource("NavigationPolygon_v8vop")

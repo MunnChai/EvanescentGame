@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://rviju0lx5pre"]
+[gd_scene load_steps=4 format=3 uid="uid://rviju0lx5pre"]
 
 [ext_resource type="PackedScene" uid="uid://blp4jjwokkgxj" path="res://locations/location.tscn" id="1_tf2o3"]
 [ext_resource type="TileSet" uid="uid://b0ik5iqgovpsy" path="res://demo_scene/initial_gameplay_demo/demo_tiles.tres" id="2_uk37i"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ftbg5"]
+vertices = PackedVector2Array(238, 30, -126, 30, -126, 26, 238, 26)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(248, 16, 248, 40, -136, 40, -136, 16)])
+source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="FuneralVenue" instance=ExtResource("1_tf2o3")]
 
@@ -9,3 +15,6 @@
 tile_set = ExtResource("2_uk37i")
 format = 2
 layer_0/tile_data = PackedInt32Array(65536, 65537, 2, 65537, 65537, 2, 65538, 65537, 2, 65539, 65537, 2, 65540, 131073, 2, 131071, 65537, 2, 131070, 65537, 2, 131069, 65537, 2, 131068, 65537, 2, 131067, 1, 2, -196613, 131073, 0, -131077, 131073, 1, -65541, 65537, 1, -5, 131073, 2, 65531, 131073, 1, -65540, 131073, 2, -196612, 65537, 2, -196611, 131073, 2)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." index="2"]
+navigation_polygon = SubResource("NavigationPolygon_ftbg5")

@@ -32,3 +32,6 @@ func get_next_function_call_time() -> float:
 
 func get_parameters() -> Array:
 	return data["parameters"]
+
+func get_alt_paths():
+	return data["alt_paths"]
