@@ -1,12 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dpwrmulxaqybp"]
+[gd_scene load_steps=4 format=3 uid="uid://dpwrmulxaqybp"]
 
-[ext_resource type="Script" path="res://ui/navigation_panel/loc2.gd" id="1_8ouax"]
 [ext_resource type="TileSet" uid="uid://b0ik5iqgovpsy" path="res://demo_scene/initial_gameplay_demo/demo_tiles.tres" id="1_t7468"]
 [ext_resource type="PackedScene" uid="uid://wflq4srocbke" path="res://components/location_exit/location_exit.tscn" id="2_6nxhx"]
 [ext_resource type="Texture2D" uid="uid://b03fer3ti2iyc" path="res://icon.svg" id="3_flbm2"]
 
 [node name="Loc2" type="Node2D"]
-script = ExtResource("1_8ouax")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_t7468")

@@ -5,10 +5,16 @@ extends Control
 @onready var loc_3 = $"../../LocationManager/Loc3"
 @onready var player = $"../../Player"
 
+@export var location_manager: Node2D
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	for location in location_manager.get_children():
+		location.get_node("LocationExit").player_interacted.connect(show_ui)
 
+func show_ui():
+	get_tree().paused = true
+	canvas_layer.visible = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -16,16 +22,25 @@ func _process(delta):
 
 
 func button1_pressed():
-	resume()
+	if player.is_possessing:
+		player.currently_possessed_npc.global_position = loc_1.get_node("LocationExit").global_position
+
 	player.global_position = loc_1.get_node("LocationExit").global_position
+	resume()
 
 func button2_pressed():
-	resume()
+	if player.is_possessing:
+		player.currently_possessed_npc.global_position = loc_2.get_node("LocationExit").global_position
+	
 	player.global_position = loc_2.get_node("LocationExit").global_position
+	resume()
 
 func button3_pressed():
-	resume()
+	if player.is_possessing:
+		player.currently_possessed_npc.global_position = loc_3.get_node("LocationExit").global_position
+	
 	player.global_position = loc_3.get_node("LocationExit").global_position
+	resume()
 
 func _on_exit_pressed():
 	resume()
@@ -33,4 +48,3 @@ func _on_exit_pressed():
 func resume():
 	get_tree().paused = false
 	canvas_layer.visible = false
-	
