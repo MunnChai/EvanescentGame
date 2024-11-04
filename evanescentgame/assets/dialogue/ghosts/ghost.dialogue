@@ -1,0 +1,16 @@
+~ ghost_1
+Ghost: ...hmm hm hmm-[wait=0.5] Oh! Hello there!
+- Hello... where are we?
+Ghost: Where?
+Ghost: Well, we’re outside of course! You can only be outside or inside here, my friend!
+- What?
+Ghost: Yeah, I’m with you there. I’m not much of an outside person either. 
+Ghost: But, well, you gotta do what the boss says around here.
+Ghost: Besides, I don’t mind it so much. I kinda like sweeping. 
+Ghost: I just wish she didn’t make me sweep out here so often.
+Ghost: Oh, that reminds me, I gotta get back to work, or she’ll kill me again if you know what I mean! 
+- ...What?
+Ghost: See you around, my friend!
+# do Ghost moves away off screen or disappears or something
+???: Huh...[wait=0.5] weird.
+=> END

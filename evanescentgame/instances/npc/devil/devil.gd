@@ -6,3 +6,6 @@ extends NPC
 
 func on_player_interacted():
 	signal_dialogue.emit("talking_to_devil")
+
+func handle_npc_movement(delta: float):
+	pass

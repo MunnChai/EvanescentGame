@@ -15,11 +15,11 @@ extends Camera2D
 ## CONSTANTS
 const LERP_DECAY_CONST := 5.0 # How fast to lerp smooth to target
 
-var is_lerping := true # Enable/disable linear interpolation smoothing
+var is_lerping := false # Enable/disable linear interpolation smoothing
 var target_position := Vector2.ZERO
 @onready var current_static_position := position
 
-var use_max_offset := true # Enable/disable wait until offset for follow
+var use_max_offset := false # Enable/disable wait until offset for follow
 var max_offset := Vector2(16, 8) # Max offset vector before start follow
 
 func _ready():
@@ -47,3 +47,7 @@ func _process_target_node(delta: float) -> void:
 	var offset_vector: Vector2 = abs(target_node.position - current_static_position)
 	if (offset_vector.x > max_offset.x) or (offset_vector.y > max_offset.y):
 		target_position = target_node.position
+
+func _physics_process(delta):
+	# Apply CameraShake details
+	position = current_static_position + CameraShake.final_offset

@@ -2,7 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 ## CONSTANTS
-const SPEED: float = 175.0
+const SPEED: float = 100.0
 const ACCEL_DECAY_CONST: float = 6.0 # How fast should smoothing be
 
 @onready var sprite_2d = $Sprite2D
@@ -19,9 +19,6 @@ func _ready():
 	)
 
 func _physics_process(delta: float):
-	if (not is_input_active):
-		return
-	
 	handle_input(delta)
 	if (not is_possessing):
 		handle_movement(delta)
@@ -33,8 +30,11 @@ func handle_input(delta: float):
 		stop_possessing()
 
 func handle_movement(delta: float):
-	var direction_x = Input.get_axis("move_left", "move_right")
-	var direction_y = Input.get_axis("move_up", "move_down")
+	var direction_x = 0
+	var direction_y = 0
+	if (is_input_active):
+		direction_x = Input.get_axis("move_left", "move_right")
+		direction_y = Input.get_axis("move_up", "move_down")
 	
 	# velocity = velocity.move_toward(Vector2(direction_x, direction_y).normalized() * SPEED, SPEED)
 	velocity = Vector2(MathUtil.decay(velocity, Vector2(direction_x, direction_y).normalized() * SPEED, ACCEL_DECAY_CONST, delta))
