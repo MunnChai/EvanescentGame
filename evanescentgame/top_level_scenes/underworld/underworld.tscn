@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://byuxpv2q8tskb"]
+[gd_scene load_steps=41 format=3 uid="uid://byuxpv2q8tskb"]
 
 [ext_resource type="Script" path="res://top_level_scenes/underworld/underworld_manager.gd" id="1_ykwur"]
 [ext_resource type="Script" path="res://top_level_scenes/underworld/overlay_panel.gd" id="2_7wpf0"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://doo8aja3qhkju" path="res://assets/location_assets/decorations/displays/display_01.png" id="15_nynfx"]
 [ext_resource type="Resource" uid="uid://bsovy7kjyxqt5" path="res://assets/dialogue/evan/evan_underworld_door.dialogue" id="16_8kxa2"]
 [ext_resource type="Texture2D" uid="uid://bvuphw56c0xhv" path="res://assets/location_assets/decorations/displays/display_02.png" id="16_o0lf5"]
+[ext_resource type="PackedScene" uid="uid://bf22jgck14bm1" path="res://instances/npc/ghost/office_ghost.tscn" id="16_r13fi"]
 [ext_resource type="Resource" uid="uid://c86bxgq4cy3qb" path="res://assets/dialogue/evan/evan_underworld_beenhere.dialogue" id="17_likpg"]
 [ext_resource type="Texture2D" uid="uid://bgi815od7dyhb" path="res://assets/location_assets/decorations/displays/display_03.png" id="17_m8jol"]
 [ext_resource type="Resource" uid="uid://ygmgljctcf4t" path="res://assets/dialogue/evan/evan_underworld_badfeeling.dialogue" id="18_idakm"]
@@ -2516,6 +2517,9 @@ texture = ExtResource("23_sienv")
 [node name="Poster4" type="Sprite2D" parent="World/BackgroundDecor"]
 position = Vector2(537, -117)
 texture = ExtResource("24_11pg4")
+
+[node name="OfficeGhost" parent="World/BackgroundDecor" instance=ExtResource("16_r13fi")]
+position = Vector2(641, 18)
 
 [node name="Booth1" type="Sprite2D" parent="World/BackgroundDecor"]
 position = Vector2(457, -11)

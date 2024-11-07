@@ -18,3 +18,18 @@ Ghost: See you around, my friend!
 ~ ghost_repeat_1
 Ghost: Hum dee dum dum...
 => END
+
+~ ghost_2
+Ghost: ...
+Ghost: Oh, s- sorry! I didn't see you there! How can I help you today?
+- What is this place?
+Ghost: You must be new here. Don't worry, I'm pretty new here myself. I've only been here for...
+Ghost: ...well, I can't remember exactly, but it can't have been that long.
+Ghost: Anyways, like I said, it's perfectly normal to be nervous or confused. Don't worry, this place isn't as bad as the stories.
+Ghost: The boss lady will see you soon, and she'll explain everything. She's just down at the end of the hall.
+# Camera pan...
+=> END
+
+~ ghost_repeat_2
+Ghost: Just down the hall!
+=> END
