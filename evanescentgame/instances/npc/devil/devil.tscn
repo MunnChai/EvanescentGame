@@ -5,6 +5,21 @@
 [ext_resource type="Resource" uid="uid://dut136huhsw2f" path="res://assets/dialogue/devil/devil_first_encounter.dialogue" id="2_objkd"]
 [ext_resource type="Texture2D" uid="uid://cx5el5mwluxa4" path="res://assets/lady_devil/lady_devil_1.png" id="3_c387p"]
 
+[sub_resource type="Animation" id="Animation_toxuu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_n1fi3"]
 resource_name = "lady_devil_podium_idle"
 length = 0.6
@@ -20,21 +35,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5]
-}
-
-[sub_resource type="Animation" id="Animation_toxuu"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i7yw1"]

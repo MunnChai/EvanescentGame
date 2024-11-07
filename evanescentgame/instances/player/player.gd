@@ -12,11 +12,18 @@ var currently_possessed_npc: NPC = null
 
 var is_input_active: bool = true
 
+@onready var starting_sprite_position : Vector2 = $Sprite2D.position
+
 func _ready():
 	DialogueManager.dialogue_ended.connect(
 		func(dialogue_resource: Resource):
 			is_input_active = true
 	)
+
+var accumulated_time := 0.0
+func _process(delta):
+	accumulated_time += delta
+	$Sprite2D.position = starting_sprite_position + Vector2.UP * 3.0 * sin(accumulated_time) + Vector2.UP * 3.0
 
 func _physics_process(delta: float):
 	handle_input(delta)
@@ -38,6 +45,11 @@ func handle_movement(delta: float):
 	
 	# velocity = velocity.move_toward(Vector2(direction_x, direction_y).normalized() * SPEED, SPEED)
 	velocity = Vector2(MathUtil.decay(velocity, Vector2(direction_x, direction_y).normalized() * SPEED, ACCEL_DECAY_CONST, delta))
+	
+	if velocity.x > 0:
+		($Sprite2D as Sprite2D).flip_h = false
+	elif velocity.x < 0:
+		($Sprite2D as Sprite2D).flip_h = true
 	
 	move_and_slide()
 

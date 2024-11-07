@@ -1,4 +1,4 @@
-class_name Ghost 
+class_name Ghost
 extends NPC
 
 var has_talked := false
@@ -7,6 +7,11 @@ var has_talked := false
 @onready var starting_y := position.y
 
 func on_player_interacted():
+	if $InteractableArea.player.global_position.x < global_position.x:
+		$Sprite2D.flip_h = true
+	else:
+		$Sprite2D.flip_h = false
+	
 	if has_talked:
 		signal_dialogue.emit("ghost_repeat_" + str(num))
 		return

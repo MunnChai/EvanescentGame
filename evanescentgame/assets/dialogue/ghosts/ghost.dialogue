@@ -14,3 +14,7 @@ Ghost: See you around, my friend!
 # do Ghost moves away off screen or disappears or something
 ???: Huh...[wait=0.5] weird.
 => END
+
+~ ghost_repeat_1
+Ghost: Hum dee dum dum...
+=> END
