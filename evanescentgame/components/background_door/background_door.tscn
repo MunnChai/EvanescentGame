@@ -4,14 +4,10 @@
 [ext_resource type="Script" path="res://components/background_door/background_door.gd" id="1_j5xmw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dumbr"]
-size = Vector2(20, 36)
+size = Vector2(54, 43)
 
 [node name="BackgroundDoor" type="Node2D"]
 script = ExtResource("1_j5xmw")
-
-[node name="DoorFill" type="Polygon2D" parent="."]
-color = Color(0, 0, 0, 1)
-polygon = PackedVector2Array(-10, 0, -10, -36, 10, -36, 10, 0)
 
 [node name="InteractableArea" parent="." instance=ExtResource("1_5hdrn")]
 

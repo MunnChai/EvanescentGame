@@ -22,7 +22,7 @@ func start_underworld_initial_intro():
 	%OverlayPanel.fade_in_to_scene(1.0) # Fade in!
 	await get_tree().create_timer(1.5).timeout # Wait a little...
 	# DIALOGUE SEQUENCE
-	$World/SpawnDialogue.show_dialogue("evan_wake_up")
+	$World/Outdoor/SpawnDialogue.show_dialogue("evan_wake_up")
 	while not fade_in:
 		await get_tree().process_frame
 	%VignettePanel.fade_in_to_scene(0.5) # Fade in!
