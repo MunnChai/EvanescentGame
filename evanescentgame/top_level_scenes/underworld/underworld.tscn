@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dpmytyqk3jgch" path="res://instances/npc/ghost/ghost.tscn" id="7_2cd6v"]
 [ext_resource type="PackedScene" uid="uid://bhuujnk6hju6e" path="res://instances/npc/lost_soul/lost_soul.tscn" id="7_erlmb"]
 [ext_resource type="Texture2D" uid="uid://c2whf2dhpd4b8" path="res://assets/location_assets/decorations/elevator/elevator_666.png" id="7_nh1kr"]
-[ext_resource type="PackedScene" path="res://instances/npc/ghost/sweeper_ghost.tscn" id="7_p0ys0"]
+[ext_resource type="PackedScene" uid="uid://duj370ixinwod" path="res://instances/npc/ghost/sweeper_ghost.tscn" id="7_p0ys0"]
 [ext_resource type="Texture2D" uid="uid://b1dsfxa1ti83u" path="res://assets/location_assets/decorations/posters/poster_05.png" id="9_e4anq"]
 [ext_resource type="Texture2D" uid="uid://cirxmn3ci8wp5" path="res://assets/location_assets/decorations/posters/poster_06.png" id="10_2sjn8"]
 [ext_resource type="PackedScene" uid="uid://cl8kobrguc04e" path="res://components/background_door/background_door.tscn" id="13_ncbw7"]
@@ -23,7 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://doo8aja3qhkju" path="res://assets/location_assets/decorations/displays/display_01.png" id="15_nynfx"]
 [ext_resource type="Resource" uid="uid://bsovy7kjyxqt5" path="res://assets/dialogue/evan/evan_underworld_door.dialogue" id="16_8kxa2"]
 [ext_resource type="Texture2D" uid="uid://bvuphw56c0xhv" path="res://assets/location_assets/decorations/displays/display_02.png" id="16_o0lf5"]
-[ext_resource type="PackedScene" path="res://instances/npc/ghost/office_ghost.tscn" id="16_r13fi"]
+[ext_resource type="PackedScene" uid="uid://bf22jgck14bm1" path="res://instances/npc/ghost/office_ghost.tscn" id="16_r13fi"]
 [ext_resource type="Resource" uid="uid://c86bxgq4cy3qb" path="res://assets/dialogue/evan/evan_underworld_beenhere.dialogue" id="17_likpg"]
 [ext_resource type="Texture2D" uid="uid://bgi815od7dyhb" path="res://assets/location_assets/decorations/displays/display_03.png" id="17_m8jol"]
 [ext_resource type="Resource" uid="uid://ygmgljctcf4t" path="res://assets/dialogue/evan/evan_underworld_badfeeling.dialogue" id="18_idakm"]
@@ -2926,7 +2926,7 @@ position = Vector2(537, -117)
 texture = ExtResource("24_11pg4")
 
 [node name="OfficeGhost" parent="World/OfficeArea/BackgroundDecor" instance=ExtResource("16_r13fi")]
-position = Vector2(641, 18)
+position = Vector2(632, 16)
 
 [node name="Booth1" type="Sprite2D" parent="World/OfficeArea/BackgroundDecor"]
 position = Vector2(457, -11)
