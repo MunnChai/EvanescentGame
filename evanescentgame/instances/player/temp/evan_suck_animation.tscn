@@ -1,7 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://c0j8q14q01gp7"]
+[gd_scene load_steps=7 format=3 uid="uid://c0j8q14q01gp7"]
 
 [ext_resource type="Script" path="res://instances/player/temp/evan_suck_animation.gd" id="1_li20t"]
 [ext_resource type="Texture2D" uid="uid://cvvsjlt6i5wpj" path="res://assets/player/animations/player_tube_animation.png" id="1_vndds"]
+[ext_resource type="AudioStream" uid="uid://df2aegh7g5cqw" path="res://assets/sfx/suck.mp3" id="3_cj43w"]
+
+[sub_resource type="Animation" id="Animation_dqbp2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_e71an"]
 resource_name = "tube_suck_1"
@@ -18,20 +34,19 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59]
 }
-
-[sub_resource type="Animation" id="Animation_dqbp2"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.8),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vdff7"]
@@ -51,3 +66,6 @@ hframes = 60
 libraries = {
 "": SubResource("AnimationLibrary_vdff7")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_cj43w")
