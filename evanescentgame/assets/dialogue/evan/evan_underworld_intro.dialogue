@@ -1,11 +1,10 @@
 ~ evan_wake_up
-do Player.is_the_end = true
-Evan~???: [speed=0.3]Ughhhh...[wait=0.5] everything hurts.
-Evan~???: Where...[wait=0.5] where am I?
+Evan: [speed=0.3]Ughhhh...[wait=0.5] everything hurts.
+Evan: What...[wait=0.5] where am I?
 do UnderworldManager.fade_in = true
-Evan~???: Woah, this place is...[wait=0.5] creepy.
-Evan~???: Wait...[wait=0.25][do UnderworldManager.rise = true][wait=0.25] where are my legs?! 
-Evan~???: I'm floating?
-Evan~???: Oh. This is probably just a dream, then.
-Evan~???: I've never had a lucid dream before...
+Evan: Whoah, this place is...[wait=0.5] creepy.
+Evan: Wait...[wait=0.25][do UnderworldManager.rise = true][wait=0.25] where are my legs?! 
+Evan: I'm floating...
+Evan: Oh, is this a dream?
+Evan: I've never had a lucid dream before...
 => END

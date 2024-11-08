@@ -55,13 +55,15 @@ var dialogue_line: DialogueLine:
 		var end_metadata = character_name.find("~")
 		
 		if (end_metadata == -1):
+			true_character_name = character_name
+			
 			if (character_name == "Evan"):
 				if (!Player.knows_name):
 					character_name = "???"
 			elif (character_name == "Lady Devil"):
 				if (!Player.knows_devil_name):
 					character_name = "???"
-			true_character_name = character_name
+			
 		else:
 			true_character_name = character_name.substr(0, end_metadata)
 			character_name = character_name.substr(end_metadata + 1)
@@ -224,6 +226,8 @@ func _on_dialogue_label_spoke(letter, letter_index, speed):
 			audio_manager.play_sfx("LadyDevil", false, true, 0, 0, 0.9, 1.1)
 		"Ghost":
 			audio_manager.play_sfx("Ghost", false, true, 0, 0, 0.9, 1.1)
+		_:
+			print("Invalid character set: ", true_character_name)
 	
 
 
