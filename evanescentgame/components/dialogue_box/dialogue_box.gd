@@ -51,7 +51,16 @@ var dialogue_line: DialogueLine:
 		dialogue_line = next_dialogue_line
 
 		character_label.visible = not dialogue_line.character.is_empty()
-		character_label.text = tr(dialogue_line.character, "dialogue")
+		var character_name = tr(dialogue_line.character, "dialogue")
+		var end_metadata = character_name.find("~")
+		
+		if (end_metadata == -1):
+			true_character_name = character_name
+		else:
+			true_character_name = character_name.substr(0, end_metadata)
+			character_name = character_name.substr(end_metadata + 1)
+		
+		character_label.text = character_name
 
 		dialogue_label.hide()
 		dialogue_label.dialogue_line = dialogue_line
@@ -89,6 +98,8 @@ var dialogue_line: DialogueLine:
 
 ## The label showing the name of the currently speaking character
 @onready var character_label: RichTextLabel = %CharacterLabel
+
+var true_character_name: String = ""
 
 ## The label showing the currently spoken dialogue
 @onready var dialogue_label: DialogueLabel = %DialogueLabel
@@ -186,4 +197,29 @@ func _on_responses_menu_response_selected(response: DialogueResponse) -> void:
 	next(response.next_id)
 
 
+
+
 #endregion
+
+@onready var audio_manager: AudioManagerNode = $AudioManager
+
+# Dialogue
+
+func _on_dialogue_label_spoke(letter, letter_index, speed):
+	if letter == " " or letter == ".":
+		return
+	
+	match (true_character_name):
+		"Evan":
+			audio_manager.play_sfx("Evan", false, true, 0, 0, 0.9, 1.1)
+		"LadyDevil":
+			audio_manager.play_sfx("LadyDevil", false, true, 0, 0, 0.9, 1.1)
+		"Ghost":
+			audio_manager.play_sfx("Ghost", false, true, 0, 0, 0.9, 1.1)
+	
+
+
+
+
+
+

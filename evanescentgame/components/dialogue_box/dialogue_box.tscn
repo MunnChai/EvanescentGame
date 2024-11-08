@@ -1,10 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://13s5spsk34qu"]
+[gd_scene load_steps=18 format=3 uid="uid://13s5spsk34qu"]
 
 [ext_resource type="Script" path="res://components/dialogue_box/dialogue_box.gd" id="1_dwrcf"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_q7lnr"]
 [ext_resource type="FontFile" uid="uid://byvk43qeri2e" path="res://assets/fonts/EBGaramond-Regular.ttf" id="2_vtkqp"]
 [ext_resource type="FontFile" uid="uid://dbun3p6thcp3t" path="res://assets/fonts/Pixica-Bold.ttf" id="2_y3hkj"]
 [ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_reponses_menu.gd" id="3_ygiw3"]
+[ext_resource type="PackedScene" uid="uid://choqm3a5m38yk" path="res://components/audio_manager/audio_manager.tscn" id="6_bu7ia"]
+[ext_resource type="AudioStream" uid="uid://g8ruygt22ap5" path="res://assets/sfx/voice_sfx/testing/detective_duck_talk.mp3" id="7_a8rdg"]
+[ext_resource type="AudioStream" uid="uid://ba0pe5y28bfcg" path="res://assets/sfx/voice_sfx/testing/chief_bear.mp3" id="8_dyulh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_235ry"]
 content_margin_left = 6.0
@@ -222,5 +225,17 @@ theme_override_fonts/font = ExtResource("2_vtkqp")
 theme_override_font_sizes/font_size = 36
 text = "Response Example"
 
+[node name="AudioManager" parent="." instance=ExtResource("6_bu7ia")]
+
+[node name="Evan" type="AudioStreamPlayer2D" parent="AudioManager"]
+stream = ExtResource("7_a8rdg")
+
+[node name="LadyDevil" type="AudioStreamPlayer2D" parent="AudioManager"]
+stream = ExtResource("7_a8rdg")
+
+[node name="Ghost" type="AudioStreamPlayer2D" parent="AudioManager"]
+stream = ExtResource("8_dyulh")
+
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
+[connection signal="spoke" from="Balloon/Panel/Dialogue/VBoxContainer/DialogueLabel" to="." method="_on_dialogue_label_spoke"]
 [connection signal="response_selected" from="Balloon/Responses/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]

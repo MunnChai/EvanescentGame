@@ -12,7 +12,7 @@ Ghost: Oh, that reminds me, I gotta get back to work, or she’ll kill me again 
 - ...What?
 Ghost: See you around, my friend!
 # do Ghost moves away off screen or disappears or something
-???: Huh...[wait=0.5] weird.
+Evan~???: Huh...[wait=0.5] weird.
 => END
 
 ~ ghost_repeat_1
