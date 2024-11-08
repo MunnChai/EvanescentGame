@@ -229,12 +229,15 @@ text = "Response Example"
 
 [node name="Evan" type="AudioStreamPlayer2D" parent="AudioManager"]
 stream = ExtResource("7_a8rdg")
+bus = &"Voicelines"
 
 [node name="LadyDevil" type="AudioStreamPlayer2D" parent="AudioManager"]
 stream = ExtResource("7_a8rdg")
+bus = &"Voicelines"
 
 [node name="Ghost" type="AudioStreamPlayer2D" parent="AudioManager"]
 stream = ExtResource("8_dyulh")
+bus = &"Voicelines"
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
 [connection signal="spoke" from="Balloon/Panel/Dialogue/VBoxContainer/DialogueLabel" to="." method="_on_dialogue_label_spoke"]
