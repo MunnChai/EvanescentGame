@@ -60,6 +60,8 @@ var dialogue_line: DialogueLine:
 			true_character_name = character_name.substr(0, end_metadata)
 			character_name = character_name.substr(end_metadata + 1)
 		
+		print("True Character Name: ", true_character_name)
+		print("Shown Character Name: ", character_name)
 		character_label.text = character_name
 
 		dialogue_label.hide()
@@ -212,7 +214,7 @@ func _on_dialogue_label_spoke(letter, letter_index, speed):
 	match (true_character_name):
 		"Evan":
 			audio_manager.play_sfx("Evan", false, true, 0, 0, 0.9, 1.1)
-		"LadyDevil":
+		"Lady Devil":
 			audio_manager.play_sfx("LadyDevil", false, true, 0, 0, 0.9, 1.1)
 		"Ghost":
 			audio_manager.play_sfx("Ghost", false, true, 0, 0, 0.9, 1.1)

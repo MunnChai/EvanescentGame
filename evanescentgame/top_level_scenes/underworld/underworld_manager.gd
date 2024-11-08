@@ -26,6 +26,8 @@ func start_underworld_initial_intro():
 	while not fade_in:
 		await get_tree().process_frame
 	%VignettePanel.fade_in_to_scene(0.5) # Fade in!
+	await get_tree().create_timer(0.5).timeout # Wait a little...
+	MusicManager.play_track("res://assets/music/3-Chimes.mp3")
 	while not rise:
 		await get_tree().process_frame
 	player.velocity = Vector2.UP * 100.0

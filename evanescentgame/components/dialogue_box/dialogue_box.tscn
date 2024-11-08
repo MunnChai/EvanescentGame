@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://13s5spsk34qu"]
+[gd_scene load_steps=19 format=3 uid="uid://13s5spsk34qu"]
 
 [ext_resource type="Script" path="res://components/dialogue_box/dialogue_box.gd" id="1_dwrcf"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_q7lnr"]
@@ -6,8 +6,9 @@
 [ext_resource type="FontFile" uid="uid://dbun3p6thcp3t" path="res://assets/fonts/Pixica-Bold.ttf" id="2_y3hkj"]
 [ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_reponses_menu.gd" id="3_ygiw3"]
 [ext_resource type="PackedScene" uid="uid://choqm3a5m38yk" path="res://components/audio_manager/audio_manager.tscn" id="6_bu7ia"]
-[ext_resource type="AudioStream" uid="uid://g8ruygt22ap5" path="res://assets/sfx/voice_sfx/testing/detective_duck_talk.mp3" id="7_a8rdg"]
+[ext_resource type="AudioStream" uid="uid://g8ruygt22ap5" path="res://assets/sfx/voice_sfx/evan/detective_duck_talk.mp3" id="7_a8rdg"]
 [ext_resource type="AudioStream" uid="uid://ba0pe5y28bfcg" path="res://assets/sfx/voice_sfx/testing/chief_bear.mp3" id="8_dyulh"]
+[ext_resource type="AudioStream" uid="uid://m17ykdnq1anq" path="res://assets/sfx/voice_sfx/lady_devil/lady_devil.wav" id="8_s2fds"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_235ry"]
 content_margin_left = 6.0
@@ -227,15 +228,15 @@ text = "Response Example"
 
 [node name="AudioManager" parent="." instance=ExtResource("6_bu7ia")]
 
-[node name="Evan" type="AudioStreamPlayer2D" parent="AudioManager"]
+[node name="Evan" type="AudioStreamPlayer" parent="AudioManager"]
 stream = ExtResource("7_a8rdg")
 bus = &"Voicelines"
 
-[node name="LadyDevil" type="AudioStreamPlayer2D" parent="AudioManager"]
-stream = ExtResource("7_a8rdg")
+[node name="LadyDevil" type="AudioStreamPlayer" parent="AudioManager"]
+stream = ExtResource("8_s2fds")
 bus = &"Voicelines"
 
-[node name="Ghost" type="AudioStreamPlayer2D" parent="AudioManager"]
+[node name="Ghost" type="AudioStreamPlayer" parent="AudioManager"]
 stream = ExtResource("8_dyulh")
 bus = &"Voicelines"
 

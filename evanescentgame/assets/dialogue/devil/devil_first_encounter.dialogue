@@ -1,13 +1,14 @@
 ~ talking_to_devil
-LadyDevil~???: Ah. Let's see... one, four. Here you are.
-LadyDevil~???: Welcome, Evan. How may I help you?
+Evan~???: Heyo!
+Lady Devil~???: Ah. Let's see... one, four. Here you are.
+Lady Devil~???: Welcome, Evan. How may I help you?
 - Where am I?
-	LadyDevil~???: Long story short. You're in hell. I'm the Lady Devil.
+	Lady Devil~???: Long story short. You're in hell. I'm the Lady Devil.
 - Who the hell are you?
-	LadyDevil~???: You may refer to me as Lady Devil.
+	Lady Devil~???: You may refer to me as Lady Devil.
 - I'm Evan?
-	LadyDevil~???: Ah, amnesiac. Check.
-	LadyDevil~???: Yes, your name is Evan. Welcome to hell.
+	Lady Devil~???: Ah, amnesiac. Check.
+	Lady Devil~???: Yes, your name is Evan. Welcome to hell.
 Lady Devil: As boss of hell, you will now die (more).
 Evan: Noooooooo (dies).
 do GameTemp.devil_initial_finished.emit()
