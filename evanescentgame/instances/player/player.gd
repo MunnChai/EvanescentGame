@@ -13,6 +13,10 @@ var currently_possessed_npc: NPC = null
 
 var is_input_active: bool = true
 
+static var knows_name: bool = false;
+static var knows_devil_name: bool = false;
+static var num_branches_chosen = 0;
+
 @onready var starting_sprite_position : Vector2 = $Sprite2D.position
 
 func _ready():
@@ -98,3 +102,6 @@ func stop_possessing():
 	currently_possessed_npc = null
 	is_possessing = false
 	sprite_2d.visible = true
+	
+static func increment_branches():
+	num_branches_chosen += 1
