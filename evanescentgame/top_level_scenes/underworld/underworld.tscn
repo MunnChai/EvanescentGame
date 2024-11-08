@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dpmytyqk3jgch" path="res://instances/npc/ghost/ghost.tscn" id="7_2cd6v"]
 [ext_resource type="PackedScene" uid="uid://bhuujnk6hju6e" path="res://instances/npc/lost_soul/lost_soul.tscn" id="7_erlmb"]
 [ext_resource type="Texture2D" uid="uid://c2whf2dhpd4b8" path="res://assets/location_assets/decorations/elevator/elevator_666.png" id="7_nh1kr"]
-[ext_resource type="PackedScene" path="res://instances/npc/ghost/sweeper_ghost.tscn" id="7_p0ys0"]
+[ext_resource type="PackedScene" uid="uid://duj370ixinwod" path="res://instances/npc/ghost/sweeper_ghost.tscn" id="7_p0ys0"]
 [ext_resource type="Texture2D" uid="uid://b1dsfxa1ti83u" path="res://assets/location_assets/decorations/posters/poster_05.png" id="9_e4anq"]
 [ext_resource type="Texture2D" uid="uid://cirxmn3ci8wp5" path="res://assets/location_assets/decorations/posters/poster_06.png" id="10_2sjn8"]
 [ext_resource type="PackedScene" uid="uid://cl8kobrguc04e" path="res://components/background_door/background_door.tscn" id="13_ncbw7"]

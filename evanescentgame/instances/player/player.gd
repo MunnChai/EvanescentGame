@@ -7,6 +7,7 @@ const ACCEL_DECAY_CONST: float = 6.0 # How fast should smoothing be
 
 @onready var sprite_2d = $Sprite2D
 
+
 var is_possessing: bool = false
 var currently_possessed_npc: NPC = null
 
@@ -19,11 +20,43 @@ func _ready():
 		func(dialogue_resource: Resource):
 			is_input_active = true
 	)
+	
+	$EvanSuckAnimation.hide()
+
+## TEMP
+## VERY TEMP CODE 
+## REFACTOR AS SOON AS POSSIBLE
+static var is_the_end := false # true if it is the end
+var has_ended := false # true if it has ended
+
+@onready var evan_suck_animation_origin : Vector2 = $EvanSuckAnimation.position
+
+func the_end() -> void:
+	if has_ended:
+		return
+	has_ended = true
+	
+	$EvanSuckAnimation.show()
+	$EvanSuckAnimation.play()
+	$Sprite2D.hide()
+	
+	is_input_active = false
+
+
 
 var accumulated_time := 0.0
 func _process(delta):
+	#if Input.is_key_label_pressed(KEY_R):
+		#is_the_end = true
+	
+	if is_the_end:
+		the_end()
+	
 	accumulated_time += delta
 	$Sprite2D.position = starting_sprite_position + Vector2.UP * 3.0 * sin(accumulated_time) + Vector2.UP * 3.0
+	
+	if not is_the_end:
+		$EvanSuckAnimation.position = evan_suck_animation_origin + Vector2.UP * 3.0 * sin(accumulated_time) + Vector2.UP * 3.0
 
 func _physics_process(delta: float):
 	handle_input(delta)

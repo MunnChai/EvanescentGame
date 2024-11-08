@@ -43,8 +43,8 @@ func start_underworld_initial_intro():
 
 func end_underworld_intro():
 	player.is_input_active = false # Steal input away, omniscient god robbery
+	await get_tree().create_timer(6.5).timeout # Wait a little...
 	%OverlayPanel.fade_out_scene(0.01) # Fade away...
-	await get_tree().create_timer(1.5).timeout # Wait a little...
 	## COMMENT OUT LEAVING HELL FOR PRESENTATION DEMO
 	# load_overworld() # Leave Hell
 

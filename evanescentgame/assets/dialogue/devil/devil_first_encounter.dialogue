@@ -12,6 +12,7 @@ Lady Devil~???: Welcome, Evan. How may I help you?
 Lady Devil: As boss of hell, you will now die (more).
 Evan: Noooooooo (dies).
 do GameTemp.devil_initial_finished.emit()
+do Player.is_the_end = true
 => END
 
 ~ repeat_to_devil
