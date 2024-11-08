@@ -55,13 +55,19 @@ var dialogue_line: DialogueLine:
 		var end_metadata = character_name.find("~")
 		
 		if (end_metadata == -1):
+			if (character_name == "Evan"):
+				if (!Player.knows_name):
+					character_name = "???"
+			elif (character_name == "Lady Devil"):
+				if (!Player.knows_devil_name):
+					character_name = "???"
 			true_character_name = character_name
 		else:
 			true_character_name = character_name.substr(0, end_metadata)
 			character_name = character_name.substr(end_metadata + 1)
 		
-		print("True Character Name: ", true_character_name)
-		print("Shown Character Name: ", character_name)
+		#print("True Character Name: ", true_character_name)
+		#print("Shown Character Name: ", character_name)
 		character_label.text = character_name
 
 		dialogue_label.hide()
