@@ -21,6 +21,7 @@ DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 SceneLoader="*res://singletons/scene_loader.gd"
 GameTemp="*res://singletons/game_temp.gd"
 MusicManager="*res://singletons/music_manager.gd"
+AmbientAudioManager="*res://singletons/ambient_audio_manager.gd"
 
 [dialogue_manager]
 
