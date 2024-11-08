@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cpiebxlknogvc"]
+[gd_scene load_steps=10 format=3 uid="uid://cpiebxlknogvc"]
 
 [ext_resource type="Script" path="res://top_level_scenes/overworld/overworld_manager.gd" id="1_5y34q"]
 [ext_resource type="PackedScene" uid="uid://brm7k4yr1lcxw" path="res://instances/player/player.tscn" id="1_juc8k"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dnwaf4gu81ddo" path="res://locations/cousin_house/location_cousin_house.tscn" id="5_daq0y"]
 [ext_resource type="PackedScene" uid="uid://iecgb5paqxrh" path="res://locations/police_station/location_police_station.tscn" id="6_speeq"]
 [ext_resource type="PackedScene" uid="uid://ccwc4s7e5nmbf" path="res://instances/npc/npc.tscn" id="7_ow5sy"]
+[ext_resource type="PackedScene" uid="uid://h5oxlt67k8c7" path="res://ui/overworld_pause/overworld_pause.tscn" id="9_kb3hy"]
 
 [node name="Overworld" type="Node"]
 script = ExtResource("1_5y34q")
@@ -52,3 +53,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="OverworldPause" parent="CanvasLayer" instance=ExtResource("9_kb3hy")]
