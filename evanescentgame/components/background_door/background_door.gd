@@ -2,41 +2,55 @@ class_name BackgroundDoor
 extends Node2D
 
 ## Background Door
-## Interact to go to the other door... interact again to come back.
+## Player can pass in front of the door
+## Interact to go to the other door... 
+## ...interact with the other door to come back.
 
-@export var destination_door : BackgroundDoor
-@export var fade_object : OverlayPanel
 
+
+## SIGNALS
+
+signal entered_this_door # Called at the start of the coroutine
+signal exited_this_door # Called after input is returned after the coroutine
+
+## Destination door.
+@export var destination_door: BackgroundDoor = null
+## Panel to fade in/out when the door transition is happening.
+@export var fade_panel: OverlayPanel = null
+
+const FADE_SECONDS : float = 0.15 # Fade in/out durations
+const WAIT_SECONDS: float = 0.0 # Time in-between fade in and fade out
+
+
+
+# References
+@onready var player: Player = get_tree().get_nodes_in_group("player")[0]
 @onready var interactable_area : InteractableArea = $InteractableArea
 
 func _ready() -> void:
 	interactable_area.player_interacted.connect(_on_player_interacted)
 
+## When the player interacts with the door...
 func _on_player_interacted() -> void:
-	# TEMP
-	# Just move the player from here to where ever
-	await _enter_process()
+	_enter_process()
 
-func teleport_to_next() -> void:
-	var offset : Vector2 = interactable_area.player.global_position - global_position
-	interactable_area.player.global_position = destination_door.global_position + offset
+## Move the player to the destination door
+func _teleport_to_next() -> void:
+	var offset : Vector2 = player.global_position - global_position
+	player.global_position = destination_door.global_position + offset
 
+## Coroutine for moving the player from origin to destination doors
 func _enter_process() -> void:
-	interactable_area.player.is_input_active = false # Turn off input...
+	entered_this_door.emit()
+	player.is_input_active = false # Turn off input...
 	
-	# FADE OUT
-	fade_object.fade_out_scene(0.2)
+	fade_panel.fade_out_scene(FADE_SECONDS)
+	await get_tree().create_timer(FADE_SECONDS).timeout
 	
-	await get_tree().create_timer(0.2).timeout
+	_teleport_to_next()
 	
-	teleport_to_next()
+	fade_panel.fade_in_to_scene(FADE_SECONDS)
+	await get_tree().create_timer(FADE_SECONDS).timeout
 	
-	# FADE IN
-	fade_object.fade_in_to_scene(0.2)
-	
-	await get_tree().create_timer(0.2).timeout
-	
-	interactable_area.player.is_input_active = true
-
-func _process(delta) -> void:
-	pass
+	player.is_input_active = true # Transition over, here's input again...
+	destination_door.exited_this_door.emit()
