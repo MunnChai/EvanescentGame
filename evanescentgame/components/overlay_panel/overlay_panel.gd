@@ -12,4 +12,7 @@ func fade_out_scene(duration: float) -> void:
 
 ## Generalised fade function for any CanvasItem
 func fade_to_opacity(duration: float, target_opacity: float, target_node: CanvasItem) -> void:
-	get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC).tween_property(target_node, "modulate", Color(target_node.modulate, target_opacity), duration)
+	var tween = get_tree().create_tween()
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(target_node, "modulate", Color(target_node.modulate, target_opacity), duration)

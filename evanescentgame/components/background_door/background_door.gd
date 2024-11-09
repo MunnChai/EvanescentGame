@@ -19,7 +19,6 @@ signal exited_this_door # Called after input is returned after the coroutine
 @export var fade_panel: OverlayPanel = null
 
 const FADE_SECONDS : float = 0.15 # Fade in/out durations
-const WAIT_SECONDS: float = 0.0 # Time in-between fade in and fade out
 
 
 
