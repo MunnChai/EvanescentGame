@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://come7mw3788pf"]
 
 [ext_resource type="PackedScene" uid="uid://cemmf570s8hey" path="res://components/dialogue_emitter/dialogue_emitter.tscn" id="1_fq6yp"]
-[ext_resource type="Script" path="res://components/one_time_location_dialogue/one_time_location_dialogue.gd" id="1_l5dyt"]
+[ext_resource type="Script" path="res://components/locational_dialogue_trigger/locational_dialogue_trigger.gd" id="1_l5dyt"]
 
 [node name="OneTimeLocationDialogue" type="Area2D"]
 collision_layer = 4
