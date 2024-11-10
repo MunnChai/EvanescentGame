@@ -1,0 +1,10 @@
+~ evan_wake_up
+Evan: [speed=0.3]Ughhhh...[wait=0.5] everything hurts.
+Evan: What...[wait=0.5] where am I?
+do UnderworldIntroductionManager.fade_in = true
+Evan: Whoah, this place is...[wait=0.5] creepy.
+Evan: Wait...[wait=0.25][do UnderworldIntroductionManager.rise = true][wait=0.25] where are my legs?! 
+Evan: I'm floating...
+Evan: Oh, is this a dream?
+Evan: I've never had a lucid dream before...
+=> END

@@ -1,28 +1,39 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxbvkxcifqhbv"]
+[gd_scene load_steps=3 format=3 uid="uid://bxbvkxcifqhbv"]
 
 [ext_resource type="Script" path="res://top_level_scenes/main_menu/main_menu.gd" id="1_a42ny"]
+[ext_resource type="FontFile" uid="uid://cwi0n3kesweuw" path="res://assets/fonts/EBGaramond-Bold.ttf" id="2_aoit1"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_a42ny")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -7.0
+offset_top = -7.0
+offset_right = 349.0
+offset_bottom = 196.0
+color = Color(0, 0, 0, 1)
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 155.0
-offset_top = 22.0
-offset_right = 195.0
-offset_bottom = 45.0
-text = "Title"
+offset_left = 132.0
+offset_top = 23.0
+offset_right = 205.0
+offset_bottom = 46.0
+theme_override_fonts/font = ExtResource("2_aoit1")
+text = "Evanescent"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 40.0
-offset_top = 65.0
-offset_right = 281.0
-offset_bottom = 156.0
+offset_left = 122.0
+offset_top = 96.0
+offset_right = 214.0
+offset_bottom = 136.0
+theme_override_fonts/font = ExtResource("2_aoit1")
 text = "Play"
 
 [connection signal="pressed" from="Button" to="." method="start_game"]

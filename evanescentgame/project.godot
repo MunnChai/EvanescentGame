@@ -19,10 +19,12 @@ config/icon="res://icon.svg"
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 SceneLoader="*res://singletons/scene_loader.gd"
+MusicManager="*res://singletons/music_manager.gd"
+AmbientAudioManager="*res://singletons/ambient_audio_manager.gd"
 
 [dialogue_manager]
 
-general/balloon_path="res://addons/dialogue_manager/example_balloon/example_balloon.tscn"
+general/balloon_path="res://components/dialogue_box/dialogue_box.tscn"
 
 [display]
 
@@ -81,7 +83,7 @@ exit_possessee={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://demo_scene/initial_gameplay_demo/test_dialogue.dialogue")
+locale/translations_pot_files=PackedStringArray("res://demo_scene/initial_gameplay_demo/test_dialogue.dialogue", "res://assets/dialogue/devil/devil_first_encounter.dialogue", "res://assets/dialogue/lost_soul/lost_soul.dialogue", "res://assets/dialogue/evan/evan_underworld_intro.dialogue", "res://assets/dialogue/ghosts/ghost.dialogue", "res://assets/dialogue/evan/evan_underworld_door.dialogue", "res://assets/dialogue/evan/evan_underworld_beenhere.dialogue", "res://assets/dialogue/evan/evan_underworld_badfeeling.dialogue")
 
 [layer_names]
 
@@ -95,3 +97,5 @@ locale/translations_pot_files=PackedStringArray("res://demo_scene/initial_gamepl
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true

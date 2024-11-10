@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://dut136huhsw2f"
+path="res://.godot/imported/devil_first_encounter.dialogue-99f64b4b0a704787ca406eab7d3120b6.tres"
+
+[deps]
+
+source_file="res://assets/dialogue/devil/devil_first_encounter.dialogue"
+dest_files=["res://.godot/imported/devil_first_encounter.dialogue-99f64b4b0a704787ca406eab7d3120b6.tres"]
+
+[params]
+
+defaults=true

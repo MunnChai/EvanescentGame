@@ -1,0 +1,44 @@
+~ lost_soul_1
+Ghost~Lost Soul: Woe is me. Oh, woe is me.
+Ghost~Lost Soul: Woe, woe, woe!
+- Who are you?
+	Ghost~Lost Soul: ...
+- Where are we?
+	Ghost~Lost Soul: ...
+=> END
+
+~ lost_soul_repeat_1
+% Ghost~Lost Soul: ...
+% Ghost~Lost Soul: Gah!
+% Ghost~Lost Soul: [speed=0.1]Brrrrr.
+=> END
+
+# King Lear Lines Demo Testing
+~ lost_soul_2
+Ghost~Lost Soul: Blow, winds, and crack your cheeks! rage! blow!
+			You cataracts and hurricanoes, spout
+			Till you have drench’d our steeples, drown’d the cocks!
+- What?
+- Where are we?
+Ghost~Lost Soul: You sulph’rous and thought-executing fires,
+			Vaunt-couriers to oak-cleaving thunderbolts,
+			Singe my white head! And thou, all-shaking thunder,
+Ghost~Lost Soul: Strike flat the thick rotundity o’ th’ world,
+			Crack Nature’s moulds, all germains spill at once,
+			That makes ingrateful man!
+Ghost~Lost Soul: Rumble thy bellyful! Spit, fire! spout, rain!
+			Nor rain, wind, thunder, fire are my daughters.
+			I tax not you, you elements, with unkindness.
+Ghost~Lost Soul: ...
+Ghost~Lost Soul: [speed=0.7]Your horrible pleasure. Here I stand your slave,
+						A poor, infirm, weak, and despis’d old man.
+						But yet I call you servile ministers,
+Ghost~Lost Soul: So old and white as this! O! O! ’tis foul!
+- ...
+=> END
+
+~ lost_soul_repeat_2
+% Ghost~Lost Soul: Do you see this? Look on her, look, her lips,
+				Look there, look there!
+% Ghost~Lost Soul: ...
+=> END

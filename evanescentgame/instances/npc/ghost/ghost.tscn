@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpmytyqk3jgch"]
+
+[ext_resource type="PackedScene" uid="uid://ccwc4s7e5nmbf" path="res://instances/npc/npc.tscn" id="1_jdg3s"]
+[ext_resource type="Script" path="res://instances/npc/ghost/ghost.gd" id="2_i2ebm"]
+[ext_resource type="Resource" uid="uid://50khg6v8hcu" path="res://assets/dialogue/ghosts/ghost.dialogue" id="3_espgc"]
+
+[node name="Ghost" instance=ExtResource("1_jdg3s")]
+script = ExtResource("2_i2ebm")
+num = 1
+
+[node name="DialogueEmitter" parent="." index="3"]
+dialogue_resource = ExtResource("3_espgc")
+
+[connection signal="signal_dialogue" from="." to="DialogueEmitter" method="show_dialogue"]
