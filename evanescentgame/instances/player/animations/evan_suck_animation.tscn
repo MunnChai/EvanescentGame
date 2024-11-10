@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://c0j8q14q01gp7"]
 
-[ext_resource type="Script" path="res://instances/player/temp/evan_suck_animation.gd" id="1_li20t"]
-[ext_resource type="Texture2D" uid="uid://cvvsjlt6i5wpj" path="res://assets/player/animations/player_tube_animation.png" id="1_vndds"]
-[ext_resource type="AudioStream" uid="uid://df2aegh7g5cqw" path="res://assets/sfx/suck.mp3" id="3_cj43w"]
+[ext_resource type="Script" path="res://instances/player/animations/evan_suck_animation.gd" id="1_phs7d"]
+[ext_resource type="Texture2D" uid="uid://cvvsjlt6i5wpj" path="res://assets/player/animations/player_tube_animation.png" id="2_4btys"]
+[ext_resource type="AudioStream" uid="uid://df2aegh7g5cqw" path="res://assets/sfx/suck.mp3" id="3_u27q8"]
 
 [sub_resource type="Animation" id="Animation_dqbp2"]
 length = 0.001
@@ -42,10 +42,10 @@ _data = {
 }
 
 [node name="EvanSuckAnimation" type="Node2D"]
-script = ExtResource("1_li20t")
+script = ExtResource("1_phs7d")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_vndds")
+texture = ExtResource("2_4btys")
 hframes = 60
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -54,4 +54,4 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_cj43w")
+stream = ExtResource("3_u27q8")

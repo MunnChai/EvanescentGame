@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://brm7k4yr1lcxw"]
+[gd_scene load_steps=7 format=3 uid="uid://brm7k4yr1lcxw"]
 
 [ext_resource type="Script" path="res://instances/player/player.gd" id="1_f0lp8"]
 [ext_resource type="Texture2D" uid="uid://yp0lkfg23nbh" path="res://assets/player/player_ghost.png" id="2_8wqn8"]
-[ext_resource type="PackedScene" uid="uid://c0j8q14q01gp7" path="res://instances/player/temp/evan_suck_animation.tscn" id="3_n5lwe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w86ao"]
 size = Vector2(9, 29)
@@ -53,9 +52,6 @@ script = ExtResource("1_f0lp8")
 position = Vector2(0, 7)
 texture = ExtResource("2_8wqn8")
 hframes = 16
-
-[node name="EvanSuckAnimation" parent="." instance=ExtResource("3_n5lwe")]
-position = Vector2(-1, -33)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6)

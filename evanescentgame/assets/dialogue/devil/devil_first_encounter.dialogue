@@ -30,8 +30,7 @@ Lady Devil: Alright. I'll make a deal with you.
 Lady Devil: If you can convince me you're innocent, then I'll put in a request to have you sent up to heaven.
 Lady Devil: But I’ll need proof! So I’m sending you back to the living, for now. As a ghost of course.
 Lady Devil: Bring me back conclusive evidence of your innocence, and you’ve won a bet with the devil.
-do GameTemp.devil_initial_finished.emit()
-do Player.is_the_end = true
+do UnderworldManager.end_intro = true
 => END
 
 ~ where_am_I

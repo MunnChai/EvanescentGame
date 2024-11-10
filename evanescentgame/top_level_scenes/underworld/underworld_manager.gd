@@ -1,52 +1,93 @@
 class_name UnderworldManager
 extends Node
 
-## General underworld progression logic
+## UNDERWORLD MANAGER
+## General underworld progression logic FOR THE INTRODUCTION/"PROLOGUE"
 
+const EVAN_SUCK_ANIMATION = preload("res://instances/player/animations/evan_suck_animation.tscn")
+
+## STATIC CUTSCENE TRIGGERS
+## Set to true when that part of the cutscene should be triggered...
+## Static variables are used so no specific instance is needed,
+## TLDR compatible workaround so dialogue can change these...
+static var fade_in := false # Trigger for FADE IN TO THE ENTIRE SCENE in intro
+static var rise := false # Trigger for EVAN RISING FROM THE ROCKS in intro
+static var end_intro := false # Trigger for ENDING THE LADY DEVIL INTERACTION
+
+# Flag to check if the ending intro is already proceeding
+var already_ending := false
+
+## References
 @onready var player = %Player
 
-static var fade_in := false
-static var rise := false
+const SECONDS_FOR_SUCK_ANIMATION := 6.5
+const SECONDS_AFTER_CUT_TO_BLACK := 1.0
 
-func _ready():
-	start_underworld_initial_intro() # Demo logic, just start first seq...
-	GameTemp.devil_initial_finished.connect(end_underworld_intro)
+func _ready() -> void:
+	start_underworld_initial_intro() # Start the introduction!
+func _process(_delta: float) -> void:
+	if end_intro:
+		end_underworld_intro()
 
-func start_underworld_initial_intro():
+func start_underworld_initial_intro() -> void:
 	AmbientAudioManager.call_deferred("play_track", "res://assets/sfx/ambience/underground_creek.mp3") # calls at the end of frame 
 	AmbientAudioManager.call_deferred("set_pitch", 0.6)
 	AmbientAudioManager.call_deferred("set_volume", 5)
-	%OverlayPanel.show()
+	
+	%OverlayPanel.show() # Show panels
 	%VignettePanel.show()
+	
 	# PLAYER IN POSITION
 	player.is_input_active = false # No input during intro...
-	player.position = %InitialSpawn.position
+	player.position = %InitialSpawn.position # Make sure correct start position!
+	
 	# FADE IN FROM BLACK
-	%OverlayPanel.fade_in_to_scene(1.0) # Fade in!
+	%OverlayPanel.fade_in_to_scene(1.0) # Fade in SO WE CAN SEE EVAN!
+	
 	await get_tree().create_timer(1.5).timeout # Wait a little...
+	
 	# DIALOGUE SEQUENCE
 	$World/Outdoor/SpawnDialogue.show_dialogue("evan_wake_up")
+	
 	while not fade_in:
 		await get_tree().process_frame
-	%VignettePanel.fade_in_to_scene(0.5) # Fade in!
+	%VignettePanel.fade_in_to_scene(0.5) # Fade in SO WE CAN SEE THE SCENE!
+	
 	await get_tree().create_timer(0.5).timeout # Wait a little...
+	
 	MusicManager.play_track("res://assets/music/3-Chimes_loop.mp3")
+	
 	while not rise:
 		await get_tree().process_frame
-	player.velocity = Vector2.UP * 100.0
-	#await get_tree().create_timer(1.0).timeout
-	#player.velocity = Vector2.RIGHT * 100.0
-	#await get_tree().create_timer(1.0).timeout
-	#player.velocity = Vector2.LEFT * 200.0
-	# ok now the player can play the game
-	# player.is_input_active = true - already called at end of dialogue
+	player.velocity = Vector2.UP * 100.0 # Rise! From the rocks...
+	
+	# Player automatically regains input at the end of the dialogue sequence...
 
-func end_underworld_intro():
+## End the underworld intro.
+func end_underworld_intro() -> void:
+	if already_ending:
+		return
+	already_ending = true
+	
 	player.is_input_active = false # Steal input away, omniscient god robbery
-	await get_tree().create_timer(6.5).timeout # Wait a little...
-	%OverlayPanel.fade_out_scene(0.01) # Fade away...
-	## COMMENT OUT LEAVING HELL FOR PRESENTATION DEMO
-	# load_overworld() # Leave Hell
+	
+	# Add the suck animation to the scene...
+	var suck_anim_instance = EVAN_SUCK_ANIMATION.instantiate()
+	player.add_child(suck_anim_instance)
+	suck_anim_instance.global_position = player.sprite_2d.global_position
+	suck_anim_instance.init() ## Initalize to make sure position is right and start the animation!
+	
+	# Hide the current actual player...
+	player.hide_sprite() 
+	
+	await get_tree().create_timer(SECONDS_FOR_SUCK_ANIMATION).timeout # Wait a little...
+	
+	%OverlayPanel.fade_out_scene(0.001) # Cut to black!!!
+	
+	await get_tree().create_timer(SECONDS_AFTER_CUT_TO_BLACK).timeout
+	
+	load_overworld() # Leave Hell
 
-func load_overworld():
+## Leave the underworld, go to the overworld
+func load_overworld() -> void:
 	SceneLoader.load_scene("res://top_level_scenes/overworld/overworld.tscn")
