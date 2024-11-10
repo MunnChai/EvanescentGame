@@ -1,7 +1,7 @@
-class_name UnderworldManager
+class_name UnderworldIntroductionManager
 extends Node
 
-## UNDERWORLD MANAGER
+## UNDERWORLD INTRODUCTION MANAGER
 ## General underworld progression logic FOR THE INTRODUCTION/"PROLOGUE"
 
 const EVAN_SUCK_ANIMATION = preload("res://instances/player/animations/evan_suck_animation.tscn")
