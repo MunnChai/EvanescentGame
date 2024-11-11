@@ -8,12 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://dnwaf4gu81ddo" path="res://locations/cousin_house/location_cousin_house.tscn" id="5_daq0y"]
 [ext_resource type="PackedScene" uid="uid://iecgb5paqxrh" path="res://locations/police_station/location_police_station.tscn" id="6_speeq"]
 [ext_resource type="PackedScene" uid="uid://ccwc4s7e5nmbf" path="res://instances/npc/npc.tscn" id="7_ow5sy"]
-[ext_resource type="Resource" uid="uid://4q2nbudk3t14" path="res://decision_tree_logic/save_data/decision_tree_save_data.tres" id="8_8jpnr"]
+[ext_resource type="Resource" path="res://decision_tree_logic/save_data/test_data.tres" id="8_8jpnr"]
 [ext_resource type="Script" path="res://decision_tree_logic/example_condition_setter.gd" id="10_iyjii"]
 [ext_resource type="PackedScene" uid="uid://cfx3wanmlsj0" path="res://components/interactable_area/interactable_area.tscn" id="11_55s0b"]
+[ext_resource type="PackedScene" uid="uid://h5oxlt67k8c7" path="res://ui/overworld_pause/overworld_pause.tscn" id="12_cvs6v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hr6pk"]
-[ext_resource type="PackedScene" uid="uid://h5oxlt67k8c7" path="res://ui/overworld_pause/overworld_pause.tscn" id="9_kb3hy"]
 
 [node name="Overworld" type="Node"]
 script = ExtResource("1_5y34q")
@@ -102,8 +102,9 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="CanvasLayer" type="CanvasLayer" parent="UI"]
+
+[node name="OverworldPause" parent="UI/CanvasLayer" instance=ExtResource("12_cvs6v")]
+
 [connection signal="player_interacted" from="World/ExampleCondition/InteractableArea" to="World/ExampleCondition" method="set_button_1_pressed_true"]
 [connection signal="player_interacted" from="World/ExampleCondition2/InteractableArea" to="World/ExampleCondition2" method="set_button_1_pressed_true"]
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="OverworldPause" parent="CanvasLayer" instance=ExtResource("9_kb3hy")]

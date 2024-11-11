@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="DecisionTreeGraphData" load_steps=9 format=3 uid="uid://4q2nbudk3t14"]
+[gd_resource type="Resource" script_class="DecisionTreeGraphData" load_steps=9 format=3]
 
 [ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_resource.gd" id="1_fxyf4"]
 [ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_node_resource.gd" id="1_oagsc"]
 
-[sub_resource type="Resource" id="Resource_l4a4j"]
+[sub_resource type="Resource" id="Resource_kb70f"]
 script = ExtResource("1_oagsc")
 name = "GraphNode3"
 position_offset = Vector2(400, 0)
@@ -24,7 +24,7 @@ data = {
 "title": "Move a bit"
 }
 
-[sub_resource type="Resource" id="Resource_jpbnj"]
+[sub_resource type="Resource" id="Resource_v3llv"]
 script = ExtResource("1_oagsc")
 name = "GraphNode5"
 position_offset = Vector2(1400, -440)
@@ -45,7 +45,7 @@ data = {
 "title": "Go to Evan's House"
 }
 
-[sub_resource type="Resource" id="Resource_1r4ni"]
+[sub_resource type="Resource" id="Resource_ostls"]
 script = ExtResource("1_oagsc")
 name = "GraphNode6"
 position_offset = Vector2(1400, 280)
@@ -66,7 +66,7 @@ data = {
 "title": "Walk off a ledge"
 }
 
-[sub_resource type="Resource" id="Resource_cuw2x"]
+[sub_resource type="Resource" id="Resource_o7jbs"]
 script = ExtResource("1_oagsc")
 name = "GraphNode7"
 position_offset = Vector2(1400, 940)
@@ -89,7 +89,7 @@ data = {
 "title": "Move back to original spot"
 }
 
-[sub_resource type="Resource" id="Resource_dw5pa"]
+[sub_resource type="Resource" id="Resource_0exmh"]
 script = ExtResource("1_oagsc")
 name = "GraphNode2"
 position_offset = Vector2(0, 0)
@@ -105,7 +105,7 @@ NOT be called",
 "title": "Start"
 }
 
-[sub_resource type="Resource" id="Resource_ysyc0"]
+[sub_resource type="Resource" id="Resource_8bwys"]
 script = ExtResource("1_oagsc")
 name = "GraphNode4"
 position_offset = Vector2(1000, 0)
@@ -126,7 +126,7 @@ data = {
 
 [resource]
 script = ExtResource("1_fxyf4")
-connections = [{
+connections = Array[Dictionary]([{
 "from_node": &"GraphNode2",
 "from_port": 0,
 "to_node": &"GraphNode3",
@@ -151,5 +151,5 @@ connections = [{
 "from_port": 2,
 "to_node": &"GraphNode7",
 "to_port": 0
-}]
-nodes = [SubResource("Resource_l4a4j"), SubResource("Resource_jpbnj"), SubResource("Resource_1r4ni"), SubResource("Resource_cuw2x"), SubResource("Resource_dw5pa"), SubResource("Resource_ysyc0")]
+}])
+nodes = [SubResource("Resource_kb70f"), SubResource("Resource_v3llv"), SubResource("Resource_ostls"), SubResource("Resource_o7jbs"), SubResource("Resource_0exmh"), SubResource("Resource_8bwys")]

@@ -4,6 +4,8 @@ const DECISION_TREE_NODE = preload("res://decision_tree_logic/decision_tree_grap
 
 @onready var graph: GraphEdit = $DecisionTreeGraph
 
+@export var graph_data_path: String
+
 
 # General node functions
 
@@ -15,7 +17,9 @@ func _ready():
 	graph.add_valid_left_disconnect_type(DecisionTreeGraphNode.SlotType.DECISION)
 	
 	# Load graph data from save resource
-	load_graph_data("res://decision_tree_logic/save_data/decision_tree_save_data.tres")
+	load_graph_data(graph_data_path)
+
+
 
 func _process(delta):
 	if (Input.is_action_just_pressed("ui_undo")):
@@ -142,11 +146,8 @@ func save_graph_data():
 	
 	graph_data.connections = graph.get_connection_list()
 	
-	var msg = ResourceSaver.save(graph_data, "res://decision_tree_logic/save_data/decision_tree_save_data.tres") 
+	var msg = ResourceSaver.save(graph_data, graph_data_path) 
 	if (msg == OK):
 		print("Saved Graph Data!")
 	else:
 		print("Error saving graph_data: ", msg)
-
-
-
