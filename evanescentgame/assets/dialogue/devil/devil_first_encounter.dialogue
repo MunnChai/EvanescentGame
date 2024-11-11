@@ -1,0 +1,86 @@
+~ talking_to_devil
+Lady Devil: Punishment pending... punishment pending... punishment approved!
+Evan: Excuse me.
+Lady Devil: Punishment rejected?? I'm the Lady Devil, for goodness sake. You can't reject my punishments. Punishment approved.
+Evan: Excuse me!!!
+Lady Devil: Ugh. Can't a lady get any work done around here?
+=> devil_branches
+
+~ devil_branches
+if Player.num_branches_chosen < 3
+	Lady Devil: Yes, hello. What can I help you with?
+	- Where am I? => where_am_I
+	- Who are you? => who_are_you
+	- Who am I? => who_am_I
+else
+	=> continue_talking_to_devil
+
+~ continue_talking_to_devil
+Lady Devil: Well, this has been fun, but I really am quite busy, so away with you.
+Evan: Away? Wait, where are you sending me?
+Lady Devil: Oh, have you not been assigned a punishment yet?
+Lady Devil: Well that's perfect, because I have some punishments ready right here.
+Evan: NO! No, I don't want any punishment!
+Lady Devil: Oh yeah. I've never heard that one before.
+Evan: No, please. I don't know who I am. I don't know how I died, who I was. I don't know what I did to deserve punishment!
+Evan: Please, let me prove myself. Let me prove I'm innocent. Let me prove I shouldn't be in hell.
+Lady Devil: ...
+Lady Devil: Hm. Interesting. It has been getting a little boring down here.
+Lady Devil: Alright. I'll make a deal with you. 
+Lady Devil: If you can convince me you're innocent, then I'll put in a request to have you sent up to heaven.
+Lady Devil: But I’ll need proof! So I’m sending you back to the living, for now. As a ghost of course.
+Lady Devil: Bring me back conclusive evidence of your innocence, and you’ve won a bet with the devil.
+do UnderworldIntroductionManager.end_intro = true
+=> END
+
+~ where_am_I
+do Player.increment_branches()
+Lady Devil: Hell. You're in hell. Welcome to hell.
+Evan: Hell?!
+Lady Devil: Haha! The look on everyone's faces when they find out where they are. You just can’t beat it!
+Evan: (How did I end up in hell?)
+=> devil_branches
+
+~ who_are_you
+do Player.increment_branches()
+Evan: Who are you?
+set Player.knows_devil_name = true
+Lady Devil: I'm the Lady Devil. The boss of this place, if you will.
+Evan: The Lady Devil? Could you be more on the nose?
+Lady Devil: Listen. It gets the point across, alright? I'm a lady, I'm the devil. What else could you ask for?
+Evan: ...[wait=0.25] Fair enough.
+=> devil_branches
+
+~ who_am_I
+do Player.increment_branches()
+Evan: Who am I?
+Lady Devil: ...[wait=0.25] Is this a trick question? Am I supposed to know who you are?
+Evan: I-I don't know. I just thought -- I mean, I don't know who I am, so maybe you'd know?
+Lady Devil: You don't know who you are?
+Evan: Something like that.
+Lady Devil: Hm... well, from my experience, a name's something that you'll always carry with you.
+Lady Devil: Maybe if you try hard enough, you can really remember it...
+- Bob
+	Lady Devil: Bob? Really? 
+	Lady Devil: Of all the names you could possibly think of, Bob's the one you settle on?
+	Lady Devil: This might be a tougher case than I thought...
+- God
+	Lady Devil: HA. Nice try. I've met God.
+	Lady Devil: He would never come down here. He'd also never take... [wait=0.25]that form.
+	Lady Devil: No offense.
+- Lady Devil
+	Lady Devil: ...
+	Lady Devil: You think you're funny, don't you?
+	Lady Devil: Perhaps now would be a good time to inform you that impersonation is a serious crime.
+Evan: I don't know if I'm carrying my name with me.
+Lady Devil: Oh, yeah. I was totally lying to you. I just wanted to see what you'd come up with.
+Lady Devil: According to this file, your name is Evan.
+set Player.knows_name = true
+Evan: My name's Evan?
+Lady Devil: Yeah, I wouldn't be too happy with that name either.
+=> devil_branches
+
+~ repeat_to_devil
+Lady Devil: Why are you still here?
+Evan: Idk lmao
+=> END

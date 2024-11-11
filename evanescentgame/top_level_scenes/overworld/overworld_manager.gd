@@ -1,9 +1,14 @@
 extends Node
 
+const scene_duration = 540.0 # secs until scene change
 
+func load_underworld():
+	SceneLoader.load_scene("res://top_level_scenes/underworld/underworld.tscn")
+	
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	await(get_tree().create_timer(scene_duration).timeout)
+	load_underworld()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

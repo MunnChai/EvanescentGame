@@ -1,5 +1,7 @@
-extends Node
+extends Node2D
 
+
+signal player_exited
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,5 +12,7 @@ func _ready():
 func _process(delta):
 	pass
 
-func load_overworld():
-	SceneLoader.load_scene("res://top_level_scenes/overworld/overworld.tscn")
+
+
+func _on_location_exit_player_interacted():
+	player_exited.emit()
