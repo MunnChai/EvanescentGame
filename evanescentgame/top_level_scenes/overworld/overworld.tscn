@@ -14,26 +14,26 @@ script = ExtResource("1_5y34q")
 
 [node name="World" type="Node2D" parent="."]
 
-[node name="Locations" type="Node2D" parent="World"]
+[node name="LocationManager" type="Node2D" parent="World"]
 
-[node name="FuneralVenue" parent="World/Locations" instance=ExtResource("3_qdm2x")]
+[node name="FuneralVenue" parent="World/LocationManager" instance=ExtResource("3_qdm2x")]
 
-[node name="School" parent="World/Locations" instance=ExtResource("3_udvda")]
+[node name="School" parent="World/LocationManager" instance=ExtResource("3_udvda")]
 position = Vector2(1000, 0)
 
-[node name="EvanHouse" parent="World/Locations" instance=ExtResource("4_tf3o0")]
+[node name="EvanHouse" parent="World/LocationManager" instance=ExtResource("4_tf3o0")]
 position = Vector2(2000, 0)
 
-[node name="CousinHouse" parent="World/Locations" instance=ExtResource("5_daq0y")]
+[node name="CousinHouse" parent="World/LocationManager" instance=ExtResource("5_daq0y")]
 position = Vector2(3000, 0)
 
-[node name="PoliceStation" parent="World/Locations" instance=ExtResource("6_speeq")]
+[node name="PoliceStation" parent="World/LocationManager" instance=ExtResource("6_speeq")]
 position = Vector2(4000, 0)
 
 [node name="NPCs" type="Node2D" parent="World"]
 
 [node name="Npc1" parent="World/NPCs" instance=ExtResource("7_ow5sy")]
-position = Vector2(-105, 27)
+position = Vector2(-36, 18)
 
 [node name="Npc2" parent="World/NPCs" instance=ExtResource("7_ow5sy")]
 position = Vector2(1958, 24)
@@ -42,13 +42,6 @@ position = Vector2(1958, 24)
 position = Vector2(1146, 27)
 
 [node name="Player" parent="World" instance=ExtResource("1_juc8k")]
-position = Vector2(130, 6)
+position = Vector2(-107, -46)
 
-[node name="Camera2D" type="Camera2D" parent="World"]
-position = Vector2(130, -24)
-
-[node name="UI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="UI" type="CanvasLayer" parent="."]
