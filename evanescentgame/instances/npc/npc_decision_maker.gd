@@ -60,9 +60,6 @@ func call_node_function(node: DecisionTreeNodeData):
 				var x = float(valueString.substr(0, commaIndex))
 				var y = float(valueString.substr(commaIndex + 1, -1)) # rest of the string
 				value = Vector2(x ,y)
-			2: # Location
-				var location_manager = get_tree().get_nodes_in_group("locationManager")[0]
-				value = location_manager.get_node(parameter["value"])
 		
 		parameterTrueArray.push_back(value)
 	

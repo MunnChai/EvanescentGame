@@ -21,7 +21,7 @@ var is_possessed: bool = false
 var currently_held_item: Item = null
 var current_location: Location
 var current_room: LocationRoom
-var current_room_path: Array[BackgroundDoor]
+var current_room_path: Array
 
 func _ready():
 	var location_manager = get_tree().get_nodes_in_group("location_manager")[0]

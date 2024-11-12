@@ -1,10 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://qxsjk3i2orwj"]
+[gd_scene load_steps=5 format=3 uid="uid://qxsjk3i2orwj"]
 
 [ext_resource type="PackedScene" uid="uid://blp4jjwokkgxj" path="res://locations/location.tscn" id="1_7ytg5"]
 [ext_resource type="TileSet" uid="uid://b0ik5iqgovpsy" path="res://demo_scene/initial_gameplay_demo/demo_tiles.tres" id="2_pyo8x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6pkxe"]
 size = Vector2(336, 208)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_na036"]
+vertices = PackedVector2Array(158, 30, -62, 30, -62, 26, 158, 26)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(168, 40, 168, 16, -72, 16, -72, 40)])
+source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="EvanHouse" instance=ExtResource("1_7ytg5")]
 
@@ -19,3 +25,6 @@ shape = SubResource("RectangleShape2D_6pkxe")
 
 [node name="Rooms" type="Node2D" parent="." index="3"]
 visible = false
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." index="4"]
+navigation_polygon = SubResource("NavigationPolygon_na036")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://rviju0lx5pre"]
+[gd_scene load_steps=17 format=3 uid="uid://rviju0lx5pre"]
 
 [ext_resource type="PackedScene" uid="uid://blp4jjwokkgxj" path="res://locations/location.tscn" id="1_tf2o3"]
 [ext_resource type="Texture2D" uid="uid://bk1osrbrhqlv5" path="res://assets/location_assets/funeral/funeral_tileset.png" id="2_ydhux"]
@@ -245,6 +245,18 @@ size = Vector2(176, 120)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qcdqt"]
 size = Vector2(24, 30)
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_fmnqh"]
+vertices = PackedVector2Array(158, 22, -54, 22, -54, 18, 158, 18)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(168, 32, 168, 8, -64, 8, -64, 32)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_2yiyi"]
+vertices = PackedVector2Array(430, 22, 274, 22, 274, 18, 430, 18)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(264, 32, 440, 32, 440, 8, 264, 8)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
 [node name="FuneralVenue" node_paths=PackedStringArray("room1", "room2") instance=ExtResource("1_tf2o3")]
 room1 = NodePath("Rooms/Room1")
 room2 = NodePath("Rooms/Room2")
@@ -361,6 +373,12 @@ fade_seconds = 0.3
 [node name="CollisionShape2D" parent="Rooms/Room2/BackgroundDoor2/InteractableArea" index="1"]
 position = Vector2(0, -11)
 shape = SubResource("RectangleShape2D_qcdqt")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." index="8"]
+navigation_polygon = SubResource("NavigationPolygon_fmnqh")
+
+[node name="NavigationRegion2D2" type="NavigationRegion2D" parent="." index="9"]
+navigation_polygon = SubResource("NavigationPolygon_2yiyi")
 
 [editable path="LocationExit"]
 [editable path="Rooms/Room1/BackgroundDoor"]

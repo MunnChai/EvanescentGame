@@ -19,9 +19,9 @@ config/icon="res://icon.svg"
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 SceneLoader="*res://singletons/scene_loader.gd"
-DTConditionManager="*res://decision_tree_logic/decision_tree_conditions/DT_condition_manager.gd"
 MusicManager="*res://singletons/music_manager.gd"
 AmbientAudioManager="*res://singletons/ambient_audio_manager.gd"
+DTConditionManager="*res://singletons/DT_condition_manager.gd"
 
 [dialogue_manager]
 

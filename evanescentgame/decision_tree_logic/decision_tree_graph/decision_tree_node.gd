@@ -115,7 +115,6 @@ func add_parameter(selected_id: int = 0, value: String = ""):
 	var option_button = OptionButton.new()
 	option_button.add_item("String") 
 	option_button.add_item("Vector2")
-	option_button.add_item("LocationName")
 	option_button.item_selected.connect(on_param_type_selected.bind(param_hbox))
 	option_button.select(selected_id)
 	
