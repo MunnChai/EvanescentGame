@@ -33,6 +33,10 @@ func _on_player_interacted() -> void:
 ## Move the player to the destination door
 func _teleport_to_next() -> void:
 	var offset : Vector2 = player.global_position - global_position
+	
+	if player.is_possessing:
+		player.currently_possessed_npc.global_position = destination_door.global_position + offset
+	
 	player.global_position = destination_door.global_position + offset
 
 ## Coroutine for moving the player from origin to destination doors
