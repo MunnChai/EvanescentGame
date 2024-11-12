@@ -1,9 +1,9 @@
 extends Control
 @onready var canvas_layer = $".."
-@onready var loc_1 = $"../../LocationManager/Loc1"
-@onready var loc_2 = $"../../LocationManager/Loc2"
-@onready var loc_3 = $"../../LocationManager/Loc3"
-@onready var player = $"../../Player"
+
+@onready var button_container = $Panel/ButtonContainer
+@onready var player: Player = get_tree().get_nodes_in_group("player")[0]
+
 
 @export var location_manager: Node2D
 
@@ -11,6 +11,11 @@ extends Control
 func _ready():
 	for location in location_manager.get_children():
 		location.get_node("LocationExit").player_interacted.connect(show_ui)
+		var button = Button.new()
+		button.pressed.connect(teleport_to_location.bind(location))
+		button.text = location.name
+		button.add_theme_font_size_override("font_size", 10)
+		button_container.call_deferred("add_child", button)
 
 func show_ui():
 	get_tree().paused = true
@@ -20,26 +25,11 @@ func show_ui():
 func _process(delta):
 	pass
 
-
-func button1_pressed():
+func teleport_to_location(location: Location):
 	if player.is_possessing:
-		player.currently_possessed_npc.global_position = loc_1.get_node("LocationExit").global_position
+		player.currently_possessed_npc.global_position = location.location_exit.global_position
 
-	player.global_position = loc_1.get_node("LocationExit").global_position
-	resume()
-
-func button2_pressed():
-	if player.is_possessing:
-		player.currently_possessed_npc.global_position = loc_2.get_node("LocationExit").global_position
-	
-	player.global_position = loc_2.get_node("LocationExit").global_position
-	resume()
-
-func button3_pressed():
-	if player.is_possessing:
-		player.currently_possessed_npc.global_position = loc_3.get_node("LocationExit").global_position
-	
-	player.global_position = loc_3.get_node("LocationExit").global_position
+	player.global_position = location.location_exit.global_position
 	resume()
 
 func _on_exit_pressed():
