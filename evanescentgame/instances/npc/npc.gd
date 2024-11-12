@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var navigation_agent_2d = $NavigationAgent2D
 
 @export var starting_location: Location
+var starting_room: LocationRoom
 
 const SPEED: float = 125.0
 const SPRINT_MULTIPLIER: float = 1.5
@@ -18,9 +19,26 @@ signal signal_dialogue(title: String)
 var is_possessed: bool = false
 var currently_held_item: Item = null
 var current_location: Location
+var current_room: LocationRoom
+var current_room_path: Array[BackgroundDoor]
 
 func _ready():
-	current_location = starting_location
+	var location_manager = get_tree().get_nodes_in_group("location_manager")[0]
+	
+	for location: Location in location_manager.get_children():
+		if (location.area_contains_position(global_position)):
+			current_location = location
+			break
+	
+	if (!current_location):
+		print("The NPC: ", name, ", is not in any location's area!")
+		return
+	
+	current_room = current_location.get_room_of_position(global_position)
+	
+	if (!current_room):
+		print("The NPC: ", name, ", is not in any of location's rooms!")
+		return
 
 func _physics_process(delta):
 	if (is_possessed):
@@ -112,26 +130,74 @@ func handle_npc_movement(delta: float):
 	
 	move_and_slide()
 
-func navigate_to(target_position: Vector2, location: Location):
-	# If location != current_location, navigate to location_exit
-	if (current_location != location):
-		navigation_agent_2d.target_position = current_location.location_exit.global_position
-		navigation_agent_2d.navigation_finished.connect(travel_to.bind(location, target_position))
-		print("Not at target location! Navigating to location exit...")
+# Call this to navigate your NPC to the desired position (position must be within a LocationRoom's area)
+func navigate_to(target_position: Vector2):
+	var location_manager = get_tree().get_nodes_in_group("location_manager")[0]
+	var locations = location_manager.get_children()
+	
+	# Get target location
+	var target_location: Location
+	for location: Location in locations:
+		if (location.area_contains_position(target_position)):
+			target_location = location
+			break
+	
+	# Null check
+	if (!target_location):
+		print("Target position, ", target_position, ", is not in any location's area!")
 		return
 	
-	# navigate to location
-	navigation_agent_2d.target_position = target_position
-	print("Navigating to: ", target_position)
+	# IF STATEMENT HELL DDDDD:
+	if (current_location != target_location): # If target_location != current_location, navigate to location_exit_room
+		if (current_room != current_location.location_exit_room): # If current_room != location_exit_room, navigate to location_exit_room
+			if (current_room_path.size() == 0):
+				current_room_path = current_location.find_path_between(current_room, current_location.location_exit_room)
+			
+			var next_door: BackgroundDoor = current_room_path.pop_front()
+			navigation_agent_2d.target_position = next_door.global_position
+			navigation_agent_2d.navigation_finished.connect(enter_door.bind(next_door, target_position))
+			return
+		else: # If current_room == location_exit_room, navigate to location_exit and teleport to target_location
+			navigation_agent_2d.target_position = current_location.location_exit.global_position
+			navigation_agent_2d.navigation_finished.connect(move_to_location.bind(target_location, target_position))
+			return
+	else: # If target_location == current_location, navigate to target_room
+		# Get target room
+		var target_room: LocationRoom = target_location.get_room_of_position(target_position)
+		
+		if (!target_room):
+			print("Target position, ", target_position, ", is in ", target_location.name, ", but is not in any of the rooms' areas!")
+			return
+		
+		if (current_room != target_room): # If current_room != target_room, navigate to target_room
+			if (current_room_path.size() == 0):
+				current_room_path = current_location.find_path_between(current_room, target_room)
+			
+			var next_door: BackgroundDoor = current_room_path.pop_front()
+			navigation_agent_2d.target_position = next_door.global_position
+			navigation_agent_2d.navigation_finished.connect(enter_door.bind(next_door, target_position))
+			return
+		else: # If current_room == target_room, navigate to target_position
+			navigation_agent_2d.target_position = target_position
+			return
 
-func travel_to(location: Location, target_position: Vector2):
+func enter_door(door: BackgroundDoor, target_position: Vector2):
+	global_position = door.destination_door.global_position
+	current_room = current_location.get_room_of_position(global_position)
+	
+	navigate_to(target_position)
+	
+	if (navigation_agent_2d.navigation_finished.is_connected(enter_door)):
+		navigation_agent_2d.navigation_finished.disconnect(enter_door)
+
+func move_to_location(location: Location, target_position: Vector2):
 	global_position = location.location_exit.global_position
 	current_location = location
 	
-	navigate_to(target_position, location)
+	navigate_to(target_position)
 	
-	if (navigation_agent_2d.navigation_finished.is_connected(travel_to)):
-		navigation_agent_2d.navigation_finished.disconnect(travel_to)
+	if (navigation_agent_2d.navigation_finished.is_connected(move_to_location)):
+		navigation_agent_2d.navigation_finished.disconnect(move_to_location)
 
 
 

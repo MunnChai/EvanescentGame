@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://rviju0lx5pre"]
+[gd_scene load_steps=15 format=3 uid="uid://rviju0lx5pre"]
 
 [ext_resource type="PackedScene" uid="uid://blp4jjwokkgxj" path="res://locations/location.tscn" id="1_tf2o3"]
 [ext_resource type="Texture2D" uid="uid://bk1osrbrhqlv5" path="res://assets/location_assets/funeral/funeral_tileset.png" id="2_ydhux"]
 [ext_resource type="Texture2D" uid="uid://t02s3n07dc4w" path="res://assets/location_assets/funeral/funeral_decor.png" id="3_sbocy"]
 [ext_resource type="PackedScene" uid="uid://cl8kobrguc04e" path="res://components/background_door/background_door.tscn" id="4_4xyvu"]
 [ext_resource type="PackedScene" uid="uid://cfluel2e374xh" path="res://components/overlay_panel/overlay_panel.tscn" id="5_jjbeb"]
+[ext_resource type="Script" path="res://locations/location_room.gd" id="6_dhi4h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mklsf"]
 texture = ExtResource("2_ydhux")
@@ -229,13 +230,24 @@ terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_mklsf")
 sources/2 = SubResource("TileSetAtlasSource_u2p44")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3a38o"]
+size = Vector2(896, 384)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ndk4u"]
+size = Vector2(352, 136)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_csmf7"]
 size = Vector2(24, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rdaq5"]
+size = Vector2(176, 120)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qcdqt"]
 size = Vector2(24, 30)
 
-[node name="FuneralVenue" instance=ExtResource("1_tf2o3")]
+[node name="FuneralVenue" node_paths=PackedStringArray("room1", "room2") instance=ExtResource("1_tf2o3")]
+room1 = NodePath("Rooms/Room1")
+room2 = NodePath("Rooms/Room2")
 
 [node name="BackgroundTileMap" type="TileMap" parent="." index="0"]
 tile_set = SubResource("TileSet_cxpo8")
@@ -304,27 +316,7 @@ position = Vector2(404, 5)
 [node name="CollisionShape2D" parent="LocationExit/InteractableArea" index="1"]
 position = Vector2(0, -4.5)
 
-[node name="BackgroundDoor" parent="." index="5" node_paths=PackedStringArray("destination_door", "fade_panel") instance=ExtResource("4_4xyvu")]
-position = Vector2(141, 12)
-destination_door = NodePath("../BackgroundDoor2")
-fade_panel = NodePath("../OverlayPanel")
-fade_seconds = 0.3
-
-[node name="CollisionShape2D" parent="BackgroundDoor/InteractableArea" index="1"]
-position = Vector2(-1, -11)
-shape = SubResource("RectangleShape2D_csmf7")
-
-[node name="BackgroundDoor2" parent="." index="6" node_paths=PackedStringArray("destination_door", "fade_panel") instance=ExtResource("4_4xyvu")]
-position = Vector2(292, 12)
-destination_door = NodePath("../BackgroundDoor")
-fade_panel = NodePath("../OverlayPanel")
-fade_seconds = 0.3
-
-[node name="CollisionShape2D" parent="BackgroundDoor2/InteractableArea" index="1"]
-position = Vector2(0, -11)
-shape = SubResource("RectangleShape2D_qcdqt")
-
-[node name="OverlayPanel" parent="." index="7" instance=ExtResource("5_jjbeb")]
+[node name="OverlayPanel" parent="." index="5" instance=ExtResource("5_jjbeb")]
 modulate = Color(0, 0, 0, 0)
 z_index = 10
 offset_left = -422.0
@@ -332,6 +324,44 @@ offset_top = -406.0
 offset_right = 932.0
 offset_bottom = 395.0
 
+[node name="LocationArea" type="CollisionShape2D" parent="." index="6"]
+visible = false
+position = Vector2(128, -64)
+shape = SubResource("RectangleShape2D_3a38o")
+
+[node name="Rooms" type="Node2D" parent="." index="7"]
+visible = false
+
+[node name="Room1" type="CollisionShape2D" parent="Rooms" index="0"]
+position = Vector2(0, -36)
+shape = SubResource("RectangleShape2D_ndk4u")
+script = ExtResource("6_dhi4h")
+
+[node name="BackgroundDoor" parent="Rooms/Room1" index="0" node_paths=PackedStringArray("destination_door", "fade_panel") instance=ExtResource("4_4xyvu")]
+position = Vector2(141, 48)
+destination_door = NodePath("../../Room2/BackgroundDoor2")
+fade_panel = NodePath("../../../OverlayPanel")
+fade_seconds = 0.3
+
+[node name="CollisionShape2D" parent="Rooms/Room1/BackgroundDoor/InteractableArea" index="1"]
+position = Vector2(-1, -11)
+shape = SubResource("RectangleShape2D_csmf7")
+
+[node name="Room2" type="CollisionShape2D" parent="Rooms" index="1"]
+position = Vector2(352, -28)
+shape = SubResource("RectangleShape2D_rdaq5")
+script = ExtResource("6_dhi4h")
+
+[node name="BackgroundDoor2" parent="Rooms/Room2" index="0" node_paths=PackedStringArray("destination_door", "fade_panel") instance=ExtResource("4_4xyvu")]
+position = Vector2(-60, 40)
+destination_door = NodePath("../../Room1/BackgroundDoor")
+fade_panel = NodePath("../../../OverlayPanel")
+fade_seconds = 0.3
+
+[node name="CollisionShape2D" parent="Rooms/Room2/BackgroundDoor2/InteractableArea" index="1"]
+position = Vector2(0, -11)
+shape = SubResource("RectangleShape2D_qcdqt")
+
 [editable path="LocationExit"]
-[editable path="BackgroundDoor"]
-[editable path="BackgroundDoor2"]
+[editable path="Rooms/Room1/BackgroundDoor"]
+[editable path="Rooms/Room2/BackgroundDoor2"]
