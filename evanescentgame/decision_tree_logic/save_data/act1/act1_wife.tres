@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="DecisionTreeGraphData" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_resource.gd" id="1_6owlg"]
+[ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_node_resource.gd" id="1_qfsff"]
+
+[sub_resource type="Resource" id="Resource_jplw4"]
+script = ExtResource("1_qfsff")
+name = "GraphNode3"
+position_offset = Vector2(600, 0)
+size = Vector2(395.048, 596.276)
+data = {
+"alt_paths": [],
+"description": "",
+"function_name": "",
+"next_function_time": 0.0,
+"npc_name": "",
+"parameters": [],
+"title": ""
+}
+
+[sub_resource type="Resource" id="Resource_8k0fn"]
+script = ExtResource("1_qfsff")
+name = "GraphNode2"
+position_offset = Vector2(0, 0)
+size = Vector2(465.35, 558.266)
+data = {
+"alt_paths": [],
+"description": "",
+"function_name": "",
+"next_function_time": 0.0,
+"npc_name": "",
+"parameters": [],
+"title": ""
+}
+
+[resource]
+script = ExtResource("1_6owlg")
+connections = Array[Dictionary]([{
+"from_node": &"GraphNode2",
+"from_port": 0,
+"to_node": &"GraphNode3",
+"to_port": 0
+}])
+nodes = [SubResource("Resource_jplw4"), SubResource("Resource_8k0fn")]

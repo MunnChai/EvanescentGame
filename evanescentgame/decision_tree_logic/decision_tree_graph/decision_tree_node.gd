@@ -14,6 +14,7 @@ var data = {}
 @onready var npc_name = $NPCName
 @onready var function_name = %FunctionName
 @onready var param_container = %ParamContainer
+@onready var function_time = %FunctionTime
 
 var param_hboxes: Array = []
 var alt_path_hboxes: Array = []
@@ -112,8 +113,9 @@ func add_parameter(selected_id: int = 0, value: String = ""):
 	
 	# Create dropdown for parameter type
 	var option_button = OptionButton.new()
-	option_button.add_item("Vector2")
 	option_button.add_item("String") 
+	option_button.add_item("Vector2")
+	option_button.add_item("LocationName")
 	option_button.item_selected.connect(on_param_type_selected.bind(param_hbox))
 	option_button.select(selected_id)
 	
@@ -161,6 +163,7 @@ func set_node_data():
 	description.text = data["description"]
 	npc_name.text = data["npc_name"]
 	function_name.text = data["function_name"]
+	function_time.value = data["next_function_time"]
 	
 	for parameter in data["parameters"]:
 		add_parameter(parameter["type"], parameter["value"])
@@ -175,6 +178,7 @@ func save_node_data():
 	data["description"] = description.text
 	data["npc_name"] = npc_name.text
 	data["function_name"] = function_name.text
+	data["next_function_time"] = function_time.value
 	
 	var parameter_array = []
 	for param_hbox in param_hboxes:

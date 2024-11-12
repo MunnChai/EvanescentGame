@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://ccwc4s7e5nmbf"]
+[gd_scene load_steps=9 format=3 uid="uid://ccwc4s7e5nmbf"]
 
 [ext_resource type="Script" path="res://instances/npc/npc.gd" id="1_0upfg"]
 [ext_resource type="Texture2D" uid="uid://bjkq2gq42u2rj" path="res://assets/player/test_player.png" id="1_co6pp"]
 [ext_resource type="PackedScene" uid="uid://cfx3wanmlsj0" path="res://components/interactable_area/interactable_area.tscn" id="2_mnng2"]
 [ext_resource type="PackedScene" uid="uid://cemmf570s8hey" path="res://components/dialogue_emitter/dialogue_emitter.tscn" id="3_kdiqa"]
 [ext_resource type="Resource" uid="uid://8ctajnr773an" path="res://demo_scene/initial_gameplay_demo/test_dialogue.dialogue" id="5_5k2ni"]
+[ext_resource type="Script" path="res://instances/npc/npc_decision_maker.gd" id="6_s6v0q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o2g0p"]
 size = Vector2(20, 43)
@@ -42,5 +43,15 @@ target_position = Vector2(0, 35)
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 10.0
 path_max_distance = 10.0
+
+[node name="NPCDecisionMaker" type="Node" parent="."]
+script = ExtResource("6_s6v0q")
+
+[node name="Label" type="Label" parent="NPCDecisionMaker"]
+offset_left = -20.0
+offset_top = -67.0
+offset_right = 20.0
+offset_bottom = -44.0
+horizontal_alignment = 1
 
 [connection signal="player_interacted" from="InteractableArea" to="." method="on_player_interacted"]

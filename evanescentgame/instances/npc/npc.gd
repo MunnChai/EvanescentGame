@@ -8,6 +8,7 @@ extends CharacterBody2D
 
 @export var starting_location: Location
 var starting_room: LocationRoom
+@export var graph_data: DecisionTreeGraphData
 
 const SPEED: float = 125.0
 const SPRINT_MULTIPLIER: float = 1.5
@@ -66,7 +67,7 @@ func add_to_inventory(item: Item):
 
 func handle_input(delta: float):
 	if (Input.is_action_just_pressed("jump") and is_on_floor()):
-		velocity.y -= JUMP_VELOCITY
+		jump()
 
 func handle_player_movement(delta: float):
 	if (not is_on_floor()):
@@ -119,7 +120,7 @@ func handle_npc_movement(delta: float):
 				is_on_floor()):
 				
 				# Jump
-				velocity.y -= JUMP_VELOCITY
+				jump()
 		
 		if (velocity.y < 0): # Stay still while jumping, just helps to not stray too far off the path
 			velocity.x = move_toward(velocity.x, 0, SPEED / 4)
@@ -129,6 +130,10 @@ func handle_npc_movement(delta: float):
 	
 	
 	move_and_slide()
+
+func jump():
+	velocity.y -= JUMP_VELOCITY
+
 
 # Call this to navigate your NPC to the desired position (position must be within a LocationRoom's area)
 func navigate_to(target_position: Vector2):

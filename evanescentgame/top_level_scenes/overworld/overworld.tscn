@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cpiebxlknogvc"]
+[gd_scene load_steps=14 format=3 uid="uid://cpiebxlknogvc"]
 
 [ext_resource type="Script" path="res://top_level_scenes/overworld/overworld_manager.gd" id="1_5y34q"]
 [ext_resource type="PackedScene" uid="uid://brm7k4yr1lcxw" path="res://instances/player/player.tscn" id="1_juc8k"]
