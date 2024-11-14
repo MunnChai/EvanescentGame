@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://ccwc4s7e5nmbf"]
+[gd_scene load_steps=9 format=3 uid="uid://ccwc4s7e5nmbf"]
 
 [ext_resource type="Script" path="res://instances/npc/npc.gd" id="1_0upfg"]
 [ext_resource type="Texture2D" uid="uid://bjkq2gq42u2rj" path="res://assets/player/test_player.png" id="1_co6pp"]
 [ext_resource type="PackedScene" uid="uid://cfx3wanmlsj0" path="res://components/interactable_area/interactable_area.tscn" id="2_mnng2"]
+[ext_resource type="Resource" uid="uid://6520atjqp8tj" path="res://ui/Inventory/npcinv.tres" id="2_w8g3j"]
 [ext_resource type="PackedScene" uid="uid://cemmf570s8hey" path="res://components/dialogue_emitter/dialogue_emitter.tscn" id="3_kdiqa"]
 [ext_resource type="Resource" uid="uid://8ctajnr773an" path="res://demo_scene/initial_gameplay_demo/test_dialogue.dialogue" id="5_5k2ni"]
 
@@ -13,8 +14,10 @@ size = Vector2(20, 43)
 size = Vector2(59, 43)
 
 [node name="Npc" type="CharacterBody2D"]
+scale = Vector2(0.986677, 1.01202)
 collision_layer = 4
 script = ExtResource("1_0upfg")
+inv = ExtResource("2_w8g3j")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -24)

@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://qxsjk3i2orwj"]
+[gd_scene load_steps=3 format=3 uid="uid://bwscx4bnvl6e0"]
 
 [ext_resource type="PackedScene" uid="uid://blp4jjwokkgxj" path="res://locations/location.tscn" id="1_7ytg5"]
 [ext_resource type="TileSet" uid="uid://b0ik5iqgovpsy" path="res://demo_scene/initial_gameplay_demo/demo_tiles.tres" id="2_pyo8x"]
 
-[node name="EvanHouse" instance=ExtResource("1_7ytg5")]
+[node name="EvanHouse2" instance=ExtResource("1_7ytg5")]
 
 [node name="TileMap" type="TileMap" parent="." index="0"]
 tile_set = ExtResource("2_pyo8x")

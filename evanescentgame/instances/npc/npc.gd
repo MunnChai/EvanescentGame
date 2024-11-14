@@ -8,6 +8,8 @@ extends CharacterBody2D
 
 @export var starting_location: Location
 
+@export var inv: Inv
+
 const SPEED: float = 125.0
 const SPRINT_MULTIPLIER: float = 1.5
 const JUMP_VELOCITY: float = 250
@@ -132,6 +134,7 @@ func travel_to(location: Location, target_position: Vector2):
 	
 	if (navigation_agent_2d.navigation_finished.is_connected(travel_to)):
 		navigation_agent_2d.navigation_finished.disconnect(travel_to)
-
-
-
+	
+	
+func collect(item):
+	inv.insert(item)

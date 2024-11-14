@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://brm7k4yr1lcxw"]
+[gd_scene load_steps=9 format=3 uid="uid://brm7k4yr1lcxw"]
 
 [ext_resource type="Script" path="res://instances/player/player.gd" id="1_f0lp8"]
+[ext_resource type="Resource" uid="uid://carhkp6r6jbuq" path="res://ui/Inventory/playerinv.tres" id="2_5kako"]
 [ext_resource type="Texture2D" uid="uid://yp0lkfg23nbh" path="res://assets/player/player_ghost.png" id="2_8wqn8"]
+[ext_resource type="PackedScene" uid="uid://8qec1l4iyeri" path="res://ui/Inventory/Inv_UI.tscn" id="4_7vp2e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w86ao"]
 size = Vector2(9, 29)
@@ -47,6 +49,7 @@ _data = {
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_f0lp8")
+inv = ExtResource("2_5kako")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 7)
@@ -65,3 +68,9 @@ libraries = {
 "": SubResource("AnimationLibrary_hqcos")
 }
 autoplay = "PlayerGhostIdle"
+
+[node name="InvUi" parent="." instance=ExtResource("4_7vp2e")]
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = -9.0

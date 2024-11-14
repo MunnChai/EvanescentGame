@@ -1,14 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://cpiebxlknogvc"]
+[gd_scene load_steps=13 format=3 uid="uid://cpiebxlknogvc"]
 
 [ext_resource type="Script" path="res://top_level_scenes/overworld/overworld_manager.gd" id="1_5y34q"]
 [ext_resource type="PackedScene" uid="uid://brm7k4yr1lcxw" path="res://instances/player/player.tscn" id="1_juc8k"]
-[ext_resource type="PackedScene" uid="uid://rviju0lx5pre" path="res://locations/funeral_venue/location_funeral_venue.tscn" id="3_qdm2x"]
-[ext_resource type="PackedScene" uid="uid://ba4io0vme1s7c" path="res://locations/school/location_school.tscn" id="3_udvda"]
-[ext_resource type="PackedScene" uid="uid://qxsjk3i2orwj" path="res://locations/evan_house/location_evan_house.tscn" id="4_tf3o0"]
-[ext_resource type="PackedScene" uid="uid://dnwaf4gu81ddo" path="res://locations/cousin_house/location_cousin_house.tscn" id="5_daq0y"]
-[ext_resource type="PackedScene" uid="uid://iecgb5paqxrh" path="res://locations/police_station/location_police_station.tscn" id="6_speeq"]
+[ext_resource type="PackedScene" path="res://locations/funeral_venue/location_funeral_venue.tscn" id="3_qdm2x"]
+[ext_resource type="PackedScene" path="res://locations/school/location_school.tscn" id="3_udvda"]
+[ext_resource type="PackedScene" uid="uid://bwscx4bnvl6e0" path="res://locations/evan_house/location_evan_house.tscn" id="4_tf3o0"]
+[ext_resource type="PackedScene" path="res://locations/cousin_house/location_cousin_house.tscn" id="5_daq0y"]
+[ext_resource type="PackedScene" path="res://locations/police_station/location_police_station.tscn" id="6_speeq"]
 [ext_resource type="PackedScene" uid="uid://ccwc4s7e5nmbf" path="res://instances/npc/npc.tscn" id="7_ow5sy"]
 [ext_resource type="PackedScene" uid="uid://h5oxlt67k8c7" path="res://ui/overworld_pause/overworld_pause.tscn" id="9_kb3hy"]
+[ext_resource type="PackedScene" uid="uid://cae6lcvwx2pml" path="res://instances/apple_tree/apple_tree.tscn" id="10_2r1sx"]
+[ext_resource type="PackedScene" uid="uid://bpqo103lmn4jo" path="res://instances/item/item.tscn" id="11_a64ns"]
+[ext_resource type="PackedScene" uid="uid://djv4mm8lyybuw" path="res://ui/Inventory/items/stick_collectable.tscn" id="12_gl5d0"]
 
 [node name="Overworld" type="Node"]
 script = ExtResource("1_5y34q")
@@ -18,6 +21,7 @@ script = ExtResource("1_5y34q")
 [node name="Locations" type="Node2D" parent="World"]
 
 [node name="FuneralVenue" parent="World/Locations" instance=ExtResource("3_qdm2x")]
+position = Vector2(-6, 5)
 
 [node name="School" parent="World/Locations" instance=ExtResource("3_udvda")]
 position = Vector2(1000, 0)
@@ -57,3 +61,12 @@ offset_bottom = 40.0
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="OverworldPause" parent="CanvasLayer" instance=ExtResource("9_kb3hy")]
+
+[node name="apple_tree" parent="." instance=ExtResource("10_2r1sx")]
+position = Vector2(335, -101)
+
+[node name="Item" parent="." instance=ExtResource("11_a64ns")]
+position = Vector2(-9, -33)
+
+[node name="stick_collectable" parent="." instance=ExtResource("12_gl5d0")]
+position = Vector2(46, 19)

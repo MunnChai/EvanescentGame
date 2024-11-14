@@ -3,8 +3,6 @@ extends Area2D
 
 signal player_interacted
 
-@onready var player: Player = get_tree().get_nodes_in_group("player")[0]
-
 var player_in: bool = false
 var is_enabled: bool = true
 
@@ -17,8 +15,7 @@ func _physics_process(delta):
 	if not is_enabled:
 		return
 	
-	# Check player.is_input_active to prevent interactions when no input
-	if (player_in and player.is_input_active and Input.is_action_just_pressed("interact")):
+	if (player_in and Input.is_action_just_pressed("interact")):
 		player_interacted.emit()
 
 func enable():
