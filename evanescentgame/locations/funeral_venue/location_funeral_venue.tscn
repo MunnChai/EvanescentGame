@@ -1,10 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://rviju0lx5pre"]
+[gd_scene load_steps=16 format=3 uid="uid://rviju0lx5pre"]
 
 [ext_resource type="PackedScene" uid="uid://blp4jjwokkgxj" path="res://locations/location.tscn" id="1_tf2o3"]
 [ext_resource type="Texture2D" uid="uid://bk1osrbrhqlv5" path="res://assets/location_assets/funeral/funeral_tileset.png" id="2_ydhux"]
 [ext_resource type="Texture2D" uid="uid://t02s3n07dc4w" path="res://assets/location_assets/funeral/funeral_decor.png" id="3_sbocy"]
 [ext_resource type="PackedScene" uid="uid://cl8kobrguc04e" path="res://components/background_door/background_door.tscn" id="4_4xyvu"]
-[ext_resource type="PackedScene" uid="uid://cfluel2e374xh" path="res://components/overlay_panel/overlay_panel.tscn" id="5_jjbeb"]
 [ext_resource type="Script" path="res://locations/location_room.gd" id="6_dhi4h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mklsf"]
@@ -328,20 +327,12 @@ position = Vector2(404, 5)
 [node name="CollisionShape2D" parent="LocationExit/InteractableArea" index="1"]
 position = Vector2(0, -4.5)
 
-[node name="OverlayPanel" parent="." index="5" instance=ExtResource("5_jjbeb")]
-modulate = Color(0, 0, 0, 0)
-z_index = 10
-offset_left = -422.0
-offset_top = -406.0
-offset_right = 932.0
-offset_bottom = 395.0
-
-[node name="LocationArea" type="CollisionShape2D" parent="." index="6"]
+[node name="LocationArea" type="CollisionShape2D" parent="." index="5"]
 visible = false
 position = Vector2(128, -64)
 shape = SubResource("RectangleShape2D_3a38o")
 
-[node name="Rooms" type="Node2D" parent="." index="7"]
+[node name="Rooms" type="Node2D" parent="." index="6"]
 visible = false
 
 [node name="Room1" type="CollisionShape2D" parent="Rooms" index="0"]
@@ -349,10 +340,9 @@ position = Vector2(0, -36)
 shape = SubResource("RectangleShape2D_ndk4u")
 script = ExtResource("6_dhi4h")
 
-[node name="BackgroundDoor" parent="Rooms/Room1" index="0" node_paths=PackedStringArray("destination_door", "fade_panel") instance=ExtResource("4_4xyvu")]
+[node name="BackgroundDoor" parent="Rooms/Room1" index="0" node_paths=PackedStringArray("destination_door") instance=ExtResource("4_4xyvu")]
 position = Vector2(141, 48)
 destination_door = NodePath("../../Room2/BackgroundDoor2")
-fade_panel = NodePath("../../../OverlayPanel")
 fade_seconds = 0.3
 
 [node name="CollisionShape2D" parent="Rooms/Room1/BackgroundDoor/InteractableArea" index="1"]
@@ -364,20 +354,19 @@ position = Vector2(352, -28)
 shape = SubResource("RectangleShape2D_rdaq5")
 script = ExtResource("6_dhi4h")
 
-[node name="BackgroundDoor2" parent="Rooms/Room2" index="0" node_paths=PackedStringArray("destination_door", "fade_panel") instance=ExtResource("4_4xyvu")]
+[node name="BackgroundDoor2" parent="Rooms/Room2" index="0" node_paths=PackedStringArray("destination_door") instance=ExtResource("4_4xyvu")]
 position = Vector2(-60, 40)
 destination_door = NodePath("../../Room1/BackgroundDoor")
-fade_panel = NodePath("../../../OverlayPanel")
 fade_seconds = 0.3
 
 [node name="CollisionShape2D" parent="Rooms/Room2/BackgroundDoor2/InteractableArea" index="1"]
 position = Vector2(0, -11)
 shape = SubResource("RectangleShape2D_qcdqt")
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." index="8"]
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." index="7"]
 navigation_polygon = SubResource("NavigationPolygon_fmnqh")
 
-[node name="NavigationRegion2D2" type="NavigationRegion2D" parent="." index="9"]
+[node name="NavigationRegion2D2" type="NavigationRegion2D" parent="." index="8"]
 navigation_polygon = SubResource("NavigationPolygon_2yiyi")
 
 [editable path="LocationExit"]

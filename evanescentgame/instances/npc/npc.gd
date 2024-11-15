@@ -24,7 +24,12 @@ var current_room: LocationRoom
 var current_room_path: Array
 
 func _ready():
-	var location_manager = get_tree().get_nodes_in_group("location_manager")[0]
+	var location_managers = get_tree().get_nodes_in_group("location_manager")
+	
+	if (location_managers.size() == 0):
+		return
+	
+	var location_manager = location_managers[0]
 	
 	for location: Location in location_manager.get_children():
 		if (location.area_contains_position(global_position)):

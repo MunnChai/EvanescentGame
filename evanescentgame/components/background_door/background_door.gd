@@ -16,7 +16,6 @@ signal exited_this_door # Called after input is returned after the coroutine
 ## Destination door.
 @export var destination_door: BackgroundDoor = null
 ## Panel to fade in/out when the door transition is happening.
-@export var fade_panel: OverlayPanel = null
 @export var fade_seconds: float = 0.15
 
 # References
@@ -44,12 +43,12 @@ func _enter_process() -> void:
 	entered_this_door.emit()
 	player.is_input_active = false # Turn off input...
 	
-	fade_panel.fade_out_scene(fade_seconds)
+	OverlayPanelManager.fade_out_scene(fade_seconds)
 	await get_tree().create_timer(fade_seconds).timeout
 	
 	_teleport_to_next()
 	
-	fade_panel.fade_in_to_scene(fade_seconds)
+	OverlayPanelManager.fade_in_to_scene(fade_seconds)
 	await get_tree().create_timer(fade_seconds).timeout
 	
 	player.is_input_active = true # Transition over, here's input again...

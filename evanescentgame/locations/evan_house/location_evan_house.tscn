@@ -11,71 +11,157 @@ texture = ExtResource("2_reaws")
 texture_region_size = Vector2i(8, 8)
 3:4/size_in_atlas = Vector2i(2, 3)
 3:4/0 = 0
+3:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:4/0/physics_layer_0/angular_velocity = 0.0
 7:4/size_in_atlas = Vector2i(5, 3)
 7:4/0 = 0
+7:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+7:4/0/physics_layer_0/angular_velocity = 0.0
 14:4/size_in_atlas = Vector2i(4, 3)
 14:4/0 = 0
+14:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+14:4/0/physics_layer_0/angular_velocity = 0.0
 21:5/size_in_atlas = Vector2i(2, 4)
 21:5/0 = 0
+21:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+21:5/0/physics_layer_0/angular_velocity = 0.0
 2:7/size_in_atlas = Vector2i(4, 3)
 2:7/0 = 0
+2:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:7/0/physics_layer_0/angular_velocity = 0.0
 9:8/size_in_atlas = Vector2i(2, 4)
 9:8/0 = 0
+9:8/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+9:8/0/physics_layer_0/angular_velocity = 0.0
 13:8/size_in_atlas = Vector2i(2, 4)
 13:8/0 = 0
+13:8/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+13:8/0/physics_layer_0/angular_velocity = 0.0
 7:13/size_in_atlas = Vector2i(5, 3)
 7:13/0 = 0
+7:13/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+7:13/0/physics_layer_0/angular_velocity = 0.0
 2:11/size_in_atlas = Vector2i(4, 5)
 2:11/0 = 0
+2:11/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:11/0/physics_layer_0/angular_velocity = 0.0
 14:13/size_in_atlas = Vector2i(2, 3)
 14:13/0 = 0
+14:13/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+14:13/0/physics_layer_0/angular_velocity = 0.0
 19:13/size_in_atlas = Vector2i(3, 3)
 19:13/0 = 0
+19:13/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+19:13/0/physics_layer_0/angular_velocity = 0.0
 25:12/size_in_atlas = Vector2i(6, 4)
 25:12/0 = 0
+25:12/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+25:12/0/physics_layer_0/angular_velocity = 0.0
 4:18/size_in_atlas = Vector2i(5, 4)
 4:18/0 = 0
+4:18/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:18/0/physics_layer_0/angular_velocity = 0.0
 12:18/size_in_atlas = Vector2i(2, 4)
 12:18/0 = 0
+12:18/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+12:18/0/physics_layer_0/angular_velocity = 0.0
 1:22/size_in_atlas = Vector2i(2, 3)
 1:22/0 = 0
+1:22/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:22/0/physics_layer_0/angular_velocity = 0.0
 5:23/size_in_atlas = Vector2i(5, 3)
 5:23/0 = 0
+5:23/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:23/0/physics_layer_0/angular_velocity = 0.0
 1:27/size_in_atlas = Vector2i(4, 4)
 1:27/0 = 0
+1:27/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:27/0/physics_layer_0/angular_velocity = 0.0
 7:27/size_in_atlas = Vector2i(7, 4)
 7:27/0 = 0
+7:27/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+7:27/0/physics_layer_0/angular_velocity = 0.0
 16:28/size_in_atlas = Vector2i(5, 3)
 16:28/0 = 0
+16:28/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+16:28/0/physics_layer_0/angular_velocity = 0.0
 21:21/size_in_atlas = Vector2i(3, 5)
 21:21/0 = 0
+21:21/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+21:21/0/physics_layer_0/angular_velocity = 0.0
 25:22/size_in_atlas = Vector2i(2, 8)
 25:22/0 = 0
+25:22/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+25:22/0/physics_layer_0/angular_velocity = 0.0
 28:22/size_in_atlas = Vector2i(2, 8)
 28:22/0 = 0
+28:22/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+28:22/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xt3bw"]
 texture = ExtResource("3_5dyj7")
 texture_region_size = Vector2i(8, 8)
 2:2/0 = 0
+2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:2/0/physics_layer_0/angular_velocity = 0.0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(4, -4, 4, 4, -4, 4)
 3:2/0 = 0
+3:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:2/0/physics_layer_0/angular_velocity = 0.0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
 4:2/0 = 0
+4:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:2/0/physics_layer_0/angular_velocity = 0.0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, 4, -4, 4)
 3:3/0 = 0
+3:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:3/0/physics_layer_0/angular_velocity = 0.0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
 3:4/0 = 0
+3:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:4/0/physics_layer_0/angular_velocity = 0.0
 2:5/0 = 0
+2:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:5/0/physics_layer_0/angular_velocity = 0.0
+2:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, -4, -2, 4, -2, 4, 4, -4, 4)
 3:5/0 = 0
+3:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:5/0/physics_layer_0/angular_velocity = 0.0
+3:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, -4, -2, 4, -2, 4, 4, -4, 4)
 4:5/0 = 0
+4:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:5/0/physics_layer_0/angular_velocity = 0.0
+4:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, -4, -2, 4, -2, 4, 4, -4, 4)
 3:1/0 = 0
+3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:1/0/physics_layer_0/angular_velocity = 0.0
 2:3/0 = 0
+2:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:3/0/physics_layer_0/angular_velocity = 0.0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
 4:3/0 = 0
+4:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:3/0/physics_layer_0/angular_velocity = 0.0
+4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
 2:4/0 = 0
+2:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:4/0/physics_layer_0/angular_velocity = 0.0
 4:4/0 = 0
+4:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:4/0/physics_layer_0/angular_velocity = 0.0
 5:4/0 = 0
+5:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:4/0/physics_layer_0/angular_velocity = 0.0
 6:4/0 = 0
+6:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:4/0/physics_layer_0/angular_velocity = 0.0
 7:4/0 = 0
+7:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+7:4/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_00qyt"]
 tile_size = Vector2i(8, 8)
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_j5goi")
 sources/1 = SubResource("TileSetAtlasSource_xt3bw")
 
@@ -246,10 +332,10 @@ region_enabled = true
 region_rect = Rect2(12, 185, 9, 15)
 
 [node name="LocationExit" parent="." index="4"]
-position = Vector2(-45, 16)
+position = Vector2(-46, 4)
 
 [node name="CollisionShape2D" parent="LocationExit/InteractableArea" index="1"]
-position = Vector2(-1, -0.5)
+position = Vector2(-1, 11)
 shape = SubResource("RectangleShape2D_53kmb")
 
 [node name="LocationArea" type="CollisionShape2D" parent="." index="5"]
@@ -258,51 +344,50 @@ position = Vector2(83.5, -34)
 shape = SubResource("RectangleShape2D_6pkxe")
 
 [node name="Rooms" type="Node2D" parent="." index="6"]
-visible = false
 
-[node name="Room1" type="CollisionShape2D" parent="Rooms" index="0"]
+[node name="Upstairs" type="CollisionShape2D" parent="Rooms" index="0"]
 position = Vector2(64, 0)
 shape = SubResource("RectangleShape2D_p2wgb")
 script = ExtResource("4_pqqrp")
 
-[node name="BackgroundDoor" parent="Rooms/Room1" index="0" node_paths=PackedStringArray("destination_door", "fade_panel") instance=ExtResource("5_c27is")]
-position = Vector2(141, 48)
-destination_door = NodePath("")
-fade_panel = NodePath("")
+[node name="StairsDown" parent="Rooms/Upstairs" index="0" node_paths=PackedStringArray("destination_door") instance=ExtResource("5_c27is")]
+position = Vector2(37, 29)
+destination_door = NodePath("../../DownStairs/StairsUp")
 fade_seconds = 0.3
 
-[node name="InteractableArea" parent="Rooms/Room1/BackgroundDoor" index="0"]
-position = Vector2(-104, -15)
+[node name="InteractableArea" parent="Rooms/Upstairs/StairsDown" index="0"]
+position = Vector2(0, -7)
 
-[node name="CollisionShape2D" parent="Rooms/Room1/BackgroundDoor/InteractableArea" index="1"]
-position = Vector2(0, -33)
+[node name="CollisionShape2D" parent="Rooms/Upstairs/StairsDown/InteractableArea" index="1"]
+position = Vector2(0, -22)
 shape = SubResource("RectangleShape2D_hgquy")
 
-[node name="Room2" type="CollisionShape2D" parent="Rooms" index="1"]
+[node name="DownStairs" type="CollisionShape2D" parent="Rooms" index="1"]
 position = Vector2(64, -82)
 shape = SubResource("RectangleShape2D_trdrb")
 script = ExtResource("4_pqqrp")
 
-[node name="BackgroundDoor2" parent="Rooms/Room2" index="0" node_paths=PackedStringArray("destination_door", "fade_panel") instance=ExtResource("5_c27is")]
-position = Vector2(-60, 40)
-destination_door = NodePath("")
-fade_panel = NodePath("")
+[node name="StairsUp" parent="Rooms/DownStairs" index="0" node_paths=PackedStringArray("destination_door") instance=ExtResource("5_c27is")]
+position = Vector2(21, 31)
+destination_door = NodePath("../../Upstairs/StairsDown")
 fade_seconds = 0.3
 
-[node name="InteractableArea" parent="Rooms/Room2/BackgroundDoor2" index="0"]
-position = Vector2(81, -6)
+[node name="InteractableArea" parent="Rooms/DownStairs/StairsUp" index="0"]
+position = Vector2(0, -3)
 
-[node name="CollisionShape2D" parent="Rooms/Room2/BackgroundDoor2/InteractableArea" index="1"]
-position = Vector2(0, -32)
+[node name="CollisionShape2D" parent="Rooms/DownStairs/StairsUp/InteractableArea" index="1"]
+position = Vector2(0, -26)
 shape = SubResource("RectangleShape2D_g1qyi")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." index="7"]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_na036")
 
 [node name="NavigationRegion2D2" type="NavigationRegion2D" parent="." index="8"]
+visible = false
 position = Vector2(0, -80)
 navigation_polygon = SubResource("NavigationPolygon_e3kq1")
 
 [editable path="LocationExit"]
-[editable path="Rooms/Room1/BackgroundDoor"]
-[editable path="Rooms/Room2/BackgroundDoor2"]
+[editable path="Rooms/Upstairs/StairsDown"]
+[editable path="Rooms/DownStairs/StairsUp"]
