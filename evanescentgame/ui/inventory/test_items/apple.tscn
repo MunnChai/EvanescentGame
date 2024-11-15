@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfnksobtsogiq"]
+
+[ext_resource type="PackedScene" uid="uid://bpqo103lmn4jo" path="res://instances/item/item.tscn" id="1_kmoim"]
+
+[node name="Apple" instance=ExtResource("1_kmoim")]
