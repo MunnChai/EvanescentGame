@@ -10,7 +10,6 @@ func _ready():
 	await(get_tree().create_timer(scene_duration).timeout)
 	load_underworld()
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
