@@ -17,4 +17,4 @@ func _process(delta):
 
 func update_slots():
 	for i in range(0, items.size()):
-		slots[i].get_node("item_display").texture = items[i].sprite_texture
+		slots[i].get_node("CenterContainer/Panel/item_display").texture = items[i].sprite_2d.texture

@@ -47,5 +47,6 @@ path_max_distance = 10.0
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Inventory" parent="CanvasLayer" instance=ExtResource("6_3vby5")]
+visible = false
 
 [connection signal="player_interacted" from="InteractableArea" to="." method="on_player_interacted"]

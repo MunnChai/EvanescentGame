@@ -31,4 +31,4 @@ func on_dialogue_ended(dialogue_resource: Resource):
 func pick_up():
 	interactable_area.disable()
 	player.currently_possessed_npc.add_to_inventory(self)
-	sprite_2d.visible = false
+	self.visible = false

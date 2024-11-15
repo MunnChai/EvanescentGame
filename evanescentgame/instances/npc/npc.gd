@@ -26,8 +26,10 @@ func _physics_process(delta):
 	if (is_possessed):
 		handle_player_movement(delta)
 		handle_input(delta)
+		inventory.visible = true
 	else:
 		handle_npc_movement(delta)
+		inventory.visible = false
 
 func on_player_interacted():
 	if (player.is_possessing):
@@ -44,7 +46,7 @@ func become_unpossessed():
 	interactable_area.enable()
 
 func add_to_inventory(item: Item):
-	if (inventory.items.size() < 3) :
+	if (inventory.items.size() < 3):
 		inventory.items.append(item)
 		inventory.update_slots()
 
