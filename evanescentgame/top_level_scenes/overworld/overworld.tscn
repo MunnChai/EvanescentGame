@@ -61,5 +61,13 @@ offset_bottom = 40.0
 [node name="OverworldPause" parent="CanvasLayer" instance=ExtResource("9_kb3hy")]
 
 [node name="Item" parent="." instance=ExtResource("10_qnkqa")]
-position = Vector2(-43, 24)
+position = Vector2(-53, 18)
+sprite_texture = ExtResource("11_u3k8r")
+
+[node name="Item2" parent="." instance=ExtResource("10_qnkqa")]
+position = Vector2(83, 14)
+sprite_texture = ExtResource("11_u3k8r")
+
+[node name="Item3" parent="." instance=ExtResource("10_qnkqa")]
+position = Vector2(88, 14)
 sprite_texture = ExtResource("11_u3k8r")

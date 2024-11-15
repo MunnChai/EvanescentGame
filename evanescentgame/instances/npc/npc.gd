@@ -46,7 +46,6 @@ func become_unpossessed():
 func add_to_inventory(item: Item):
 	if (inventory.items.size() < 3) :
 		inventory.items.append(item)
-		print(inventory)
 		inventory.update_slots()
 
 func handle_input(delta: float):

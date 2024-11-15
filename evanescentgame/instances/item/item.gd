@@ -28,7 +28,7 @@ func show_ghost_dialogue():
 	signal_dialogue.emit("test_item_ghost")
 
 func on_dialogue_ended(dialogue_resource: Resource):
-	if (dialogue_resource == dialogue_emitter.dialogue_resource and player.is_possessing):
+	if (dialogue_resource == dialogue_emitter.dialogue_resource and player.is_possessing and interactable_area.player_in):
 		pick_up()
 
 func pick_up():

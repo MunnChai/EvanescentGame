@@ -2,7 +2,6 @@ extends Control
 
 class_name Inventory
 
-@onready var npc: NPC = get_parent().get_parent()
 @onready var slots: Array[Node] = get_node("MarginContainer/GridContainer").get_children()
 
 var items: Array[Item]
@@ -18,4 +17,4 @@ func _process(delta):
 
 func update_slots():
 	for i in range(0, items.size()):
-		slots[i].item_visual.texture = items[i].sprite_texture
+		slots[i].get_node("item_display").texture = items[i].sprite_texture
