@@ -5,17 +5,20 @@ extends CharacterBody2D
 @onready var player: Player = get_tree().get_nodes_in_group("player")[0]
 @onready var interactable_area: InteractableArea = $InteractableArea
 @onready var navigation_agent_2d = $NavigationAgent2D
+@onready var dialogue_emitter = $DialogueEmitter
+@onready var sprite_2d = $Sprite2D
 
-@export var starting_location: Location
-var starting_room: LocationRoom
 @export var graph_data: DecisionTreeGraphData
+@export var starting_dialogue_resource: DialogueResource
+@export var current_dialogue_title: String
 
 const SPEED: float = 125.0
 const SPRINT_MULTIPLIER: float = 1.5
 const JUMP_VELOCITY: float = 250
 const GRAVITY: float = 1000
 
-signal signal_dialogue(title: String)
+var starting_location: Location
+var starting_room: LocationRoom
 
 var is_possessed: bool = false
 var currently_held_item: Item = null
@@ -24,6 +27,8 @@ var current_room: LocationRoom
 var current_room_path: Array
 
 func _ready():
+	dialogue_emitter.dialogue_resource = starting_dialogue_resource
+	
 	var location_managers = get_tree().get_nodes_in_group("location_manager")
 	
 	if (location_managers.size() == 0):
@@ -54,10 +59,25 @@ func _physics_process(delta):
 		handle_npc_movement(delta)
 
 func on_player_interacted():
-	if (player.is_possessing):
-		signal_dialogue.emit("test_npc_convo")
-	else:
-		player.possess(self)
+	#if (player.is_possessing):
+		#signal_dialogue.emit("test_npc_convo")
+	#else:
+		#player.possess(self)
+	
+	dialogue_emitter.show_dialogue(current_dialogue_title)
+
+
+# Dialogue Things
+func set_dialogue_resource(path: String):
+	var dialogue_resource = load(path)
+	
+	dialogue_emitter.dialogue_resource = starting_dialogue_resource
+
+func set_dialogue_title(title: String):
+	current_dialogue_title = title
+
+
+
 
 func become_possessed():
 	is_possessed = true
@@ -67,12 +87,31 @@ func become_unpossessed():
 	is_possessed = false
 	interactable_area.enable()
 
+
+
+
+
+
 func add_to_inventory(item: Item):
 	currently_held_item = item
+
+
+
+
+
+
+
 
 func handle_input(delta: float):
 	if (Input.is_action_just_pressed("jump") and is_on_floor()):
 		jump()
+
+
+
+
+
+
+
 
 func handle_player_movement(delta: float):
 	if (not is_on_floor()):
@@ -133,11 +172,16 @@ func handle_npc_movement(delta: float):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED / 4)
 	
-	
+	sprite_2d.flip_h = sign(velocity.x)
 	move_and_slide()
 
 func jump():
 	velocity.y -= JUMP_VELOCITY
+
+
+
+
+
 
 
 # Call this to navigate your NPC to the desired position (position must be within a LocationRoom's area)

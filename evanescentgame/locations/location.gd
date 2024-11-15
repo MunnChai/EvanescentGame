@@ -7,9 +7,6 @@ extends Node2D
 var rooms: Array
 var location_exit_room: LocationRoom
 
-@export var room1: LocationRoom
-@export var room2: LocationRoom
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if (!rooms_node):
@@ -21,8 +18,6 @@ func _ready():
 	
 	if (!location_exit_room):
 		print("Location Exit Room not found in location: ", name)
-	
-	print(find_path_between(room1, room2))
 
 # Breadth First Search YAY DATA STRUCTURES AND ALGORITHMSSS
 func find_path_between(start_room: LocationRoom, end_room: LocationRoom):
