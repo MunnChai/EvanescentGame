@@ -227,7 +227,8 @@ func _on_dialogue_label_spoke(letter, letter_index, speed):
 		"Ghost":
 			audio_manager.play_sfx("Ghost", false, true, 0, 0, 0.9, 1.1)
 		_:
-			print("Invalid character set: ", true_character_name)
+			pass
+			#print("Invalid character set: ", true_character_name) # suppress a billion print statements
 	
 
 

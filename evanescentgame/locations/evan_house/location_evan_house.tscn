@@ -1,10 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://qxsjk3i2orwj"]
+[gd_scene load_steps=21 format=3 uid="uid://qxsjk3i2orwj"]
 
 [ext_resource type="PackedScene" uid="uid://blp4jjwokkgxj" path="res://locations/location.tscn" id="1_7ytg5"]
 [ext_resource type="Texture2D" uid="uid://cg2yfkgyo5n3v" path="res://assets/location_assets/evan_house/evan_house_decor.png" id="2_reaws"]
 [ext_resource type="Texture2D" uid="uid://86jvps4jrb2m" path="res://assets/location_assets/evan_house/evan_house_tileset.png" id="3_5dyj7"]
 [ext_resource type="Script" path="res://locations/location_room.gd" id="4_pqqrp"]
+[ext_resource type="PackedScene" uid="uid://bha8jx12sacir" path="res://instances/inspectable_area.tscn" id="4_wg1l0"]
 [ext_resource type="PackedScene" uid="uid://cl8kobrguc04e" path="res://components/background_door/background_door.tscn" id="5_c27is"]
+[ext_resource type="Resource" uid="uid://caddivrytwx6x" path="res://assets/dialogue/locations/evan_house/inspectables.dialogue" id="5_fhpyn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j5goi"]
 texture = ExtResource("2_reaws")
@@ -167,6 +169,12 @@ sources/1 = SubResource("TileSetAtlasSource_xt3bw")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_53kmb"]
 size = Vector2(19, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wf32j"]
+size = Vector2(32, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fuoht"]
+size = Vector2(25, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6pkxe"]
 size = Vector2(533, 260)
@@ -338,12 +346,33 @@ position = Vector2(-46, 4)
 position = Vector2(-1, 11)
 shape = SubResource("RectangleShape2D_53kmb")
 
-[node name="LocationArea" type="CollisionShape2D" parent="." index="5"]
+[node name="Inspectables" type="Node2D" parent="." index="5"]
+
+[node name="Couch" parent="Inspectables" index="0" instance=ExtResource("4_wg1l0")]
+position = Vector2(36, 24)
+dialogue_resource = ExtResource("5_fhpyn")
+dialogue_title = "couch"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inspectables/Couch/InteractableArea" index="1"]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_wf32j")
+
+[node name="Piano" parent="Inspectables" index="1" instance=ExtResource("4_wg1l0")]
+position = Vector2(-10.33, 24)
+dialogue_resource = ExtResource("5_fhpyn")
+dialogue_title = "piano"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inspectables/Piano/InteractableArea" index="1"]
+position = Vector2(-0.17, -2)
+shape = SubResource("RectangleShape2D_fuoht")
+
+[node name="LocationArea" type="CollisionShape2D" parent="." index="6"]
 visible = false
 position = Vector2(83.5, -34)
 shape = SubResource("RectangleShape2D_6pkxe")
 
-[node name="Rooms" type="Node2D" parent="." index="6"]
+[node name="Rooms" type="Node2D" parent="." index="7"]
+visible = false
 
 [node name="Upstairs" type="CollisionShape2D" parent="Rooms" index="0"]
 position = Vector2(64, 0)
@@ -379,15 +408,18 @@ position = Vector2(0, -3)
 position = Vector2(0, -26)
 shape = SubResource("RectangleShape2D_g1qyi")
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." index="7"]
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." index="8"]
 visible = false
 navigation_polygon = SubResource("NavigationPolygon_na036")
 
-[node name="NavigationRegion2D2" type="NavigationRegion2D" parent="." index="8"]
+[node name="NavigationRegion2D2" type="NavigationRegion2D" parent="." index="9"]
 visible = false
 position = Vector2(0, -80)
 navigation_polygon = SubResource("NavigationPolygon_e3kq1")
 
 [editable path="LocationExit"]
+[editable path="Inspectables/Couch"]
+[editable path="Inspectables/Couch/InteractableArea"]
+[editable path="Inspectables/Piano"]
 [editable path="Rooms/Upstairs/StairsDown"]
 [editable path="Rooms/DownStairs/StairsUp"]
