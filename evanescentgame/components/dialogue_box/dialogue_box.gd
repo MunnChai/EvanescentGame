@@ -30,6 +30,8 @@ var _locale: String = TranslationServer.get_locale()
 @onready var hidden_anchor = $Hidden
 @onready var visible_anchor = $Visible
 @onready var next_label = %NextLabel
+@onready var l_portrait = %LPortrait
+@onready var r_portrait = %RPortrait
 
 ## The current line
 var dialogue_line: DialogueLine:
@@ -51,27 +53,52 @@ var dialogue_line: DialogueLine:
 		dialogue_line = next_dialogue_line
 
 		character_label.visible = not dialogue_line.character.is_empty()
+		
+		# Parsing Metadata
 		var character_name = tr(dialogue_line.character, "dialogue")
 		var end_metadata = character_name.find("~")
+		var start_emotion = character_name.find("[")
+		var end_emotion = character_name.find("]")
+		var start_portrait_location = character_name.find("{")
+		var end_portrait_location = character_name.find("}")
 		
+		# Get Portrait
+		var portrait_path = "res://assets/portraits/"
+		var portrait: Texture2D
+		if (start_emotion == -1):
+			portrait = load(portrait_path + "placeholder_neutral.png")
+		else:
+			var emotion = character_name.substr(start_emotion + 1, end_emotion)
+			if (["neutral", "excited", "embarrassed", "disappointed"].has(emotion)):
+				portrait = load(portrait_path + "placeholder_" + emotion + ".png")
+			else:
+				portrait = PlaceholderTexture2D.new()
+				print("WARNING: invalid emotion in dialogue: ", emotion)
+		
+		# Set Portrait on left or right
+		#l_portrait.texture = portrait
+		
+		# Set Character Name
 		if (end_metadata == -1):
 			true_character_name = character_name
 			
+			# Yucky if statements! Refactor this to be a singleton that keeps track of these things
 			if (character_name == "Evan"):
 				if (!Player.knows_name):
 					character_name = "???"
 			elif (character_name == "Lady Devil"):
 				if (!Player.knows_devil_name):
 					character_name = "???"
-			
 		else:
 			true_character_name = character_name.substr(0, end_metadata)
-			character_name = character_name.substr(end_metadata + 1)
+			character_name = character_name.substr(end_metadata + 1, start_emotion)
+		
+		
 		
 		#print("True Character Name: ", true_character_name)
 		#print("Shown Character Name: ", character_name)
 		character_label.text = character_name
-
+		
 		dialogue_label.hide()
 		dialogue_label.dialogue_line = dialogue_line
 
