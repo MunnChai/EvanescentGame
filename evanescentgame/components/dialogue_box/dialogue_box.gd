@@ -56,6 +56,7 @@ var dialogue_line: DialogueLine:
 		
 		# Parsing Metadata
 		var character_name = tr(dialogue_line.character, "dialogue")
+		
 		var end_metadata = character_name.find("~")
 		var start_emotion = character_name.find("[")
 		var end_emotion = character_name.find("]")
@@ -68,19 +69,24 @@ var dialogue_line: DialogueLine:
 		if (start_emotion == -1):
 			portrait = load(portrait_path + "placeholder_neutral.png")
 		else:
-			var emotion = character_name.substr(start_emotion + 1, end_emotion)
+			var emotion = character_name.substr(start_emotion + 1, end_emotion - start_emotion - 1)
+			
 			if (["neutral", "excited", "embarrassed", "disappointed"].has(emotion)):
 				portrait = load(portrait_path + "placeholder_" + emotion + ".png")
 			else:
-				portrait = PlaceholderTexture2D.new()
 				print("WARNING: invalid emotion in dialogue: ", emotion)
 		
 		# Set Portrait on left or right
-		#l_portrait.texture = portrait
+		l_portrait.texture = portrait
 		
 		# Set Character Name
-		if (end_metadata == -1):
-			true_character_name = character_name
+		if (end_metadata == -1): 
+			if (start_emotion == -1):
+				true_character_name = character_name
+			else:
+				true_character_name = character_name.substr(0, start_emotion)
+			
+			character_name = true_character_name
 			
 			# Yucky if statements! Refactor this to be a singleton that keeps track of these things
 			if (character_name == "Evan"):
@@ -91,7 +97,11 @@ var dialogue_line: DialogueLine:
 					character_name = "???"
 		else:
 			true_character_name = character_name.substr(0, end_metadata)
-			character_name = character_name.substr(end_metadata + 1, start_emotion)
+			if (start_emotion == -1):
+				character_name = character_name.substr(end_metadata + 1)
+			else:
+				character_name = character_name.substr(end_metadata + 1, start_emotion - end_metadata - 1)
+			
 		
 		
 		

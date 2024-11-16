@@ -10,7 +10,7 @@ var current_node: DecisionTreeNodeData
 
 @onready var label = $Label
 
-@onready var npc: NPC = get_parent() # THIS IS JUST FOR TESTING, THE ACTUAL END IMPLEMENTATION WILL BE DIFFERENT!
+@onready var npc: NPC = get_parent() 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -66,6 +66,8 @@ func call_node_function(function_data):
 				var x = float(valueString.substr(0, commaIndex))
 				var y = float(valueString.substr(commaIndex + 1, -1)) # rest of the string
 				value = Vector2(x ,y)
+			2: # Number
+				value = float(parameter["value"])
 		
 		parameterTrueArray.push_back(value)
 	
