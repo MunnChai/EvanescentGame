@@ -18,7 +18,7 @@ func _ready():
 	npc_name = npc.name
 	
 	if (!graph_data):
-		print("No graph data!")
+		print("WARNING: NPC '", npc.name, "' has no decision tree data!")
 		return
 	
 	nodes_data = graph_data.nodes

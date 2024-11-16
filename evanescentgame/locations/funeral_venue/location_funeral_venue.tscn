@@ -1,9 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://rviju0lx5pre"]
+[gd_scene load_steps=19 format=3 uid="uid://rviju0lx5pre"]
 
 [ext_resource type="PackedScene" uid="uid://blp4jjwokkgxj" path="res://locations/location.tscn" id="1_tf2o3"]
 [ext_resource type="Texture2D" uid="uid://bk1osrbrhqlv5" path="res://assets/location_assets/funeral/funeral_tileset.png" id="2_ydhux"]
 [ext_resource type="Texture2D" uid="uid://t02s3n07dc4w" path="res://assets/location_assets/funeral/funeral_decor.png" id="3_sbocy"]
 [ext_resource type="PackedScene" uid="uid://cl8kobrguc04e" path="res://components/background_door/background_door.tscn" id="4_4xyvu"]
+[ext_resource type="PackedScene" uid="uid://bha8jx12sacir" path="res://instances/inspectable_area.tscn" id="4_a7ys2"]
+[ext_resource type="Resource" uid="uid://mquk0gnbe1j4" path="res://assets/dialogue/locations/funeral_venue/funeral_inspectables.dialogue" id="5_gx36h"]
 [ext_resource type="Script" path="res://locations/location_room.gd" id="6_dhi4h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mklsf"]
@@ -229,6 +231,8 @@ terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_mklsf")
 sources/2 = SubResource("TileSetAtlasSource_u2p44")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5nce5"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3a38o"]
 size = Vector2(896, 384)
 
@@ -319,18 +323,28 @@ flip_h = true
 region_enabled = true
 region_rect = Rect2(224, 120, 16, 24)
 
-[node name="LocationExit" parent="." index="4"]
+[node name="Inspectables" type="Node2D" parent="." index="4"]
+
+[node name="InspectableArea" parent="Inspectables" index="0" instance=ExtResource("4_a7ys2")]
+position = Vector2(332, -1)
+dialogue_resource = ExtResource("5_gx36h")
+dialogue_title = "obituary"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inspectables/InspectableArea/InteractableArea" index="1"]
+shape = SubResource("RectangleShape2D_5nce5")
+
+[node name="LocationExit" parent="." index="5"]
 position = Vector2(404, 5)
 
 [node name="CollisionShape2D" parent="LocationExit/InteractableArea" index="1"]
 position = Vector2(0, -4.5)
 
-[node name="LocationArea" type="CollisionShape2D" parent="." index="5"]
+[node name="LocationArea" type="CollisionShape2D" parent="." index="6"]
 visible = false
 position = Vector2(128, -64)
 shape = SubResource("RectangleShape2D_3a38o")
 
-[node name="Rooms" type="Node2D" parent="." index="6"]
+[node name="Rooms" type="Node2D" parent="." index="7"]
 visible = false
 
 [node name="Room1" type="CollisionShape2D" parent="Rooms" index="0"]
@@ -361,12 +375,13 @@ fade_seconds = 0.3
 position = Vector2(0, -11)
 shape = SubResource("RectangleShape2D_qcdqt")
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." index="7"]
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." index="8"]
 navigation_polygon = SubResource("NavigationPolygon_fmnqh")
 
-[node name="NavigationRegion2D2" type="NavigationRegion2D" parent="." index="8"]
+[node name="NavigationRegion2D2" type="NavigationRegion2D" parent="." index="9"]
 navigation_polygon = SubResource("NavigationPolygon_2yiyi")
 
+[editable path="Inspectables/InspectableArea"]
 [editable path="LocationExit"]
 [editable path="Rooms/Room1/BackgroundDoor"]
 [editable path="Rooms/Room2/BackgroundDoor2"]

@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://locations/location_room.gd" id="4_pqqrp"]
 [ext_resource type="PackedScene" uid="uid://bha8jx12sacir" path="res://instances/inspectable_area.tscn" id="4_wg1l0"]
 [ext_resource type="PackedScene" uid="uid://cl8kobrguc04e" path="res://components/background_door/background_door.tscn" id="5_c27is"]
-[ext_resource type="Resource" uid="uid://caddivrytwx6x" path="res://assets/dialogue/locations/evan_house/inspectables.dialogue" id="5_fhpyn"]
+[ext_resource type="Resource" uid="uid://caddivrytwx6x" path="res://assets/dialogue/locations/evan_house/evan_house_inspectables.dialogue" id="5_fhpyn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j5goi"]
 texture = ExtResource("2_reaws")

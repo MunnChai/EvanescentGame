@@ -47,6 +47,11 @@ graph_data = ExtResource("9_htow1")
 starting_dialogue_resource = ExtResource("8_56tli")
 current_dialogue_title = "wife_mingling"
 
+[node name="Colleague" parent="World/NPCs" instance=ExtResource("7_ow5sy")]
+position = Vector2(362, 18)
+starting_dialogue_resource = ExtResource("8_56tli")
+current_dialogue_title = "colleague_mingling"
+
 [node name="Player" parent="World" instance=ExtResource("1_juc8k")]
 position = Vector2(-107, -46)
 
