@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_resource.gd" id="1_6owlg"]
 [ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_node_resource.gd" id="1_boqkk"]
 
-[sub_resource type="Resource" id="Resource_u0quj"]
+[sub_resource type="Resource" id="Resource_ne52p"]
 script = ExtResource("1_boqkk")
 name = "GraphNode2"
 position_offset = Vector2(0, 0)
@@ -15,12 +15,12 @@ data = {
 "function_name": "",
 "parameters": []
 }],
-"next_function_time": 5.0,
+"next_function_time": 30.0,
 "npc_name": "",
 "title": "Start"
 }
 
-[sub_resource type="Resource" id="Resource_m62gg"]
+[sub_resource type="Resource" id="Resource_771w6"]
 script = ExtResource("1_boqkk")
 name = "GraphNode3"
 position_offset = Vector2(800, 0)
@@ -47,7 +47,7 @@ data = {
 "value": "moving_to_evan_house"
 }]
 }],
-"next_function_time": 5.0,
+"next_function_time": 30.0,
 "title": ""
 }
 
@@ -59,4 +59,4 @@ connections = [{
 "to_node": &"GraphNode3",
 "to_port": 0
 }]
-nodes = [SubResource("Resource_u0quj"), SubResource("Resource_m62gg")]
+nodes = [SubResource("Resource_ne52p"), SubResource("Resource_771w6")]

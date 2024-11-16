@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://qxsjk3i2orwj"]
+[gd_scene load_steps=24 format=3 uid="uid://qxsjk3i2orwj"]
 
 [ext_resource type="PackedScene" uid="uid://blp4jjwokkgxj" path="res://locations/location.tscn" id="1_7ytg5"]
 [ext_resource type="Texture2D" uid="uid://cg2yfkgyo5n3v" path="res://assets/location_assets/evan_house/evan_house_decor.png" id="2_reaws"]
@@ -175,6 +175,15 @@ size = Vector2(32, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fuoht"]
 size = Vector2(25, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b0t8p"]
+size = Vector2(35, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wtjis"]
+size = Vector2(37, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aq80o"]
+size = Vector2(16, 31)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6pkxe"]
 size = Vector2(533, 260)
@@ -366,6 +375,45 @@ dialogue_title = "piano"
 position = Vector2(-0.17, -2)
 shape = SubResource("RectangleShape2D_fuoht")
 
+[node name="FamilyPhoto" parent="Inspectables" index="2" instance=ExtResource("4_wg1l0")]
+position = Vector2(-10.33, -10)
+dialogue_resource = ExtResource("5_fhpyn")
+dialogue_title = "family_photo"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inspectables/FamilyPhoto/InteractableArea" index="1"]
+position = Vector2(46.83, -2)
+shape = SubResource("RectangleShape2D_b0t8p")
+
+[node name="DialogueEmitter" parent="Inspectables/FamilyPhoto" index="1"]
+position = Vector2(46.5, 0)
+
+[node name="Chandlier" parent="Inspectables" index="3" instance=ExtResource("4_wg1l0")]
+position = Vector2(132, -20)
+dialogue_resource = ExtResource("5_fhpyn")
+dialogue_title = "chandelier"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inspectables/Chandlier/InteractableArea" index="1"]
+position = Vector2(-0.17, -2)
+shape = SubResource("RectangleShape2D_fuoht")
+
+[node name="Sink" parent="Inspectables" index="4" instance=ExtResource("4_wg1l0")]
+position = Vector2(170, 19)
+dialogue_resource = ExtResource("5_fhpyn")
+dialogue_title = "sink"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inspectables/Sink/InteractableArea" index="1"]
+position = Vector2(3.5, -3.5)
+shape = SubResource("RectangleShape2D_wtjis")
+
+[node name="Flower" parent="Inspectables" index="5" instance=ExtResource("4_wg1l0")]
+position = Vector2(32, -71)
+dialogue_resource = ExtResource("5_fhpyn")
+dialogue_title = "flower"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inspectables/Flower/InteractableArea" index="1"]
+position = Vector2(1, 8)
+shape = SubResource("RectangleShape2D_aq80o")
+
 [node name="LocationArea" type="CollisionShape2D" parent="." index="6"]
 visible = false
 position = Vector2(83.5, -34)
@@ -421,5 +469,9 @@ navigation_polygon = SubResource("NavigationPolygon_e3kq1")
 [editable path="Inspectables/Couch"]
 [editable path="Inspectables/Couch/InteractableArea"]
 [editable path="Inspectables/Piano"]
+[editable path="Inspectables/FamilyPhoto"]
+[editable path="Inspectables/Chandlier"]
+[editable path="Inspectables/Sink"]
+[editable path="Inspectables/Flower"]
 [editable path="Rooms/Upstairs/StairsDown"]
 [editable path="Rooms/DownStairs/StairsUp"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://rviju0lx5pre"]
+[gd_scene load_steps=20 format=3 uid="uid://rviju0lx5pre"]
 
 [ext_resource type="PackedScene" uid="uid://blp4jjwokkgxj" path="res://locations/location.tscn" id="1_tf2o3"]
 [ext_resource type="Texture2D" uid="uid://bk1osrbrhqlv5" path="res://assets/location_assets/funeral/funeral_tileset.png" id="2_ydhux"]
@@ -233,6 +233,9 @@ sources/2 = SubResource("TileSetAtlasSource_u2p44")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5nce5"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a11wo"]
+size = Vector2(38, 19)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3a38o"]
 size = Vector2(896, 384)
 
@@ -275,7 +278,7 @@ layer_0/tile_data = PackedInt32Array(458759, 131072, 5, 393223, 131072, 5, 32768
 [node name="SpriteTileMap" type="TileMap" parent="." index="2"]
 tile_set = SubResource("TileSet_cxpo8")
 format = 2
-layer_0/tile_data = PackedInt32Array(17, 524290, 18, 36, 524290, 18, 65577, 983042, 14, -65486, 524290, 10, -262158, 131074, 2, -14, 131074, 5, 131069, 131074, 11, 65536, 131074, 11, 65539, 131074, 11, 65542, 131074, 11, 65545, 131074, 11, 65548, 131074, 11)
+layer_0/tile_data = PackedInt32Array(17, 524290, 18, 36, 524290, 18, 65577, 983042, 14, -65486, 524290, 10, -14, 131074, 5, 131069, 131074, 11, 65536, 131074, 11, 65539, 131074, 11, 65542, 131074, 11, 65545, 131074, 11, 65548, 131074, 11, -393230, 131074, 2)
 
 [node name="Sprites" type="Node2D" parent="." index="3"]
 
@@ -325,13 +328,31 @@ region_rect = Rect2(224, 120, 16, 24)
 
 [node name="Inspectables" type="Node2D" parent="." index="4"]
 
-[node name="InspectableArea" parent="Inspectables" index="0" instance=ExtResource("4_a7ys2")]
+[node name="Obituary" parent="Inspectables" index="0" instance=ExtResource("4_a7ys2")]
 position = Vector2(332, -1)
 dialogue_resource = ExtResource("5_gx36h")
 dialogue_title = "obituary"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Inspectables/InspectableArea/InteractableArea" index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inspectables/Obituary/InteractableArea" index="1"]
 shape = SubResource("RectangleShape2D_5nce5")
+
+[node name="Coffin" parent="Inspectables" index="1" instance=ExtResource("4_a7ys2")]
+position = Vector2(-108, -13)
+dialogue_resource = ExtResource("5_gx36h")
+dialogue_title = "coffin"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inspectables/Coffin/InteractableArea" index="1"]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_a11wo")
+
+[node name="Portrait" parent="Inspectables" index="2" instance=ExtResource("4_a7ys2")]
+position = Vector2(-108, -55)
+dialogue_resource = ExtResource("5_gx36h")
+dialogue_title = "portrait"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inspectables/Portrait/InteractableArea" index="1"]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_a11wo")
 
 [node name="LocationExit" parent="." index="5"]
 position = Vector2(404, 5)
@@ -381,7 +402,9 @@ navigation_polygon = SubResource("NavigationPolygon_fmnqh")
 [node name="NavigationRegion2D2" type="NavigationRegion2D" parent="." index="9"]
 navigation_polygon = SubResource("NavigationPolygon_2yiyi")
 
-[editable path="Inspectables/InspectableArea"]
+[editable path="Inspectables/Obituary"]
+[editable path="Inspectables/Coffin"]
+[editable path="Inspectables/Portrait"]
 [editable path="LocationExit"]
 [editable path="Rooms/Room1/BackgroundDoor"]
 [editable path="Rooms/Room2/BackgroundDoor2"]

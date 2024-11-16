@@ -1,10 +1,27 @@
 ~ couch
-Evan: Wow, this couch is nice. 
-Lady Devil: Yeah. Lol! Cool.
+Evan: Whoever lived here has good taste in furniture.
 => END
 
 ~ piano
-Evan: A piano! I bet I was great back when I was alive.
-*plink, plonk... clink*
-Lady Devil: ... Are you sure about that?
+Evan: A piano! I wonder if I could play when I was alive.
+Evan: ...
+Lady Devil: ... 
+Lady Devil: Did you just try to play something?
+Evan: Stupid ghost hands. 
+=> END
+
+~ family_photo
+Lady Devil: Hey, you're in this photo! So happy, cheerful... alive. 
+Evan: I can't believe I had 2 children!
+Lady Devil: I can't believe YOU had 2 children. 
+=> END
+
+~ chandelier
+Evan: Ooh, pretty lights! I wonder how much it costed?
+=> END
+
+
+~ sink
+Evan: So clean! 
+Lady Devil: I'm sure it was much dirtier when you were still around. 
 => END

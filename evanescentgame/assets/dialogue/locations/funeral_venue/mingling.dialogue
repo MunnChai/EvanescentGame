@@ -1,22 +1,24 @@
 ~ police_mingling
-Police Officer 1: Can't believe he's dead.
-Police Officer 2: Honestly, I didn't even know him that well.
-Police Officer 1: Damn.
-Police Officer 2: Damn.
-Lady Devil: Damn.
+Police Officer 2: Did you know him well? 
+Police Officer 1: Not really, just worked a case with him once. Can't believe he's dead.
 => END
 
 
 
-~ wife_mingling
-Dawn: I can't believe he's really gone.
-Dawn: ...
-Evan: She seems really sad.
-Evan: Hey Lady Devil, who is she? 
-Lady Devil: You think I know? I only deal with dead people.
-Evan: ... Fair enough
+~ dawn_and_kids_mingling
+Child 1: ... Mom, I don't wanna stay here anymore.
+Dawn: We're heading home soon, we just need to wait for everyone else to leave.
+Child 1: Okay... 
+Child 2: It's ok, it'll only be a little longer. 
 => END
 
-~ colleague_mingling
+
+
+~ colleague_and_cousin_mingling
+Colleague: This must be pretty rough for you, huh? 
+Cousin: Yeah... you too, right? 
+Colleague: Right...
+Cousin: ...
 Colleague: ...
+Evan: So nobody's sad that I'm dead?? 
 => END

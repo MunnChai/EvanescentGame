@@ -6,3 +6,16 @@ Evan: Sounds like I was pretty important, huh.
 Lady Devil: Considering you were sent to hell, that might not be a good thing.
 Evan: I know you're the Devil and all, but couldn't you be a bit more optimistic? 
 => END
+
+~ coffin
+Evan: Wow... I'm really dead, huh? 
+Lady Devil: Not as painful as you expected it to be? 
+Evan: I'm sure it would've been more painful if I remembered it.
+=> END
+
+
+~ portrait
+Evan: So that's what I look like!
+Lady Devil: LOOKED like - you're a bit more pale these days.
+Evan: Thanks for the reminder.
+=> END
