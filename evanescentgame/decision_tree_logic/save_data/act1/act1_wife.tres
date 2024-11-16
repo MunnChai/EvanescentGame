@@ -1,89 +1,53 @@
-[gd_resource type="Resource" script_class="DecisionTreeGraphData" load_steps=8 format=3 uid="uid://ew26bouaxm54"]
+[gd_resource type="Resource" script_class="DecisionTreeGraphData" load_steps=5 format=3 uid="uid://ew26bouaxm54"]
 
 [ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_resource.gd" id="1_6owlg"]
-[ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_node_resource.gd" id="1_qfsff"]
+[ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_node_resource.gd" id="1_boqkk"]
 
-[sub_resource type="Resource" id="Resource_b7an7"]
-script = ExtResource("1_qfsff")
-name = "GraphNode3"
-position_offset = Vector2(600, 0)
-size = Vector2(395.052, 596.276)
-data = {
-"alt_paths": [],
-"description": "",
-"function_name": "navigate_to",
-"next_function_time": 30.0,
-"npc_name": "",
-"parameters": [{
-"type": 1,
-"value": "2162, 0"
-}],
-"title": "Move To Evan House"
-}
-
-[sub_resource type="Resource" id="Resource_rutkb"]
-script = ExtResource("1_qfsff")
+[sub_resource type="Resource" id="Resource_u0quj"]
+script = ExtResource("1_boqkk")
 name = "GraphNode2"
 position_offset = Vector2(0, 0)
-size = Vector2(465.351, 558.266)
+size = Vector2(596.764, 712)
 data = {
 "alt_paths": [],
 "description": "",
+"functions": [{
 "function_name": "",
-"next_function_time": 30.0,
+"parameters": []
+}],
+"next_function_time": 5.0,
 "npc_name": "",
-"parameters": [],
-"title": ""
+"title": "Start"
 }
 
-[sub_resource type="Resource" id="Resource_0t85v"]
-script = ExtResource("1_qfsff")
-name = "GraphNode4"
-position_offset = Vector2(600, -1140)
-size = Vector2(180.004, 508.002)
+[sub_resource type="Resource" id="Resource_m62gg"]
+script = ExtResource("1_boqkk")
+name = "GraphNode3"
+position_offset = Vector2(800, 0)
+size = Vector2(402.544, 1020)
 data = {
 "alt_paths": [],
 "description": "",
-"function_name": "",
-"next_function_time": 0.0,
-"npc_name": "",
-"parameters": [],
-"title": ""
-}
-
-[sub_resource type="Resource" id="Resource_tsl2w"]
-script = ExtResource("1_qfsff")
-name = "GraphNode6"
-position_offset = Vector2(1200, 0)
-size = Vector2(395.355, 552)
-data = {
-"alt_paths": [],
-"description": "",
+"functions": [{
+"function_name": "navigate_to",
+"parameters": [{
+"type": 1,
+"value": "2162,0"
+}]
+}, {
 "function_name": "set_dialogue_resource",
-"next_function_time": 30.0,
-"npc_name": "",
 "parameters": [{
 "type": 0,
 "value": "res://assets/dialogue/during_moving/wife_during_moving.dialogue"
-}],
-"title": ""
-}
-
-[sub_resource type="Resource" id="Resource_b18qp"]
-script = ExtResource("1_qfsff")
-name = "GraphNode5"
-position_offset = Vector2(1800, 0)
-size = Vector2(365.124, 552)
-data = {
-"alt_paths": [],
-"description": "",
+}]
+}, {
 "function_name": "set_dialogue_title",
-"next_function_time": 45.0,
-"npc_name": "",
 "parameters": [{
 "type": 0,
 "value": "moving_to_evan_house"
+}]
 }],
+"next_function_time": 5.0,
 "title": ""
 }
 
@@ -94,15 +58,5 @@ connections = [{
 "from_port": 0,
 "to_node": &"GraphNode3",
 "to_port": 0
-}, {
-"from_node": &"GraphNode3",
-"from_port": 0,
-"to_node": &"GraphNode6",
-"to_port": 0
-}, {
-"from_node": &"GraphNode6",
-"from_port": 0,
-"to_node": &"GraphNode5",
-"to_port": 0
 }]
-nodes = [SubResource("Resource_b7an7"), SubResource("Resource_rutkb"), SubResource("Resource_0t85v"), SubResource("Resource_tsl2w"), SubResource("Resource_b18qp")]
+nodes = [SubResource("Resource_u0quj"), SubResource("Resource_m62gg")]

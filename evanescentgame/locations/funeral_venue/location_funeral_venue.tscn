@@ -256,9 +256,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(264, 32, 440, 32, 440, 8, 264, 8)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
-[node name="FuneralVenue" node_paths=PackedStringArray("room1", "room2") instance=ExtResource("1_tf2o3")]
-room1 = NodePath("Rooms/Room1")
-room2 = NodePath("Rooms/Room2")
+[node name="FuneralVenue" instance=ExtResource("1_tf2o3")]
 
 [node name="BackgroundTileMap" type="TileMap" parent="." index="0"]
 tile_set = SubResource("TileSet_cxpo8")

@@ -30,7 +30,7 @@ func _ready():
 			current_node = node
 	
 	if (!current_node):
-		print("Start node not defined!")
+		print("WARNING: Start node not defined for ", npc.name, "'s decision tree!")
 	else:
 		#call_node_function(current_node)
 		start_timer()
@@ -39,9 +39,15 @@ func _process(delta):
 	if (label):
 		label.text = str(Time.get_ticks_msec() / 1000)
 
-func call_node_function(node: DecisionTreeNodeData):
-	var function_name = node.get_function_name()
-	var parameters = node.get_parameters() # Need to parse these, as they don't actually work
+func call_node_functions(node: DecisionTreeNodeData):
+	var functions = node.get_functions()
+	
+	for function in functions:
+		call_node_function(function)
+
+func call_node_function(function_data):
+	var function_name = function_data["function_name"]
+	var parameters = function_data["parameters"]
 	
 	if (not npc.has_method(function_name)):
 		print("Failed to call: ", function_name, " on NPC!")
@@ -67,7 +73,6 @@ func call_node_function(node: DecisionTreeNodeData):
 	print("Calling: ", callable)
 	callable.callv(parameterTrueArray)
 
-
 func start_timer():
 	await get_tree().create_timer(CLOCK_TIMER_UPDATE_TIME).timeout
 	var current_time = Time.get_ticks_msec() / 1000
@@ -77,7 +82,7 @@ func start_timer():
 		current_node = graph_data.get_next_node(current_node, npc_name)
 		
 		if (current_node):
-			call_node_function(current_node)
+			call_node_functions(current_node)
 	
 	if (current_node):
 		start_timer()

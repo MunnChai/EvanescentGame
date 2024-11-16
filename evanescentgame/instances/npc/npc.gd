@@ -12,7 +12,7 @@ extends CharacterBody2D
 @export var starting_dialogue_resource: DialogueResource
 @export var current_dialogue_title: String
 
-const SPEED: float = 125.0
+const SPEED: float = 40.0
 const SPRINT_MULTIPLIER: float = 1.5
 const JUMP_VELOCITY: float = 250
 const GRAVITY: float = 1000
@@ -71,7 +71,7 @@ func on_player_interacted():
 func set_dialogue_resource(path: String):
 	var dialogue_resource = load(path)
 	
-	dialogue_emitter.dialogue_resource = starting_dialogue_resource
+	dialogue_emitter.dialogue_resource = dialogue_resource
 
 func set_dialogue_title(title: String):
 	current_dialogue_title = title
@@ -172,7 +172,7 @@ func handle_npc_movement(delta: float):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED / 4)
 	
-	sprite_2d.flip_h = sign(velocity.x)
+	sprite_2d.flip_h = -sign(velocity.x)
 	move_and_slide()
 
 func jump():
@@ -247,6 +247,7 @@ func enter_door(door: BackgroundDoor, target_position: Vector2):
 func move_to_location(location: Location, target_position: Vector2):
 	global_position = location.location_exit.global_position
 	current_location = location
+	current_room = location.location_exit_room
 	
 	navigate_to(target_position)
 	
