@@ -10,7 +10,7 @@
 script = null
 
 [node name="Npc" parent="." instance=ExtResource("2_24hvg")]
-position = Vector2(269, 6)
+position = Vector2(-71, 19)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-122, -21)

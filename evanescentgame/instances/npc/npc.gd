@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var player: Player = get_tree().get_nodes_in_group("player")[0]
 @onready var interactable_area: InteractableArea = $InteractableArea
 @onready var navigation_agent_2d = $NavigationAgent2D
+@onready var inventory = $CanvasLayer/Inventory
 
 @export var starting_location: Location
 
@@ -18,7 +19,6 @@ const GRAVITY: float = 1000
 signal signal_dialogue(title: String)
 
 var is_possessed: bool = false
-var currently_held_item: Item = null
 var current_location: Location
 
 func _ready():
@@ -28,8 +28,10 @@ func _physics_process(delta):
 	if (is_possessed):
 		handle_player_movement(delta)
 		handle_input(delta)
+		inventory.visible = true
 	else:
 		handle_npc_movement(delta)
+		inventory.visible = false
 
 func on_player_interacted():
 	if (player.is_possessing):
@@ -46,7 +48,9 @@ func become_unpossessed():
 	interactable_area.enable()
 
 func add_to_inventory(item: Item):
-	currently_held_item = item
+	if (inventory.items.size() < 3):
+		inventory.items.append(item)
+		inventory.update_slots()
 
 func handle_input(delta: float):
 	if (Input.is_action_just_pressed("jump") and is_on_floor()):

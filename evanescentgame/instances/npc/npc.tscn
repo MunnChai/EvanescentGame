@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://6520atjqp8tj" path="res://ui/Inventory/npcinv.tres" id="2_w8g3j"]
 [ext_resource type="PackedScene" uid="uid://cemmf570s8hey" path="res://components/dialogue_emitter/dialogue_emitter.tscn" id="3_kdiqa"]
 [ext_resource type="Resource" uid="uid://8ctajnr773an" path="res://demo_scene/initial_gameplay_demo/test_dialogue.dialogue" id="5_5k2ni"]
+[ext_resource type="PackedScene" uid="uid://c42lqbqc132h4" path="res://ui/inventory/inventory.tscn" id="6_3vby5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o2g0p"]
 size = Vector2(20, 43)
@@ -45,5 +46,10 @@ target_position = Vector2(0, 35)
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 10.0
 path_max_distance = 10.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Inventory" parent="CanvasLayer" instance=ExtResource("6_3vby5")]
+visible = false
 
 [connection signal="player_interacted" from="InteractableArea" to="." method="on_player_interacted"]
