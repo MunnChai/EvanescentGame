@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var navigation_agent_2d = $NavigationAgent2D
 @onready var dialogue_emitter = $DialogueEmitter
 @onready var sprite_2d = $Sprite2D
+@onready var inventory = $CanvasLayer/Inventory
 
 @export var graph_data: DecisionTreeGraphData
 @export var starting_dialogue_resource: DialogueResource
@@ -21,7 +22,6 @@ var starting_location: Location
 var starting_room: LocationRoom
 
 var is_possessed: bool = false
-var currently_held_item: Item = null
 var current_location: Location
 var current_room: LocationRoom
 var current_room_path: Array
@@ -55,8 +55,10 @@ func _physics_process(delta):
 	if (is_possessed):
 		handle_player_movement(delta)
 		handle_input(delta)
+		inventory.visible = true
 	else:
 		handle_npc_movement(delta)
+		inventory.visible = false
 
 func on_player_interacted():
 	#if (player.is_possessing):
@@ -93,7 +95,9 @@ func become_unpossessed():
 
 
 func add_to_inventory(item: Item):
-	currently_held_item = item
+	if (inventory.items.size() < 3):
+		inventory.items.append(item)
+		inventory.update_slots()
 
 
 

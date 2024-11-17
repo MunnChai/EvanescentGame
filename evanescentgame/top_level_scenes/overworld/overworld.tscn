@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cpiebxlknogvc"]
+[gd_scene load_steps=9 format=3 uid="uid://cpiebxlknogvc"]
 
 [ext_resource type="Script" path="res://top_level_scenes/overworld/overworld_manager.gd" id="1_5y34q"]
 [ext_resource type="PackedScene" uid="uid://brm7k4yr1lcxw" path="res://instances/player/player.tscn" id="1_juc8k"]
@@ -7,9 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dnwaf4gu81ddo" path="res://locations/cousin_house/location_cousin_house.tscn" id="5_daq0y"]
 [ext_resource type="PackedScene" uid="uid://iecgb5paqxrh" path="res://locations/police_station/location_police_station.tscn" id="6_speeq"]
 [ext_resource type="PackedScene" uid="uid://ccwc4s7e5nmbf" path="res://instances/npc/npc.tscn" id="7_ow5sy"]
-[ext_resource type="Resource" uid="uid://dxdju7sarntae" path="res://assets/dialogue/locations/funeral_venue/mingling.dialogue" id="8_56tli"]
 [ext_resource type="PackedScene" uid="uid://cg1rc471stkkl" path="res://ui/navigation_panel/navigation_panel.tscn" id="9_e1fk3"]
-[ext_resource type="Resource" uid="uid://ew26bouaxm54" path="res://decision_tree_logic/save_data/act1/act1_wife.tres" id="9_htow1"]
 
 [node name="Overworld" type="Node"]
 script = ExtResource("1_5y34q")
@@ -33,39 +31,24 @@ position = Vector2(4000, 0)
 
 [node name="Police1" parent="World/NPCs" instance=ExtResource("7_ow5sy")]
 position = Vector2(-44, 18)
-starting_dialogue_resource = ExtResource("8_56tli")
-current_dialogue_title = "police_mingling"
 
 [node name="Police2" parent="World/NPCs" instance=ExtResource("7_ow5sy")]
 position = Vector2(-19, 18)
-starting_dialogue_resource = ExtResource("8_56tli")
-current_dialogue_title = "police_mingling"
 
 [node name="Dawn" parent="World/NPCs" instance=ExtResource("7_ow5sy")]
 position = Vector2(57, 19)
-graph_data = ExtResource("9_htow1")
-starting_dialogue_resource = ExtResource("8_56tli")
-current_dialogue_title = "dawn_and_kids_mingling"
 
 [node name="Kid1" parent="World/NPCs" instance=ExtResource("7_ow5sy")]
 position = Vector2(80, 19)
-starting_dialogue_resource = ExtResource("8_56tli")
-current_dialogue_title = "dawn_and_kids_mingling"
 
 [node name="Kid2" parent="World/NPCs" instance=ExtResource("7_ow5sy")]
 position = Vector2(96, 19)
-starting_dialogue_resource = ExtResource("8_56tli")
-current_dialogue_title = "dawn_and_kids_mingling"
 
 [node name="Colleague" parent="World/NPCs" instance=ExtResource("7_ow5sy")]
 position = Vector2(372, 18)
-starting_dialogue_resource = ExtResource("8_56tli")
-current_dialogue_title = "colleague_and_cousin_mingling"
 
 [node name="Cousin" parent="World/NPCs" instance=ExtResource("7_ow5sy")]
 position = Vector2(356, 18)
-starting_dialogue_resource = ExtResource("8_56tli")
-current_dialogue_title = "colleague_and_cousin_mingling"
 
 [node name="Player" parent="World" instance=ExtResource("1_juc8k")]
 position = Vector2(-151, -23)
