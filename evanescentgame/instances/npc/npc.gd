@@ -61,12 +61,12 @@ func _physics_process(delta):
 		inventory.visible = false
 
 func on_player_interacted():
-	#if (player.is_possessing):
-		#signal_dialogue.emit("test_npc_convo")
-	#else:
-		#player.possess(self)
+	if (player.is_possessing):
+		dialogue_emitter.show_dialogue(current_dialogue_title)
+	else:
+		player.possess(self)
 	
-	dialogue_emitter.show_dialogue(current_dialogue_title)
+	#dialogue_emitter.show_dialogue(current_dialogue_title)
 
 
 # Dialogue Things
