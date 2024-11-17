@@ -46,6 +46,7 @@ _data = {
 [node name="Devil" instance=ExtResource("1_qr0bo")]
 position = Vector2(0, 8)
 script = ExtResource("2_jv2jd")
+starting_dialogue_resource = ExtResource("2_objkd")
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("3_c387p")
@@ -68,5 +69,3 @@ libraries = {
 "": SubResource("AnimationLibrary_i7yw1")
 }
 autoplay = "lady_devil_podium_idle"
-
-[connection signal="signal_dialogue" from="." to="DialogueEmitter" method="show_dialogue"]

@@ -7,8 +7,7 @@
 [node name="Ghost" instance=ExtResource("1_jdg3s")]
 script = ExtResource("2_i2ebm")
 num = 1
+starting_dialogue_resource = ExtResource("3_espgc")
 
 [node name="DialogueEmitter" parent="." index="3"]
 dialogue_resource = ExtResource("3_espgc")
-
-[connection signal="signal_dialogue" from="." to="DialogueEmitter" method="show_dialogue"]

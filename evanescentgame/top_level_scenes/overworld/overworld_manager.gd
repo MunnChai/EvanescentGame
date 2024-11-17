@@ -7,6 +7,7 @@ func load_underworld():
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	OverlayPanelManager.fade_in_to_scene(1) # Fade back in
 	await(get_tree().create_timer(scene_duration).timeout)
 	load_underworld()
 

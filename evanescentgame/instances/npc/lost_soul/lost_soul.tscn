@@ -7,11 +7,10 @@
 [node name="LostSoul" instance=ExtResource("1_ogdn5")]
 script = ExtResource("2_ymxn8")
 num = 1
+starting_dialogue_resource = ExtResource("3_4tih4")
 
 [node name="Sprite2D" parent="." index="0"]
 modulate = Color(0.196078, 1, 1, 0.537255)
 
 [node name="DialogueEmitter" parent="." index="3"]
 dialogue_resource = ExtResource("3_4tih4")
-
-[connection signal="signal_dialogue" from="." to="DialogueEmitter" method="show_dialogue"]

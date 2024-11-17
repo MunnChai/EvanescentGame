@@ -26,8 +26,12 @@ var current_location: Location
 var current_room: LocationRoom
 var current_room_path: Array
 
+signal signal_dialogue(title) # REMOVE AT SOME POINT, PLS DON'T USE THIS, INSTEAD CALL dialogue_emitter.show_dialogue(title)
+
 func _ready():
 	dialogue_emitter.dialogue_resource = starting_dialogue_resource
+	if (!interactable_area.player_interacted.is_connected(on_player_interacted)): 
+		interactable_area.player_interacted.connect(on_player_interacted)
 	
 	var location_managers = get_tree().get_nodes_in_group("location_manager")
 	

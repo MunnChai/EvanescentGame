@@ -12,7 +12,7 @@
 size = Vector2(9, 29)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_erhn5"]
-size = Vector2(25, 33.375)
+size = Vector2(61, 54.6875)
 
 [node name="Npc" type="CharacterBody2D"]
 collision_layer = 4
@@ -58,5 +58,3 @@ horizontal_alignment = 1
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Inventory" parent="CanvasLayer" instance=ExtResource("6_3vby5")]
-
-[connection signal="player_interacted" from="InteractableArea" to="." method="on_player_interacted"]
