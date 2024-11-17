@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://brm7k4yr1lcxw"]
+[gd_scene load_steps=8 format=3 uid="uid://brm7k4yr1lcxw"]
 
 [ext_resource type="Script" path="res://instances/player/player.gd" id="1_f0lp8"]
 [ext_resource type="Texture2D" uid="uid://yp0lkfg23nbh" path="res://assets/player/player_ghost.png" id="2_8wqn8"]
+[ext_resource type="PackedScene" uid="uid://mongwlhd8cu0" path="res://ui/ingame/ingame.tscn" id="3_fft6f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w86ao"]
 size = Vector2(9, 29)
@@ -65,3 +66,7 @@ libraries = {
 "": SubResource("AnimationLibrary_hqcos")
 }
 autoplay = "PlayerGhostIdle"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Ingame" parent="CanvasLayer" instance=ExtResource("3_fft6f")]

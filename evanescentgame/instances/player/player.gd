@@ -6,6 +6,7 @@ const SPEED: float = 100.0
 const ACCEL_DECAY_CONST: float = 6.0 # How fast should smoothing be
 
 @onready var sprite_2d = $Sprite2D
+@onready var ingame_ui = $CanvasLayer/Ingame
 
 var is_possessing: bool = false
 var currently_possessed_npc: NPC = null
@@ -66,6 +67,8 @@ func handle_movement(delta: float):
 
 func possess(npc: NPC):
 	sprite_2d.visible = false
+	ingame_ui.get_node("Fade").visible = false
+	ingame_ui.get_node("Vignette").visible = true
 	is_possessing = true
 	currently_possessed_npc = npc
 	npc.become_possessed()
@@ -76,6 +79,8 @@ func stop_possessing():
 	currently_possessed_npc = null
 	is_possessing = false
 	sprite_2d.visible = true
+	ingame_ui.get_node("Fade").visible = true
+	ingame_ui.get_node("Vignette").visible = false
 	
 static func increment_branches():
 	num_branches_chosen += 1
