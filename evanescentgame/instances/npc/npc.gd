@@ -5,35 +5,85 @@ extends CharacterBody2D
 @onready var player: Player = get_tree().get_nodes_in_group("player")[0]
 @onready var interactable_area: InteractableArea = $InteractableArea
 @onready var navigation_agent_2d = $NavigationAgent2D
+@onready var dialogue_emitter = $DialogueEmitter
+@onready var sprite_2d = $Sprite2D
+@onready var inventory = $CanvasLayer/Inventory
 
-@export var starting_location: Location
+@export var graph_data: DecisionTreeGraphData
+@export var starting_dialogue_resource: DialogueResource
+@export var current_dialogue_title: String
 
-const SPEED: float = 125.0
+const SPEED: float = 75.0
 const SPRINT_MULTIPLIER: float = 1.5
 const JUMP_VELOCITY: float = 250
 const GRAVITY: float = 1000
 
-signal signal_dialogue(title: String)
+var starting_location: Location
+var starting_room: LocationRoom
 
 var is_possessed: bool = false
-var currently_held_item: Item = null
 var current_location: Location
+var current_room: LocationRoom
+var current_room_path: Array
+
+signal signal_dialogue(title) # REMOVE AT SOME POINT, PLS DON'T USE THIS, INSTEAD CALL dialogue_emitter.show_dialogue(title)
 
 func _ready():
-	current_location = starting_location
+	dialogue_emitter.dialogue_resource = starting_dialogue_resource
+	if (!interactable_area.player_interacted.is_connected(on_player_interacted)): 
+		interactable_area.player_interacted.connect(on_player_interacted)
+	
+	var location_managers = get_tree().get_nodes_in_group("location_manager")
+	
+	if (location_managers.size() == 0):
+		return
+	
+	var location_manager = location_managers[0]
+	
+	for location: Location in location_manager.get_children():
+		if (location.area_contains_position(global_position)):
+			current_location = location
+			break
+	
+	if (!current_location):
+		print("The NPC: ", name, ", is not in any location's area!")
+		return
+	
+	current_room = current_location.get_room_of_position(global_position)
+	
+	if (!current_room):
+		print("The NPC: ", name, ", is not in any of location's rooms!")
+		return
 
 func _physics_process(delta):
-	if (is_possessed):
+	if (is_possessed and player.is_input_active):
 		handle_player_movement(delta)
 		handle_input(delta)
+		inventory.visible = true
 	else:
 		handle_npc_movement(delta)
+		inventory.visible = false
 
 func on_player_interacted():
 	if (player.is_possessing):
-		signal_dialogue.emit("test_npc_convo")
+		dialogue_emitter.show_dialogue(current_dialogue_title)
 	else:
 		player.possess(self)
+	
+	#dialogue_emitter.show_dialogue(current_dialogue_title)
+
+
+# Dialogue Things
+func set_dialogue_resource(path: String):
+	var dialogue_resource = load(path)
+	
+	dialogue_emitter.dialogue_resource = dialogue_resource
+
+func set_dialogue_title(title: String):
+	current_dialogue_title = title
+
+
+
 
 func become_possessed():
 	is_possessed = true
@@ -43,12 +93,33 @@ func become_unpossessed():
 	is_possessed = false
 	interactable_area.enable()
 
+
+
+
+
+
 func add_to_inventory(item: Item):
-	currently_held_item = item
+	if (inventory.items.size() < 3):
+		inventory.items.append(item)
+		inventory.update_slots()
+
+
+
+
+
+
+
 
 func handle_input(delta: float):
 	if (Input.is_action_just_pressed("jump") and is_on_floor()):
-		velocity.y -= JUMP_VELOCITY
+		jump()
+
+
+
+
+
+
+
 
 func handle_player_movement(delta: float):
 	if (not is_on_floor()):
@@ -101,7 +172,7 @@ func handle_npc_movement(delta: float):
 				is_on_floor()):
 				
 				# Jump
-				velocity.y -= JUMP_VELOCITY
+				jump()
 		
 		if (velocity.y < 0): # Stay still while jumping, just helps to not stray too far off the path
 			velocity.x = move_toward(velocity.x, 0, SPEED / 4)
@@ -109,29 +180,87 @@ func handle_npc_movement(delta: float):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED / 4)
 	
-	
+	sprite_2d.flip_h = -sign(velocity.x)
 	move_and_slide()
 
-func navigate_to(target_position: Vector2, location: Location):
-	# If location != current_location, navigate to location_exit
-	if (current_location != location):
-		navigation_agent_2d.target_position = current_location.location_exit.global_position
-		navigation_agent_2d.navigation_finished.connect(travel_to.bind(location, target_position))
-		print("Not at target location! Navigating to location exit...")
+func jump():
+	velocity.y -= JUMP_VELOCITY
+
+
+
+
+
+
+
+# Call this to navigate your NPC to the desired position (position must be within a LocationRoom's area)
+func navigate_to(target_position: Vector2):
+	var location_manager = get_tree().get_nodes_in_group("location_manager")[0]
+	var locations = location_manager.get_children()
+	
+	# Get target location
+	var target_location: Location
+	for location: Location in locations:
+		if (location.area_contains_position(target_position)):
+			target_location = location
+			break
+	
+	# Null check
+	if (!target_location):
+		print("Target position, ", target_position, ", is not in any location's area!")
 		return
 	
-	# navigate to location
-	navigation_agent_2d.target_position = target_position
-	print("Navigating to: ", target_position)
+	# IF STATEMENT HELL DDDDD:
+	if (current_location != target_location): # If target_location != current_location, navigate to location_exit_room
+		if (current_room != current_location.location_exit_room): # If current_room != location_exit_room, navigate to location_exit_room
+			if (current_room_path.size() == 0):
+				current_room_path = current_location.find_path_between(current_room, current_location.location_exit_room)
+			
+			var next_door: BackgroundDoor = current_room_path.pop_front()
+			navigation_agent_2d.target_position = next_door.global_position
+			navigation_agent_2d.navigation_finished.connect(enter_door.bind(next_door, target_position))
+			return
+		else: # If current_room == location_exit_room, navigate to location_exit and teleport to target_location
+			navigation_agent_2d.target_position = current_location.location_exit.global_position
+			navigation_agent_2d.navigation_finished.connect(move_to_location.bind(target_location, target_position))
+			return
+	else: # If target_location == current_location, navigate to target_room
+		# Get target room
+		var target_room: LocationRoom = target_location.get_room_of_position(target_position)
+		
+		if (!target_room):
+			print("Target position, ", target_position, ", is in ", target_location.name, ", but is not in any of the rooms' areas!")
+			return
+		
+		if (current_room != target_room): # If current_room != target_room, navigate to target_room
+			if (current_room_path.size() == 0):
+				current_room_path = current_location.find_path_between(current_room, target_room)
+			
+			var next_door: BackgroundDoor = current_room_path.pop_front()
+			navigation_agent_2d.target_position = next_door.global_position
+			navigation_agent_2d.navigation_finished.connect(enter_door.bind(next_door, target_position))
+			return
+		else: # If current_room == target_room, navigate to target_position
+			navigation_agent_2d.target_position = target_position
+			return
 
-func travel_to(location: Location, target_position: Vector2):
+func enter_door(door: BackgroundDoor, target_position: Vector2):
+	global_position = door.destination_door.global_position
+	current_room = current_location.get_room_of_position(global_position)
+	
+	navigate_to(target_position)
+	
+	if (navigation_agent_2d.navigation_finished.is_connected(enter_door)):
+		navigation_agent_2d.navigation_finished.disconnect(enter_door)
+
+func move_to_location(location: Location, target_position: Vector2):
 	global_position = location.location_exit.global_position
 	current_location = location
+	current_room = location.location_exit_room
 	
-	navigate_to(target_position, location)
+	navigate_to(target_position)
 	
-	if (navigation_agent_2d.navigation_finished.is_connected(travel_to)):
-		navigation_agent_2d.navigation_finished.disconnect(travel_to)
+	if (navigation_agent_2d.navigation_finished.is_connected(move_to_location)):
+		navigation_agent_2d.navigation_finished.disconnect(move_to_location)
 
 
 

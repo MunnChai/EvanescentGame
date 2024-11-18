@@ -16,11 +16,7 @@ signal exited_this_door # Called after input is returned after the coroutine
 ## Destination door.
 @export var destination_door: BackgroundDoor = null
 ## Panel to fade in/out when the door transition is happening.
-@export var fade_panel: OverlayPanel = null
-
-const FADE_SECONDS : float = 0.15 # Fade in/out durations
-
-
+@export var fade_seconds: float = 0.15
 
 # References
 @onready var player: Player = get_tree().get_nodes_in_group("player")[0]
@@ -36,6 +32,10 @@ func _on_player_interacted() -> void:
 ## Move the player to the destination door
 func _teleport_to_next() -> void:
 	var offset : Vector2 = player.global_position - global_position
+	
+	if player.is_possessing:
+		player.currently_possessed_npc.global_position = destination_door.global_position + offset
+	
 	player.global_position = destination_door.global_position + offset
 
 ## Coroutine for moving the player from origin to destination doors
@@ -43,13 +43,13 @@ func _enter_process() -> void:
 	entered_this_door.emit()
 	player.is_input_active = false # Turn off input...
 	
-	fade_panel.fade_out_scene(FADE_SECONDS)
-	await get_tree().create_timer(FADE_SECONDS).timeout
+	OverlayPanelManager.fade_out_scene(fade_seconds)
+	await get_tree().create_timer(fade_seconds).timeout
 	
 	_teleport_to_next()
 	
-	fade_panel.fade_in_to_scene(FADE_SECONDS)
-	await get_tree().create_timer(FADE_SECONDS).timeout
+	OverlayPanelManager.fade_in_to_scene(fade_seconds)
+	await get_tree().create_timer(fade_seconds).timeout
 	
 	player.is_input_active = true # Transition over, here's input again...
 	destination_door.exited_this_door.emit()

@@ -34,7 +34,7 @@ func start_underworld_initial_intro() -> void:
 	AmbientAudioManager.call_deferred("set_pitch", 0.6)
 	AmbientAudioManager.call_deferred("set_volume", 5)
 	
-	%OverlayPanel.show() # Show panels
+	OverlayPanelManager.set_opacity(1.0) # Show panels
 	%VignettePanel.show()
 	
 	# PLAYER IN POSITION
@@ -42,7 +42,7 @@ func start_underworld_initial_intro() -> void:
 	player.position = %InitialSpawn.position # Make sure correct start position!
 	
 	# FADE IN FROM BLACK
-	%OverlayPanel.fade_in_to_scene(1.0) # Fade in SO WE CAN SEE EVAN!
+	OverlayPanelManager.fade_in_to_scene(1.0)
 	
 	await get_tree().create_timer(1.5).timeout # Wait a little...
 	
@@ -82,7 +82,7 @@ func end_underworld_intro() -> void:
 	
 	await get_tree().create_timer(SECONDS_FOR_SUCK_ANIMATION).timeout # Wait a little...
 	
-	%OverlayPanel.fade_out_scene(0.001) # Cut to black!!!
+	OverlayPanelManager.fade_out_scene(0.001) # Cut to black!!!
 	
 	await get_tree().create_timer(SECONDS_AFTER_CUT_TO_BLACK).timeout
 	

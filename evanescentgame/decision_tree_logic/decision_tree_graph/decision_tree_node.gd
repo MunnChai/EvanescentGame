@@ -2,6 +2,7 @@ class_name DecisionTreeGraphNode
 extends GraphNode
 
 const DEFAULT_SLOT_INDEX = 7
+const FUNCTION_CONTAINER = preload("res://decision_tree_logic/node_components/function_container.tscn")
 
 enum SlotType {
 	DECISION = 0
@@ -11,11 +12,9 @@ var data = {}
 
 @onready var title_edit = $Title
 @onready var description = $Description
-@onready var npc_name = $NPCName
-@onready var function_name = %FunctionName
-@onready var param_container = %ParamContainer
+@onready var functions_container = $FunctionsContainer
+@onready var function_time = $FunctionTime
 
-var param_hboxes: Array = []
 var alt_path_hboxes: Array = []
 
 func _ready():
@@ -39,6 +38,7 @@ func add_slot(condition_name: String = "Condition" + str(get_output_port_count()
 	var remove_button = Button.new()
 	remove_button.text = "RemovePath"
 	remove_button.pressed.connect(on_path_remove_button_pressed.bind(path_hbox))
+	remove_button.modulate = Color.GREEN
 	
 	# Create slot
 	set_slot(slot_index, false, SlotType.DECISION, Color.WHITE, true, SlotType.DECISION, Color.RED)
@@ -98,52 +98,11 @@ func sort_by_port(connection1: Dictionary, connection2: Dictionary):
 	return false
 
 
-
-# Adding parameters
-# Adds a parameter container to self
-func add_parameter(selected_id: int = 0, value: String = ""):
-	# Create container
-	var param_hbox = HBoxContainer.new()
+# Adding functions
+func add_function():
+	var function_container = FUNCTION_CONTAINER.instantiate()
 	
-	# Create button to remove self
-	var remove_button = Button.new()
-	remove_button.text = "RemoveParam"
-	remove_button.pressed.connect(on_param_remove_button_pressed.bind(param_hbox))
-	
-	# Create dropdown for parameter type
-	var option_button = OptionButton.new()
-	option_button.add_item("Vector2")
-	option_button.add_item("String") 
-	option_button.item_selected.connect(on_param_type_selected.bind(param_hbox))
-	option_button.select(selected_id)
-	
-	# TODO: THIS IS STILL A WORK IN PROGRESS! I'm not exactly sure how I want to represent different types
-	var param_text_edit = TextEdit.new()
-	param_text_edit.custom_minimum_size = Vector2(0, 40)
-	param_text_edit.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	param_text_edit.text = value
-	
-	# Add components to container, add container to self, add container to array for easy access (for saving)
-	param_hbox.add_child(remove_button)
-	param_hbox.add_child(option_button)
-	param_hbox.add_child(param_text_edit)
-	param_container.add_child(param_hbox)
-	param_hboxes.append(param_hbox)
-
-func on_param_type_selected(index: int, hbox: HBoxContainer):
-	match (index):
-		0:
-			print(0)
-		1:
-			print(1)
-
-func on_param_remove_button_pressed(param_hbox):
-	param_hboxes.erase(param_hbox)
-	param_hbox.queue_free()
-
-
-
-
+	functions_container.add_child(function_container)
 
 
 # Saving and loading nodes
@@ -159,13 +118,17 @@ func init_node(node_data: DecisionTreeNodeData):
 func set_node_data():
 	title_edit.text = data["title"]
 	description.text = data["description"]
-	npc_name.text = data["npc_name"]
-	function_name.text = data["function_name"]
+	function_time.value = data["next_function_time"]
 	
-	for parameter in data["parameters"]:
-		add_parameter(parameter["type"], parameter["value"])
+	for function in data["functions"]:
+		var function_container = FUNCTION_CONTAINER.instantiate()
+		functions_container.add_child(function_container)
+		
+		function_container.function_name.text = function["function_name"]
+		
+		for parameter in function["parameters"]:
+			function_container.add_parameter(parameter["type"], parameter["value"])
 	
-	var i = 0
 	for path in data["alt_paths"]:
 		add_slot(path["condition"])
 
@@ -173,19 +136,26 @@ func set_node_data():
 func save_node_data():
 	data["title"] = title_edit.text
 	data["description"] = description.text
-	data["npc_name"] = npc_name.text
-	data["function_name"] = function_name.text
+	data["next_function_time"] = function_time.value
 	
-	var parameter_array = []
-	for param_hbox in param_hboxes:
-		var param_type = param_hbox.get_child(1) # HARD CODED, BE CAREFUL HERE
-		var param_text = param_hbox.get_child(2)
-		var dict = {
-			"type": param_type.get_selected_id(),
-			"value": param_text.text
-		}
-		parameter_array.append(dict)
-	data["parameters"] = parameter_array
+	var function_array = []
+	for function_container: FunctionContainer in functions_container.get_children():
+		var function_data = {}
+		function_data["function_name"] = function_container.function_name.text
+	
+		var parameter_array = []
+		for param_hbox in function_container.param_hboxes:
+			var param_type = param_hbox.get_child(1) # HARD CODED, BE CAREFUL HERE
+			var param_text = param_hbox.get_child(2)
+			var dict = {
+				"type": param_type.get_selected_id(),
+				"value": param_text.text
+			}
+			parameter_array.append(dict)
+		function_data["parameters"] = parameter_array
+		
+		function_array.append(function_data)
+	data["functions"] = function_array
 	
 	var alt_path_array = []
 	for alt_path in alt_path_hboxes:

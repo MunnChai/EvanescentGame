@@ -96,6 +96,15 @@ slot/8/right_type = 0
 slot/8/right_color = Color(1, 1, 1, 1)
 slot/8/right_icon = null
 slot/8/draw_stylebox = true
+slot/9/left_enabled = false
+slot/9/left_type = 0
+slot/9/left_color = Color(1, 1, 1, 1)
+slot/9/left_icon = null
+slot/9/right_enabled = false
+slot/9/right_type = 0
+slot/9/right_color = Color(1, 1, 1, 1)
+slot/9/right_icon = null
+slot/9/draw_stylebox = true
 script = ExtResource("1_mcfk4")
 
 [node name="TitleLabel" type="Label" parent="."]
@@ -116,53 +125,30 @@ custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 scroll_fit_content_height = true
 
-[node name="NPCNameLabel" type="Label" parent="."]
+[node name="FunctionTimeLabel" type="Label" parent="."]
 layout_mode = 2
-text = "NPC Name"
+text = "Function Time"
 
-[node name="NPCName" type="TextEdit" parent="."]
+[node name="FunctionTime" type="SpinBox" parent="."]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-scroll_fit_content_height = true
 
-[node name="FunctionContainer" type="PanelContainer" parent="."]
+[node name="FunctionsContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="FunctionContainer"]
+[node name="AddFunctionButton" type="Button" parent="."]
+modulate = Color(0, 1, 0, 1)
 layout_mode = 2
-
-[node name="FunctionNameLabel" type="Label" parent="FunctionContainer/VBoxContainer"]
-layout_mode = 2
-text = "FunctionName"
-
-[node name="FunctionName" type="TextEdit" parent="FunctionContainer/VBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-scroll_fit_content_height = true
-
-[node name="ParamLabel" type="Label" parent="FunctionContainer/VBoxContainer"]
-layout_mode = 2
-text = "Parameters"
-
-[node name="ParamContainer" type="VBoxContainer" parent="FunctionContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="FunctionContainer/VBoxContainer/ParamContainer"]
-layout_mode = 2
-
-[node name="Button" type="Button" parent="FunctionContainer/VBoxContainer"]
-layout_mode = 2
-text = "AddParam"
+text = "Add Function"
 
 [node name="AlternatePaths" type="Label" parent="."]
 layout_mode = 2
 text = "Alternate Paths"
 
-[node name="Button" type="Button" parent="."]
+[node name="AddPathButton" type="Button" parent="."]
+modulate = Color(0, 1, 0, 1)
 layout_mode = 2
 text = "Add New Path"
 
-[connection signal="pressed" from="FunctionContainer/VBoxContainer/Button" to="." method="add_parameter"]
-[connection signal="pressed" from="Button" to="." method="add_slot"]
+[connection signal="pressed" from="AddFunctionButton" to="." method="add_function"]
+[connection signal="pressed" from="AddPathButton" to="." method="add_slot"]

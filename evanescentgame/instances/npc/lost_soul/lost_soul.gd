@@ -8,11 +8,11 @@ var has_talked := false
 
 func on_player_interacted():
 	if has_talked:
-		signal_dialogue.emit("lost_soul_repeat_" + str(num))
+		dialogue_emitter.show_dialogue("lost_soul_repeat_" + str(num))
 		return
 	
 	has_talked = true
-	signal_dialogue.emit("lost_soul_" + str(num))
+	dialogue_emitter.show_dialogue("lost_soul_" + str(num))
 
 func handle_npc_movement(delta: float):
 	process_floating(delta)

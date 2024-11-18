@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://13s5spsk34qu"]
+[gd_scene load_steps=20 format=3 uid="uid://13s5spsk34qu"]
 
 [ext_resource type="Script" path="res://components/dialogue_box/dialogue_box.gd" id="1_dwrcf"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_q7lnr"]
 [ext_resource type="FontFile" uid="uid://byvk43qeri2e" path="res://assets/fonts/EBGaramond-Regular.ttf" id="2_vtkqp"]
 [ext_resource type="FontFile" uid="uid://dbun3p6thcp3t" path="res://assets/fonts/Pixica-Bold.ttf" id="2_y3hkj"]
+[ext_resource type="Texture2D" uid="uid://vnvnuhbi2te8" path="res://assets/portraits/placeholder_disappointed.png" id="3_bwtvs"]
 [ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_reponses_menu.gd" id="3_ygiw3"]
 [ext_resource type="PackedScene" uid="uid://choqm3a5m38yk" path="res://components/audio_manager/audio_manager.tscn" id="6_bu7ia"]
 [ext_resource type="AudioStream" uid="uid://g8ruygt22ap5" path="res://assets/sfx/voice_sfx/evan/detective_duck_talk.mp3" id="7_a8rdg"]
@@ -175,7 +176,27 @@ theme_override_constants/margin_bottom = 32
 [node name="VBoxContainer" type="VBoxContainer" parent="Balloon/Panel/Dialogue"]
 layout_mode = 2
 
-[node name="CharacterLabel" type="RichTextLabel" parent="Balloon/Panel/Dialogue/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Balloon/Panel/Dialogue/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Balloon/Panel/Dialogue/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 60
+
+[node name="LPortrait" type="TextureRect" parent="Balloon/Panel/Dialogue/VBoxContainer/HBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("3_bwtvs")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Balloon/Panel/Dialogue/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CharacterLabel" type="RichTextLabel" parent="Balloon/Panel/Dialogue/VBoxContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.501961)
 layout_mode = 2
@@ -187,7 +208,7 @@ text = "Character"
 fit_content = true
 scroll_active = false
 
-[node name="DialogueLabel" parent="Balloon/Panel/Dialogue/VBoxContainer" instance=ExtResource("2_q7lnr")]
+[node name="DialogueLabel" parent="Balloon/Panel/Dialogue/VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource("2_q7lnr")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
@@ -196,6 +217,20 @@ theme_override_fonts/bold_font = ExtResource("2_y3hkj")
 theme_override_font_sizes/normal_font_size = 36
 text = "Dialogue... "
 pause_at_characters = ".?!,:"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Balloon/Panel/Dialogue/VBoxContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 60
+
+[node name="RPortrait" type="TextureRect" parent="Balloon/Panel/Dialogue/VBoxContainer/HBoxContainer/MarginContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("3_bwtvs")
+expand_mode = 1
 
 [node name="Responses" type="MarginContainer" parent="Balloon"]
 layout_mode = 1
@@ -241,5 +276,5 @@ stream = ExtResource("8_dyulh")
 bus = &"Voicelines"
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
-[connection signal="spoke" from="Balloon/Panel/Dialogue/VBoxContainer/DialogueLabel" to="." method="_on_dialogue_label_spoke"]
+[connection signal="spoke" from="Balloon/Panel/Dialogue/VBoxContainer/HBoxContainer/VBoxContainer/DialogueLabel" to="." method="_on_dialogue_label_spoke"]
 [connection signal="response_selected" from="Balloon/Responses/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]

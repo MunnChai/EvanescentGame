@@ -1,0 +1,24 @@
+~ police_mingling
+Police Officer 2: Did you know him well? 
+Police Officer 1: Not really, just worked a case with him once. Can't believe he's dead.
+=> END
+
+
+
+~ dawn_and_kids_mingling
+Child 1: ... Mom, I don't wanna stay here anymore.
+Dawn: We're heading home soon, we just need to wait for everyone else to leave.
+Child 1: Okay... 
+Child 2: It's ok, it'll only be a little longer. 
+=> END
+
+
+
+~ colleague_and_cousin_mingling
+Colleague: This must be pretty rough for you, huh? 
+Cousin: Yeah... you too, right? 
+Colleague: Right...
+Cousin: ...
+Colleague: ...
+Evan: So nobody's sad that I'm dead?? 
+=> END

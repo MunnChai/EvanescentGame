@@ -1,0 +1,91 @@
+[gd_resource type="Resource" script_class="DecisionTreeGraphData" load_steps=7 format=3 uid="uid://dmje3ik5hyrb0"]
+
+[ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_resource.gd" id="1_fxyf4"]
+[ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_node_resource.gd" id="1_oagsc"]
+
+[sub_resource type="Resource" id="Resource_tvnuh"]
+script = ExtResource("1_oagsc")
+name = "GraphNode3"
+position_offset = Vector2(400, 0)
+size = Vector2(523.509, 600.4)
+data = {
+"alt_paths": [],
+"description": "",
+"function_name": "navigate_to",
+"next_function_time": 10.0,
+"npc_name": "",
+"parameters": [{
+"type": 1,
+"value": "350,0"
+}],
+"title": "Move a bit"
+}
+
+[sub_resource type="Resource" id="Resource_n8hpk"]
+script = ExtResource("1_oagsc")
+name = "GraphNode5"
+position_offset = Vector2(1600, 0)
+size = Vector2(278, 596)
+data = {
+"alt_paths": [],
+"description": "",
+"function_name": "jump",
+"next_function_time": 15.0,
+"npc_name": "",
+"parameters": [],
+"title": ""
+}
+
+[sub_resource type="Resource" id="Resource_vhu5o"]
+script = ExtResource("1_oagsc")
+name = "GraphNode4"
+position_offset = Vector2(1000, 0)
+size = Vector2(373, 552)
+data = {
+"alt_paths": [],
+"description": "",
+"function_name": "navigate_to",
+"next_function_time": 12.0,
+"npc_name": "",
+"parameters": [{
+"type": 1,
+"value": "50,0"
+}],
+"title": ""
+}
+
+[sub_resource type="Resource" id="Resource_ig168"]
+script = ExtResource("1_oagsc")
+name = "GraphNode2"
+position_offset = Vector2(0, 0)
+size = Vector2(295.158, 533.315)
+data = {
+"alt_paths": [],
+"description": "This function will 
+NOT be called",
+"function_name": "",
+"next_function_time": 5.0,
+"npc_name": "",
+"parameters": [],
+"title": "Start"
+}
+
+[resource]
+script = ExtResource("1_fxyf4")
+connections = [{
+"from_node": &"GraphNode2",
+"from_port": 0,
+"to_node": &"GraphNode3",
+"to_port": 0
+}, {
+"from_node": &"GraphNode4",
+"from_port": 0,
+"to_node": &"GraphNode5",
+"to_port": 0
+}, {
+"from_node": &"GraphNode3",
+"from_port": 0,
+"to_node": &"GraphNode4",
+"to_port": 0
+}]
+nodes = [SubResource("Resource_tvnuh"), SubResource("Resource_n8hpk"), SubResource("Resource_vhu5o"), SubResource("Resource_ig168")]

@@ -4,9 +4,13 @@ extends CharacterBody2D
 ## CONSTANTS
 const SPEED: float = 100.0
 const ACCEL_DECAY_CONST: float = 6.0 # How fast should smoothing be
+const EXIT_POSSESSION_SPEED: float = 200
+const NPC_CENTER_OFFSET: Vector2 = Vector2(0, -30)
 
 @onready var sprite_2d = $Sprite2D
+#@onready var ingame_ui = $CanvasLayer/Ingame
 
+var in_possessing_animation: bool = false
 var is_possessing: bool = false
 var currently_possessed_npc: NPC = null
 
@@ -38,10 +42,10 @@ func _process(delta):
 
 func _physics_process(delta: float):
 	handle_input(delta)
-	if (not is_possessing):
+	if (not is_possessing and not in_possessing_animation):
 		handle_movement(delta)
-	else:
-		global_position = currently_possessed_npc.global_position
+	elif (is_possessing and not in_possessing_animation):
+		global_position = currently_possessed_npc.global_position + NPC_CENTER_OFFSET
 
 func handle_input(delta: float):
 	if (Input.is_action_just_pressed("exit_possessee") and is_possessing):
@@ -65,17 +69,38 @@ func handle_movement(delta: float):
 	move_and_slide()
 
 func possess(npc: NPC):
+	in_possessing_animation = true
+	
+	const DISTANCE_THRESHOLD: float = 5
+	const MIN_SPEED: float = 50
+	var direction: Vector2 = (npc.global_position + NPC_CENTER_OFFSET) - global_position
+	var distance_to_npc: float = direction.length() 
+	
+	while (distance_to_npc > DISTANCE_THRESHOLD):
+		velocity = direction.normalized() * max(pow(distance_to_npc, 1.5), MIN_SPEED)
+		
+		direction = (npc.global_position + NPC_CENTER_OFFSET) - global_position
+		distance_to_npc = direction.length()
+		move_and_slide()
+		await get_tree().physics_frame
+	 
 	sprite_2d.visible = false
+	#ingame_ui.get_node("Fade").visible = false
+	#ingame_ui.get_node("Vignette").visible = true
 	is_possessing = true
 	currently_possessed_npc = npc
 	npc.become_possessed()
+	in_possessing_animation = false
 
 func stop_possessing():
-	global_position = currently_possessed_npc.global_position + Vector2(0, 3)
+	global_position = currently_possessed_npc.global_position + NPC_CENTER_OFFSET
+	velocity = Vector2(0, -EXIT_POSSESSION_SPEED)
 	currently_possessed_npc.become_unpossessed()
 	currently_possessed_npc = null
 	is_possessing = false
 	sprite_2d.visible = true
+	#ingame_ui.get_node("Fade").visible = true
+	#ingame_ui.get_node("Vignette").visible = false
 	
 static func increment_branches():
 	num_branches_chosen += 1

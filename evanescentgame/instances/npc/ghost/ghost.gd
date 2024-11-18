@@ -13,11 +13,11 @@ func on_player_interacted():
 		$Sprite2D.flip_h = false
 	
 	if has_talked:
-		signal_dialogue.emit("ghost_repeat_" + str(num))
+		dialogue_emitter.show_dialogue("ghost_repeat_" + str(num))
 		return
 	
 	has_talked = true
-	signal_dialogue.emit("ghost_" + str(num))
+	dialogue_emitter.show_dialogue("ghost_" + str(num))
 
 func handle_npc_movement(delta: float):
 	process_floating(delta)
