@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfluel2e374xh"]
+
+[ext_resource type="Script" path="res://old/components/overlay_panel/overlay_panel.gd" id="1_pglbs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m8gi0"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="OverlayPanel" type="Panel"]
+modulate = Color(0, 0, 0, 1)
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = -2843.0
+offset_top = -1782.0
+offset_right = 2774.0
+offset_bottom = 1761.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_m8gi0")
+script = ExtResource("1_pglbs")

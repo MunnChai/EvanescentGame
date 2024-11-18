@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://cdfxhb8msyn0j"
+path="res://.godot/imported/wife_during_moving.dialogue-b1450f4fbb5a416ecd4bf8bbeccedd4f.tres"
+
+[deps]
+
+source_file="res://old/assets/dialogue/during_moving/wife_during_moving.dialogue"
+dest_files=["res://.godot/imported/wife_during_moving.dialogue-b1450f4fbb5a416ecd4bf8bbeccedd4f.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://caddivrytwx6x"
+path="res://.godot/imported/evan_house_inspectables.dialogue-37d5b6aa98489597607b3a826a7660a9.tres"
+
+[deps]
+
+source_file="res://old/assets/dialogue/locations/evan_house/evan_house_inspectables.dialogue"
+dest_files=["res://.godot/imported/evan_house_inspectables.dialogue-37d5b6aa98489597607b3a826a7660a9.tres"]
+
+[params]
+
+defaults=true

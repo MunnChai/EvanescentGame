@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://ba3ffgc6d4u65"]
+
+[ext_resource type="PackedScene" uid="uid://b0pdgfamrjef8" path="res://old/ui/navigation_panel/loc1.tscn" id="1_f3hj0"]
+[ext_resource type="PackedScene" uid="uid://dpwrmulxaqybp" path="res://old/ui/navigation_panel/loc2.tscn" id="2_jx0nq"]
+[ext_resource type="PackedScene" uid="uid://lutalx7jcmpb" path="res://old/ui/navigation_panel/loc3.tscn" id="3_ho17g"]
+[ext_resource type="PackedScene" uid="uid://brm7k4yr1lcxw" path="res://old/instances/player/player.tscn" id="4_4dp8w"]
+[ext_resource type="PackedScene" uid="uid://ccwc4s7e5nmbf" path="res://old/instances/npc/npc.tscn" id="5_yajmj"]
+[ext_resource type="PackedScene" uid="uid://cg1rc471stkkl" path="res://old/ui/navigation_panel/navigation_panel.tscn" id="7_5a5tx"]
+
+[node name="NavTestScene" type="Node2D"]
+
+[node name="LocationManager" type="Node2D" parent="."]
+
+[node name="Loc1" parent="LocationManager" instance=ExtResource("1_f3hj0")]
+position = Vector2(100, -220)
+
+[node name="Loc2" parent="LocationManager" instance=ExtResource("2_jx0nq")]
+position = Vector2(-468, -214)
+
+[node name="Loc3" parent="LocationManager" instance=ExtResource("3_ho17g")]
+position = Vector2(-183, 64)
+
+[node name="Player" parent="." instance=ExtResource("4_4dp8w")]
+position = Vector2(-297, -138)
+
+[node name="Npc" parent="." instance=ExtResource("5_yajmj")]
+position = Vector2(-200, -114)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-297, -168)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="NavigationPanel" parent="CanvasLayer" node_paths=PackedStringArray("location_manager") instance=ExtResource("7_5a5tx")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+location_manager = NodePath("../../LocationManager")
