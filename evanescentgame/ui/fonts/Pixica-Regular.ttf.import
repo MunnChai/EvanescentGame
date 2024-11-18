@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://b5tvbag75onpp"
-path="res://.godot/imported/EBGaramond-SemiBold.ttf-e4fbf63d05e06c657030727d035400e3.fontdata"
+uid="uid://cv2xbw6a7jaq3"
+path="res://.godot/imported/Pixica-Regular.ttf-2f225f4a8d580c23179973467d107a8a.fontdata"
 
 [deps]
 
-source_file="res://fonts/EBGaramond-SemiBold.ttf"
-dest_files=["res://.godot/imported/EBGaramond-SemiBold.ttf-e4fbf63d05e06c657030727d035400e3.fontdata"]
+source_file="res://ui/fonts/Pixica-Regular.ttf"
+dest_files=["res://.godot/imported/Pixica-Regular.ttf-2f225f4a8d580c23179973467d107a8a.fontdata"]
 
 [params]
 

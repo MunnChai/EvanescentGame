@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dtoni8mvhu0c0"
-path="res://.godot/imported/EBGaramond-MediumItalic.ttf-0e6af93636f6850c15242bd0eb9cc308.fontdata"
+uid="uid://cvlhdbpw8x1nm"
+path="res://.godot/imported/PixicaMono-Wide.ttf-433a2e2a72d464bc38f9a2e34c7e79fe.fontdata"
 
 [deps]
 
-source_file="res://fonts/EBGaramond-MediumItalic.ttf"
-dest_files=["res://.godot/imported/EBGaramond-MediumItalic.ttf-0e6af93636f6850c15242bd0eb9cc308.fontdata"]
+source_file="res://ui/fonts/PixicaMono-Wide.ttf"
+dest_files=["res://.godot/imported/PixicaMono-Wide.ttf-433a2e2a72d464bc38f9a2e34c7e79fe.fontdata"]
 
 [params]
 

@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://dxdju7sarntae"
+path="res://.godot/imported/mingling.dialogue-52a71291ec5721886cdc44790352e5ae.tres"
+
+[deps]
+
+source_file="res://scenes/overworld/locations/funeral_venue/dialogue/act1/mingling.dialogue"
+dest_files=["res://.godot/imported/mingling.dialogue-52a71291ec5721886cdc44790352e5ae.tres"]
+
+[params]
+
+defaults=true

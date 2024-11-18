@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://ui/player_interface/ingame_clock/ingame_ui.gd" id="1_ralpc"]
 [ext_resource type="Texture2D" uid="uid://cmhhm8y1t5grd" path="res://ui/player_interface/testpossess.png" id="2_t8lhp"]
 [ext_resource type="Texture2D" uid="uid://cvgbnjpyq6paw" path="res://ui/player_interface/fadeblack.png" id="3_7rq7g"]
-[ext_resource type="FontFile" uid="uid://cwi0n3kesweuw" path="res://fonts/EBGaramond-Bold.ttf" id="4_nppts"]
+[ext_resource type="FontFile" uid="uid://cwi0n3kesweuw" path="res://ui/fonts/EBGaramond-Bold.ttf" id="4_nppts"]
 [ext_resource type="Script" path="res://ui/player_interface/ingame_clock/in_game_clock.gd" id="5_274s1"]
-[ext_resource type="FontFile" uid="uid://byvk43qeri2e" path="res://fonts/EBGaramond-Regular.ttf" id="6_fhxhd"]
+[ext_resource type="FontFile" uid="uid://byvk43qeri2e" path="res://ui/fonts/EBGaramond-Regular.ttf" id="6_fhxhd"]
 [ext_resource type="Script" path="res://ui/player_interface/ingame_clock/location_label.gd" id="7_5ph17"]
 
 [node name="Ingame" type="Control" groups=["clock"]]

@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bdx6aesmcc6kc"
-path="res://.godot/imported/EBGaramond-ExtraBold.ttf-a772ef6835fec3e357867179a6895f36.fontdata"
+uid="uid://6nduqub423tv"
+path="res://.godot/imported/EBGaramond-SemiBoldItalic.ttf-cf559afcf20bad498c24ada72433a9cb.fontdata"
 
 [deps]
 
-source_file="res://fonts/EBGaramond-ExtraBold.ttf"
-dest_files=["res://.godot/imported/EBGaramond-ExtraBold.ttf-a772ef6835fec3e357867179a6895f36.fontdata"]
+source_file="res://ui/fonts/EBGaramond-SemiBoldItalic.ttf"
+dest_files=["res://.godot/imported/EBGaramond-SemiBoldItalic.ttf-cf559afcf20bad498c24ada72433a9cb.fontdata"]
 
 [params]
 

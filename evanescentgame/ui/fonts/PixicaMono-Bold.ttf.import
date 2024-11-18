@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://brxyf6dy6x51y"
-path="res://.godot/imported/PixicaMono-Regular.ttf-db0aa14f22480b3d36d2a2ca12b670f0.fontdata"
+uid="uid://cm0v0pw8jk54c"
+path="res://.godot/imported/PixicaMono-Bold.ttf-4f5a9295ab638e32b24ac58fea8feb9e.fontdata"
 
 [deps]
 
-source_file="res://fonts/PixicaMono-Regular.ttf"
-dest_files=["res://.godot/imported/PixicaMono-Regular.ttf-db0aa14f22480b3d36d2a2ca12b670f0.fontdata"]
+source_file="res://ui/fonts/PixicaMono-Bold.ttf"
+dest_files=["res://.godot/imported/PixicaMono-Bold.ttf-4f5a9295ab638e32b24ac58fea8feb9e.fontdata"]
 
 [params]
 

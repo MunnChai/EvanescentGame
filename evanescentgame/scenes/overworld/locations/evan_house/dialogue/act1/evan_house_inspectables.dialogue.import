@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://caddivrytwx6x"
+path="res://.godot/imported/evan_house_inspectables.dialogue-74d5d2b7ecccd423e4ce88f2a9bf0cb8.tres"
+
+[deps]
+
+source_file="res://scenes/overworld/locations/evan_house/dialogue/act1/evan_house_inspectables.dialogue"
+dest_files=["res://.godot/imported/evan_house_inspectables.dialogue-74d5d2b7ecccd423e4ce88f2a9bf0cb8.tres"]
+
+[params]
+
+defaults=true

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://lutalx7jcmpb"]
 
 [ext_resource type="TileSet" uid="uid://b0ik5iqgovpsy" path="res://scenes/test/initial_gameplay_demo/demo_tiles.tres" id="1_bep3n"]
-[ext_resource type="PackedScene" uid="uid://wflq4srocbke" path="res://scenes/overworld/locations/location_exit.tscn" id="2_lwrif"]
+[ext_resource type="PackedScene" uid="uid://wflq4srocbke" path="res://scenes/scene_components/location_exit/location_exit.tscn" id="2_lwrif"]
 [ext_resource type="Texture2D" uid="uid://b03fer3ti2iyc" path="res://icon.svg" id="3_461op"]
 
 [node name="Loc3" type="Node2D"]

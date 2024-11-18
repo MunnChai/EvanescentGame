@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://ui/player_interface/dialogue_box/dialogue_box.gd" id="1_dwrcf"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_q7lnr"]
-[ext_resource type="FontFile" uid="uid://byvk43qeri2e" path="res://fonts/EBGaramond-Regular.ttf" id="2_vtkqp"]
-[ext_resource type="FontFile" uid="uid://dbun3p6thcp3t" path="res://fonts/Pixica-Bold.ttf" id="2_y3hkj"]
+[ext_resource type="FontFile" uid="uid://byvk43qeri2e" path="res://ui/fonts/EBGaramond-Regular.ttf" id="2_vtkqp"]
+[ext_resource type="FontFile" uid="uid://dbun3p6thcp3t" path="res://ui/fonts/Pixica-Bold.ttf" id="2_y3hkj"]
 [ext_resource type="Texture2D" uid="uid://vnvnuhbi2te8" path="res://characters/npc/placeholder/portraits/placeholder_disappointed.png" id="3_bwtvs"]
 [ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_reponses_menu.gd" id="3_ygiw3"]
 [ext_resource type="PackedScene" uid="uid://choqm3a5m38yk" path="res://general_components/audio_manager/audio_manager.tscn" id="6_bu7ia"]

@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dcqslh7gdpv1s"
-path="res://.godot/imported/EBGaramond-BoldItalic.ttf-d7d840a616da0fa4b1e001eaee402a1b.fontdata"
+uid="uid://dbun3p6thcp3t"
+path="res://.godot/imported/Pixica-Bold.ttf-05ae676b9d00be071d2e61f419fa72c0.fontdata"
 
 [deps]
 
-source_file="res://fonts/EBGaramond-BoldItalic.ttf"
-dest_files=["res://.godot/imported/EBGaramond-BoldItalic.ttf-d7d840a616da0fa4b1e001eaee402a1b.fontdata"]
+source_file="res://ui/fonts/Pixica-Bold.ttf"
+dest_files=["res://.godot/imported/Pixica-Bold.ttf-05ae676b9d00be071d2e61f419fa72c0.fontdata"]
 
 [params]
 

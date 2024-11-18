@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://wmlr8spbm86d"
-path="res://.godot/imported/PixicaMicro-Regular.ttf-c572ac9f73c00a95069e5ae3c25de1f6.fontdata"
+path="res://.godot/imported/PixicaMicro-Regular.ttf-8a9db876c9616429f01e480ce9faf688.fontdata"
 
 [deps]
 
-source_file="res://fonts/PixicaMicro-Regular.ttf"
-dest_files=["res://.godot/imported/PixicaMicro-Regular.ttf-c572ac9f73c00a95069e5ae3c25de1f6.fontdata"]
+source_file="res://ui/fonts/PixicaMicro-Regular.ttf"
+dest_files=["res://.godot/imported/PixicaMicro-Regular.ttf-8a9db876c9616429f01e480ce9faf688.fontdata"]
 
 [params]
 
