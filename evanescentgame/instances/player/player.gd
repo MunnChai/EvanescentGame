@@ -8,6 +8,7 @@ const EXIT_POSSESSION_SPEED: float = 200
 const NPC_CENTER_OFFSET: Vector2 = Vector2(0, -30)
 
 @onready var sprite_2d = $Sprite2D
+@onready var ingame_ui = $CanvasLayer/Ingame
 
 var in_possessing_animation: bool = false
 var is_possessing: bool = false
@@ -84,6 +85,8 @@ func possess(npc: NPC):
 		await get_tree().physics_frame
 	 
 	sprite_2d.visible = false
+	ingame_ui.get_node("Fade").visible = false
+	ingame_ui.get_node("Vignette").visible = true
 	is_possessing = true
 	currently_possessed_npc = npc
 	npc.become_possessed()
@@ -96,6 +99,8 @@ func stop_possessing():
 	currently_possessed_npc = null
 	is_possessing = false
 	sprite_2d.visible = true
+	ingame_ui.get_node("Fade").visible = true
+	ingame_ui.get_node("Vignette").visible = false
 	
 static func increment_branches():
 	num_branches_chosen += 1

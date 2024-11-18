@@ -1,6 +1,6 @@
 extends Node
 
-const scene_duration = 540.0 # secs until scene change
+const scene_duration = 540.0 # remade via UI timer
 
 func load_underworld():
 	SceneLoader.load_scene("res://top_level_scenes/underworld/underworld.tscn")

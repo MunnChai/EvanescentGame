@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://byuxpv2q8tskb"]
+[gd_scene load_steps=46 format=3 uid="uid://byuxpv2q8tskb"]
 
 [ext_resource type="Script" path="res://top_level_scenes/underworld/underworld_introduction/underworld_introduction_manager.gd" id="1_6xc8v"]
 [ext_resource type="PackedScene" uid="uid://cfluel2e374xh" path="res://components/overlay_panel/overlay_panel.tscn" id="2_v886t"]
@@ -33,6 +33,25 @@
 [ext_resource type="PackedScene" uid="uid://brm7k4yr1lcxw" path="res://instances/player/player.tscn" id="31_wts3c"]
 [ext_resource type="PackedScene" uid="uid://cfx3wanmlsj0" path="res://components/interactable_area/interactable_area.tscn" id="32_r724c"]
 [ext_resource type="Texture2D" uid="uid://b03fer3ti2iyc" path="res://icon.svg" id="33_drrbq"]
+
+[sub_resource type="GDScript" id="GDScript_f48mj"]
+script/source = "extends Control
+## Fade in/out transition
+
+@onready var opacity := modulate.a
+
+func fade_in_to_scene(duration: float) -> void:
+	fade_to_opacity(duration, 0.0, self)
+func fade_out_scene(duration: float) -> void:
+	fade_to_opacity(duration, 1.0, self)
+
+## Generalised fade function for any CanvasItem
+func fade_to_opacity(duration: float, target_opacity: float, target_node: CanvasItem) -> void:
+	var tween = get_tree().create_tween()
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(target_node, \"modulate\", Color(target_node.modulate, target_opacity), duration)
+"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tkwqk"]
 texture = ExtResource("8_wh467")
@@ -2822,6 +2841,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = SubResource("GDScript_f48mj")
 
 [node name="World" type="Node2D" parent="."]
 
