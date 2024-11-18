@@ -56,7 +56,7 @@ func _ready():
 		return
 
 func _physics_process(delta):
-	if (is_possessed):
+	if (is_possessed and player.is_input_active):
 		handle_player_movement(delta)
 		handle_input(delta)
 		inventory.visible = true
