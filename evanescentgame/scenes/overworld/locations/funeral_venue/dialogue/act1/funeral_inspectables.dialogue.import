@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://mquk0gnbe1j4"
+path="res://.godot/imported/funeral_inspectables.dialogue-4730654ac41a7ae952e78ab072636d77.tres"
+
+[deps]
+
+source_file="res://scenes/overworld/locations/funeral_venue/dialogue/act1/funeral_inspectables.dialogue"
+dest_files=["res://.godot/imported/funeral_inspectables.dialogue-4730654ac41a7ae952e78ab072636d77.tres"]
+
+[params]
+
+defaults=true

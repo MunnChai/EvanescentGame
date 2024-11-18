@@ -2,7 +2,7 @@ class_name DecisionTreeGraphNode
 extends GraphNode
 
 const DEFAULT_SLOT_INDEX = 7
-const FUNCTION_CONTAINER = preload("res://decision_tree_logic/node_components/function_container.tscn")
+const FUNCTION_CONTAINER = preload("./node_components/function_container.tscn")
 
 enum SlotType {
 	DECISION = 0

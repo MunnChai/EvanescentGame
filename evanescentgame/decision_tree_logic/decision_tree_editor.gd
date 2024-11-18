@@ -1,6 +1,6 @@
 extends Control
 
-const DECISION_TREE_NODE = preload("res://decision_tree_logic/decision_tree_graph/decision_tree_node.tscn")
+const DECISION_TREE_NODE = preload("./decision_tree_graph/decision_tree_node.tscn")
 
 @onready var graph: GraphEdit = $DecisionTreeGraph
 

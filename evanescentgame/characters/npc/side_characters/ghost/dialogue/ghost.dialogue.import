@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://50khg6v8hcu"
+path="res://.godot/imported/ghost.dialogue-bb0952d750de23aeb5ce6d37e3b4ee8a.tres"
+
+[deps]
+
+source_file="res://characters/npc/side_characters/ghost/dialogue/ghost.dialogue"
+dest_files=["res://.godot/imported/ghost.dialogue-bb0952d750de23aeb5ce6d37e3b4ee8a.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://come7mw3788pf"]
+
+[ext_resource type="PackedScene" uid="uid://cemmf570s8hey" path="res://general_components/dialogue_emitter/dialogue_emitter.tscn" id="1_fq6yp"]
+[ext_resource type="Script" path="res://scenes/scene_components/locational_dialogue_trigger/locational_dialogue_trigger.gd" id="1_l5dyt"]
+
+[node name="OneTimeLocationDialogue" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_l5dyt")
+
+[node name="DialogueEmitter" parent="." instance=ExtResource("1_fq6yp")]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
