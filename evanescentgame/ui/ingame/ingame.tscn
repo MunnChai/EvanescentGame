@@ -48,6 +48,7 @@ script = ExtResource("5_on31w")
 
 [node name="Timer" type="Timer" parent="Clock"]
 wait_time = 720.0
+one_shot = true
 
 [node name="Location" type="Label" parent="."]
 layout_mode = 1

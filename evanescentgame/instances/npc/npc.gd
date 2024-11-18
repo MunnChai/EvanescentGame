@@ -13,7 +13,7 @@ extends CharacterBody2D
 @export var starting_dialogue_resource: DialogueResource
 @export var current_dialogue_title: String
 
-const SPEED: float = 40.0
+const SPEED: float = 75.0
 const SPRINT_MULTIPLIER: float = 1.5
 const JUMP_VELOCITY: float = 250
 const GRAVITY: float = 1000

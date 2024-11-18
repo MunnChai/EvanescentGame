@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bk1osrbrhqlv5" path="res://assets/location_assets/funeral/funeral_tileset.png" id="2_ydhux"]
 [ext_resource type="Texture2D" uid="uid://t02s3n07dc4w" path="res://assets/location_assets/funeral/funeral_decor.png" id="3_sbocy"]
 [ext_resource type="PackedScene" uid="uid://cl8kobrguc04e" path="res://components/background_door/background_door.tscn" id="4_4xyvu"]
-[ext_resource type="PackedScene" path="res://instances/inspectable_area.tscn" id="4_a7ys2"]
+[ext_resource type="PackedScene" uid="uid://bha8jx12sacir" path="res://instances/inspectable_area.tscn" id="4_a7ys2"]
 [ext_resource type="Resource" uid="uid://mquk0gnbe1j4" path="res://assets/dialogue/locations/funeral_venue/funeral_inspectables.dialogue" id="5_gx36h"]
 [ext_resource type="Script" path="res://locations/location_room.gd" id="6_dhi4h"]
 [ext_resource type="PackedScene" uid="uid://dfnksobtsogiq" path="res://ui/inventory/test_items/apple.tscn" id="6_mvcc4"]

@@ -1,45 +1,46 @@
 extends Label
 
-# the timer counts DOWN, so set the start and end times accordingly
-# (e.g. 9am-3am would be 1170 - 630, as it is (or was)
-# (wrt seconds in irl time, in game it's 720sec/day) 
-const start_time = 1170
-const end_time = 630
+# Start time in in game hours (eg. 9 = 9:00am, 9.5 = 9:30am, 15 = 3:00pm)
+const START_TIME_IGT: float = 9 
+# End time in in game hours (24 + 3 = 3:00am, the next day)
+const END_TIME_IGT: float = 24 + 3 
+# The time it takes for the day to pass, in real life seconds (eg. 4 * 60 + 30 = 4mins, 30secs)
+const DAY_DURATION_IRL: float = 5 * 60
+# eg. 1 IRL second * IGT_SECOND_MULTIPLIER = 1 IGT second
+const IGT_SECOND_MULTIPLIER: float = ((END_TIME_IGT - START_TIME_IGT) * 60 * 60) / DAY_DURATION_IRL 
+
+var timer_ended: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if get_tree().current_scene.name == "Overworld": # change to (insert scene here)!!!
 		text = " 12:00am"
-		if (start_time - end_time > 0):
-			$Timer.wait_time = start_time
-		else:
-			$Timer.wait_time = 1
+		$Timer.wait_time = DAY_DURATION_IRL
 		$Timer.start()
+		$Timer.timeout.connect(load_underworld)
 	else:
+		# Maybe we can apply some funky effects here, like the numbers are constantly flipping through random times in the underworld?
 		text = " 0:00xm"
+
+func load_underworld():
+	SceneLoader.load_scene("res://top_level_scenes/underworld/underworld.tscn")
 
 # Called every frame. 'delta' = elapsed time (used for timer things)
 @warning_ignore("unused_parameter")
 func _process(delta):
 	if $Timer.is_stopped() == false:
 		_update_timer($Timer.get_time_left())
-		if ($Timer.get_time_left() <= end_time):
-			# cool things may happen here, but for right now just
-			SceneLoader.load_scene("res://top_level_scenes/underworld/underworld.tscn")
-	else:
-		pass
 
-# Counting down overworld life visually
-func _update_timer(duration: float):
-	var time = 720 - (duration - (int(duration / 720) * 720))
-	if (time - int(time)) > 0.5:
-		time = int(time) + 0.5
-	else:
-		time = float(int(time))
+# Counting down overworld life visually, time_left is seconds left in the day in IRL time
+func _update_timer(time_left: float):
+	var time_since_start = DAY_DURATION_IRL - time_left
+	var in_game_time_since_start = time_since_start * IGT_SECOND_MULTIPLIER
+	
+	var time = in_game_time_since_start + (START_TIME_IGT * 60 * 60)
 	
 	# technical time things
-	var h = int((time * 2) / 60)
-	var m = int((time * 2) - (60 * h))
+	var h = int((time) / (60 * 60))
+	var m = int(fmod(time, 3600) / 60)
 	
 	# concatenation
 	if (m < 10):
@@ -48,11 +49,9 @@ func _update_timer(duration: float):
 		m = str(m)
 	if (h < 1):
 		h = "12"
-	elif (h > 12):
-		h = str(h - 12)
 	else:
-		h = str(h)
-	if (time < 360):
+		h = str(fmod(h, 12))
+	if (fmod(time, 3600 * 24) < 3600 * 12):
 		text = " " + h + ":" + m + "am"
 	else:
 		text = " " + h + ":" + m + "pm"

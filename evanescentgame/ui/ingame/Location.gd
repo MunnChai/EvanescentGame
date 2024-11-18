@@ -8,9 +8,12 @@ func _ready():
 
 # Called every frame. 'delta' = elapsed time (used for location checking)
 func _process(delta):
-	if SceneLoader.scene_to_load_path == "res://top_level_scenes/underworld/underworld_introduction/underworld_introduction.tscn":
+	if (!get_tree().current_scene):
+		return
+	
+	if get_tree().current_scene.name.contains("Underworld"):
 		text = ". . . . ? "
-	elif SceneLoader.scene_to_load_path == "res://top_level_scenes/overworld/overworld.tscn":
+	elif get_tree().current_scene.name == "Overworld":
 		text = "Land of the Living "
 	else:
 		text = "[unknown] "
