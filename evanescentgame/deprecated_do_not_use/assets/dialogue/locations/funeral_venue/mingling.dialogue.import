@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://dxdju7sarntae"
+path="res://.godot/imported/mingling.dialogue-3b00cae9feeb7d3a956f8c5dd81e3404.tres"
+
+[deps]
+
+source_file="res://deprecated_do_not_use/assets/dialogue/locations/funeral_venue/mingling.dialogue"
+dest_files=["res://.godot/imported/mingling.dialogue-3b00cae9feeb7d3a956f8c5dd81e3404.tres"]
+
+[params]
+
+defaults=true

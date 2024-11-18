@@ -1,0 +1,154 @@
+[gd_scene load_steps=2 format=3 uid="uid://fpq3ip5c3myx"]
+
+[ext_resource type="Script" path="res://decision_tree_logic/decision_tree_graph/decision_tree_node.gd" id="1_mcfk4"]
+
+[node name="DecisionTreeNode" type="GraphNode"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -90.0
+offset_right = 20.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+resizable = true
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color(1, 1, 1, 1)
+slot/2/left_icon = null
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color(1, 1, 1, 1)
+slot/2/right_icon = null
+slot/2/draw_stylebox = true
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color(1, 1, 1, 1)
+slot/3/left_icon = null
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color(1, 1, 1, 1)
+slot/3/right_icon = null
+slot/3/draw_stylebox = true
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color(1, 1, 1, 1)
+slot/4/left_icon = null
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color(1, 1, 1, 1)
+slot/4/right_icon = null
+slot/4/draw_stylebox = true
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color(1, 1, 1, 1)
+slot/5/left_icon = null
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color(1, 1, 1, 1)
+slot/5/right_icon = null
+slot/5/draw_stylebox = true
+slot/6/left_enabled = false
+slot/6/left_type = 0
+slot/6/left_color = Color(1, 1, 1, 1)
+slot/6/left_icon = null
+slot/6/right_enabled = false
+slot/6/right_type = 0
+slot/6/right_color = Color(1, 1, 1, 1)
+slot/6/right_icon = null
+slot/6/draw_stylebox = true
+slot/7/left_enabled = false
+slot/7/left_type = 0
+slot/7/left_color = Color(1, 1, 1, 1)
+slot/7/left_icon = null
+slot/7/right_enabled = false
+slot/7/right_type = 0
+slot/7/right_color = Color(1, 1, 1, 1)
+slot/7/right_icon = null
+slot/7/draw_stylebox = true
+slot/8/left_enabled = false
+slot/8/left_type = 0
+slot/8/left_color = Color(1, 1, 1, 1)
+slot/8/left_icon = null
+slot/8/right_enabled = false
+slot/8/right_type = 0
+slot/8/right_color = Color(1, 1, 1, 1)
+slot/8/right_icon = null
+slot/8/draw_stylebox = true
+slot/9/left_enabled = false
+slot/9/left_type = 0
+slot/9/left_color = Color(1, 1, 1, 1)
+slot/9/left_icon = null
+slot/9/right_enabled = false
+slot/9/right_type = 0
+slot/9/right_color = Color(1, 1, 1, 1)
+slot/9/right_icon = null
+slot/9/draw_stylebox = true
+script = ExtResource("1_mcfk4")
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 2
+text = "Title"
+
+[node name="Title" type="TextEdit" parent="."]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+scroll_fit_content_height = true
+
+[node name="DescriptionLabel" type="Label" parent="."]
+layout_mode = 2
+text = "Description"
+
+[node name="Description" type="TextEdit" parent="."]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+scroll_fit_content_height = true
+
+[node name="FunctionTimeLabel" type="Label" parent="."]
+layout_mode = 2
+text = "Function Time"
+
+[node name="FunctionTime" type="SpinBox" parent="."]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="FunctionsContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="AddFunctionButton" type="Button" parent="."]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+text = "Add Function"
+
+[node name="AlternatePaths" type="Label" parent="."]
+layout_mode = 2
+text = "Alternate Paths"
+
+[node name="AddPathButton" type="Button" parent="."]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+text = "Add New Path"
+
+[connection signal="pressed" from="AddFunctionButton" to="." method="add_function"]
+[connection signal="pressed" from="AddPathButton" to="." method="add_slot"]

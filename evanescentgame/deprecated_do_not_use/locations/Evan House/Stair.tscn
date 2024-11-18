@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://ci4rrapqyhbuj"]
+
+[ext_resource type="Texture2D" uid="uid://qk8cgv1eija8" path="res://deprecated_do_not_use/assets/EvanHouse Assets/TopDownHouse_DoorsAndWindows.png" id="1_3vpx6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h0iw6"]
+size = Vector2(31, 7)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
+position = Vector2(156.5, 79)
+scale = Vector2(0.975694, 1)
+texture = ExtResource("1_3vpx6")
+region_enabled = true
+region_rect = Rect2(-1, 80, 31, 78)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="AnimatableBody2D"]
+position = Vector2(157, 55)
+shape = SubResource("RectangleShape2D_h0iw6")
+one_way_collision = true

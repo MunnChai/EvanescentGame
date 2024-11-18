@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfnksobtsogiq"]
+
+[ext_resource type="PackedScene" uid="uid://bpqo103lmn4jo" path="res://scenes/scene_components/item/item.tscn" id="1_kmoim"]
+[ext_resource type="Texture2D" uid="uid://exgq5mtiik4j" path="res://ui/player_interface/inventory/test_items/apple-icon.png" id="2_docjj"]
+
+[node name="Apple" instance=ExtResource("1_kmoim")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_docjj")

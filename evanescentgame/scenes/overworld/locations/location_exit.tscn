@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://wflq4srocbke"]
+
+[ext_resource type="Script" path="res://scenes/overworld/locations/scripts/location_exit.gd" id="1_hvcs1"]
+[ext_resource type="PackedScene" uid="uid://cfx3wanmlsj0" path="res://general_components/interactable_area/interactable_area.tscn" id="1_nkhhj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_00x8u"]
+size = Vector2(38, 31)
+
+[node name="LocationExit" type="Node2D"]
+script = ExtResource("1_hvcs1")
+
+[node name="InteractableArea" parent="." instance=ExtResource("1_nkhhj")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableArea"]
+shape = SubResource("RectangleShape2D_00x8u")
+
+[connection signal="player_interacted" from="InteractableArea" to="." method="_on_interactable_player_interacted"]

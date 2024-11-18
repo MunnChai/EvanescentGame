@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://c86bxgq4cy3qb"
+path="res://.godot/imported/evan_underworld_beenhere.dialogue-9c2f801a7eb8bec58adebe128ce6cb74.tres"
+
+[deps]
+
+source_file="res://scenes/underworld/underworld_introduction/dialogue/cutscenes/evan_underworld_beenhere.dialogue"
+dest_files=["res://.godot/imported/evan_underworld_beenhere.dialogue-9c2f801a7eb8bec58adebe128ce6cb74.tres"]
+
+[params]
+
+defaults=true

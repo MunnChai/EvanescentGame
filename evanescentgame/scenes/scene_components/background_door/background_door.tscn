@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cl8kobrguc04e"]
+
+[ext_resource type="PackedScene" uid="uid://cfx3wanmlsj0" path="res://general_components/interactable_area/interactable_area.tscn" id="1_5hdrn"]
+[ext_resource type="Script" path="res://scenes/scene_components/background_door/background_door.gd" id="1_j5xmw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dumbr"]
+size = Vector2(54, 43)
+
+[node name="BackgroundDoor" type="Node2D"]
+script = ExtResource("1_j5xmw")
+
+[node name="InteractableArea" parent="." instance=ExtResource("1_5hdrn")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableArea"]
+position = Vector2(0, -18)
+shape = SubResource("RectangleShape2D_dumbr")

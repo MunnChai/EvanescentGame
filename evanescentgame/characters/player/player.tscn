@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://brm7k4yr1lcxw"]
+
+[ext_resource type="Script" path="res://characters/player/scripts/player.gd" id="1_f0lp8"]
+[ext_resource type="Texture2D" uid="uid://yp0lkfg23nbh" path="res://characters/player/sprites/player_ghost.png" id="2_8wqn8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w86ao"]
+size = Vector2(9, 29)
+
+[sub_resource type="Animation" id="Animation_prvyf"]
+resource_name = "PlayerGhostIdle"
+loop_mode = 1
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 15]
+}
+
+[sub_resource type="Animation" id="Animation_i0q3t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hqcos"]
+_data = {
+"PlayerGhostIdle": SubResource("Animation_prvyf"),
+"RESET": SubResource("Animation_i0q3t")
+}
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 2
+script = ExtResource("1_f0lp8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 7)
+texture = ExtResource("2_8wqn8")
+hframes = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_w86ao")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(2.08165e-12, -15)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hqcos")
+}
+autoplay = "PlayerGhostIdle"
