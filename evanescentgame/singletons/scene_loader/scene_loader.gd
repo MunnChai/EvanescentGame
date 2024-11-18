@@ -3,6 +3,8 @@ extends Node
 const OVERWORLD_PATH = "res://scenes/overworld/overworld.tscn"
 const UNDERWORLD_PATH = "res://scenes/underworld/underworld.tscn"
 const UNDERWORLD_INTRODUCTION_PATH = "res://scenes/underworld/underworld_introduction/underworld_introduction.tscn"
+const MAIN_MENU_PATH = "res://ui/main_menu/main_menu.tscn"
+
 @onready var loading_screen_scene: PackedScene = preload("./loading_screen.tscn")
 
 var loading_screen_instance: Control
@@ -18,6 +20,8 @@ func load_underworld():
 func load_underworld_introduction():
 	load_scene(UNDERWORLD_INTRODUCTION_PATH)
 
+func load_main_menu():
+	load_scene(MAIN_MENU_PATH)
 
 func load_scene(scene_path: String):
 	# Instantiate loading screen, add to SceneTree

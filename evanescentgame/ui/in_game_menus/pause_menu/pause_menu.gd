@@ -41,4 +41,4 @@ func _on_options_pressed():
 
 func _on_quit_pressed():
 	resume()
-	SceneLoader.load_scene("res://top_level_scenes/main_menu/main_menu.tscn")
+	SceneLoader.load_main_menu()

@@ -3,7 +3,7 @@ extends Node
 const scene_duration = 540.0 # remade via UI timer
 
 func load_underworld():
-	SceneLoader.load_scene("res://top_level_scenes/underworld/underworld.tscn")
+	SceneLoader.load_underworld()
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
