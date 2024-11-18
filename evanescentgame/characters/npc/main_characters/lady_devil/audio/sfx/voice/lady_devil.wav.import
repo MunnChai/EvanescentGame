@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://m17ykdnq1anq"
-path="res://.godot/imported/lady_devil.wav-c692513510b2a82c1a6323d36dba5606.sample"
+path="res://.godot/imported/lady_devil.wav-42a28faf8929bc864a16e9fa5dbae1c1.sample"
 
 [deps]
 
-source_file="res://characters/npc/main/lady_devil/audio/sfx/voice/lady_devil.wav"
-dest_files=["res://.godot/imported/lady_devil.wav-c692513510b2a82c1a6323d36dba5606.sample"]
+source_file="res://characters/npc/main_characters/lady_devil/audio/sfx/voice/lady_devil.wav"
+dest_files=["res://.godot/imported/lady_devil.wav-42a28faf8929bc864a16e9fa5dbae1c1.sample"]
 
 [params]
 

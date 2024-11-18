@@ -90,4 +90,4 @@ func end_underworld_intro() -> void:
 
 ## Leave the underworld, go to the overworld
 func load_overworld() -> void:
-	SceneLoader.load_scene("res://old/top_level_scenes/overworld/overworld.tscn")
+	SceneLoader.load_overworld()

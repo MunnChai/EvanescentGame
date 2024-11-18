@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pabn3aifaqen"
-path="res://.godot/imported/office_ghost_1.png-b7fa4a7298705b8e5f3494806870e492.ctex"
+uid="uid://cx5el5mwluxa4"
+path="res://.godot/imported/lady_devil_1.png-bd79d39c6d50ecd467d8630c619b6f2e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/npc/side/ghost/sprites/office_ghost_1.png"
-dest_files=["res://.godot/imported/office_ghost_1.png-b7fa4a7298705b8e5f3494806870e492.ctex"]
+source_file="res://characters/npc/main_characters/lady_devil/sprites/lady_devil_1.png"
+dest_files=["res://.godot/imported/lady_devil_1.png-bd79d39c6d50ecd467d8630c619b6f2e.ctex"]
 
 [params]
 

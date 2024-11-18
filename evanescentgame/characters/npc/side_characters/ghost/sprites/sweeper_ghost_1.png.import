@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b5g2yev3cp8vq"
-path="res://.godot/imported/sweeper_ghost_1.png-fd0d7c48e03a8337029b2bc4be7f4117.ctex"
+path="res://.godot/imported/sweeper_ghost_1.png-ac2caf724a618a79253d8bbf83379b2d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/npc/side/ghost/sprites/sweeper_ghost_1.png"
-dest_files=["res://.godot/imported/sweeper_ghost_1.png-fd0d7c48e03a8337029b2bc4be7f4117.ctex"]
+source_file="res://characters/npc/side_characters/ghost/sprites/sweeper_ghost_1.png"
+dest_files=["res://.godot/imported/sweeper_ghost_1.png-ac2caf724a618a79253d8bbf83379b2d.ctex"]
 
 [params]
 

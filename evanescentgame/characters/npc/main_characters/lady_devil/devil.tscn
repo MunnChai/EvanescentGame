@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://ceyeqghg7xwnv"]
 
 [ext_resource type="PackedScene" uid="uid://ccwc4s7e5nmbf" path="res://characters/npc/npc.tscn" id="1_qr0bo"]
-[ext_resource type="Script" path="res://characters/npc/main/lady_devil/devil.gd" id="2_jv2jd"]
-[ext_resource type="Resource" uid="uid://dut136huhsw2f" path="res://characters/npc/main/lady_devil/dialogue/devil_first_encounter.dialogue" id="2_objkd"]
-[ext_resource type="Texture2D" uid="uid://cx5el5mwluxa4" path="res://characters/npc/main/lady_devil/sprites/lady_devil_1.png" id="3_c387p"]
+[ext_resource type="Script" path="res://characters/npc/main_characters/lady_devil/devil.gd" id="2_jv2jd"]
+[ext_resource type="Resource" uid="uid://dut136huhsw2f" path="res://characters/npc/main_characters/lady_devil/dialogue/devil_first_encounter.dialogue" id="2_objkd"]
+[ext_resource type="Texture2D" uid="uid://cx5el5mwluxa4" path="res://characters/npc/main_characters/lady_devil/sprites/lady_devil_1.png" id="3_c387p"]
 
 [sub_resource type="Animation" id="Animation_toxuu"]
 length = 0.001

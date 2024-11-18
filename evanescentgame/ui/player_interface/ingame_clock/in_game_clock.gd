@@ -23,7 +23,7 @@ func _ready():
 		text = " 0:00xm"
 
 func load_underworld():
-	SceneLoader.load_scene("res://old/top_level_scenes/underworld/underworld.tscn")
+	SceneLoader.load_underworld()
 
 # Called every frame. 'delta' = elapsed time (used for timer things)
 @warning_ignore("unused_parameter")

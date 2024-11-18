@@ -8,8 +8,8 @@
 [ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_reponses_menu.gd" id="3_ygiw3"]
 [ext_resource type="PackedScene" uid="uid://choqm3a5m38yk" path="res://general_components/audio_manager/audio_manager.tscn" id="6_bu7ia"]
 [ext_resource type="AudioStream" uid="uid://g8ruygt22ap5" path="res://characters/player/audio/sfx/voice/default_voice.mp3" id="7_a8rdg"]
-[ext_resource type="AudioStream" uid="uid://ba0pe5y28bfcg" path="res://characters/npc/side/ghost/audio/sfx/voice/chief_bear.mp3" id="8_dyulh"]
-[ext_resource type="AudioStream" uid="uid://m17ykdnq1anq" path="res://characters/npc/main/lady_devil/audio/sfx/voice/lady_devil.wav" id="8_s2fds"]
+[ext_resource type="AudioStream" uid="uid://ba0pe5y28bfcg" path="res://characters/npc/side_characters/ghost/audio/sfx/voice/chief_bear.mp3" id="8_dyulh"]
+[ext_resource type="AudioStream" uid="uid://m17ykdnq1anq" path="res://characters/npc/main_characters/lady_devil/audio/sfx/voice/lady_devil.wav" id="8_s2fds"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_235ry"]
 content_margin_left = 6.0
@@ -109,6 +109,7 @@ fill_to = Vector2(0, 1)
 texture = SubResource("GradientTexture2D_46ymv")
 
 [node name="DialogueBox" type="CanvasLayer"]
+process_mode = 3
 layer = 100
 script = ExtResource("1_dwrcf")
 

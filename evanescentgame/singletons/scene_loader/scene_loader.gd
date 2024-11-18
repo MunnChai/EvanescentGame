@@ -1,12 +1,25 @@
 extends Node
 
+const OVERWORLD_PATH = "res://scenes/overworld/overworld.tscn"
+const UNDERWORLD_PATH = "res://scenes/underworld/underworld.tscn"
+const UNDERWORLD_INTRODUCTION_PATH = "res://scenes/underworld/underworld_introduction/underworld_introduction.tscn"
 @onready var loading_screen_scene: PackedScene = preload("./loading_screen.tscn")
 
 var loading_screen_instance: Control
 var is_loading: bool
 var scene_to_load_path: String
 
-func load_scene(scene_path):
+func load_overworld():
+	load_scene(OVERWORLD_PATH)
+
+func load_underworld():
+	load_scene(UNDERWORLD_PATH)
+
+func load_underworld_introduction():
+	load_scene(UNDERWORLD_INTRODUCTION_PATH)
+
+
+func load_scene(scene_path: String):
 	# Instantiate loading screen, add to SceneTree
 	loading_screen_instance = loading_screen_scene.instantiate()
 	get_tree().root.call_deferred("add_child", loading_screen_instance)

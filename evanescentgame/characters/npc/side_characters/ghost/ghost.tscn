@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dpmytyqk3jgch"]
 
 [ext_resource type="PackedScene" uid="uid://ccwc4s7e5nmbf" path="res://characters/npc/npc.tscn" id="1_jdg3s"]
-[ext_resource type="Script" path="res://characters/npc/side/ghost/ghost.gd" id="2_i2ebm"]
-[ext_resource type="Resource" uid="uid://50khg6v8hcu" path="res://characters/npc/side/ghost/dialogue/ghost.dialogue" id="3_janes"]
+[ext_resource type="Script" path="res://characters/npc/side_characters/ghost/ghost.gd" id="2_i2ebm"]
+[ext_resource type="Resource" uid="uid://50khg6v8hcu" path="res://characters/npc/side_characters/ghost/dialogue/ghost.dialogue" id="3_janes"]
 
 [node name="Ghost" instance=ExtResource("1_jdg3s")]
 script = ExtResource("2_i2ebm")

@@ -19,7 +19,6 @@ func _ready():
 		button_container.call_deferred("add_child", button)
 
 func show_ui():
-	get_tree().paused = true
 	visible = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -37,5 +36,4 @@ func _on_exit_pressed():
 	resume()
 
 func resume():
-	get_tree().paused = false
 	visible = false
