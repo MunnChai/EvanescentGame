@@ -31,8 +31,16 @@ func _process(delta):
 	if $Timer.is_stopped() == false:
 		_update_timer($Timer.get_time_left())
 
+# Returns time in seconds that have passed since the start
+func get_current_IGT_s() -> float:
+	var time_since_start = DAY_DURATION_IRL - $Timer.get_time_left()
+	var in_game_time_since_start = time_since_start * IGT_SECOND_MULTIPLIER
+	
+	var time = in_game_time_since_start + (START_TIME_IGT * 60 * 60)
+	return time
+
 # Counting down overworld life visually, time_left is seconds left in the day in IRL time
-func _update_timer(time_left: float):
+func _update_timer(time_left: float) -> void:
 	var time_since_start = DAY_DURATION_IRL - time_left
 	var in_game_time_since_start = time_since_start * IGT_SECOND_MULTIPLIER
 	

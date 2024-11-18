@@ -9,6 +9,8 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	visible = false
+	
 	for location in location_manager.get_children():
 		location.get_node("LocationExit").player_interacted.connect(show_ui)
 		var button = Button.new()
@@ -19,7 +21,7 @@ func _ready():
 
 func show_ui():
 	get_tree().paused = true
-	canvas_layer.visible = true
+	visible = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -37,4 +39,4 @@ func _on_exit_pressed():
 
 func resume():
 	get_tree().paused = false
-	canvas_layer.visible = false
+	visible = false

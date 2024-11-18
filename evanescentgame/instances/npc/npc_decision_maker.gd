@@ -8,12 +8,15 @@ var npc_name: String
 var nodes_data: Array
 var current_node: DecisionTreeNodeData
 
-@onready var label = $Label
-
 @onready var npc: NPC = get_parent() 
+var clock
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var clocks = get_tree().get_nodes_in_group("clock")
+	if (clocks.size() > 0):
+		clock = clocks[0]
+	
 	graph_data = npc.graph_data
 	npc_name = npc.name
 	
@@ -36,8 +39,7 @@ func _ready():
 		start_timer()
 
 func _process(delta):
-	if (label):
-		label.text = str(Time.get_ticks_msec() / 1000)
+	pass
 
 func call_node_functions(node: DecisionTreeNodeData):
 	var functions = node.get_functions()
@@ -77,10 +79,11 @@ func call_node_function(function_data):
 
 func start_timer():
 	await get_tree().create_timer(CLOCK_TIMER_UPDATE_TIME).timeout
-	var current_time = Time.get_ticks_msec() / 1000
-	var next_function_time = current_node.get_next_function_call_time()
+	var current_time = clock.get_current_IGT_s()
+	var next_function_time_IGT_h = current_node.get_next_function_call_time() # Next function time, in IGT hours
+	var next_function_time_IGT_s = next_function_time_IGT_h * 60 * 60
 	
-	if (current_time >= next_function_time):
+	if (current_time >= next_function_time_IGT_s):
 		current_node = graph_data.get_next_node(current_node, npc_name)
 		
 		if (current_node):

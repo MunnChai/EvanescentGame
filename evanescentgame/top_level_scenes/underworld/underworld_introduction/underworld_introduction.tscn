@@ -1,6 +1,7 @@
-[gd_scene load_steps=46 format=3 uid="uid://byuxpv2q8tskb"]
+[gd_scene load_steps=47 format=3 uid="uid://byuxpv2q8tskb"]
 
 [ext_resource type="Script" path="res://top_level_scenes/underworld/underworld_introduction/underworld_introduction_manager.gd" id="1_6xc8v"]
+[ext_resource type="PackedScene" uid="uid://mongwlhd8cu0" path="res://ui/ingame_clock/ingame_ui.tscn" id="2_0v067"]
 [ext_resource type="PackedScene" uid="uid://cfluel2e374xh" path="res://components/overlay_panel/overlay_panel.tscn" id="2_v886t"]
 [ext_resource type="Texture2D" uid="uid://crb5d5skwj0ke" path="res://assets/location_assets/backgrounds/hell_background.png" id="3_jlx8u"]
 [ext_resource type="PackedScene" uid="uid://cemmf570s8hey" path="res://components/dialogue_emitter/dialogue_emitter.tscn" id="4_mf7ql"]
@@ -2843,6 +2844,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = SubResource("GDScript_f48mj")
 
+[node name="Ingame" parent="CanvasLayer" instance=ExtResource("2_0v067")]
+
 [node name="World" type="Node2D" parent="."]
 
 [node name="Outdoor" type="Node2D" parent="World"]
@@ -2886,6 +2889,13 @@ position = Vector2(27, -217)
 
 [node name="CollisionShape2D" parent="World/Outdoor/LostSoul/InteractableArea" index="1"]
 position = Vector2(0, 24.75)
+
+[node name="Label" parent="World/Outdoor/LostSoul/NPCDecisionMaker" index="0"]
+offset_left = -20.0
+offset_top = -67.0
+offset_right = 20.0
+offset_bottom = -44.0
+horizontal_alignment = 1
 
 [node name="SweeperGhost" parent="World/Outdoor" instance=ExtResource("7_mvpic")]
 position = Vector2(260, 75)
@@ -3025,6 +3035,13 @@ position = Vector2(2069, -60)
 
 [node name="CollisionShape2D" parent="World/LadyDevilOffice/Devil/InteractableArea" index="1"]
 position = Vector2(-9.5, 16.6563)
+
+[node name="Label" parent="World/LadyDevilOffice/Devil/NPCDecisionMaker" index="0"]
+offset_left = -20.0
+offset_top = -67.0
+offset_right = 20.0
+offset_bottom = -44.0
+horizontal_alignment = 1
 
 [node name="DevilPodium" type="StaticBody2D" parent="World/LadyDevilOffice"]
 visible = false

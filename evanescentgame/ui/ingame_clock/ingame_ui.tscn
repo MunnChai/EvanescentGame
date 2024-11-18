@@ -1,28 +1,28 @@
 [gd_scene load_steps=8 format=3 uid="uid://mongwlhd8cu0"]
 
-[ext_resource type="Script" path="res://ui/ingame/ingame.gd" id="1_aeoij"]
-[ext_resource type="Texture2D" uid="uid://cmhhm8y1t5grd" path="res://assets/ui/testpossess.png" id="2_tjivi"]
-[ext_resource type="Script" path="res://ui/ingame/Location.gd" id="3_c5psh"]
-[ext_resource type="Texture2D" uid="uid://cvgbnjpyq6paw" path="res://assets/ui/fadeblack.png" id="3_v24a4"]
-[ext_resource type="FontFile" uid="uid://cwi0n3kesweuw" path="res://assets/fonts/EBGaramond-Bold.ttf" id="4_cfy3r"]
-[ext_resource type="FontFile" uid="uid://byvk43qeri2e" path="res://assets/fonts/EBGaramond-Regular.ttf" id="5_nu8g8"]
-[ext_resource type="Script" path="res://ui/ingame/Timer.gd" id="5_on31w"]
+[ext_resource type="Script" path="res://ui/ingame_clock/ingame_ui.gd" id="1_ralpc"]
+[ext_resource type="Texture2D" uid="uid://cmhhm8y1t5grd" path="res://assets/ui/testpossess.png" id="2_t8lhp"]
+[ext_resource type="Texture2D" uid="uid://cvgbnjpyq6paw" path="res://assets/ui/fadeblack.png" id="3_7rq7g"]
+[ext_resource type="FontFile" uid="uid://cwi0n3kesweuw" path="res://assets/fonts/EBGaramond-Bold.ttf" id="4_nppts"]
+[ext_resource type="Script" path="res://ui/ingame_clock/in_game_clock.gd" id="5_274s1"]
+[ext_resource type="FontFile" uid="uid://byvk43qeri2e" path="res://assets/fonts/EBGaramond-Regular.ttf" id="6_fhxhd"]
+[ext_resource type="Script" path="res://ui/ingame_clock/location_label.gd" id="7_5ph17"]
 
-[node name="Ingame" type="Control"]
+[node name="Ingame" type="Control" groups=["clock"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_aeoij")
+script = ExtResource("1_ralpc")
 
 [node name="Vignette" type="TextureRect" parent="."]
 visible = false
 layout_mode = 0
 offset_right = 320.0
 offset_bottom = 180.0
-texture = ExtResource("2_tjivi")
+texture = ExtResource("2_t8lhp")
 expand_mode = 2
 
 [node name="Fade" type="TextureRect" parent="."]
@@ -30,7 +30,7 @@ layout_mode = 0
 offset_top = 162.0
 offset_right = 320.0
 offset_bottom = 180.0
-texture = ExtResource("3_v24a4")
+texture = ExtResource("3_7rq7g")
 expand_mode = 2
 
 [node name="Clock" type="Label" parent="."]
@@ -41,10 +41,10 @@ anchor_bottom = 1.0
 offset_top = -14.0
 offset_right = 320.0
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("4_cfy3r")
+theme_override_fonts/font = ExtResource("4_nppts")
 theme_override_font_sizes/font_size = 20
 vertical_alignment = 2
-script = ExtResource("5_on31w")
+script = ExtResource("5_274s1")
 
 [node name="Timer" type="Timer" parent="Clock"]
 wait_time = 720.0
@@ -58,8 +58,8 @@ anchor_bottom = 1.0
 offset_top = -14.0
 offset_right = 320.0
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("5_nu8g8")
+theme_override_fonts/font = ExtResource("6_fhxhd")
 theme_override_font_sizes/font_size = 10
 horizontal_alignment = 2
 vertical_alignment = 2
-script = ExtResource("3_c5psh")
+script = ExtResource("7_5ph17")
