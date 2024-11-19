@@ -1,0 +1,7 @@
+~ master_bedroom_locked
+Evan[neutral]: It's locked...
+=> END
+
+~ master_bedroom_unlocked
+Evan[excited]: It unlocked!
+=> END

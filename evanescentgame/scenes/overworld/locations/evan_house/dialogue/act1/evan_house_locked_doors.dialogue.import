@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://b7hk2dcxiy2pp"
+path="res://.godot/imported/evan_house_locked_doors.dialogue-0870973a61eb69caed0922def7aef0dc.tres"
+
+[deps]
+
+source_file="res://scenes/overworld/locations/evan_house/dialogue/act1/evan_house_locked_doors.dialogue"
+dest_files=["res://.godot/imported/evan_house_locked_doors.dialogue-0870973a61eb69caed0922def7aef0dc.tres"]
+
+[params]
+
+defaults=true

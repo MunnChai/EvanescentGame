@@ -122,9 +122,8 @@ func update_closest_interactable():
 	if (current_interactables.size() == 0): 
 		return
 	
-	var current_closest_distance: float = 0
+	var current_closest_distance: float = INF
 	if (closest_interactable):
-		current_closest_distance = (global_position - closest_interactable.global_position).length()
 		closest_interactable.hide_interact_symbol()
 	
 	for interactable in current_interactables:

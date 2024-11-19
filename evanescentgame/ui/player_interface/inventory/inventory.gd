@@ -16,5 +16,13 @@ func _process(delta):
 	pass
 
 func update_slots():
+	if (items.size() == 0):
+		clear_all_slots()
+		return
+	
 	for i in range(0, items.size()):
 		slots[i].get_node("CenterContainer/Panel/item_display").texture = items[i].sprite_2d.texture
+
+func clear_all_slots():
+	for i in range(0, 3):
+		slots[i].get_node("CenterContainer/Panel/item_display").texture = null
