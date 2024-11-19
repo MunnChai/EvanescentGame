@@ -16,9 +16,13 @@ var currently_possessed_npc: NPC = null
 
 var is_input_active: bool = true
 
+# THIS NEEDS TO BE REFACTORED!
 static var knows_name: bool = false;
 static var knows_devil_name: bool = false;
 static var num_branches_chosen = 0;
+
+var current_interactables: Array[InteractableArea]
+var closest_interactable: InteractableArea
 
 @onready var starting_sprite_position : Vector2 = $Sprite2D.position
 
@@ -46,10 +50,16 @@ func _physics_process(delta: float):
 		handle_movement(delta)
 	elif (is_possessing and not in_possessing_animation):
 		global_position = currently_possessed_npc.global_position + NPC_CENTER_OFFSET
+	
+	if (velocity.length() > 0 or (is_possessing and currently_possessed_npc.velocity.length() > 0)):
+		update_closest_interactable()
 
 func handle_input(delta: float):
 	if (Input.is_action_just_pressed("exit_possessee") and is_possessing):
 		stop_possessing()
+	
+	if (Input.is_action_just_pressed("interact") and is_input_active):
+		interact_with_closest_interactable()
 
 func handle_movement(delta: float):
 	var direction_x = 0
@@ -104,3 +114,36 @@ func stop_possessing():
 	
 static func increment_branches():
 	num_branches_chosen += 1
+
+
+
+
+func update_closest_interactable():
+	if (current_interactables.size() == 0): 
+		return
+	
+	var current_closest_distance: float = 0
+	if (closest_interactable):
+		current_closest_distance = (global_position - closest_interactable.global_position).length()
+		closest_interactable.hide_interact_symbol()
+	
+	for interactable in current_interactables:
+		if (!closest_interactable):
+			closest_interactable = interactable
+			current_closest_distance = (global_position - interactable.global_position).length()
+		else:
+			var distance = (global_position - interactable.global_position).length()
+			if (distance < current_closest_distance):
+				closest_interactable = interactable
+				current_closest_distance = distance
+	
+	closest_interactable.show_interact_symbol()
+
+func interact_with_closest_interactable():
+	closest_interactable.interact()
+
+func add_interactable(interactable: InteractableArea):
+	current_interactables.append(interactable)
+
+func remove_interactable(interactable: InteractableArea):
+	current_interactables.erase(interactable)

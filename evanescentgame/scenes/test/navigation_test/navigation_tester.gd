@@ -32,7 +32,7 @@ func _physics_process(delta):
 		
 		if (npc and target_location and choosing_position):
 			var mouse_position = get_global_mouse_position()
-			npc.navigate_to(mouse_position, target_location)
+			npc.navigate_to(mouse_position)
 			choosing_position = false
 			$IsNavigating.visible = false
 	elif (not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and mouse_pressed):

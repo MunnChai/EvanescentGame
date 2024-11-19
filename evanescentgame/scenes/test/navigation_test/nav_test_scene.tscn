@@ -59,8 +59,7 @@ offset_right = -398.0
 offset_bottom = -77.0
 text = "Current Location: None"
 
-[node name="Npc" parent="." node_paths=PackedStringArray("starting_location") instance=ExtResource("4_yaxwl")]
+[node name="Npc" parent="." instance=ExtResource("4_yaxwl")]
 position = Vector2(-204, 223)
-starting_location = NodePath("../Locations/Location1")
 
 [connection signal="pressed" from="NavTester/Button" to="NavTester" method="set_choosing_position"]
