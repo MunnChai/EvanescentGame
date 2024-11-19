@@ -1,18 +1,59 @@
-[gd_scene load_steps=2 format=3 uid="uid://cfx3wanmlsj0"]
+[gd_scene load_steps=6 format=3 uid="uid://cfx3wanmlsj0"]
 
 [ext_resource type="Script" path="res://general_components/interactable_area/interactable_area.gd" id="1_740et"]
+[ext_resource type="Texture2D" uid="uid://v5n2vl3c76uj" path="res://ui/player_interface/interact_symbol.png" id="2_3q5a0"]
+
+[sub_resource type="Animation" id="Animation_cbc6o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InteractSymbol:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -16)]
+}
+
+[sub_resource type="Animation" id="Animation_a6dvg"]
+resource_name = "float"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InteractSymbol:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -18), Vector2(0, -12), Vector2(0, -18)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_flmo4"]
+_data = {
+"RESET": SubResource("Animation_cbc6o"),
+"float": SubResource("Animation_a6dvg")
+}
 
 [node name="InteractableArea" type="Area2D"]
 collision_mask = 2
 script = ExtResource("1_740et")
 
-[node name="Label" type="Label" parent="."]
-visible = false
-offset_left = -4.0
-offset_top = -35.0
-offset_right = 36.0
-offset_bottom = -12.0
-text = "E"
+[node name="InteractSymbol" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = ExtResource("2_3q5a0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_flmo4")
+}
+autoplay = "float"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
