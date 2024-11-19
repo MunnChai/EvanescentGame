@@ -26,10 +26,13 @@ func interact():
 	player_interacted.emit()
 
 func enable():
+	get_node("CollisionShape2D").disabled = false
 	is_enabled = true
 
 func disable():
 	is_enabled = false
+	player.current_interactables.erase(self)
+	get_node("CollisionShape2D").disabled = true
 	hide_interact_symbol()
 
 func _on_body_entered(body):

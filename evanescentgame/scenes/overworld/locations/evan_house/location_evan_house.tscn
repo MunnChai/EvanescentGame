@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://qxsjk3i2orwj"]
+[gd_scene load_steps=26 format=3 uid="uid://qxsjk3i2orwj"]
 
 [ext_resource type="PackedScene" uid="uid://blp4jjwokkgxj" path="res://scenes/overworld/locations/location.tscn" id="1_7ytg5"]
 [ext_resource type="Texture2D" uid="uid://cg2yfkgyo5n3v" path="res://scenes/overworld/locations/evan_house/sprites/evan_house_decor.png" id="2_reaws"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bha8jx12sacir" path="res://scenes/scene_components/inspectable_area/inspectable_area.tscn" id="4_wg1l0"]
 [ext_resource type="PackedScene" uid="uid://cl8kobrguc04e" path="res://scenes/scene_components/background_door/background_door.tscn" id="5_c27is"]
 [ext_resource type="Resource" uid="uid://caddivrytwx6x" path="res://scenes/overworld/locations/evan_house/dialogue/act1/evan_house_inspectables.dialogue" id="5_fhpyn"]
+[ext_resource type="PackedScene" uid="uid://4hqpq82crn7i" path="res://scenes/scene_components/background_door/locked_door/locked_door.tscn" id="8_vk5ok"]
+[ext_resource type="Resource" uid="uid://b7hk2dcxiy2pp" path="res://scenes/overworld/locations/evan_house/dialogue/act1/evan_house_locked_doors.dialogue" id="9_j3it2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j5goi"]
 texture = ExtResource("2_reaws")
@@ -351,7 +353,7 @@ region_rect = Rect2(12, 185, 9, 15)
 [node name="LocationExit" parent="." index="4"]
 position = Vector2(-46, 4)
 
-[node name="CollisionShape2D" parent="LocationExit/InteractableArea" index="1"]
+[node name="CollisionShape2D" parent="LocationExit/InteractableArea" index="2"]
 position = Vector2(-1, 11)
 shape = SubResource("RectangleShape2D_53kmb")
 
@@ -420,7 +422,6 @@ position = Vector2(83.5, -34)
 shape = SubResource("RectangleShape2D_6pkxe")
 
 [node name="Rooms" type="Node2D" parent="." index="7"]
-visible = false
 
 [node name="Upstairs" type="CollisionShape2D" parent="Rooms" index="0"]
 position = Vector2(64, 0)
@@ -435,9 +436,19 @@ fade_seconds = 0.3
 [node name="InteractableArea" parent="Rooms/Upstairs/StairsDown" index="0"]
 position = Vector2(0, -7)
 
-[node name="CollisionShape2D" parent="Rooms/Upstairs/StairsDown/InteractableArea" index="1"]
+[node name="CollisionShape2D" parent="Rooms/Upstairs/StairsDown/InteractableArea" index="2"]
 position = Vector2(0, -22)
 shape = SubResource("RectangleShape2D_hgquy")
+
+[node name="EnterMasterBedroom" parent="Rooms/Upstairs" index="1" node_paths=PackedStringArray("destination_door") instance=ExtResource("8_vk5ok")]
+position = Vector2(-56, -50)
+key_id = "master_bedroom"
+dialogue_resource = ExtResource("9_j3it2")
+dialogue_title = "master_bedroom"
+destination_door = NodePath("../../DownStairs/ExitMasterBedroom")
+
+[node name="CollisionShape2D" parent="Rooms/Upstairs/EnterMasterBedroom/InteractableArea" index="2"]
+position = Vector2(0, -16)
 
 [node name="DownStairs" type="CollisionShape2D" parent="Rooms" index="1"]
 position = Vector2(64, -82)
@@ -452,9 +463,13 @@ fade_seconds = 0.3
 [node name="InteractableArea" parent="Rooms/DownStairs/StairsUp" index="0"]
 position = Vector2(0, -3)
 
-[node name="CollisionShape2D" parent="Rooms/DownStairs/StairsUp/InteractableArea" index="1"]
+[node name="CollisionShape2D" parent="Rooms/DownStairs/StairsUp/InteractableArea" index="2"]
 position = Vector2(0, -26)
 shape = SubResource("RectangleShape2D_g1qyi")
+
+[node name="ExitMasterBedroom" parent="Rooms/DownStairs" index="1" node_paths=PackedStringArray("destination_door") instance=ExtResource("5_c27is")]
+position = Vector2(-107, 33)
+destination_door = NodePath("../../Upstairs/EnterMasterBedroom")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." index="8"]
 visible = false
@@ -474,4 +489,5 @@ navigation_polygon = SubResource("NavigationPolygon_e3kq1")
 [editable path="Inspectables/Sink"]
 [editable path="Inspectables/Flower"]
 [editable path="Rooms/Upstairs/StairsDown"]
+[editable path="Rooms/Upstairs/EnterMasterBedroom"]
 [editable path="Rooms/DownStairs/StairsUp"]

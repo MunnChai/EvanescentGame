@@ -7,7 +7,7 @@ extends CharacterBody2D
 @onready var navigation_agent_2d = $NavigationAgent2D
 @onready var dialogue_emitter = $DialogueEmitter
 @onready var sprite_2d = $Sprite2D
-@onready var inventory = $CanvasLayer/Inventory
+@onready var inventory: Inventory = $CanvasLayer/Inventory
 
 @export var graph_data: DecisionTreeGraphData
 @export var starting_dialogue_resource: DialogueResource
@@ -96,16 +96,29 @@ func become_unpossessed():
 
 
 
-
+func inventory_contains_item_id(item_id: String) -> bool:
+	for item in inventory.items:
+		if (item.item_id == item_id):
+			return true
+	
+	return false
 
 func add_to_inventory(item: Item):
 	if (inventory.items.size() < 3):
 		inventory.items.append(item)
 		inventory.update_slots()
 
+func remove_from_inventory(item: Item):
+	if (inventory.items.has(item)):
+		inventory.items.erase(item)
+		inventory.update_slots()
 
-
-
+func remove_from_inventory_id(item_id: String):
+	for item in inventory.items:
+		if (item.item_id == item_id):
+			inventory.items.erase(item)
+			inventory.update_slots()
+			return
 
 
 
