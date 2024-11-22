@@ -11,8 +11,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o2g0p"]
 size = Vector2(9, 29)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_erhn5"]
-size = Vector2(61, 54.6875)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b5w7d"]
+size = Vector2(29, 40.5156)
 
 [node name="Npc" type="CharacterBody2D"]
 collision_layer = 4
@@ -30,8 +30,8 @@ shape = SubResource("RectangleShape2D_o2g0p")
 position = Vector2(0, -24)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableArea"]
-position = Vector2(0.5, 7.6875)
-shape = SubResource("RectangleShape2D_erhn5")
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_b5w7d")
 
 [node name="DialogueEmitter" parent="." instance=ExtResource("3_kdiqa")]
 position = Vector2(0, -24)

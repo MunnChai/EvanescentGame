@@ -372,7 +372,6 @@ position = Vector2(128, -64)
 shape = SubResource("RectangleShape2D_3a38o")
 
 [node name="Rooms" type="Node2D" parent="." index="8"]
-visible = false
 
 [node name="Room1" type="CollisionShape2D" parent="Rooms" index="0"]
 position = Vector2(0, -36)
