@@ -27,7 +27,7 @@ func _process(delta):
 
 func teleport_to_location(location: Location):
 	if player.is_possessing:
-		player.currently_possessed_npc.global_position = location.location_exit.global_position
+		player.currently_possessed_npc.global_position = location.location_exit.global_position + Vector2(0, 30)
 
 	player.global_position = location.location_exit.global_position
 	resume()
