@@ -1218,15 +1218,15 @@ size = Vector2(284, 94)
 size = Vector2(24, 40)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_hnekb"]
-vertices = PackedVector2Array(158, 22, -54, 22, -54, 18, 158, 18)
+vertices = PackedVector2Array(206, 22, -62, 22, -62, 18, 206, 18)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(168, 32, 168, 8, -64, 8, -64, 32)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(216, 32, 216, 8, -72, 8, -72, 32)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_w6ps7"]
-vertices = PackedVector2Array(430, 22, 274, 22, 274, 18, 430, 18)
+vertices = PackedVector2Array(542, 22, 274, 22, 274, 18, 542, 18)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(264, 32, 440, 32, 440, 8, 264, 8)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(264, 32, 552, 32, 552, 8, 264, 8)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="The Organization" instance=ExtResource("1_axd6r")]
@@ -1513,7 +1513,6 @@ script = ExtResource("6_56ehl")
 [node name="Up" parent="Rooms/GroundFloor" index="0" node_paths=PackedStringArray("destination_door") instance=ExtResource("7_rs4n1")]
 position = Vector2(80, 26.5)
 destination_door = NodePath("../../Floor2/Down")
-fade_seconds = 0.3
 
 [node name="CollisionShape2D" parent="Rooms/GroundFloor/Up/InteractableArea" index="2"]
 position = Vector2(0, -9.5)
@@ -1527,7 +1526,6 @@ script = ExtResource("6_56ehl")
 [node name="Down" parent="Rooms/Floor2" index="0" node_paths=PackedStringArray("destination_door") instance=ExtResource("7_rs4n1")]
 position = Vector2(112, 26)
 destination_door = NodePath("../../GroundFloor/Up")
-fade_seconds = 0.3
 
 [node name="CollisionShape2D" parent="Rooms/Floor2/Down/InteractableArea" index="2"]
 position = Vector2(0, -10)
@@ -1536,7 +1534,6 @@ shape = SubResource("RectangleShape2D_lme2g")
 [node name="Up" parent="Rooms/Floor2" index="1" node_paths=PackedStringArray("destination_door") instance=ExtResource("7_rs4n1")]
 position = Vector2(80, 26)
 destination_door = NodePath("../../Floor11/Down")
-fade_seconds = 0.3
 
 [node name="CollisionShape2D" parent="Rooms/Floor2/Up/InteractableArea" index="2"]
 position = Vector2(0, -10)
@@ -1550,18 +1547,21 @@ script = ExtResource("6_56ehl")
 [node name="Down" parent="Rooms/Floor11" index="0" node_paths=PackedStringArray("destination_door") instance=ExtResource("7_rs4n1")]
 position = Vector2(112, 26)
 destination_door = NodePath("../../Floor2/Up")
-fade_seconds = 0.3
 
 [node name="CollisionShape2D" parent="Rooms/Floor11/Down/InteractableArea" index="2"]
 position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_lme2g")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." index="10"]
-visible = false
+position = Vector2(0, 40)
 navigation_polygon = SubResource("NavigationPolygon_hnekb")
 
 [node name="NavigationRegion2D2" type="NavigationRegion2D" parent="." index="11"]
-visible = false
+position = Vector2(-336, -280)
+navigation_polygon = SubResource("NavigationPolygon_w6ps7")
+
+[node name="NavigationRegion2D3" type="NavigationRegion2D" parent="." index="12"]
+position = Vector2(-336, -600)
 navigation_polygon = SubResource("NavigationPolygon_w6ps7")
 
 [editable path="LocationExit"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://qxsjk3i2orwj"]
+[gd_scene load_steps=32 format=3 uid="uid://qxsjk3i2orwj"]
 
 [ext_resource type="PackedScene" uid="uid://blp4jjwokkgxj" path="res://scenes/overworld/locations/location.tscn" id="1_7ytg5"]
 [ext_resource type="Texture2D" uid="uid://cg2yfkgyo5n3v" path="res://scenes/overworld/locations/evan_house/sprites/evan_house_decor.png" id="2_reaws"]
@@ -272,6 +272,18 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 vertices = PackedVector2Array(190, 30, -54, 30, -54, 26, 190, 26)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(200, 40, 200, 16, -64, 16, -64, 40)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_es3em"]
+vertices = PackedVector2Array(70, 30, -54, 30, -54, 26, 70, 26)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(80, 40, 80, 16, -64, 16, -64, 40)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_kbqsl"]
+vertices = PackedVector2Array(38, 30, -54, 30, -54, 26, 38, 26)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(48, 40, 48, 16, -64, 16, -64, 40)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="EvanHouse" instance=ExtResource("1_7ytg5")]
@@ -578,13 +590,23 @@ destination_door = NodePath("../../Upstair/EnterChild2")
 position = Vector2(0, -13)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." index="8"]
-visible = false
 navigation_polygon = SubResource("NavigationPolygon_na036")
 
 [node name="NavigationRegion2D2" type="NavigationRegion2D" parent="." index="9"]
-visible = false
 position = Vector2(0, -80)
 navigation_polygon = SubResource("NavigationPolygon_e3kq1")
+
+[node name="NavigationRegion2D3" type="NavigationRegion2D" parent="." index="10"]
+position = Vector2(-312, -312)
+navigation_polygon = SubResource("NavigationPolygon_es3em")
+
+[node name="NavigationRegion2D4" type="NavigationRegion2D" parent="." index="11"]
+position = Vector2(-8, -312)
+navigation_polygon = SubResource("NavigationPolygon_kbqsl")
+
+[node name="NavigationRegion2D5" type="NavigationRegion2D" parent="." index="12"]
+position = Vector2(256, -312)
+navigation_polygon = SubResource("NavigationPolygon_kbqsl")
 
 [editable path="LocationExit"]
 [editable path="Inspectables/Couch"]

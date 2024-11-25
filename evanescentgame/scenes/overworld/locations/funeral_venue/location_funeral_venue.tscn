@@ -252,10 +252,10 @@ size = Vector2(176, 120)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qcdqt"]
 size = Vector2(24, 30)
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_fmnqh"]
-vertices = PackedVector2Array(158, 22, -54, 22, -54, 18, 158, 18)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(168, 32, 168, 8, -64, 8, -64, 32)])
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_i76jj"]
+vertices = PackedVector2Array(-50, 18, 166, 18, 166, 22, -166, 22, -166, 2, -50, 2)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(176, 32, -176, 32, -176, -8, -40, -8, -40, 8, 176, 8)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_2yiyi"]
@@ -381,7 +381,6 @@ script = ExtResource("6_dhi4h")
 [node name="BackgroundDoor" parent="Rooms/Room1" index="0" node_paths=PackedStringArray("destination_door") instance=ExtResource("4_4xyvu")]
 position = Vector2(141, 48)
 destination_door = NodePath("../../Room2/BackgroundDoor2")
-fade_seconds = 0.3
 
 [node name="CollisionShape2D" parent="Rooms/Room1/BackgroundDoor/InteractableArea" index="2"]
 position = Vector2(-1, -11)
@@ -395,14 +394,13 @@ script = ExtResource("6_dhi4h")
 [node name="BackgroundDoor2" parent="Rooms/Room2" index="0" node_paths=PackedStringArray("destination_door") instance=ExtResource("4_4xyvu")]
 position = Vector2(-60, 40)
 destination_door = NodePath("../../Room1/BackgroundDoor")
-fade_seconds = 0.3
 
 [node name="CollisionShape2D" parent="Rooms/Room2/BackgroundDoor2/InteractableArea" index="2"]
 position = Vector2(0, -11)
 shape = SubResource("RectangleShape2D_qcdqt")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." index="9"]
-navigation_polygon = SubResource("NavigationPolygon_fmnqh")
+navigation_polygon = SubResource("NavigationPolygon_i76jj")
 
 [node name="NavigationRegion2D2" type="NavigationRegion2D" parent="." index="10"]
 navigation_polygon = SubResource("NavigationPolygon_2yiyi")
