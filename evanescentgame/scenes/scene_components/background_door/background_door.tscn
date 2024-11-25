@@ -4,10 +4,11 @@
 [ext_resource type="Script" path="res://scenes/scene_components/background_door/background_door.gd" id="1_j5xmw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dumbr"]
-size = Vector2(54, 43)
+size = Vector2(20, 39.5)
 
 [node name="BackgroundDoor" type="Node2D"]
 script = ExtResource("1_j5xmw")
+fade_seconds = 0.3
 
 [node name="InteractableArea" parent="." instance=ExtResource("1_5hdrn")]
 

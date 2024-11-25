@@ -151,6 +151,11 @@ func handle_player_movement(delta: float):
 	else:
 		velocity.x = move_toward(velocity.x, 0, true_speed)
 	
+	if (velocity.x > 0):
+		sprite_2d.flip_h = false
+	else:
+		sprite_2d.flip_h = true
+	
 	move_and_slide()
 
 func handle_npc_movement(delta: float):
@@ -193,7 +198,11 @@ func handle_npc_movement(delta: float):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED / 4)
 	
-	sprite_2d.flip_h = -sign(velocity.x)
+	if (velocity.x > 0):
+		sprite_2d.flip_h = false
+	elif (velocity.x < 0):
+		sprite_2d.flip_h = true
+		
 	move_and_slide()
 
 func jump():

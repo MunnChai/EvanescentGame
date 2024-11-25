@@ -120,6 +120,7 @@ static func increment_branches():
 
 func update_closest_interactable():
 	if (current_interactables.size() == 0): 
+		closest_interactable = null
 		return
 	
 	var current_closest_distance: float = INF
@@ -139,7 +140,8 @@ func update_closest_interactable():
 	closest_interactable.show_interact_symbol()
 
 func interact_with_closest_interactable():
-	closest_interactable.interact()
+	if (closest_interactable):
+		closest_interactable.interact()
 
 func add_interactable(interactable: InteractableArea):
 	current_interactables.append(interactable)

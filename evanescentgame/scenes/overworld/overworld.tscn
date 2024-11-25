@@ -1,14 +1,15 @@
-[gd_scene load_steps=15 format=3 uid="uid://cpiebxlknogvc"]
+[gd_scene load_steps=16 format=3 uid="uid://cpiebxlknogvc"]
 
 [ext_resource type="Script" path="res://scenes/overworld/overworld_manager.gd" id="1_5y34q"]
 [ext_resource type="PackedScene" uid="uid://brm7k4yr1lcxw" path="res://characters/player/player.tscn" id="1_juc8k"]
 [ext_resource type="PackedScene" uid="uid://rviju0lx5pre" path="res://scenes/overworld/locations/funeral_venue/location_funeral_venue.tscn" id="3_qdm2x"]
 [ext_resource type="PackedScene" uid="uid://qxsjk3i2orwj" path="res://scenes/overworld/locations/evan_house/location_evan_house.tscn" id="4_tf3o0"]
 [ext_resource type="PackedScene" uid="uid://dnwaf4gu81ddo" path="res://scenes/overworld/locations/cousin_house/location_cousin_house.tscn" id="5_daq0y"]
+[ext_resource type="PackedScene" uid="uid://4r3quu36axff" path="res://scenes/overworld/locations/organization/location_organization.tscn" id="6_ctbqy"]
 [ext_resource type="PackedScene" uid="uid://iecgb5paqxrh" path="res://scenes/overworld/locations/police_station/location_police_station.tscn" id="6_speeq"]
 [ext_resource type="Resource" uid="uid://dxdju7sarntae" path="res://scenes/overworld/locations/funeral_venue/dialogue/act1/mingling.dialogue" id="7_hwc6d"]
 [ext_resource type="PackedScene" uid="uid://ccwc4s7e5nmbf" path="res://characters/npc/npc.tscn" id="7_ow5sy"]
-[ext_resource type="Resource" uid="uid://ew26bouaxm54" path="res://decision_tree_logic/save_data/act1/act1_wife.tres" id="8_0wrch"]
+[ext_resource type="Resource" uid="uid://ew26bouaxm54" path="res://decision_tree_logic/save_data/act1/main_characters/act1_wife.tres" id="8_0wrch"]
 [ext_resource type="PackedScene" uid="uid://bpqo103lmn4jo" path="res://scenes/scene_components/item/item.tscn" id="9_5budk"]
 [ext_resource type="PackedScene" uid="uid://cg1rc471stkkl" path="res://ui/in_game_menus/navigation_panel/navigation_panel.tscn" id="9_e1fk3"]
 [ext_resource type="Texture2D" uid="uid://exgq5mtiik4j" path="res://ui/player_interface/inventory/test_items/apple-icon.png" id="10_ckte3"]
@@ -32,6 +33,9 @@ position = Vector2(3000, 0)
 
 [node name="Police Station" parent="World/LocationManager" instance=ExtResource("6_speeq")]
 position = Vector2(4000, 0)
+
+[node name="The Organization" parent="World/LocationManager" instance=ExtResource("6_ctbqy")]
+position = Vector2(0, 2000)
 
 [node name="NPCs" type="Node2D" parent="World"]
 
@@ -84,7 +88,7 @@ texture = ExtResource("10_ckte3")
 position = Vector2(-151, -23)
 
 [node name="PositionHelper" type="Node2D" parent="World"]
-position = Vector2(2162, 19)
+position = Vector2(3105, -4)
 
 [node name="UI" type="CanvasLayer" parent="."]
 

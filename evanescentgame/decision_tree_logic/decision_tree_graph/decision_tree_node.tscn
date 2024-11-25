@@ -132,6 +132,7 @@ text = "Function Time"
 [node name="FunctionTime" type="SpinBox" parent="."]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
+step = 0.25
 
 [node name="FunctionsContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
