@@ -455,8 +455,11 @@ position = Vector2(-10.33, -10)
 dialogue_resource = ExtResource("5_fhpyn")
 dialogue_title = "family_photo"
 
+[node name="InteractableArea" parent="Inspectables/FamilyPhoto" index="0"]
+position = Vector2(46.33, 2)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Inspectables/FamilyPhoto/InteractableArea" index="1"]
-position = Vector2(46.83, -2)
+position = Vector2(1, -4)
 shape = SubResource("RectangleShape2D_b0t8p")
 
 [node name="DialogueEmitter" parent="Inspectables/FamilyPhoto" index="1"]
