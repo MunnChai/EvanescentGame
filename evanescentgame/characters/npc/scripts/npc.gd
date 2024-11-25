@@ -217,7 +217,9 @@ func jump():
 # Call this to navigate your NPC to the desired position (position must be within a LocationRoom's area)
 func navigate_to(target_position: Vector2):
 	var location_manager = get_tree().get_nodes_in_group("location_manager")[0]
+	var unreachable_locations = get_tree().get_nodes_in_group("unreachable_locations")
 	var locations = location_manager.get_children()
+	locations.append_array(unreachable_locations)
 	
 	# Get target location
 	var target_location: Location

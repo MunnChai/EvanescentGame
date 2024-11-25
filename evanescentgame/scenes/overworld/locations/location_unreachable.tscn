@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://bxbmxcih206f7"]
+
+[ext_resource type="Script" path="res://scenes/overworld/locations/scripts/location.gd" id="1_bg3hn"]
+[ext_resource type="PackedScene" uid="uid://wflq4srocbke" path="res://scenes/scene_components/location_exit/location_exit.tscn" id="2_r53q4"]
+[ext_resource type="TileSet" uid="uid://b0ik5iqgovpsy" path="res://scenes/test/initial_gameplay_demo/demo_tiles.tres" id="3_rs4ri"]
+[ext_resource type="Script" path="res://scenes/overworld/locations/scripts/location_room.gd" id="4_qo4nl"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_jsbw7"]
+vertices = PackedVector2Array(254, 30, -222, 30, -222, 26, 254, 26)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-232, 16, 264, 16, 264, 40, -232, 40)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fnwrw"]
+size = Vector2(568, 160)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5gqa4"]
+size = Vector2(648, 176)
+
+[node name="Location" type="Node2D"]
+script = ExtResource("1_bg3hn")
+
+[node name="LocationExit" parent="." instance=ExtResource("2_r53q4")]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("3_rs4ri")
+format = 2
+layer_0/tile_data = PackedInt32Array(65540, 65537, 2, 65539, 65537, 2, 65538, 65537, 2, 65537, 65537, 2, 65536, 65537, 2, 131071, 65537, 2, 131070, 65537, 2, 131069, 65537, 2, 131068, 65537, 2, 131067, 65537, 2, 131066, 65537, 2, 65543, 131073, 2, 65542, 65537, 2, 65541, 65537, 2, 131065, 1, 2)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_jsbw7")
+
+[node name="LocationArea" type="CollisionShape2D" parent="."]
+position = Vector2(20, 0)
+shape = SubResource("RectangleShape2D_fnwrw")
+
+[node name="Rooms" type="Node2D" parent="."]
+
+[node name="Room" type="CollisionShape2D" parent="Rooms"]
+shape = SubResource("RectangleShape2D_5gqa4")
+script = ExtResource("4_qo4nl")
