@@ -5,7 +5,7 @@ const START_TIME_IGT: float = 9
 # End time in in game hours (24 + 3 = 3:00am, the next day)
 const END_TIME_IGT: float = 24 + 3 
 # The time it takes for the day to pass, in real life seconds (eg. 4 * 60 + 30 = 4mins, 30secs)
-const DAY_DURATION_IRL: float = 5 * 60
+const DAY_DURATION_IRL: float = 20
 # eg. 1 IRL second * IGT_SECOND_MULTIPLIER = 1 IGT second
 const IGT_SECOND_MULTIPLIER: float = ((END_TIME_IGT - START_TIME_IGT) * 60 * 60) / DAY_DURATION_IRL 
 
@@ -55,7 +55,7 @@ func _update_timer(time_left: float) -> void:
 		m = "0" + str(m)
 	else:
 		m = str(m)
-	if (h < 1):
+	if (fmod(h, 12) < 1):
 		h = "12"
 	else:
 		h = str(fmod(h, 12))
