@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ui5ih2eha0so"]
+
+[node name="InfoLogEntry" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Container" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 126.0
+offset_bottom = 97.0
+
+[node name="Panel" type="Panel" parent="Container"]
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="Container"]
+layout_mode = 2
+text = "Hello World
+"
