@@ -41,8 +41,9 @@ func _ready():
 func _physics_process(delta):
 	if (is_possessed):
 		if (player.is_input_active):
-			handle_player_movement(delta)
 			handle_input(delta)
+		
+		handle_player_movement(delta)
 	else:
 		handle_npc_movement(delta)
 	
@@ -73,11 +74,13 @@ func become_possessed():
 	is_possessed = true
 	interactable_area.disable()
 	inventory.visible = true
+	clear_navigation_agent_connections()
 
 func become_unpossessed():
 	is_possessed = false
 	interactable_area.enable()
 	inventory.visible = false
+	clear_navigation_agent_connections()
 
 
 
@@ -164,7 +167,9 @@ func handle_player_movement(delta: float):
 	if (Input.is_action_pressed("sprint")):
 		true_speed *= SPRINT_MULTIPLIER
 	
-	var direction = Input.get_axis("move_left", "move_right")
+	var direction = 0
+	if (player.is_input_active):
+		direction = Input.get_axis("move_left", "move_right")
 	if direction:
 		velocity.x = move_toward(velocity.x, direction * true_speed, true_speed / 8)
 	else:
@@ -290,9 +295,13 @@ func enter_door(door: BackgroundDoor, target_position: Vector2):
 
 func move_to_location(location: Location, target_position: Vector2):
 	await get_tree().create_timer(MOVE_ROOMS_WAIT_TIME).timeout
+	collision_mask = 0
 	global_position = location.location_exit.global_position
 	current_location = location
 	current_room = location.location_exit_room
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	collision_mask = 1
 	
 	navigate_to(target_position)
 

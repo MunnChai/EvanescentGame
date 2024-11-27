@@ -15,7 +15,7 @@ func _ready():
 		var button = Button.new()
 		button.pressed.connect(teleport_to_location.bind(location))
 		button.text = location.name
-		button.add_theme_font_size_override("font_size", 10)
+		button.add_theme_font_size_override("font_size", 6)
 		button_container.call_deferred("add_child", button)
 
 func show_ui():
@@ -27,11 +27,21 @@ func _process(delta):
 
 func teleport_to_location(location: Location):
 	if player.is_possessing:
+		player.currently_possessed_npc.collision_mask = 0
 		player.currently_possessed_npc.global_position = location.location_exit.global_position
 		player.currently_possessed_npc.update_current_location()
-
+	
+	player.collision_mask = 0
 	player.global_position = location.location_exit.global_position
+	
+	# REMOVES FRAME DROP????
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	
 	resume()
+	player.call_deferred("set_collision_mask", 1)
+	if (player.currently_possessed_npc):
+		player.currently_possessed_npc.call_deferred("set_collision_mask", 1)
 
 func _on_exit_pressed():
 	resume()
