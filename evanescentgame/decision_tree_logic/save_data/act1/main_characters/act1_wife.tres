@@ -1,13 +1,13 @@
-[gd_resource type="Resource" script_class="DecisionTreeGraphData" load_steps=5 format=3 uid="uid://ew26bouaxm54"]
+[gd_resource type="Resource" script_class="DecisionTreeGraphData" load_steps=13 format=3 uid="uid://ew26bouaxm54"]
 
 [ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_resource.gd" id="1_6owlg"]
 [ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_node_resource.gd" id="1_boqkk"]
 
-[sub_resource type="Resource" id="Resource_p2u2x"]
+[sub_resource type="Resource" id="Resource_it0hi"]
 script = ExtResource("1_boqkk")
 name = "GraphNode2"
 position_offset = Vector2(0, 0)
-size = Vector2(596.764, 712)
+size = Vector2(198.002, 524)
 data = {
 "alt_paths": [],
 "description": "",
@@ -20,11 +20,30 @@ data = {
 "title": "Start"
 }
 
-[sub_resource type="Resource" id="Resource_0cj0a"]
+[sub_resource type="Resource" id="Resource_q25rl"]
 script = ExtResource("1_boqkk")
-name = "GraphNode3"
-position_offset = Vector2(800, 0)
-size = Vector2(402.544, 1020)
+name = "GraphNode5"
+position_offset = Vector2(1600, 0)
+size = Vector2(411.077, 604.09)
+data = {
+"alt_paths": [],
+"description": "",
+"functions": [{
+"function_name": "navigate_to",
+"parameters": [{
+"type": 0,
+"value": "573,1740"
+}]
+}],
+"next_function_time": 12.5,
+"title": ""
+}
+
+[sub_resource type="Resource" id="Resource_pxbgv"]
+script = ExtResource("1_boqkk")
+name = "GraphNode6"
+position_offset = Vector2(2200, 0)
+size = Vector2(393.979, 712)
 data = {
 "alt_paths": [],
 "description": "",
@@ -32,22 +51,143 @@ data = {
 "function_name": "navigate_to",
 "parameters": [{
 "type": 1,
-"value": "2162,0"
+"value": "50,1740"
 }]
-}, {
-"function_name": "set_dialogue_resource",
+}],
+"next_function_time": 14.0,
+"title": ""
+}
+
+[sub_resource type="Resource" id="Resource_yiotp"]
+script = ExtResource("1_boqkk")
+name = "GraphNode4"
+position_offset = Vector2(1000, 0)
+size = Vector2(428.352, 602.942)
+data = {
+"alt_paths": [],
+"description": "",
+"functions": [{
+"function_name": "navigate_to",
 "parameters": [{
-"type": 0,
-"value": "res://assets/dialogue/during_moving/wife_during_moving.dialogue"
+"type": 1,
+"value": "50,1740"
 }]
-}, {
-"function_name": "set_dialogue_title",
+}],
+"next_function_time": 12.0,
+"title": ""
+}
+
+[sub_resource type="Resource" id="Resource_n60ow"]
+script = ExtResource("1_boqkk")
+name = "GraphNode3"
+position_offset = Vector2(400, 0)
+size = Vector2(393.104, 609.717)
+data = {
+"alt_paths": [],
+"description": "",
+"functions": [{
+"function_name": "navigate_to",
 "parameters": [{
-"type": 0,
-"value": "moving_to_evan_house"
+"type": 1,
+"value": "2160,0"
 }]
 }],
 "next_function_time": 11.0,
+"title": ""
+}
+
+[sub_resource type="Resource" id="Resource_02std"]
+script = ExtResource("1_boqkk")
+name = "GraphNode7"
+position_offset = Vector2(2780, 0)
+size = Vector2(428.222, 719.465)
+data = {
+"alt_paths": [],
+"description": "",
+"functions": [{
+"function_name": "navigate_to",
+"parameters": [{
+"type": 1,
+"value": "1987,-282"
+}]
+}],
+"next_function_time": 14.5,
+"title": ""
+}
+
+[sub_resource type="Resource" id="Resource_bjds4"]
+script = ExtResource("1_boqkk")
+name = "GraphNode9"
+position_offset = Vector2(4480, 0)
+size = Vector2(376.79, 719.879)
+data = {
+"alt_paths": [],
+"description": "",
+"functions": [{
+"function_name": "navigate_to",
+"parameters": [{
+"type": 1,
+"value": "2160,0"
+}]
+}],
+"next_function_time": 19.0,
+"title": ""
+}
+
+[sub_resource type="Resource" id="Resource_m7j1j"]
+script = ExtResource("1_boqkk")
+name = "GraphNode8"
+position_offset = Vector2(3380, 0)
+size = Vector2(399.373, 741.273)
+data = {
+"alt_paths": [],
+"description": "",
+"functions": [{
+"function_name": "navigate_to",
+"parameters": [{
+"type": 1,
+"value": "2275,-282"
+}]
+}],
+"next_function_time": 15.0,
+"title": ""
+}
+
+[sub_resource type="Resource" id="Resource_k7jec"]
+script = ExtResource("1_boqkk")
+name = "GraphNode10"
+position_offset = Vector2(3920, 0)
+size = Vector2(388.878, 734.548)
+data = {
+"alt_paths": [],
+"description": "",
+"functions": [{
+"function_name": "navigate_to",
+"parameters": [{
+"type": 1,
+"value": "2040,0"
+}]
+}],
+"next_function_time": 17.0,
+"title": ""
+}
+
+[sub_resource type="Resource" id="Resource_swgdn"]
+script = ExtResource("1_boqkk")
+name = "GraphNode11"
+position_offset = Vector2(5000, 0)
+size = Vector2(380.669, 689.432)
+data = {
+"alt_paths": [],
+"description": "",
+"functions": [{
+"function_name": "navigate_to",
+"parameters": [{
+"type": 1,
+"value": "1711,-282"
+}]
+}],
+"next_function_time": 19.5,
 "title": ""
 }
 
@@ -58,5 +198,40 @@ connections = [{
 "from_port": 0,
 "to_node": &"GraphNode3",
 "to_port": 0
+}, {
+"from_node": &"GraphNode3",
+"from_port": 0,
+"to_node": &"GraphNode4",
+"to_port": 0
+}, {
+"from_node": &"GraphNode4",
+"from_port": 0,
+"to_node": &"GraphNode5",
+"to_port": 0
+}, {
+"from_node": &"GraphNode5",
+"from_port": 0,
+"to_node": &"GraphNode6",
+"to_port": 0
+}, {
+"from_node": &"GraphNode6",
+"from_port": 0,
+"to_node": &"GraphNode7",
+"to_port": 0
+}, {
+"from_node": &"GraphNode7",
+"from_port": 0,
+"to_node": &"GraphNode8",
+"to_port": 0
+}, {
+"from_node": &"GraphNode8",
+"from_port": 0,
+"to_node": &"GraphNode10",
+"to_port": 0
+}, {
+"from_node": &"GraphNode10",
+"from_port": 0,
+"to_node": &"GraphNode9",
+"to_port": 0
 }]
-nodes = [SubResource("Resource_p2u2x"), SubResource("Resource_0cj0a")]
+nodes = [SubResource("Resource_it0hi"), SubResource("Resource_q25rl"), SubResource("Resource_pxbgv"), SubResource("Resource_yiotp"), SubResource("Resource_n60ow"), SubResource("Resource_02std"), SubResource("Resource_bjds4"), SubResource("Resource_m7j1j"), SubResource("Resource_k7jec"), SubResource("Resource_swgdn")]

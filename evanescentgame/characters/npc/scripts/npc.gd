@@ -19,6 +19,8 @@ const SPRINT_MULTIPLIER: float = 1.75
 const JUMP_VELOCITY: float = 250
 const GRAVITY: float = 1000
 
+const MOVE_ROOMS_WAIT_TIME: float = 0.5
+
 var starting_location: Location
 var starting_room: LocationRoom
 
@@ -41,10 +43,8 @@ func _physics_process(delta):
 		if (player.is_input_active):
 			handle_player_movement(delta)
 			handle_input(delta)
-		inventory.visible = true
 	else:
 		handle_npc_movement(delta)
-		inventory.visible = false
 	
 	handle_animation()
 
@@ -72,10 +72,12 @@ func set_dialogue_title(title: String):
 func become_possessed():
 	is_possessed = true
 	interactable_area.disable()
+	inventory.visible = true
 
 func become_unpossessed():
 	is_possessed = false
 	interactable_area.enable()
+	inventory.visible = false
 
 
 
@@ -164,9 +166,9 @@ func handle_player_movement(delta: float):
 	
 	var direction = Input.get_axis("move_left", "move_right")
 	if direction:
-		velocity.x = move_toward(velocity.x, direction * true_speed, true_speed)
+		velocity.x = move_toward(velocity.x, direction * true_speed, true_speed / 8)
 	else:
-		velocity.x = move_toward(velocity.x, 0, true_speed)
+		velocity.x = move_toward(velocity.x, 0, true_speed / 8)
 	
 	move_and_slide()
 
@@ -187,25 +189,25 @@ func handle_npc_movement(delta: float):
 		velocity.x = move_toward(velocity.x, x_direction * SPEED, SPEED / 4)
 		
 		# Get NEXT next node and check if it is valid
-		var path = navigation_agent_2d.get_current_navigation_path()
-		var next_index = navigation_agent_2d.get_current_navigation_path_index() + 1
-		if (next_index < path.size()):
-			var next_node = path[next_index]
-		
-			var next_node_angle: float = (current_node - next_node).normalized().angle()
-			var next_node_degrees: float = rad_to_deg(next_node_angle)
-			
-			# If NPC is at the next node, calculate the angle to the NEXT next node to see if a jump is necessary
-			if (abs(x_distance) < NEAR_DISTANCE and 
-				next_node_degrees > 40 and 
-				next_node_degrees < 140 and 
-				is_on_floor()):
-				
-				# Jump
-				jump()
-		
-		if (velocity.y < 0): # Stay still while jumping, just helps to not stray too far off the path
-			velocity.x = move_toward(velocity.x, 0, SPEED / 4)
+		#var path = navigation_agent_2d.get_current_navigation_path()
+		#var next_index = navigation_agent_2d.get_current_navigation_path_index() + 1
+		#if (next_index < path.size()):
+			#var next_node = path[next_index]
+		#
+			#var next_node_angle: float = (current_node - next_node).normalized().angle()
+			#var next_node_degrees: float = rad_to_deg(next_node_angle)
+			#
+			## If NPC is at the next node, calculate the angle to the NEXT next node to see if a jump is necessary
+			#if (abs(x_distance) < NEAR_DISTANCE and 
+				#next_node_degrees > 40 and 
+				#next_node_degrees < 140 and 
+				#is_on_floor()):
+				#
+				## Jump
+				#jump()
+		#
+		#if (velocity.y < 0): # Stay still while jumping, just helps to not stray too far off the path
+			#velocity.x = move_toward(velocity.x, 0, SPEED / 4)
 		
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED / 4)
@@ -224,6 +226,7 @@ func jump():
 # Call this to navigate your NPC to the desired position (position must be within a LocationRoom's area)
 func navigate_to(target_position: Vector2):
 	update_current_location()
+	clear_navigation_agent_connections()
 	var location_manager = get_tree().get_nodes_in_group("location_manager")[0]
 	var unreachable_locations = get_tree().get_nodes_in_group("unreachable_locations")
 	var locations = location_manager.get_children()
@@ -282,11 +285,8 @@ func enter_door(door: BackgroundDoor, target_position: Vector2):
 	await get_tree().create_timer(MOVE_ROOMS_WAIT_TIME).timeout
 	global_position = door.destination_door.global_position
 	current_room = current_location.get_room_of_position(global_position)
-	
-	clear_navigation_agent_connections()
-	navigate_to(target_position)
 
-const MOVE_ROOMS_WAIT_TIME: float = 0.5
+	navigate_to(target_position)
 
 func move_to_location(location: Location, target_position: Vector2):
 	await get_tree().create_timer(MOVE_ROOMS_WAIT_TIME).timeout
@@ -294,7 +294,6 @@ func move_to_location(location: Location, target_position: Vector2):
 	current_location = location
 	current_room = location.location_exit_room
 	
-	clear_navigation_agent_connections()
 	navigate_to(target_position)
 
 func clear_navigation_agent_connections():

@@ -30,6 +30,7 @@ position = Vector2(0, 20)
 visible = false
 position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_1oan0")
+disabled = true
 
 [node name="Rooms" type="Node2D" parent="." index="3"]
 visible = false
@@ -37,6 +38,7 @@ visible = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms" index="0"]
 position = Vector2(0.5, -16.5)
 shape = SubResource("RectangleShape2D_ul4my")
+disabled = true
 script = ExtResource("3_tx8xd")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." index="4"]

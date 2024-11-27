@@ -1,8 +1,118 @@
-[gd_resource type="Resource" script_class="DecisionTreeGraphData" load_steps=2 format=3 uid="uid://ciq3dmqr5gq6"]
+[gd_resource type="Resource" script_class="DecisionTreeGraphData" load_steps=8 format=3 uid="uid://ciq3dmqr5gq6"]
 
+[ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_node_resource.gd" id="1_6c8ny"]
 [ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_resource.gd" id="1_q6066"]
+
+[sub_resource type="Resource" id="Resource_i5kdg"]
+script = ExtResource("1_6c8ny")
+name = "GraphNode2"
+position_offset = Vector2(0, 0)
+size = Vector2(180.003, 340)
+data = {
+"alt_paths": [],
+"description": "",
+"functions": [],
+"next_function_time": 9.5,
+"title": "Start"
+}
+
+[sub_resource type="Resource" id="Resource_ong0t"]
+script = ExtResource("1_6c8ny")
+name = "GraphNode3"
+position_offset = Vector2(260, 0)
+size = Vector2(408.869, 564)
+data = {
+"alt_paths": [],
+"description": "",
+"functions": [{
+"function_name": "navigate_to",
+"parameters": [{
+"type": 1,
+"value": "4080,0"
+}]
+}],
+"next_function_time": 12.0,
+"title": "Go To Police Station"
+}
+
+[sub_resource type="Resource" id="Resource_c4boh"]
+script = ExtResource("1_6c8ny")
+name = "GraphNode5"
+position_offset = Vector2(1400, 0)
+size = Vector2(404.4, 569.9)
+data = {
+"alt_paths": [],
+"description": "",
+"functions": [{
+"function_name": "navigate_to",
+"parameters": [{
+"type": 1,
+"value": "-12,1740"
+}]
+}],
+"next_function_time": 19.0,
+"title": "Go To Organization"
+}
+
+[sub_resource type="Resource" id="Resource_tmy00"]
+script = ExtResource("1_6c8ny")
+name = "GraphNode6"
+position_offset = Vector2(1900, 0)
+size = Vector2(451.701, 564)
+data = {
+"alt_paths": [],
+"description": "",
+"functions": [{
+"function_name": "",
+"parameters": [{
+"type": 1,
+"value": "2000,2000"
+}]
+}],
+"next_function_time": 0.0,
+"title": "Go Home"
+}
+
+[sub_resource type="Resource" id="Resource_5eryg"]
+script = ExtResource("1_6c8ny")
+name = "GraphNode4"
+position_offset = Vector2(800, 0)
+size = Vector2(440.15, 578.37)
+data = {
+"alt_paths": [],
+"description": "",
+"functions": [{
+"function_name": "navigate_to",
+"parameters": [{
+"type": 1,
+"value": "4405,-170"
+}]
+}],
+"next_function_time": 18.0,
+"title": "Go To Boss Office"
+}
 
 [resource]
 script = ExtResource("1_q6066")
-connections = []
-nodes = []
+connections = [{
+"from_node": &"GraphNode2",
+"from_port": 0,
+"to_node": &"GraphNode3",
+"to_port": 0
+}, {
+"from_node": &"GraphNode3",
+"from_port": 0,
+"to_node": &"GraphNode4",
+"to_port": 0
+}, {
+"from_node": &"GraphNode4",
+"from_port": 0,
+"to_node": &"GraphNode5",
+"to_port": 0
+}, {
+"from_node": &"GraphNode5",
+"from_port": 0,
+"to_node": &"GraphNode6",
+"to_port": 0
+}]
+nodes = [SubResource("Resource_i5kdg"), SubResource("Resource_ong0t"), SubResource("Resource_c4boh"), SubResource("Resource_tmy00"), SubResource("Resource_5eryg")]

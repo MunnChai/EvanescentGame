@@ -1207,7 +1207,7 @@ sources/1 = SubResource("TileSetAtlasSource_8py2o")
 size = Vector2(47, 40.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h8kww"]
-size = Vector2(625, 944)
+size = Vector2(972, 944)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2th1b"]
 size = Vector2(286, 91)
@@ -1569,15 +1569,16 @@ position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_xmaof")
 
 [node name="LocationArea" type="CollisionShape2D" parent="." index="8"]
-visible = false
-position = Vector2(76.5, -290)
+position = Vector2(250, -290)
 shape = SubResource("RectangleShape2D_h8kww")
+disabled = true
 
 [node name="Rooms" type="Node2D" parent="." index="9"]
 
 [node name="GroundFloor" type="CollisionShape2D" parent="Rooms" index="0"]
 position = Vector2(72, 24.5)
 shape = SubResource("RectangleShape2D_2th1b")
+disabled = true
 script = ExtResource("6_56ehl")
 
 [node name="Up" parent="Rooms/GroundFloor" index="0" node_paths=PackedStringArray("destination_door") instance=ExtResource("7_rs4n1")]
@@ -1591,6 +1592,7 @@ shape = SubResource("RectangleShape2D_sixqp")
 [node name="Floor2" type="CollisionShape2D" parent="Rooms" index="1"]
 position = Vector2(97, -296.5)
 shape = SubResource("RectangleShape2D_mgre2")
+disabled = true
 script = ExtResource("6_56ehl")
 
 [node name="Down" parent="Rooms/Floor2" index="0" node_paths=PackedStringArray("destination_door") instance=ExtResource("7_rs4n1")]
@@ -1620,6 +1622,7 @@ shape = SubResource("RectangleShape2D_lme2g")
 [node name="Floor2Break" type="CollisionShape2D" parent="Rooms" index="2"]
 position = Vector2(542.25, -296)
 shape = SubResource("RectangleShape2D_aycem")
+disabled = true
 script = ExtResource("6_56ehl")
 
 [node name="WorkArea" parent="Rooms/Floor2Break" index="0" node_paths=PackedStringArray("destination_door") instance=ExtResource("7_rs4n1")]
@@ -1633,6 +1636,7 @@ shape = SubResource("RectangleShape2D_lme2g")
 [node name="Floor11" type="CollisionShape2D" parent="Rooms" index="3"]
 position = Vector2(84.5, -616.25)
 shape = SubResource("RectangleShape2D_mgre2")
+disabled = true
 script = ExtResource("6_56ehl")
 
 [node name="Down" parent="Rooms/Floor11" index="0" node_paths=PackedStringArray("destination_door") instance=ExtResource("7_rs4n1")]
@@ -1654,6 +1658,7 @@ shape = SubResource("RectangleShape2D_lme2g")
 [node name="Floor11Break" type="CollisionShape2D" parent="Rooms" index="4"]
 position = Vector2(542.25, -616)
 shape = SubResource("RectangleShape2D_vmatl")
+disabled = true
 script = ExtResource("6_56ehl")
 
 [node name="WorkArea" parent="Rooms/Floor11Break" index="0" node_paths=PackedStringArray("destination_door") instance=ExtResource("7_rs4n1")]

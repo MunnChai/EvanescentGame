@@ -3,11 +3,11 @@
 [ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_resource.gd" id="1_5vuwj"]
 [ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_node_resource.gd" id="1_xcfiv"]
 
-[sub_resource type="Resource" id="Resource_mj1gm"]
+[sub_resource type="Resource" id="Resource_mcnnn"]
 script = ExtResource("1_xcfiv")
 name = "GraphNode2"
 position_offset = Vector2(0, 0)
-size = Vector2(180.007, 340.006)
+size = Vector2(180.009, 340.006)
 data = {
 "alt_paths": [],
 "description": "",
@@ -16,7 +16,7 @@ data = {
 "title": "Start"
 }
 
-[sub_resource type="Resource" id="Resource_si8xv"]
+[sub_resource type="Resource" id="Resource_yvfls"]
 script = ExtResource("1_xcfiv")
 name = "GraphNode3"
 position_offset = Vector2(240, 0)
@@ -30,14 +30,14 @@ data = {
 "function_name": "navigate_to",
 "parameters": [{
 "type": 1,
-"value": "3100, 0"
+"value": "3100,0"
 }]
 }],
 "next_function_time": 9.5,
 "title": "Go TO Cousin House"
 }
 
-[sub_resource type="Resource" id="Resource_y3kwf"]
+[sub_resource type="Resource" id="Resource_hp36m"]
 script = ExtResource("1_xcfiv")
 name = "GraphNode5"
 position_offset = Vector2(1160, 0)
@@ -56,26 +56,7 @@ data = {
 "title": "Disappear"
 }
 
-[sub_resource type="Resource" id="Resource_1naa7"]
-script = ExtResource("1_xcfiv")
-name = "GraphNode4"
-position_offset = Vector2(720, 0)
-size = Vector2(383.637, 584)
-data = {
-"alt_paths": [],
-"description": "And go to his office",
-"functions": [{
-"function_name": "navigate_to",
-"parameters": [{
-"type": 1,
-"value": "50,1400"
-}]
-}],
-"next_function_time": 12.25,
-"title": "Go to Work"
-}
-
-[sub_resource type="Resource" id="Resource_vakiq"]
+[sub_resource type="Resource" id="Resource_t4x3t"]
 script = ExtResource("1_xcfiv")
 name = "GraphNode6"
 position_offset = Vector2(1660, 0)
@@ -92,6 +73,25 @@ data = {
 }],
 "next_function_time": 0.0,
 "title": "Go to Cousin House"
+}
+
+[sub_resource type="Resource" id="Resource_eyr0t"]
+script = ExtResource("1_xcfiv")
+name = "GraphNode4"
+position_offset = Vector2(720, 0)
+size = Vector2(383.637, 584)
+data = {
+"alt_paths": [],
+"description": "And go to his office",
+"functions": [{
+"function_name": "navigate_to",
+"parameters": [{
+"type": 1,
+"value": "50,1400"
+}]
+}],
+"next_function_time": 12.25,
+"title": "Go to Work"
 }
 
 [resource]
@@ -117,4 +117,4 @@ connections = [{
 "to_node": &"GraphNode6",
 "to_port": 0
 }]
-nodes = [SubResource("Resource_mj1gm"), SubResource("Resource_si8xv"), SubResource("Resource_y3kwf"), SubResource("Resource_1naa7"), SubResource("Resource_vakiq")]
+nodes = [SubResource("Resource_mcnnn"), SubResource("Resource_yvfls"), SubResource("Resource_hp36m"), SubResource("Resource_t4x3t"), SubResource("Resource_eyr0t")]
