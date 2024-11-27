@@ -37,9 +37,10 @@ func _ready():
 	update_current_location()
 
 func _physics_process(delta):
-	if (is_possessed and player.is_input_active):
-		handle_player_movement(delta)
-		handle_input(delta)
+	if (is_possessed):
+		if (player.is_input_active):
+			handle_player_movement(delta)
+			handle_input(delta)
 		inventory.visible = true
 	else:
 		handle_npc_movement(delta)
@@ -248,10 +249,12 @@ func navigate_to(target_position: Vector2):
 			
 			var next_door: BackgroundDoor = current_room_path.pop_front()
 			navigation_agent_2d.target_position = next_door.global_position
+			
 			navigation_agent_2d.navigation_finished.connect(enter_door.bind(next_door, target_position))
 			return
 		else: # If current_room == location_exit_room, navigate to location_exit and teleport to target_location
 			navigation_agent_2d.target_position = current_location.location_exit.global_position
+			
 			navigation_agent_2d.navigation_finished.connect(move_to_location.bind(target_location, target_position))
 			return
 	else: # If target_location == current_location, navigate to target_room
@@ -268,6 +271,7 @@ func navigate_to(target_position: Vector2):
 			
 			var next_door: BackgroundDoor = current_room_path.pop_front()
 			navigation_agent_2d.target_position = next_door.global_position
+			
 			navigation_agent_2d.navigation_finished.connect(enter_door.bind(next_door, target_position))
 			return
 		else: # If current_room == target_room, navigate to target_position
@@ -275,23 +279,25 @@ func navigate_to(target_position: Vector2):
 			return
 
 func enter_door(door: BackgroundDoor, target_position: Vector2):
+	await get_tree().create_timer(MOVE_ROOMS_WAIT_TIME).timeout
 	global_position = door.destination_door.global_position
 	current_room = current_location.get_room_of_position(global_position)
 	
+	clear_navigation_agent_connections()
 	navigate_to(target_position)
-	
-	if (navigation_agent_2d.navigation_finished.is_connected(enter_door)):
-		navigation_agent_2d.navigation_finished.disconnect(enter_door)
+
+const MOVE_ROOMS_WAIT_TIME: float = 0.5
 
 func move_to_location(location: Location, target_position: Vector2):
+	await get_tree().create_timer(MOVE_ROOMS_WAIT_TIME).timeout
 	global_position = location.location_exit.global_position
 	current_location = location
 	current_room = location.location_exit_room
 	
+	clear_navigation_agent_connections()
 	navigate_to(target_position)
-	
-	if (navigation_agent_2d.navigation_finished.is_connected(move_to_location)):
-		navigation_agent_2d.navigation_finished.disconnect(move_to_location)
 
-
+func clear_navigation_agent_connections():
+	for connection in navigation_agent_2d.navigation_finished.get_connections():
+		navigation_agent_2d.navigation_finished.disconnect(connection["callable"])
 
