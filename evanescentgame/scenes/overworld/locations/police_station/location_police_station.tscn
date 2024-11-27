@@ -211,7 +211,11 @@ position = Vector2(-220, 240)
 position = Vector2(-0.5, -3.25)
 shape = SubResource("RectangleShape2D_w4xol")
 
-[node name="Sprites" type="Node2D" parent="." index="4"]
+[node name="LocationArea" type="CollisionShape2D" parent="." index="4"]
+position = Vector2(119, 0.5)
+shape = SubResource("RectangleShape2D_gqev3")
+
+[node name="Sprites" type="Node2D" parent="." index="5"]
 
 [node name="Lobby" type="Node2D" parent="Sprites" index="0"]
 
@@ -377,11 +381,7 @@ texture = ExtResource("2_q3688")
 region_enabled = true
 region_rect = Rect2(224, 208, 16, 8)
 
-[node name="Inspectables" type="Node2D" parent="." index="5"]
-
-[node name="LocationArea" type="CollisionShape2D" parent="." index="6"]
-position = Vector2(119, 0.5)
-shape = SubResource("RectangleShape2D_gqev3")
+[node name="Inspectables" type="Node2D" parent="." index="6"]
 
 [node name="Rooms" type="Node2D" parent="." index="7"]
 
