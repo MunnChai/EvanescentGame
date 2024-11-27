@@ -1,0 +1,95 @@
+[gd_scene load_steps=15 format=3 uid="uid://bo73jk8xgay3l"]
+
+[ext_resource type="PackedScene" uid="uid://ccwc4s7e5nmbf" path="res://characters/npc/npc.tscn" id="1_j00tw"]
+[ext_resource type="Script" path="res://characters/npc/audio_test_npc/audio_npc.gd" id="2_pw0un"]
+[ext_resource type="AudioStream" uid="uid://2khrw8xwiv3x" path="res://characters/npc/audio_test_npc/audio/sfx/footsteps/test_step-02.wav" id="4_or0ie"]
+[ext_resource type="AudioStream" uid="uid://bdoobdy7376vm" path="res://characters/npc/audio_test_npc/audio/sfx/footsteps/test_step-03.wav" id="5_jbbl8"]
+[ext_resource type="AudioStream" uid="uid://dffltqx06k2ux" path="res://characters/npc/audio_test_npc/audio/sfx/footsteps/test_step-04.wav" id="6_j7ug7"]
+[ext_resource type="AudioStream" uid="uid://b4u0o2uljeq2h" path="res://characters/npc/audio_test_npc/audio/sfx/footsteps/test_step-05.wav" id="7_mgsri"]
+[ext_resource type="AudioStream" uid="uid://ba8ok5pfc641w" path="res://characters/npc/audio_test_npc/audio/sfx/footsteps/test_step-06.wav" id="8_w7o2g"]
+[ext_resource type="AudioStream" uid="uid://cw1s82nvwfhw3" path="res://characters/npc/audio_test_npc/audio/sfx/footsteps/test_step-07.wav" id="9_20kbf"]
+[ext_resource type="AudioStream" uid="uid://n3dxxf4ptwiw" path="res://characters/npc/audio_test_npc/audio/sfx/footsteps/test_step-08.wav" id="10_2s14m"]
+[ext_resource type="AudioStream" uid="uid://kiriatx0lkof" path="res://characters/npc/audio_test_npc/audio/sfx/footsteps/test_step-09.wav" id="11_ibp0p"]
+
+[sub_resource type="Animation" id="Animation_ui8fs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ruw6d"]
+resource_name = "waddle"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0872665, 0.0, -0.0872665]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tilf6"]
+_data = {
+"RESET": SubResource("Animation_ui8fs"),
+"waddle": SubResource("Animation_ruw6d")
+}
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0s1cq"]
+streams_count = 8
+stream_0/stream = ExtResource("4_or0ie")
+stream_0/weight = 0.0
+stream_1/stream = ExtResource("5_jbbl8")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("6_j7ug7")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("7_mgsri")
+stream_3/weight = 0.0
+stream_4/stream = ExtResource("8_w7o2g")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("9_20kbf")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("10_2s14m")
+stream_6/weight = 0.0
+stream_7/stream = ExtResource("11_ibp0p")
+stream_7/weight = 1.0
+
+[node name="AudioTestNPC" instance=ExtResource("1_j00tw")]
+script = ExtResource("2_pw0un")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]
+libraries = {
+"": SubResource("AnimationLibrary_tilf6")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="9"]
+stream = SubResource("AudioStreamRandomizer_0s1cq")
+bus = &"Footsteps"
