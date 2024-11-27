@@ -1564,7 +1564,7 @@ position = Vector2(-18, 46)
 [node name="InteractableArea" parent="LocationExit" index="0"]
 position = Vector2(2, 0)
 
-[node name="CollisionShape2D" parent="LocationExit/InteractableArea" index="2"]
+[node name="CollisionShape2D" parent="LocationExit/InteractableArea" index="1"]
 position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_xmaof")
 
@@ -1584,7 +1584,7 @@ script = ExtResource("6_56ehl")
 position = Vector2(80, 26.5)
 destination_door = NodePath("../../Floor2/Down")
 
-[node name="CollisionShape2D" parent="Rooms/GroundFloor/Up/InteractableArea" index="2"]
+[node name="CollisionShape2D" parent="Rooms/GroundFloor/Up/InteractableArea" index="1"]
 position = Vector2(0, -9.5)
 shape = SubResource("RectangleShape2D_sixqp")
 
@@ -1597,7 +1597,7 @@ script = ExtResource("6_56ehl")
 position = Vector2(87, 28.5)
 destination_door = NodePath("../../GroundFloor/Up")
 
-[node name="CollisionShape2D" parent="Rooms/Floor2/Down/InteractableArea" index="2"]
+[node name="CollisionShape2D" parent="Rooms/Floor2/Down/InteractableArea" index="1"]
 position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_lme2g")
 
@@ -1605,7 +1605,7 @@ shape = SubResource("RectangleShape2D_lme2g")
 position = Vector2(55, 28.5)
 destination_door = NodePath("../../Floor11/Down")
 
-[node name="CollisionShape2D" parent="Rooms/Floor2/Up/InteractableArea" index="2"]
+[node name="CollisionShape2D" parent="Rooms/Floor2/Up/InteractableArea" index="1"]
 position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_lme2g")
 
@@ -1613,7 +1613,7 @@ shape = SubResource("RectangleShape2D_lme2g")
 position = Vector2(139, 27.5)
 destination_door = NodePath("../../Floor2Break/WorkArea")
 
-[node name="CollisionShape2D" parent="Rooms/Floor2/BreakRoom/InteractableArea" index="2"]
+[node name="CollisionShape2D" parent="Rooms/Floor2/BreakRoom/InteractableArea" index="1"]
 position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_lme2g")
 
@@ -1626,7 +1626,7 @@ script = ExtResource("6_56ehl")
 position = Vector2(-73.25, 27)
 destination_door = NodePath("../../Floor2/BreakRoom")
 
-[node name="CollisionShape2D" parent="Rooms/Floor2Break/WorkArea/InteractableArea" index="2"]
+[node name="CollisionShape2D" parent="Rooms/Floor2Break/WorkArea/InteractableArea" index="1"]
 position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_lme2g")
 
@@ -1639,7 +1639,7 @@ script = ExtResource("6_56ehl")
 position = Vector2(100.5, 28.25)
 destination_door = NodePath("../../Floor2/Up")
 
-[node name="CollisionShape2D" parent="Rooms/Floor11/Down/InteractableArea" index="2"]
+[node name="CollisionShape2D" parent="Rooms/Floor11/Down/InteractableArea" index="1"]
 position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_lme2g")
 
@@ -1647,7 +1647,7 @@ shape = SubResource("RectangleShape2D_lme2g")
 position = Vector2(152.5, 28.25)
 destination_door = NodePath("../../Floor11Break/WorkArea")
 
-[node name="CollisionShape2D" parent="Rooms/Floor11/BreakRoom/InteractableArea" index="2"]
+[node name="CollisionShape2D" parent="Rooms/Floor11/BreakRoom/InteractableArea" index="1"]
 position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_lme2g")
 
@@ -1660,7 +1660,7 @@ script = ExtResource("6_56ehl")
 position = Vector2(-73.25, 27)
 destination_door = NodePath("../../Floor11/BreakRoom")
 
-[node name="CollisionShape2D" parent="Rooms/Floor11Break/WorkArea/InteractableArea" index="2"]
+[node name="CollisionShape2D" parent="Rooms/Floor11Break/WorkArea/InteractableArea" index="1"]
 position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_lme2g")
 

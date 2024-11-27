@@ -1,28 +1,17 @@
-[gd_resource type="Resource" script_class="DecisionTreeGraphData" load_steps=6 format=3 uid="uid://c12n1c4jcc111"]
+[gd_resource type="Resource" script_class="DecisionTreeGraphData" load_steps=6 format=3]
 
 [ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_resource.gd" id="1_5vuwj"]
 [ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_node_resource.gd" id="1_xcfiv"]
 
-[sub_resource type="Resource" id="Resource_l6scv"]
-script = ExtResource("1_xcfiv")
-name = "GraphNode2"
-position_offset = Vector2(0, 0)
-size = Vector2(179.997, 340)
-data = {
-"alt_paths": [],
-"description": "",
-"functions": [],
-"next_function_time": 9.5,
-"title": "Start"
-}
-
-[sub_resource type="Resource" id="Resource_xb6ji"]
+[sub_resource type="Resource" id="Resource_10mfu"]
 script = ExtResource("1_xcfiv")
 name = "GraphNode3"
 position_offset = Vector2(400, 0)
-size = Vector2(417.019, 564)
+size = Vector2(417.019, 606)
 data = {
-"alt_paths": [],
+"alt_paths": [{
+"condition": "Condition1"
+}],
 "description": "",
 "functions": [{
 "function_name": "navigate_to",
@@ -35,7 +24,7 @@ data = {
 "title": "Go TO House"
 }
 
-[sub_resource type="Resource" id="Resource_4eja1"]
+[sub_resource type="Resource" id="Resource_qsh0k"]
 script = ExtResource("1_xcfiv")
 name = "GraphNode4"
 position_offset = Vector2(1000, 0)
@@ -49,9 +38,22 @@ Remember to add a function here!",
 "title": "Go to Work"
 }
 
+[sub_resource type="Resource" id="Resource_y1ywl"]
+script = ExtResource("1_xcfiv")
+name = "GraphNode2"
+position_offset = Vector2(0, 0)
+size = Vector2(180.008, 340.006)
+data = {
+"alt_paths": [],
+"description": "",
+"functions": [],
+"next_function_time": 9.5,
+"title": "Start"
+}
+
 [resource]
 script = ExtResource("1_5vuwj")
-connections = [{
+connections = Array[Dictionary]([{
 "from_node": &"GraphNode2",
 "from_port": 0,
 "to_node": &"GraphNode3",
@@ -61,5 +63,5 @@ connections = [{
 "from_port": 0,
 "to_node": &"GraphNode4",
 "to_port": 0
-}]
-nodes = [SubResource("Resource_l6scv"), SubResource("Resource_xb6ji"), SubResource("Resource_4eja1")]
+}])
+nodes = [SubResource("Resource_10mfu"), SubResource("Resource_qsh0k"), SubResource("Resource_y1ywl")]

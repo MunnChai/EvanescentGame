@@ -35,6 +35,7 @@ func _teleport_to_next() -> void:
 	
 	if player.is_possessing:
 		player.currently_possessed_npc.global_position = destination_door.global_position + offset + Vector2(0, 30)
+		player.currently_possessed_npc.update_current_location()
 	
 	player.global_position = destination_door.global_position + offset
 

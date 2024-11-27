@@ -8,13 +8,14 @@ extends CharacterBody2D
 @onready var dialogue_emitter = $DialogueEmitter
 @onready var sprite_2d = $Sprite2D
 @onready var inventory: Inventory = $CanvasLayer/Inventory
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @export var graph_data: DecisionTreeGraphData
 @export var starting_dialogue_resource: DialogueResource
 @export var current_dialogue_title: String
 
-const SPEED: float = 75.0
-const SPRINT_MULTIPLIER: float = 1.5
+const SPEED: float = 40.0
+const SPRINT_MULTIPLIER: float = 1.75
 const JUMP_VELOCITY: float = 250
 const GRAVITY: float = 1000
 
@@ -33,27 +34,7 @@ func _ready():
 	if (!interactable_area.player_interacted.is_connected(on_player_interacted)): 
 		interactable_area.player_interacted.connect(on_player_interacted)
 	
-	var location_managers = get_tree().get_nodes_in_group("location_manager")
-	
-	if (location_managers.size() == 0):
-		return
-	
-	var location_manager = location_managers[0]
-	
-	for location: Location in location_manager.get_children():
-		if (location.area_contains_position(global_position)):
-			current_location = location
-			break
-	
-	if (!current_location):
-		print("The NPC: ", name, ", is not in any location's area!")
-		return
-	
-	current_room = current_location.get_room_of_position(global_position)
-	
-	if (!current_room):
-		print("The NPC: ", name, ", is not in any of location's rooms!")
-		return
+	update_current_location()
 
 func _physics_process(delta):
 	if (is_possessed and player.is_input_active):
@@ -63,6 +44,8 @@ func _physics_process(delta):
 	else:
 		handle_npc_movement(delta)
 		inventory.visible = false
+	
+	handle_animation()
 
 func on_player_interacted():
 	if (player.is_possessing):
@@ -127,12 +110,45 @@ func handle_input(delta: float):
 	if (Input.is_action_just_pressed("jump") and is_on_floor()):
 		jump()
 
+func handle_animation():
+	if (velocity.length() > SPEED):
+		animation_player.play("run")
+	elif (velocity.length() > 0):
+		animation_player.play("walk")
+	else:
+		var rand = randf_range(0.5, 1.5)
+		animation_player.play("idle", -1, rand)
+	
+	if (velocity.x > 0):
+		sprite_2d.flip_h = false
+	elif (velocity.x < 0):
+		sprite_2d.flip_h = true
 
 
 
 
-
-
+func update_current_location():
+	var location_managers = get_tree().get_nodes_in_group("location_manager")
+	
+	if (location_managers.size() == 0):
+		return
+	
+	var location_manager = location_managers[0]
+	
+	for location: Location in location_manager.get_children():
+		if (location.area_contains_position(global_position)):
+			current_location = location
+			break
+	
+	if (!current_location):
+		print("The NPC: ", name, ", is not in any location's area!")
+		return
+	
+	current_room = current_location.get_room_of_position(global_position)
+	
+	if (!current_room):
+		print("The NPC: ", name, ", is not in any of location's rooms!")
+		return
 
 func handle_player_movement(delta: float):
 	if (not is_on_floor()):
@@ -150,11 +166,6 @@ func handle_player_movement(delta: float):
 		velocity.x = move_toward(velocity.x, direction * true_speed, true_speed)
 	else:
 		velocity.x = move_toward(velocity.x, 0, true_speed)
-	
-	if (velocity.x > 0):
-		sprite_2d.flip_h = false
-	else:
-		sprite_2d.flip_h = true
 	
 	move_and_slide()
 
@@ -197,11 +208,6 @@ func handle_npc_movement(delta: float):
 		
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED / 4)
-	
-	if (velocity.x > 0):
-		sprite_2d.flip_h = false
-	elif (velocity.x < 0):
-		sprite_2d.flip_h = true
 		
 	move_and_slide()
 
@@ -216,6 +222,7 @@ func jump():
 
 # Call this to navigate your NPC to the desired position (position must be within a LocationRoom's area)
 func navigate_to(target_position: Vector2):
+	update_current_location()
 	var location_manager = get_tree().get_nodes_in_group("location_manager")[0]
 	var unreachable_locations = get_tree().get_nodes_in_group("unreachable_locations")
 	var locations = location_manager.get_children()
