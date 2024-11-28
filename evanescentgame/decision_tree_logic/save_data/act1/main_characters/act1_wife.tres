@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_resource.gd" id="1_6owlg"]
 [ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_node_resource.gd" id="1_boqkk"]
 
-[sub_resource type="Resource" id="Resource_ingje"]
+[sub_resource type="Resource" id="Resource_vqii2"]
 script = ExtResource("1_boqkk")
 name = "GraphNode2"
 position_offset = Vector2(0, 0)
@@ -20,18 +20,18 @@ data = {
 "title": "Start"
 }
 
-[sub_resource type="Resource" id="Resource_ls660"]
+[sub_resource type="Resource" id="Resource_c8rom"]
 script = ExtResource("1_boqkk")
 name = "GraphNode5"
 position_offset = Vector2(1600, 0)
-size = Vector2(411.082, 604.09)
+size = Vector2(411.087, 604.09)
 data = {
 "alt_paths": [],
 "description": "",
 "functions": [{
 "function_name": "navigate_to",
 "parameters": [{
-"type": 0,
+"type": 1,
 "value": "573,1740"
 }]
 }],
@@ -39,7 +39,7 @@ data = {
 "title": "Take a break"
 }
 
-[sub_resource type="Resource" id="Resource_076j0"]
+[sub_resource type="Resource" id="Resource_svm0u"]
 script = ExtResource("1_boqkk")
 name = "GraphNode6"
 position_offset = Vector2(2200, 0)
@@ -58,11 +58,11 @@ data = {
 "title": "Go Back To Work"
 }
 
-[sub_resource type="Resource" id="Resource_mbjwv"]
+[sub_resource type="Resource" id="Resource_3cfee"]
 script = ExtResource("1_boqkk")
 name = "GraphNode4"
 position_offset = Vector2(1000, 0)
-size = Vector2(428.362, 602.942)
+size = Vector2(428.363, 602.942)
 data = {
 "alt_paths": [],
 "description": "",
@@ -77,7 +77,7 @@ data = {
 "title": "Go To Work"
 }
 
-[sub_resource type="Resource" id="Resource_k7cq3"]
+[sub_resource type="Resource" id="Resource_5oh6f"]
 script = ExtResource("1_boqkk")
 name = "GraphNode3"
 position_offset = Vector2(400, 0)
@@ -96,7 +96,7 @@ data = {
 "title": "Go Home"
 }
 
-[sub_resource type="Resource" id="Resource_2say7"]
+[sub_resource type="Resource" id="Resource_hduwj"]
 script = ExtResource("1_boqkk")
 name = "GraphNode7"
 position_offset = Vector2(2780, 0)
@@ -115,7 +115,7 @@ data = {
 "title": "Go check on Samuel"
 }
 
-[sub_resource type="Resource" id="Resource_e1m2b"]
+[sub_resource type="Resource" id="Resource_1jd8h"]
 script = ExtResource("1_boqkk")
 name = "GraphNode8"
 position_offset = Vector2(3380, 0)
@@ -134,11 +134,11 @@ data = {
 "title": "Go check on Hana"
 }
 
-[sub_resource type="Resource" id="Resource_4ijbs"]
+[sub_resource type="Resource" id="Resource_2ix6b"]
 script = ExtResource("1_boqkk")
 name = "GraphNode10"
 position_offset = Vector2(3920, 0)
-size = Vector2(388.878, 734.548)
+size = Vector2(388.877, 734.548)
 data = {
 "alt_paths": [],
 "description": "",
@@ -153,11 +153,11 @@ data = {
 "title": "Chill in Living Room"
 }
 
-[sub_resource type="Resource" id="Resource_gv2hd"]
+[sub_resource type="Resource" id="Resource_g1m2r"]
 script = ExtResource("1_boqkk")
 name = "GraphNode9"
 position_offset = Vector2(4480, 0)
-size = Vector2(376.79, 719.879)
+size = Vector2(376.789, 719.879)
 data = {
 "alt_paths": [],
 "description": "",
@@ -172,11 +172,11 @@ data = {
 "title": "Go To Kitchen"
 }
 
-[sub_resource type="Resource" id="Resource_8jldh"]
+[sub_resource type="Resource" id="Resource_elgdg"]
 script = ExtResource("1_boqkk")
 name = "GraphNode11"
 position_offset = Vector2(5000, 0)
-size = Vector2(380.669, 689.432)
+size = Vector2(380.668, 689.432)
 data = {
 "alt_paths": [],
 "description": "",
@@ -234,4 +234,4 @@ connections = [{
 "to_node": &"GraphNode9",
 "to_port": 0
 }]
-nodes = [SubResource("Resource_ingje"), SubResource("Resource_ls660"), SubResource("Resource_076j0"), SubResource("Resource_mbjwv"), SubResource("Resource_k7cq3"), SubResource("Resource_2say7"), SubResource("Resource_e1m2b"), SubResource("Resource_4ijbs"), SubResource("Resource_gv2hd"), SubResource("Resource_8jldh")]
+nodes = [SubResource("Resource_vqii2"), SubResource("Resource_c8rom"), SubResource("Resource_svm0u"), SubResource("Resource_3cfee"), SubResource("Resource_5oh6f"), SubResource("Resource_hduwj"), SubResource("Resource_1jd8h"), SubResource("Resource_2ix6b"), SubResource("Resource_g1m2r"), SubResource("Resource_elgdg")]
