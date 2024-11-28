@@ -6,21 +6,39 @@ extends Node
 const JSON_SAVE_FILE_PATH = "user://save.json"
 const BINARY_SAVE_FILE_PATH = "user://game.save"
 
+const EVAN_MEMORY_KEY = "memory"
+const INFO_LOG_UNLOCK_KEY = "info_log_unlocks"
+
+## GAME SAVE DATA:
+## Dictionary with:
+## { "memory": <Evan's Memory Dictionary>
+##   "info_log_unlocks": <Info Log Unlocks Dictionary> }
+## ...
+
+## NOTE:
+## Settings save in config or in save file?
+## Any other relevant details to be saved?
+
 var game_save_data: Dictionary = {}
 
 ## PUBLIC METHODS
+## Currently using: JSON save methods
 
 func save_game() -> void:
 	# Gather save data from various game systems...
 	var save_data = game_save_data
 	
-	_save_game_to_binary_file(save_data)
+	save_data[INFO_LOG_UNLOCK_KEY] = InfoLogLogic.unlock_flags
+	
+	_save_game_to_json_file(save_data)
 
 func load_game() -> void:
-	var save_data = _load_game_from_binary_file()
+	var save_data = _load_game_from_json_file()
 	
 	# Put save data into game systems...
 	game_save_data = save_data
+	
+	InfoLogLogic.unlock_flags = game_save_data.get(INFO_LOG_UNLOCK_KEY, {})
 
 
 
@@ -88,10 +106,6 @@ func log_error(string: String) -> void:
 func _ready() -> void:
 	load_game()
 	
-	# print(OS.get_data_dir()) # Directory where the file is stored.
+	print(OS.get_user_data_dir())
 	
-	await get_tree().create_timer(1.0).timeout
 	print(game_save_data)
-	
-	game_save_data["hello"] = false
-	save_game()
