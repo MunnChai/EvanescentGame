@@ -81,7 +81,6 @@ func become_unpossessed():
 	is_possessed = false
 	interactable_area.enable()
 	inventory.visible = false
-	clear_navigation_agent_connections()
 	update_current_location()
 
 
