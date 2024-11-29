@@ -106,6 +106,5 @@ func log_error(string: String) -> void:
 func _ready() -> void:
 	load_game()
 	
-	print(OS.get_user_data_dir())
-	
-	print(game_save_data)
+	log_message("FOR DEBUG PURPOSES: The loaded game save data dictionary is: " + str(game_save_data))
+	log_message("Save files are located at " + OS.get_user_data_dir())

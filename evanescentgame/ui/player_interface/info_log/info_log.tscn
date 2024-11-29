@@ -1,7 +1,6 @@
-[gd_scene load_steps=40 format=3 uid="uid://bwsvbhi5lv3pd"]
+[gd_scene load_steps=42 format=3 uid="uid://bwsvbhi5lv3pd"]
 
 [ext_resource type="Script" path="res://ui/player_interface/info_log/info_log.gd" id="1_vajvh"]
-[ext_resource type="PackedScene" uid="uid://ui5ih2eha0so" path="res://ui/player_interface/info_log/info_log_entry.tscn" id="2_k56j1"]
 [ext_resource type="Texture2D" uid="uid://dbqoe4sjjeoaj" path="res://ui/player_interface/info_log/open_frames/file_folder_open0017.png" id="3_ib3c6"]
 [ext_resource type="Texture2D" uid="uid://cr4c4b6to8h37" path="res://ui/player_interface/info_log/open_frames/file_folder_open0018.png" id="4_47wql"]
 [ext_resource type="Texture2D" uid="uid://2enfhx4boulx" path="res://ui/player_interface/info_log/open_frames/file_folder_open0019.png" id="5_u4adr"]
@@ -37,7 +36,11 @@
 [ext_resource type="Texture2D" uid="uid://ws10x1y6d6w2" path="res://ui/player_interface/info_log/open_frames/file_folder_open0049.png" id="35_nw32i"]
 [ext_resource type="Texture2D" uid="uid://dkqgncqv0rxas" path="res://ui/player_interface/info_log/open_frames/file_folder_open0050.png" id="36_m0s4q"]
 [ext_resource type="Texture2D" uid="uid://j2mrq2v2igsb" path="res://ui/player_interface/info_log/open_frames/file_folder_open0051.png" id="37_dpghc"]
+[ext_resource type="FontFile" uid="uid://byvk43qeri2e" path="res://ui/fonts/EBGaramond-Regular.ttf" id="38_5y8kh"]
 [ext_resource type="Texture2D" uid="uid://c72kaqmxoxyme" path="res://ui/player_interface/info_log/open_frames/file_folder_open0052.png" id="38_gx41y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ksit"]
+bg_color = Color(0, 0, 0, 0.392157)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xj7qe"]
 animations = [{
@@ -155,6 +158,10 @@ animations = [{
 "speed": 32.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_awlfc"]
+bg_color = Color(0.501961, 0.14902, 0.247059, 1)
+anti_aliasing = false
+
 [node name="InfoLog" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -163,6 +170,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vajvh")
+
+[node name="BgPanel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8ksit")
 
 [node name="FileFolder" type="AnimatedSprite2D" parent="."]
 position = Vector2(160, 90)
@@ -178,22 +195,63 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 25
+metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="MarginContainer"]
+texture_filter = 1
+clip_contents = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_awlfc")
+
+[node name="Content" type="VBoxContainer" parent="MarginContainer/Panel"]
+clip_contents = true
+custom_minimum_size = Vector2(200, 130)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TopBar" type="HBoxContainer" parent="MarginContainer/Panel/Content"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="Button" type="Button" parent="MarginContainer/Panel/Content/TopBar"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("38_5y8kh")
+theme_override_font_sizes/font_size = 10
+text = "People"
+
+[node name="Button2" type="Button" parent="MarginContainer/Panel/Content/TopBar"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("38_5y8kh")
+theme_override_font_sizes/font_size = 10
+text = "Places"
+
+[node name="Button3" type="Button" parent="MarginContainer/Panel/Content/TopBar"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("38_5y8kh")
+theme_override_font_sizes/font_size = 10
+text = "Things
+"
+
+[node name="BodyContainer" type="HBoxContainer" parent="MarginContainer/Panel/Content"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/Content/BodyContainer"]
+custom_minimum_size = Vector2(50, 2.08165e-12)
 layout_mode = 2
 
-[node name="InfoLogEntry" parent="MarginContainer/HBoxContainer" instance=ExtResource("2_k56j1")]
+[node name="Button" type="Button" parent="MarginContainer/Panel/Content/BodyContainer/VBoxContainer"]
 layout_mode = 2
+text = "Evan"
 
-[node name="InfoLogEntry2" parent="MarginContainer/HBoxContainer" instance=ExtResource("2_k56j1")]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/Panel/Content/BodyContainer"]
+custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
 
-[node name="InfoLogEntry3" parent="MarginContainer/HBoxContainer" instance=ExtResource("2_k56j1")]
-layout_mode = 2
+[connection signal="animation_finished" from="FileFolder" to="." method="_on_file_folder_animation_finished"]

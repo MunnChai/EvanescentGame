@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InfoLogEntryResource" load_steps=2 format=3 uid="uid://c5acooy0v3chs"]
+
+[ext_resource type="Script" path="res://ui/player_interface/info_log/resource_data/info_log_entry_resource.gd" id="1_kgr4q"]
+
+[resource]
+script = ExtResource("1_kgr4q")
+title = "Funeral Venue"
+side_bar_title = "Funeral Venue"
+categories = Array[String](["places"])
+unlock_flags = Array[String](["saw_funeral"])
+description = "Your funeral. They're here to mourn... your death?"

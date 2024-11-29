@@ -29,15 +29,49 @@ static func lock_flag(flag: String) -> void:
 
 ## CALLED TO INITALIZE THE LOG
 ## with unlocked entries, entry assets, etc.
+const INFO_ENTRIES_PATH = "res://ui/player_interface/info_log/entries/"
+
+var unlocked_entry_resources: Array[InfoLogEntryResource] = []
+var people_entries: Array[InfoLogEntryResource] = []
+var places_entries: Array[InfoLogEntryResource] = []
+var things_entries: Array[InfoLogEntryResource] = []
+
 func init() -> void:
-	pass
+	## NOTE: Probably need optimization around here during loading.
+	## Or load before start, and then select based on flags?
+	
+	unlocked_entry_resources = []
+	
+	var dir = DirAccess.open(INFO_ENTRIES_PATH)
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			var entry: InfoLogEntryResource = load(INFO_ENTRIES_PATH + file_name)
+			if entry.is_unlocked():
+				
+				unlocked_entry_resources.append(entry)
+				if entry.categories.has("people"):
+					people_entries.append(entry)
+				if entry.categories.has("places"):
+					people_entries.append(entry)
+				if entry.categories.has("things"):
+					people_entries.append(entry)
+				
+			file_name = dir.get_next()
+	
+	for resource: InfoLogEntryResource in unlocked_entry_resources:
+		print(resource.title)
 
 ## Open to main screen...
 func open() -> void:
+	init()
+	$BgPanel.show()
 	is_open = true
 	file_folder.play("file_flip_open")
+	print("Opened the info log!")
 func open_to_main() -> void:
-	pass
+	open()
 ## Open to a specific page or category, if it exists...
 func open_to_entry(entry_id: String) -> void:
 	open()
@@ -55,17 +89,27 @@ func go_to_category(category_id: String) -> void:
 func close() -> void:
 	is_open = false
 	file_folder.play_backwards("file_flip_open")
+	print("Closed the info log!")
+	$MarginContainer.hide()
 
 
 
 ## DEBUG
 func _ready():
-	await get_tree().create_timer(1.0).timeout
-	open()
+	pass
 
 func _process(delta):
 	if Input.is_action_just_pressed("interact"):
 		if is_open:
 			close()
+			unlock_flag("saw_funeral")
 		else:
 			open()
+
+
+
+func _on_file_folder_animation_finished():
+	if is_open:
+		$MarginContainer.show()
+	else:
+		$BgPanel.hide()
