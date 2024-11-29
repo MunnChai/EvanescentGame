@@ -1,9 +1,10 @@
-[gd_scene load_steps=46 format=3 uid="uid://byuxpv2q8tskb"]
+[gd_scene load_steps=47 format=3 uid="uid://byuxpv2q8tskb"]
 
 [ext_resource type="Script" path="res://scenes/underworld/underworld_introduction/underworld_introduction_manager.gd" id="1_6xc8v"]
 [ext_resource type="PackedScene" uid="uid://mongwlhd8cu0" path="res://ui/player_interface/ingame_clock/ingame_ui.tscn" id="2_0v067"]
 [ext_resource type="PackedScene" uid="uid://cfluel2e374xh" path="res://singletons/overlay_panel/overlay_panel.tscn" id="2_v886t"]
 [ext_resource type="Texture2D" uid="uid://crb5d5skwj0ke" path="res://scenes/underworld/sprites/hell_background.png" id="3_jlx8u"]
+[ext_resource type="PackedScene" uid="uid://h5oxlt67k8c7" path="res://ui/in_game_menus/pause_menu/pause_menu.tscn" id="3_l2ljp"]
 [ext_resource type="PackedScene" uid="uid://cemmf570s8hey" path="res://general_components/dialogue_emitter/dialogue_emitter.tscn" id="4_mf7ql"]
 [ext_resource type="Resource" uid="uid://dna7wdixiw7wk" path="res://scenes/underworld/underworld_introduction/dialogue/cutscenes/evan_underworld_intro.dialogue" id="5_g8ciy"]
 [ext_resource type="Texture2D" uid="uid://b5g2yev3cp8vq" path="res://characters/npc/side_characters/ghost/sprites/sweeper_ghost_1.png" id="7_s7rxc"]
@@ -2847,6 +2848,8 @@ metadata/_edit_lock_ = true
 [node name="Ingame" parent="CanvasLayer" instance=ExtResource("2_0v067")]
 metadata/_edit_lock_ = true
 
+[node name="OverworldPause" parent="CanvasLayer" instance=ExtResource("3_l2ljp")]
+
 [node name="World" type="Node2D" parent="."]
 
 [node name="Outdoor" type="Node2D" parent="World"]
@@ -2895,7 +2898,7 @@ num = 3
 [node name="Sprite2D" parent="World/Outdoor/LostSoul" index="0"]
 modulate = Color(0.196078, 1, 1, 0.537255)
 
-[node name="CollisionShape2D" parent="World/Outdoor/LostSoul/InteractableArea" index="1"]
+[node name="CollisionShape2D" parent="World/Outdoor/LostSoul/InteractableArea" index="2"]
 position = Vector2(4, 20)
 
 [node name="SweeperGhost" parent="World/Outdoor" instance=ExtResource("30_862f1")]
@@ -3037,13 +3040,13 @@ destination_door = NodePath("../BackgroundDoor2")
 [node name="InteractableArea" parent="World/LadyDevilOffice/BackgroundDoor" index="0"]
 position = Vector2(0, -12)
 
-[node name="CollisionShape2D" parent="World/LadyDevilOffice/BackgroundDoor/InteractableArea" index="1"]
+[node name="CollisionShape2D" parent="World/LadyDevilOffice/BackgroundDoor/InteractableArea" index="2"]
 position = Vector2(0, -5)
 
 [node name="Devil" parent="World/LadyDevilOffice" instance=ExtResource("28_iiypf")]
 position = Vector2(2069, -60)
 
-[node name="CollisionShape2D" parent="World/LadyDevilOffice/Devil/InteractableArea" index="1"]
+[node name="CollisionShape2D" parent="World/LadyDevilOffice/Devil/InteractableArea" index="2"]
 position = Vector2(-9.5, 16.6563)
 
 [node name="DevilPodium" type="StaticBody2D" parent="World/LadyDevilOffice"]
