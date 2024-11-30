@@ -29,39 +29,53 @@ static func lock_flag(flag: String) -> void:
 
 ## CALLED TO INITALIZE THE LOG
 ## with unlocked entries, entry assets, etc.
-const INFO_ENTRIES_PATH = "res://ui/player_interface/info_log/entries/"
 
-var unlocked_entry_resources: Array[InfoLogEntryResource] = []
-var people_entries: Array[InfoLogEntryResource] = []
-var places_entries: Array[InfoLogEntryResource] = []
-var things_entries: Array[InfoLogEntryResource] = []
+## Path to folder with all JSON files...
+const INFO_ENTRIES_PATH = "res://ui/player_interface/info_log/entries/"
+var json_entries = []
+var unlocked_json_entries = []
+
+func is_entry_unlocked(entry: Dictionary) -> bool:
+	var add := true
+	for flag in entry.get("unlock_flags", []):
+		if not is_unlocked(flag):
+			add = false
+	
+	#var strike_out := true
+	#for flag in entry.get("strike_out_flags", []):
+		#if not is_unlocked(flag):
+			#strike_out = false
+	
+	return add
 
 func init() -> void:
 	## NOTE: Probably need optimization around here during loading.
 	## Or load before start, and then select based on flags?
 	
-	unlocked_entry_resources = []
-	
 	var dir = DirAccess.open(INFO_ENTRIES_PATH)
-	if dir:
+	if dir and json_entries.is_empty():
 		dir.list_dir_begin()
 		var file_name = dir.get_next()
 		while file_name != "":
-			var entry: InfoLogEntryResource = load(INFO_ENTRIES_PATH + file_name)
-			if entry.is_unlocked():
-				
-				unlocked_entry_resources.append(entry)
-				if entry.categories.has("people"):
-					people_entries.append(entry)
-				if entry.categories.has("places"):
-					people_entries.append(entry)
-				if entry.categories.has("things"):
-					people_entries.append(entry)
-				
+			var file = FileAccess.open(INFO_ENTRIES_PATH + file_name, FileAccess.READ)
+			
+			var json = JSON.new()
+			
+			var data = json.parse(file.get_as_text())
+			
+			file.close()
+			
+			if not data == OK:
+				printerr("Issue with loading a JSON info entry!")
+				return
+			
+			json_entries.append(json.data)
+			if is_entry_unlocked(json.data):
+				unlocked_json_entries.append(json.data)
+			
 			file_name = dir.get_next()
 	
-	for resource: InfoLogEntryResource in unlocked_entry_resources:
-		print(resource.title)
+	print(json_entries)
 
 const FADE_BG_TIME := 0.1
 
