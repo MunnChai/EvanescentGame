@@ -12,7 +12,8 @@ const INFO_LOG_UNLOCK_KEY = "info_log_unlocks"
 ## GAME SAVE DATA:
 ## Dictionary with:
 ## { "memory": <Evan's Memory Dictionary>
-##   "info_log_unlocks": <Info Log Unlocks Dictionary> }
+##   "info_log_unlocks": <Info Log Unlocks Dictionary> 
+##   "act": <Act Number from 1 to 3> }
 ## ...
 
 ## NOTE:
@@ -29,6 +30,12 @@ func save_game() -> void:
 	var save_data = game_save_data
 	
 	save_data[INFO_LOG_UNLOCK_KEY] = InfoLogLogic.unlock_flags
+	
+	_save_game_to_json_file(save_data)
+
+func reset_save() -> void:
+	game_save_data = {}
+	var save_data = {} 
 	
 	_save_game_to_json_file(save_data)
 
