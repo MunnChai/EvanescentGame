@@ -99,7 +99,7 @@ func close() -> void:
 	is_open = false
 	file_folder.play_backwards("file_flip_open")
 	print("Closed the info log!")
-	$MarginContainer.hide()
+	# $MarginContainer.hide()
 
 
 
@@ -108,18 +108,27 @@ func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	$BgPanel.process_mode = Node.PROCESS_MODE_ALWAYS
 
+const FRAME_TO_SHOW := 13
+const FRAME_TO_HIDE := 12
+
 func _process(delta):
 	if Input.is_action_just_pressed("open_log"):
 		if is_open:
 			close()
 		else:
 			open()
+	
+	if file_folder.frame == FRAME_TO_SHOW:
+		$Entries.show()
+	if file_folder.frame == FRAME_TO_HIDE:
+		$Entries.hide()
 
 
 
 func _on_file_folder_animation_finished():
 	if is_open:
-		$MarginContainer.show()
+		# $MarginContainer.show()
+		pass
 	else:
 		if tween != null:
 			tween.kill()
