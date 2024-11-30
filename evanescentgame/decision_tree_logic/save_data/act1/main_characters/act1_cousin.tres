@@ -1,13 +1,13 @@
-[gd_resource type="Resource" script_class="DecisionTreeGraphData" load_steps=8 format=3 uid="uid://c6h5x3eaqximn"]
+[gd_resource type="Resource" script_class="DecisionTreeGraphData" load_steps=9 format=3]
 
 [ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_resource.gd" id="1_5vuwj"]
 [ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_node_resource.gd" id="1_xcfiv"]
 
-[sub_resource type="Resource" id="Resource_mcnnn"]
+[sub_resource type="Resource" id="Resource_5xp1x"]
 script = ExtResource("1_xcfiv")
 name = "GraphNode2"
 position_offset = Vector2(0, 0)
-size = Vector2(180.009, 340.006)
+size = Vector2(180.013, 340.006)
 data = {
 "alt_paths": [],
 "description": "",
@@ -16,11 +16,11 @@ data = {
 "title": "Start"
 }
 
-[sub_resource type="Resource" id="Resource_yvfls"]
+[sub_resource type="Resource" id="Resource_8c1hb"]
 script = ExtResource("1_xcfiv")
 name = "GraphNode3"
 position_offset = Vector2(240, 0)
-size = Vector2(417.007, 606)
+size = Vector2(416.999, 606)
 data = {
 "alt_paths": [{
 "condition": "Condition1"
@@ -33,53 +33,15 @@ data = {
 "value": "3100,0"
 }]
 }],
-"next_function_time": 9.5,
+"next_function_time": 10.0,
 "title": "Go TO Cousin House"
 }
 
-[sub_resource type="Resource" id="Resource_hp36m"]
-script = ExtResource("1_xcfiv")
-name = "GraphNode5"
-position_offset = Vector2(1160, 0)
-size = Vector2(443.967, 570.835)
-data = {
-"alt_paths": [],
-"description": "",
-"functions": [{
-"function_name": "navigate_to",
-"parameters": [{
-"type": 1,
-"value": "2000,2000"
-}]
-}],
-"next_function_time": 18.5,
-"title": "Disappear"
-}
-
-[sub_resource type="Resource" id="Resource_t4x3t"]
-script = ExtResource("1_xcfiv")
-name = "GraphNode6"
-position_offset = Vector2(1660, 0)
-size = Vector2(500.07, 590.83)
-data = {
-"alt_paths": [],
-"description": "",
-"functions": [{
-"function_name": "navigate_to",
-"parameters": [{
-"type": 1,
-"value": "3100,0"
-}]
-}],
-"next_function_time": 0.0,
-"title": "Go to Cousin House"
-}
-
-[sub_resource type="Resource" id="Resource_eyr0t"]
+[sub_resource type="Resource" id="Resource_okm3y"]
 script = ExtResource("1_xcfiv")
 name = "GraphNode4"
 position_offset = Vector2(720, 0)
-size = Vector2(383.637, 584)
+size = Vector2(383.642, 584)
 data = {
 "alt_paths": [],
 "description": "And go to his office",
@@ -94,9 +56,66 @@ data = {
 "title": "Go to Work"
 }
 
+[sub_resource type="Resource" id="Resource_eow4n"]
+script = ExtResource("1_xcfiv")
+name = "GraphNode6"
+position_offset = Vector2(1660, 0)
+size = Vector2(500.07, 590.83)
+data = {
+"alt_paths": [],
+"description": "",
+"functions": [{
+"function_name": "navigate_to",
+"parameters": [{
+"type": 1,
+"value": "3100,0"
+}]
+}],
+"next_function_time": 19.5,
+"title": "Go to Cousin House"
+}
+
+[sub_resource type="Resource" id="Resource_4vs5s"]
+script = ExtResource("1_xcfiv")
+name = "GraphNode5"
+position_offset = Vector2(1160, 0)
+size = Vector2(443.967, 570.835)
+data = {
+"alt_paths": [],
+"description": "",
+"functions": [{
+"function_name": "navigate_to",
+"parameters": [{
+"type": 1,
+"value": "2000,2000"
+}]
+}],
+"next_function_time": 18.0,
+"title": "Disappear"
+}
+
+[sub_resource type="Resource" id="Resource_vgwq3"]
+script = ExtResource("1_xcfiv")
+name = "GraphNode7"
+position_offset = Vector2(2280, 0)
+size = Vector2(432.89, 592.89)
+data = {
+"alt_paths": [],
+"description": "",
+"functions": [{
+"function_name": "navigate_to",
+"parameters": [{
+"type": 1,
+"value": "3110,0"
+}]
+}],
+"next_function_time": 0.0,
+"title": "Dad call"
+}
+
 [resource]
 script = ExtResource("1_5vuwj")
-connections = [{
+connections = Array[Dictionary]([{
 "from_node": &"GraphNode2",
 "from_port": 0,
 "to_node": &"GraphNode3",
@@ -116,5 +135,10 @@ connections = [{
 "from_port": 0,
 "to_node": &"GraphNode6",
 "to_port": 0
-}]
-nodes = [SubResource("Resource_mcnnn"), SubResource("Resource_yvfls"), SubResource("Resource_hp36m"), SubResource("Resource_t4x3t"), SubResource("Resource_eyr0t")]
+}, {
+"from_node": &"GraphNode6",
+"from_port": 0,
+"to_node": &"GraphNode7",
+"to_port": 0
+}])
+nodes = [SubResource("Resource_5xp1x"), SubResource("Resource_8c1hb"), SubResource("Resource_okm3y"), SubResource("Resource_eow4n"), SubResource("Resource_4vs5s"), SubResource("Resource_vgwq3")]
