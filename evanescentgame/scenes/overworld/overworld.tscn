@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cpiebxlknogvc"]
+[gd_scene load_steps=17 format=3 uid="uid://cpiebxlknogvc"]
 
 [ext_resource type="Script" path="res://scenes/overworld/overworld_manager.gd" id="1_5y34q"]
 [ext_resource type="PackedScene" uid="uid://brm7k4yr1lcxw" path="res://characters/player/player.tscn" id="1_juc8k"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://exgq5mtiik4j" path="res://ui/player_interface/inventory/test_items/apple-icon.png" id="10_ckte3"]
 [ext_resource type="PackedScene" uid="uid://mongwlhd8cu0" path="res://ui/player_interface/ingame_clock/ingame_ui.tscn" id="11_coct2"]
 [ext_resource type="PackedScene" uid="uid://h5oxlt67k8c7" path="res://ui/in_game_menus/pause_menu/pause_menu.tscn" id="12_fi7rw"]
+[ext_resource type="PackedScene" uid="uid://bwsvbhi5lv3pd" path="res://ui/player_interface/info_log/info_log.tscn" id="16_vdqw3"]
 
 [node name="Overworld" type="Node"]
 script = ExtResource("1_5y34q")
@@ -93,6 +94,8 @@ position = Vector2(3105, -4)
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Ingame" parent="UI" instance=ExtResource("11_coct2")]
+
+[node name="InfoLog" parent="UI" instance=ExtResource("16_vdqw3")]
 
 [node name="OverworldPause" parent="UI" instance=ExtResource("12_fi7rw")]
 

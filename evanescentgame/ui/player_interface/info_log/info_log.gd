@@ -6,7 +6,7 @@ extends Control
 var is_open := false
 var current_entry: String = ""
 
-
+var tween: Tween = null
 
 ## TRUE/FALSE FLAGS FOR CHECKING UNLOCKS
 ## Unlocks is STATIC since technically there is only
@@ -63,13 +63,22 @@ func init() -> void:
 	for resource: InfoLogEntryResource in unlocked_entry_resources:
 		print(resource.title)
 
+const FADE_BG_TIME := 0.1
+
 ## Open to main screen...
 func open() -> void:
 	init()
-	$BgPanel.show()
+	
+	if tween != null:
+		tween.kill()
+	tween = create_tween()
+	tween.tween_property($BgPanel, "modulate", Color(0, 0, 0, 1), FADE_BG_TIME)
+	
 	is_open = true
 	file_folder.play("file_flip_open")
 	print("Opened the info log!")
+	
+	get_tree().paused = true
 func open_to_main() -> void:
 	open()
 ## Open to a specific page or category, if it exists...
@@ -96,13 +105,13 @@ func close() -> void:
 
 ## DEBUG
 func _ready():
-	pass
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	$BgPanel.process_mode = Node.PROCESS_MODE_ALWAYS
 
 func _process(delta):
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("open_log"):
 		if is_open:
 			close()
-			unlock_flag("saw_funeral")
 		else:
 			open()
 
@@ -112,4 +121,9 @@ func _on_file_folder_animation_finished():
 	if is_open:
 		$MarginContainer.show()
 	else:
-		$BgPanel.hide()
+		if tween != null:
+			tween.kill()
+		tween = create_tween()
+		tween.tween_property($BgPanel, "modulate", Color(0, 0, 0, 0), FADE_BG_TIME)
+		get_tree().paused = false
+
