@@ -92,4 +92,3 @@ libraries = {
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="9"]
 stream = SubResource("AudioStreamRandomizer_0s1cq")
-bus = &"Footsteps"

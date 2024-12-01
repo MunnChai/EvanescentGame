@@ -54,6 +54,9 @@ func _ready():
 	if (!current_room):
 		print("The NPC: ", name, ", is not in any of location's rooms!")
 		return
+	
+	for slot in inventory.slots:
+		slot.connect("drop_item", drop_from_inventory)
 
 func _physics_process(delta):
 	if (is_possessed and player.is_input_active):
@@ -112,6 +115,16 @@ func remove_from_inventory(item: Item):
 	if (inventory.items.has(item)):
 		inventory.items.erase(item)
 		inventory.update_slots()
+
+# not sure if the function above is intended for dropping items
+func drop_from_inventory(item: Item):
+	if (inventory.items.has(item)):
+		inventory.items.erase(item)
+		inventory.update_slots()
+		
+		item.interactable_area.enable()
+		item.visible = true
+		item.position = self.position + Vector2(0, -8)
 
 func remove_from_inventory_id(item_id: String):
 	for item in inventory.items:

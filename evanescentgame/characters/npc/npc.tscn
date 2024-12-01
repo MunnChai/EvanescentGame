@@ -49,5 +49,6 @@ path_max_distance = 10.0
 script = ExtResource("6_s6v0q")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
 
 [node name="Inventory" parent="CanvasLayer" instance=ExtResource("6_3vby5")]
