@@ -2895,7 +2895,7 @@ num = 3
 [node name="Sprite2D" parent="World/Outdoor/LostSoul" index="0"]
 modulate = Color(0.196078, 1, 1, 0.537255)
 
-[node name="CollisionShape2D" parent="World/Outdoor/LostSoul/InteractableArea" index="1"]
+[node name="CollisionShape2D" parent="World/Outdoor/LostSoul/InteractableArea" index="2"]
 position = Vector2(4, 20)
 
 [node name="SweeperGhost" parent="World/Outdoor" instance=ExtResource("30_862f1")]
@@ -3037,13 +3037,13 @@ destination_door = NodePath("../BackgroundDoor2")
 [node name="InteractableArea" parent="World/LadyDevilOffice/BackgroundDoor" index="0"]
 position = Vector2(0, -12)
 
-[node name="CollisionShape2D" parent="World/LadyDevilOffice/BackgroundDoor/InteractableArea" index="1"]
+[node name="CollisionShape2D" parent="World/LadyDevilOffice/BackgroundDoor/InteractableArea" index="2"]
 position = Vector2(0, -5)
 
 [node name="Devil" parent="World/LadyDevilOffice" instance=ExtResource("28_iiypf")]
 position = Vector2(2069, -60)
 
-[node name="CollisionShape2D" parent="World/LadyDevilOffice/Devil/InteractableArea" index="1"]
+[node name="CollisionShape2D" parent="World/LadyDevilOffice/Devil/InteractableArea" index="2"]
 position = Vector2(-9.5, 16.6563)
 
 [node name="DevilPodium" type="StaticBody2D" parent="World/LadyDevilOffice"]
