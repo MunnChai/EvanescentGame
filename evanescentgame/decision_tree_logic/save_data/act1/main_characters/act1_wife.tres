@@ -1,13 +1,13 @@
-[gd_resource type="Resource" script_class="DecisionTreeGraphData" load_steps=5 format=3 uid="uid://ew26bouaxm54"]
+[gd_resource type="Resource" script_class="DecisionTreeGraphData" load_steps=13 format=3 uid="uid://ew26bouaxm54"]
 
 [ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_resource.gd" id="1_6owlg"]
 [ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_node_resource.gd" id="1_boqkk"]
 
-[sub_resource type="Resource" id="Resource_p2u2x"]
+[sub_resource type="Resource" id="Resource_ctwi3"]
 script = ExtResource("1_boqkk")
 name = "GraphNode2"
 position_offset = Vector2(0, 0)
-size = Vector2(596.764, 712)
+size = Vector2(198.003, 524)
 data = {
 "alt_paths": [],
 "description": "",
@@ -20,11 +20,11 @@ data = {
 "title": "Start"
 }
 
-[sub_resource type="Resource" id="Resource_0cj0a"]
+[sub_resource type="Resource" id="Resource_6kp8p"]
 script = ExtResource("1_boqkk")
-name = "GraphNode3"
-position_offset = Vector2(800, 0)
-size = Vector2(402.544, 1020)
+name = "GraphNode5"
+position_offset = Vector2(1600, 0)
+size = Vector2(411.066, 604.09)
 data = {
 "alt_paths": [],
 "description": "",
@@ -32,23 +32,163 @@ data = {
 "function_name": "navigate_to",
 "parameters": [{
 "type": 1,
-"value": "2162,0"
+"value": "573,1740"
 }]
-}, {
-"function_name": "set_dialogue_resource",
+}],
+"next_function_time": 12.5,
+"title": "Take a break"
+}
+
+[sub_resource type="Resource" id="Resource_bjqid"]
+script = ExtResource("1_boqkk")
+name = "GraphNode6"
+position_offset = Vector2(2200, 0)
+size = Vector2(393.983, 712)
+data = {
+"alt_paths": [],
+"description": "",
+"functions": [{
+"function_name": "navigate_to",
 "parameters": [{
-"type": 0,
-"value": "res://assets/dialogue/during_moving/wife_during_moving.dialogue"
+"type": 1,
+"value": "50,1740"
 }]
-}, {
-"function_name": "set_dialogue_title",
+}],
+"next_function_time": 14.0,
+"title": "Go Back To Work"
+}
+
+[sub_resource type="Resource" id="Resource_xrh5j"]
+script = ExtResource("1_boqkk")
+name = "GraphNode4"
+position_offset = Vector2(1000, 0)
+size = Vector2(428.363, 602.942)
+data = {
+"alt_paths": [],
+"description": "",
+"functions": [{
+"function_name": "navigate_to",
 "parameters": [{
-"type": 0,
-"value": "moving_to_evan_house"
+"type": 1,
+"value": "50,1740"
+}]
+}],
+"next_function_time": 12.0,
+"title": "Go To Work"
+}
+
+[sub_resource type="Resource" id="Resource_immyw"]
+script = ExtResource("1_boqkk")
+name = "GraphNode3"
+position_offset = Vector2(400, 0)
+size = Vector2(393.094, 609.717)
+data = {
+"alt_paths": [],
+"description": "",
+"functions": [{
+"function_name": "navigate_to",
+"parameters": [{
+"type": 1,
+"value": "2160,0"
 }]
 }],
 "next_function_time": 11.0,
-"title": ""
+"title": "Go Home"
+}
+
+[sub_resource type="Resource" id="Resource_v7a4n"]
+script = ExtResource("1_boqkk")
+name = "GraphNode7"
+position_offset = Vector2(2780, 0)
+size = Vector2(428.222, 719.465)
+data = {
+"alt_paths": [],
+"description": "",
+"functions": [{
+"function_name": "navigate_to",
+"parameters": [{
+"type": 1,
+"value": "1987,-282"
+}]
+}],
+"next_function_time": 15.0,
+"title": "Go check on Samuel"
+}
+
+[sub_resource type="Resource" id="Resource_p4i1o"]
+script = ExtResource("1_boqkk")
+name = "GraphNode8"
+position_offset = Vector2(3380, 0)
+size = Vector2(399.373, 741.273)
+data = {
+"alt_paths": [],
+"description": "",
+"functions": [{
+"function_name": "navigate_to",
+"parameters": [{
+"type": 1,
+"value": "2275,-282"
+}]
+}],
+"next_function_time": 15.5,
+"title": "Go check on Hana"
+}
+
+[sub_resource type="Resource" id="Resource_yuur8"]
+script = ExtResource("1_boqkk")
+name = "GraphNode10"
+position_offset = Vector2(3920, 0)
+size = Vector2(388.877, 734.548)
+data = {
+"alt_paths": [],
+"description": "",
+"functions": [{
+"function_name": "navigate_to",
+"parameters": [{
+"type": 1,
+"value": "2040,0"
+}]
+}],
+"next_function_time": 17.0,
+"title": "Chill in Living Room"
+}
+
+[sub_resource type="Resource" id="Resource_mnind"]
+script = ExtResource("1_boqkk")
+name = "GraphNode9"
+position_offset = Vector2(4480, 0)
+size = Vector2(376.789, 719.879)
+data = {
+"alt_paths": [],
+"description": "",
+"functions": [{
+"function_name": "navigate_to",
+"parameters": [{
+"type": 1,
+"value": "2160,0"
+}]
+}],
+"next_function_time": 19.0,
+"title": "Go To Kitchen"
+}
+
+[sub_resource type="Resource" id="Resource_uq1uv"]
+script = ExtResource("1_boqkk")
+name = "GraphNode11"
+position_offset = Vector2(5000, 0)
+size = Vector2(380.668, 689.432)
+data = {
+"alt_paths": [],
+"description": "",
+"functions": [{
+"function_name": "navigate_to",
+"parameters": [{
+"type": 1,
+"value": "1740,-282"
+}]
+}],
+"next_function_time": 19.5,
+"title": "Go To Room"
 }
 
 [resource]
@@ -58,5 +198,45 @@ connections = [{
 "from_port": 0,
 "to_node": &"GraphNode3",
 "to_port": 0
+}, {
+"from_node": &"GraphNode3",
+"from_port": 0,
+"to_node": &"GraphNode4",
+"to_port": 0
+}, {
+"from_node": &"GraphNode4",
+"from_port": 0,
+"to_node": &"GraphNode5",
+"to_port": 0
+}, {
+"from_node": &"GraphNode5",
+"from_port": 0,
+"to_node": &"GraphNode6",
+"to_port": 0
+}, {
+"from_node": &"GraphNode6",
+"from_port": 0,
+"to_node": &"GraphNode7",
+"to_port": 0
+}, {
+"from_node": &"GraphNode7",
+"from_port": 0,
+"to_node": &"GraphNode8",
+"to_port": 0
+}, {
+"from_node": &"GraphNode8",
+"from_port": 0,
+"to_node": &"GraphNode10",
+"to_port": 0
+}, {
+"from_node": &"GraphNode10",
+"from_port": 0,
+"to_node": &"GraphNode9",
+"to_port": 0
+}, {
+"from_node": &"GraphNode9",
+"from_port": 0,
+"to_node": &"GraphNode11",
+"to_port": 0
 }]
-nodes = [SubResource("Resource_p2u2x"), SubResource("Resource_0cj0a")]
+nodes = [SubResource("Resource_ctwi3"), SubResource("Resource_6kp8p"), SubResource("Resource_bjqid"), SubResource("Resource_xrh5j"), SubResource("Resource_immyw"), SubResource("Resource_v7a4n"), SubResource("Resource_p4i1o"), SubResource("Resource_yuur8"), SubResource("Resource_mnind"), SubResource("Resource_uq1uv")]

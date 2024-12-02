@@ -1,8 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://ccwc4s7e5nmbf"]
+[gd_scene load_steps=14 format=3 uid="uid://ccwc4s7e5nmbf"]
 
 [ext_resource type="Script" path="res://characters/npc/scripts/npc.gd" id="1_0upfg"]
+[ext_resource type="Texture2D" uid="uid://cd0hki25wrnhm" path="res://characters/npc/placeholder/sprites/placeholder-Sheet.png" id="2_58pc0"]
 [ext_resource type="PackedScene" uid="uid://cfx3wanmlsj0" path="res://general_components/interactable_area/interactable_area.tscn" id="2_mnng2"]
-[ext_resource type="Texture2D" uid="uid://k31gn0i6tylo" path="res://characters/npc/placeholder/sprites/placeholder_npc.png" id="2_tbcl3"]
 [ext_resource type="PackedScene" uid="uid://cemmf570s8hey" path="res://general_components/dialogue_emitter/dialogue_emitter.tscn" id="3_kdiqa"]
 [ext_resource type="Resource" uid="uid://8ctajnr773an" path="res://scenes/test/initial_gameplay_demo/test_dialogue.dialogue" id="5_5k2ni"]
 [ext_resource type="PackedScene" uid="uid://c42lqbqc132h4" path="res://ui/player_interface/inventory/inventory.tscn" id="6_3vby5"]
@@ -14,13 +14,74 @@ size = Vector2(9, 29)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b5w7d"]
 size = Vector2(29, 40.5156)
 
+[sub_resource type="Animation" id="Animation_ase62"]
+resource_name = "idle"
+length = 1.00001
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_240ma"]
+resource_name = "run"
+length = 0.750013
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 14, 15, 16, 17]
+}
+
+[sub_resource type="Animation" id="Animation_wc56y"]
+resource_name = "walk"
+length = 1.00001
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7, 8, 9, 10, 11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h170s"]
+_data = {
+"idle": SubResource("Animation_ase62"),
+"run": SubResource("Animation_240ma"),
+"walk": SubResource("Animation_wc56y")
+}
+
 [node name="Npc" type="CharacterBody2D"]
 collision_layer = 4
 script = ExtResource("1_0upfg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -16)
-texture = ExtResource("2_tbcl3")
+texture = ExtResource("2_58pc0")
+hframes = 4
+vframes = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -15)
@@ -51,3 +112,8 @@ script = ExtResource("6_s6v0q")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Inventory" parent="CanvasLayer" instance=ExtResource("6_3vby5")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_h170s")
+}
