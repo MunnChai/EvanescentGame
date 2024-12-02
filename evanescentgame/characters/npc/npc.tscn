@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ccwc4s7e5nmbf"]
+[gd_scene load_steps=20 format=3 uid="uid://ccwc4s7e5nmbf"]
 
 [ext_resource type="Script" path="res://characters/npc/scripts/npc.gd" id="1_0upfg"]
 [ext_resource type="Texture2D" uid="uid://cd0hki25wrnhm" path="res://characters/npc/placeholder/sprites/placeholder-Sheet.png" id="2_58pc0"]
@@ -7,6 +7,11 @@
 [ext_resource type="Resource" uid="uid://8ctajnr773an" path="res://scenes/test/initial_gameplay_demo/test_dialogue.dialogue" id="5_5k2ni"]
 [ext_resource type="PackedScene" uid="uid://c42lqbqc132h4" path="res://ui/player_interface/inventory/inventory.tscn" id="6_3vby5"]
 [ext_resource type="Script" path="res://characters/npc/scripts/npc_decision_maker.gd" id="6_s6v0q"]
+[ext_resource type="AudioStream" uid="uid://ditl8qeniqaql" path="res://characters/npc/audio_test_npc/audio/sfx/footstep2/walking2-01.wav" id="8_uoq15"]
+[ext_resource type="AudioStream" uid="uid://cld8llqyeimph" path="res://characters/npc/audio_test_npc/audio/sfx/footstep2/walking2-02.wav" id="9_lkfsh"]
+[ext_resource type="AudioStream" uid="uid://do8lm8o0q0c60" path="res://characters/npc/audio_test_npc/audio/sfx/footstep2/walking2-03.wav" id="10_tvbok"]
+[ext_resource type="AudioStream" uid="uid://bnf1hmb47l76v" path="res://characters/npc/audio_test_npc/audio/sfx/footstep2/walking2-04.wav" id="11_2l08e"]
+[ext_resource type="AudioStream" uid="uid://cya13gs6pi1hb" path="res://characters/npc/audio_test_npc/audio/sfx/footstep2/walking2-05.wav" id="12_3fhf7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o2g0p"]
 size = Vector2(9, 29)
@@ -48,6 +53,23 @@ tracks/0/keys = {
 "update": 1,
 "values": [12, 13, 14, 15, 16, 17]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.375),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_wc56y"]
 resource_name = "walk"
@@ -65,6 +87,23 @@ tracks/0/keys = {
 "update": 1,
 "values": [4, 5, 6, 7, 8, 9, 10, 11]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.125, 0.625),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h170s"]
 _data = {
@@ -72,6 +111,19 @@ _data = {
 "run": SubResource("Animation_240ma"),
 "walk": SubResource("Animation_wc56y")
 }
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_siovh"]
+streams_count = 5
+stream_0/stream = ExtResource("8_uoq15")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("9_lkfsh")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("10_tvbok")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("11_2l08e")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("12_3fhf7")
+stream_4/weight = 1.0
 
 [node name="Npc" type="CharacterBody2D"]
 collision_layer = 4
@@ -82,6 +134,7 @@ position = Vector2(0, -16)
 texture = ExtResource("2_58pc0")
 hframes = 4
 vframes = 5
+frame = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -15)
@@ -117,3 +170,8 @@ script = ExtResource("6_s6v0q")
 libraries = {
 "": SubResource("AnimationLibrary_h170s")
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_siovh")
+max_distance = 160.0
+bus = &"SFX"
