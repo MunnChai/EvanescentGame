@@ -1,6 +1,5 @@
 extends NPC
 
-@onready var animation_player = $AnimationPlayer
 
 func _physics_process(delta):
 	if (is_possessed and player.is_input_active):
