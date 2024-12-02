@@ -1,0 +1,28 @@
+[gd_scene load_steps=9 format=3 uid="uid://bo73jk8xgay3l"]
+
+[ext_resource type="PackedScene" uid="uid://ccwc4s7e5nmbf" path="res://characters/npc/npc.tscn" id="1_j00tw"]
+[ext_resource type="Script" path="res://characters/npc/audio_test_npc/audio_npc.gd" id="2_pw0un"]
+[ext_resource type="AudioStream" uid="uid://ditl8qeniqaql" path="res://characters/npc/audio_test_npc/audio/sfx/footstep2/walking2-01.wav" id="3_mm6d5"]
+[ext_resource type="AudioStream" uid="uid://cld8llqyeimph" path="res://characters/npc/audio_test_npc/audio/sfx/footstep2/walking2-02.wav" id="4_tnxgn"]
+[ext_resource type="AudioStream" uid="uid://do8lm8o0q0c60" path="res://characters/npc/audio_test_npc/audio/sfx/footstep2/walking2-03.wav" id="5_esrqy"]
+[ext_resource type="AudioStream" uid="uid://bnf1hmb47l76v" path="res://characters/npc/audio_test_npc/audio/sfx/footstep2/walking2-04.wav" id="6_sxmjr"]
+[ext_resource type="AudioStream" uid="uid://cya13gs6pi1hb" path="res://characters/npc/audio_test_npc/audio/sfx/footstep2/walking2-05.wav" id="7_fs3qw"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0s1cq"]
+streams_count = 5
+stream_0/stream = ExtResource("3_mm6d5")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("4_tnxgn")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("5_esrqy")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("6_sxmjr")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("7_fs3qw")
+stream_4/weight = 1.0
+
+[node name="AudioTestNPC" instance=ExtResource("1_j00tw")]
+script = ExtResource("2_pw0un")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="8"]
+stream = SubResource("AudioStreamRandomizer_0s1cq")
