@@ -143,7 +143,7 @@ sources/2 = SubResource("TileSetAtlasSource_o35h5")
 size = Vector2(45, 37.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gqev3"]
-size = Vector2(715, 637)
+size = Vector2(882, 637)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_11aic"]
 size = Vector2(208, 80)
@@ -207,11 +207,15 @@ layer_0/tile_data = PackedInt32Array(131059, 65537, 2, 196603, 917505, 4, 131076
 [node name="LocationExit" parent="." index="3"]
 position = Vector2(-220, 240)
 
-[node name="CollisionShape2D" parent="LocationExit/InteractableArea" index="2"]
+[node name="CollisionShape2D" parent="LocationExit/InteractableArea" index="1"]
 position = Vector2(-0.5, -3.25)
 shape = SubResource("RectangleShape2D_w4xol")
 
-[node name="Sprites" type="Node2D" parent="." index="4"]
+[node name="LocationArea" type="CollisionShape2D" parent="." index="4"]
+position = Vector2(119, 0.5)
+shape = SubResource("RectangleShape2D_gqev3")
+
+[node name="Sprites" type="Node2D" parent="." index="5"]
 
 [node name="Lobby" type="Node2D" parent="Sprites" index="0"]
 
@@ -377,12 +381,7 @@ texture = ExtResource("2_q3688")
 region_enabled = true
 region_rect = Rect2(224, 208, 16, 8)
 
-[node name="Inspectables" type="Node2D" parent="." index="5"]
-
-[node name="LocationArea" type="CollisionShape2D" parent="." index="6"]
-visible = false
-position = Vector2(35.5, 0.5)
-shape = SubResource("RectangleShape2D_gqev3")
+[node name="Inspectables" type="Node2D" parent="." index="6"]
 
 [node name="Rooms" type="Node2D" parent="." index="7"]
 
@@ -395,7 +394,7 @@ script = ExtResource("4_px7d4")
 position = Vector2(60, 20)
 destination_door = NodePath("../../WorkArea/Elevator")
 
-[node name="CollisionShape2D" parent="Rooms/Lobby/Elevator/InteractableArea" index="2"]
+[node name="CollisionShape2D" parent="Rooms/Lobby/Elevator/InteractableArea" index="1"]
 position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_s8bnj")
 
@@ -408,7 +407,7 @@ script = ExtResource("4_px7d4")
 position = Vector2(-176, 16)
 destination_door = NodePath("../../Lobby/Elevator")
 
-[node name="CollisionShape2D" parent="Rooms/WorkArea/Elevator/InteractableArea" index="2"]
+[node name="CollisionShape2D" parent="Rooms/WorkArea/Elevator/InteractableArea" index="1"]
 position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_s8bnj")
 
@@ -416,7 +415,7 @@ shape = SubResource("RectangleShape2D_s8bnj")
 position = Vector2(8, 16)
 destination_door = NodePath("../../BreakRoom/WorkArea")
 
-[node name="CollisionShape2D" parent="Rooms/WorkArea/BreakRoom/InteractableArea" index="2"]
+[node name="CollisionShape2D" parent="Rooms/WorkArea/BreakRoom/InteractableArea" index="1"]
 position = Vector2(0, -7.5)
 shape = SubResource("RectangleShape2D_imth4")
 
@@ -424,7 +423,7 @@ shape = SubResource("RectangleShape2D_imth4")
 position = Vector2(136, 17)
 destination_door = NodePath("../../BossOffice/WorkArea")
 
-[node name="CollisionShape2D" parent="Rooms/WorkArea/BossOffice/InteractableArea" index="2"]
+[node name="CollisionShape2D" parent="Rooms/WorkArea/BossOffice/InteractableArea" index="1"]
 position = Vector2(0, -7.5)
 shape = SubResource("RectangleShape2D_imth4")
 
@@ -437,7 +436,7 @@ script = ExtResource("4_px7d4")
 position = Vector2(60, 21)
 destination_door = NodePath("../../WorkArea/BreakRoom")
 
-[node name="CollisionShape2D" parent="Rooms/BreakRoom/WorkArea/InteractableArea" index="2"]
+[node name="CollisionShape2D" parent="Rooms/BreakRoom/WorkArea/InteractableArea" index="1"]
 position = Vector2(0, -7.5)
 shape = SubResource("RectangleShape2D_imth4")
 
@@ -450,7 +449,7 @@ script = ExtResource("4_px7d4")
 position = Vector2(-48, 20)
 destination_door = NodePath("../../WorkArea/BossOffice")
 
-[node name="CollisionShape2D" parent="Rooms/BossOffice/WorkArea/InteractableArea" index="2"]
+[node name="CollisionShape2D" parent="Rooms/BossOffice/WorkArea/InteractableArea" index="1"]
 position = Vector2(0, -7.5)
 shape = SubResource("RectangleShape2D_imth4")
 

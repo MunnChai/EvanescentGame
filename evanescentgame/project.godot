@@ -27,6 +27,7 @@ MusicManager="*res://singletons/music_manager.gd"
 AmbientAudioManager="*res://singletons/ambient_audio_manager.gd"
 DTConditionManager="*res://singletons/DT_condition_manager.gd"
 OverlayPanelManager="*res://singletons/overlay_panel/overlay_panel_manager.gd"
+EvanMemory="*res://singletons/evan_memory.gd"
 
 [dialogue_manager]
 

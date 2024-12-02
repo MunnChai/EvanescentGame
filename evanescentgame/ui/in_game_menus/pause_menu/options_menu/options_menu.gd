@@ -11,10 +11,18 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	escPressed()
+	if Input.is_action_just_pressed("esc"):
+		closeMenu()
 
-func escPressed():
-	if Input.is_action_just_pressed("esc") and is_open:
+
+func closeMenu():
+	if is_open:
 		is_open = false
+		
+		self.hide()
+		
 		animation_player.play_backwards("slide_in")
-		pause_menu.animation_player.play_backwards("slide_out")
+		get_parent().animation_player.play_backwards("slide_out")
+
+func _on_button_pressed():
+	closeMenu()
