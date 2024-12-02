@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cpiebxlknogvc"]
+[gd_scene load_steps=26 format=3 uid="uid://cpiebxlknogvc"]
 
 [ext_resource type="Script" path="res://scenes/overworld/overworld_manager.gd" id="1_5y34q"]
 [ext_resource type="PackedScene" uid="uid://brm7k4yr1lcxw" path="res://characters/player/player.tscn" id="1_juc8k"]
@@ -18,13 +18,12 @@
 [ext_resource type="PackedScene" uid="uid://mongwlhd8cu0" path="res://ui/player_interface/ingame_clock/ingame_ui.tscn" id="11_coct2"]
 [ext_resource type="PackedScene" uid="uid://h5oxlt67k8c7" path="res://ui/in_game_menus/pause_menu/pause_menu.tscn" id="12_fi7rw"]
 [ext_resource type="Texture2D" uid="uid://p1rc10362w5m" path="res://characters/npc/main_characters/colleague/sprites/victor_Sheet.png" id="12_hu1qa"]
-[ext_resource type="Resource" uid="uid://bosnlgkcc6csu" path="res://decision_tree_logic/save_data/act1/main_characters/act1_colleague.tres" id="12_y8m01"]
+[ext_resource type="Resource" uid="uid://ciq3dmqr5gq6" path="res://decision_tree_logic/save_data/act1/main_characters/act1_colleague.tres" id="12_y8m01"]
 [ext_resource type="Texture2D" uid="uid://b7kllxxwxaaqt" path="res://characters/npc/main_characters/cousin/sprites/kai-Sheet.png" id="13_gasgw"]
-[ext_resource type="Resource" uid="uid://c12n1c4jcc111" path="res://decision_tree_logic/save_data/act1/main_characters/act1_cousin.tres" id="13_lqkwk"]
+[ext_resource type="Resource" uid="uid://i33gqevfuq6g" path="res://decision_tree_logic/save_data/act1/main_characters/act1_cousin.tres" id="13_lqkwk"]
 [ext_resource type="Texture2D" uid="uid://djq8amhe72ugh" path="res://characters/npc/side_characters/police_officer_1/sprites/police_officer_1-Sheet.png" id="16_kby61"]
-[ext_resource type="PackedScene" uid="uid://bo73jk8xgay3l" path="res://characters/npc/audio_test_npc/audio_npc.tscn" id="16_rct4m"]
-[ext_resource type="Resource" uid="uid://02l35ly27k28" path="res://decision_tree_logic/save_data/act1/side_characters/act1_hana.tres" id="16_tnkbj"]
-[ext_resource type="Resource" uid="uid://40e6k4hf5h2g" path="res://decision_tree_logic/save_data/act1/side_characters/act1_samuel.tres" id="17_j7ao7"]
+[ext_resource type="Resource" uid="uid://c5kb75eoq7t3d" path="res://decision_tree_logic/save_data/act1/side_characters/act1_hana.tres" id="16_tnkbj"]
+[ext_resource type="Resource" uid="uid://b0o47iy7rriie" path="res://decision_tree_logic/save_data/act1/side_characters/act1_samuel.tres" id="17_j7ao7"]
 [ext_resource type="Texture2D" uid="uid://coo8346yigqbu" path="res://characters/npc/side_characters/police_officer_2/sprites/police_officer_2-Sheet.png" id="17_p2rkf"]
 
 [node name="Overworld" type="Node"]
@@ -182,9 +181,7 @@ texture = ExtResource("10_ckte3")
 position = Vector2(-151, -23)
 
 [node name="PositionHelper" type="Node2D" parent="World"]
-position = Vector2(1628, -70)
-
-[node name="AudioTestNPC" parent="World" instance=ExtResource("16_rct4m")]
+position = Vector2(795, -53)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
