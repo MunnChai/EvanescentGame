@@ -51,6 +51,7 @@ starting_dialogue_resource = ExtResource("2_objkd")
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("3_c387p")
 hframes = 6
+vframes = 1
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, -18.5)
@@ -64,7 +65,7 @@ dialogue_resource = ExtResource("2_objkd")
 [node name="GroundRayCast" parent="." index="4"]
 target_position = Vector2(2.08165e-12, 17)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
+[node name="DevilAnimator" type="AnimationPlayer" parent="." index="6"]
 libraries = {
 "": SubResource("AnimationLibrary_i7yw1")
 }

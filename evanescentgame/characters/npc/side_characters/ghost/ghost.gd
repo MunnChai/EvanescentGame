@@ -6,6 +6,12 @@ var has_talked := false
 
 @onready var starting_y := position.y
 
+func _ready():
+	if (!interactable_area.player_interacted.is_connected(on_player_interacted)): 
+		interactable_area.player_interacted.connect(on_player_interacted)
+	
+	sprite_2d.frame = 0
+
 func on_player_interacted():
 	if $InteractableArea.player.global_position.x < global_position.x:
 		$Sprite2D.flip_h = true
@@ -18,6 +24,11 @@ func on_player_interacted():
 	
 	has_talked = true
 	dialogue_emitter.show_dialogue("ghost_" + str(num))
+	print("Hi!")
+
+func _physics_process(delta):
+	
+	handle_animation()
 
 func handle_npc_movement(delta: float):
 	process_floating(delta)
