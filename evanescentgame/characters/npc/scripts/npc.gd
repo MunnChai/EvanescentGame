@@ -38,6 +38,7 @@ func _ready():
 	
 	update_current_location()
 	
+	inventory.visible = false
 	for slot in inventory.slots:
 		slot.connect("drop_item", drop_from_inventory)
 
@@ -100,6 +101,7 @@ func add_to_inventory(item: Item):
 	if (inventory.items.size() < 3):
 		inventory.items.append(item)
 		inventory.update_slots()
+		print(inventory.items)
 
 func remove_from_inventory(item: Item):
 	if (inventory.items.has(item)):

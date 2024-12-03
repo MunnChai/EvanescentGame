@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DecisionTreeGraphData" load_steps=7 format=3 uid="uid://c5kb75eoq7t3d"]
+[gd_resource type="Resource" script_class="DecisionTreeGraphData" load_steps=7 format=3 uid="uid://bxf53hnns3p22"]
 
 [ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_resource.gd" id="1_1ci4a"]
 [ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_node_resource.gd" id="1_fbh4p"]
