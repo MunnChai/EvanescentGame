@@ -37,6 +37,10 @@ func _ready():
 		interactable_area.player_interacted.connect(on_player_interacted)
 	
 	update_current_location()
+	
+	inventory.visible = false
+	for slot in inventory.slots:
+		slot.connect("drop_item", drop_from_inventory)
 
 func _physics_process(delta):
 	if (is_possessed):
@@ -97,11 +101,22 @@ func add_to_inventory(item: Item):
 	if (inventory.items.size() < 3):
 		inventory.items.append(item)
 		inventory.update_slots()
+		print(inventory.items)
 
 func remove_from_inventory(item: Item):
 	if (inventory.items.has(item)):
 		inventory.items.erase(item)
 		inventory.update_slots()
+
+# not sure if the function above is intended for dropping items
+func drop_from_inventory(item: Item):
+	if (inventory.items.has(item)):
+		inventory.items.erase(item)
+		inventory.update_slots()
+		
+		item.interactable_area.enable()
+		item.visible = true
+		item.position = self.position + Vector2(0, -8)
 
 func remove_from_inventory_id(item_id: String):
 	for item in inventory.items:

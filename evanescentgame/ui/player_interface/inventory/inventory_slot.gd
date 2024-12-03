@@ -1,59 +1,46 @@
 extends Panel
 
-@export var texture: Texture2D
-
+# Reference to the item sprite within this slot
 @onready var item_display = $CenterContainer/Panel/item_display
 
-# Store the original texture (or any other identifier of the origin)
-var original_texture : Texture2D
+var mouse_is_hovering : bool = false
+var holding_item : bool = false
+var held_item : Item
 
-# For handling dragging
-var dragging := false
-var drag_offset := Vector2.ZERO
+const drag_offset : Vector2 = Vector2(16, 16)
 
-func _ready():
-	item_display.texture = texture
-	original_texture = item_display.texture
-	self.connect("gui_input", Callable(self, "_on_gui_input"))
+signal drop_item
 
-# Detect mouse button press to start dragging
-func _on_gui_input(event):
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			# Start dragging when the left mouse button is pressed
-			dragging = true
-			drag_offset = event.position
-			# Set up drag preview
-			_get_drag_data(event.position)
-		elif event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
-			# Drop the item when the mouse button is released
-			_drop_data(event.position, _get_drag_data(event.position))  # Pass both args
+func _physics_process(delta):
+	_handle_drag_drop()
 
-# This function handles the drag preview
-func _get_drag_data(at_position):
-	var data = {}
-	data["origin_texture"] = original_texture
+func _handle_drag_drop():
+	# picking up item
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and mouse_is_hovering:
+		holding_item = true
 	
-	# Create the drag preview texture
-	var drag_texture = TextureRect.new()
-	drag_texture.expand_mode = true
-	drag_texture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	drag_texture.texture = item_display.texture
-	drag_texture.size = Vector2(16, 16)
+	# dropping item
+	if !Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and holding_item:
+		holding_item = false
+		if (mouse_is_hovering):
+			_return_item()
+		else:
+			_drop_item()
 	
-	# Center the image on the cursor
-	var control = Control.new()
-	control.add_child(drag_texture)
-	drag_texture.position = -0.5 * drag_texture.size
 	
-	# Set the drag preview
-	set_drag_preview(control)
-	
-	return data
+	# displaying item
+	if holding_item:
+		item_display.position = get_global_mouse_position() - drag_offset
 
-# Handle the drop (reset the texture or drop item as needed)
-func _drop_data(at_position, data):
-	# Always reset the texture when the item is dropped
-	print("Item dropped")
-	item_display.texture = original_texture
-	# You can add other logic for what happens when the item is dropped
+func _return_item():
+	item_display.position = Vector2(0,0)
+
+func _drop_item():
+	drop_item.emit(held_item)
+	item_display.position = Vector2(0,0)
+
+func _on_mouse_entered():
+	mouse_is_hovering = true
+
+func _on_mouse_exited():
+	mouse_is_hovering = false
