@@ -74,7 +74,7 @@ func call_node_function(function_data):
 		parameterTrueArray.push_back(value)
 	
 	var callable = Callable(npc, function_name)
-	print("Calling: ", callable)
+	print("Calling function: ", npc.name, ".", function_name, " with parameters: ",  parameterTrueArray)
 	callable.callv(parameterTrueArray)
 
 func start_timer():

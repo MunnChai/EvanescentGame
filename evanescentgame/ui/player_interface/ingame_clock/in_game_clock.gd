@@ -3,9 +3,9 @@ extends Label
 # Start time in in game hours (eg. 9 = 9:00am, 9.5 = 9:30am, 15 = 3:00pm)
 const START_TIME_IGT: float = 9 
 # End time in in game hours (24 + 3 = 3:00am, the next day)
-const END_TIME_IGT: float = 24 + 3 
+const END_TIME_IGT: float = 12 + 9
 # The time it takes for the day to pass, in real life seconds (eg. 4 * 60 + 30 = 4mins, 30secs)
-const DAY_DURATION_IRL: float = 20
+const DAY_DURATION_IRL: float = 5 * 60
 # eg. 1 IRL second * IGT_SECOND_MULTIPLIER = 1 IGT second
 const IGT_SECOND_MULTIPLIER: float = ((END_TIME_IGT - START_TIME_IGT) * 60 * 60) / DAY_DURATION_IRL 
 

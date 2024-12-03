@@ -8,15 +8,18 @@ extends CharacterBody2D
 @onready var dialogue_emitter = $DialogueEmitter
 @onready var sprite_2d = $Sprite2D
 @onready var inventory: Inventory = $CanvasLayer/Inventory
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @export var graph_data: DecisionTreeGraphData
 @export var starting_dialogue_resource: DialogueResource
 @export var current_dialogue_title: String
 
-const SPEED: float = 75.0
-const SPRINT_MULTIPLIER: float = 1.5
+const SPEED: float = 40.0
+const SPRINT_MULTIPLIER: float = 1.75
 const JUMP_VELOCITY: float = 250
 const GRAVITY: float = 1000
+
+const MOVE_ROOMS_WAIT_TIME: float = 0.5
 
 var starting_location: Location
 var starting_room: LocationRoom
@@ -33,39 +36,21 @@ func _ready():
 	if (!interactable_area.player_interacted.is_connected(on_player_interacted)): 
 		interactable_area.player_interacted.connect(on_player_interacted)
 	
-	var location_managers = get_tree().get_nodes_in_group("location_manager")
-	
-	if (location_managers.size() == 0):
-		return
-	
-	var location_manager = location_managers[0]
-	
-	for location: Location in location_manager.get_children():
-		if (location.area_contains_position(global_position)):
-			current_location = location
-			break
-	
-	if (!current_location):
-		print("The NPC: ", name, ", is not in any location's area!")
-		return
-	
-	current_room = current_location.get_room_of_position(global_position)
-	
-	if (!current_room):
-		print("The NPC: ", name, ", is not in any of location's rooms!")
-		return
+	update_current_location()
 	
 	for slot in inventory.slots:
 		slot.connect("drop_item", drop_from_inventory)
 
 func _physics_process(delta):
-	if (is_possessed and player.is_input_active):
+	if (is_possessed):
+		if (player.is_input_active):
+			handle_input(delta)
+		
 		handle_player_movement(delta)
-		handle_input(delta)
-		inventory.visible = true
 	else:
 		handle_npc_movement(delta)
-		inventory.visible = false
+	
+	handle_animation()
 
 func on_player_interacted():
 	if (player.is_possessing):
@@ -91,10 +76,15 @@ func set_dialogue_title(title: String):
 func become_possessed():
 	is_possessed = true
 	interactable_area.disable()
+	inventory.visible = true
+	clear_navigation_agent_connections()
+	update_current_location()
 
 func become_unpossessed():
 	is_possessed = false
 	interactable_area.enable()
+	inventory.visible = false
+	update_current_location()
 
 
 
@@ -140,12 +130,45 @@ func handle_input(delta: float):
 	if (Input.is_action_just_pressed("jump") and is_on_floor()):
 		jump()
 
+func handle_animation():
+	if (velocity.length() > SPEED):
+		animation_player.play("run")
+	elif (velocity.length() > 0):
+		animation_player.play("walk")
+	else:
+		var rand = randf_range(0.5, 1.5)
+		animation_player.play("idle", -1, rand)
+	
+	if (velocity.x > 0):
+		sprite_2d.flip_h = false
+	elif (velocity.x < 0):
+		sprite_2d.flip_h = true
 
 
 
 
-
-
+func update_current_location():
+	var location_managers = get_tree().get_nodes_in_group("location_manager")
+	
+	if (location_managers.size() == 0):
+		return
+	
+	var location_manager = location_managers[0]
+	
+	for location: Location in location_manager.get_children():
+		if (location.area_contains_position(global_position)):
+			current_location = location
+			break
+	
+	if (!current_location):
+		print("The NPC: ", name, ", is not in any location's area!")
+		return
+	
+	current_room = current_location.get_room_of_position(global_position)
+	
+	if (!current_room):
+		print("The NPC: ", name, ", is not in any of location's rooms!")
+		return
 
 func handle_player_movement(delta: float):
 	if (not is_on_floor()):
@@ -158,16 +181,13 @@ func handle_player_movement(delta: float):
 	if (Input.is_action_pressed("sprint")):
 		true_speed *= SPRINT_MULTIPLIER
 	
-	var direction = Input.get_axis("move_left", "move_right")
+	var direction = 0
+	if (player.is_input_active):
+		direction = Input.get_axis("move_left", "move_right")
 	if direction:
-		velocity.x = move_toward(velocity.x, direction * true_speed, true_speed)
+		velocity.x = move_toward(velocity.x, direction * true_speed, true_speed / 8)
 	else:
-		velocity.x = move_toward(velocity.x, 0, true_speed)
-	
-	if (velocity.x > 0):
-		sprite_2d.flip_h = false
-	else:
-		sprite_2d.flip_h = true
+		velocity.x = move_toward(velocity.x, 0, true_speed / 8)
 	
 	move_and_slide()
 
@@ -188,33 +208,28 @@ func handle_npc_movement(delta: float):
 		velocity.x = move_toward(velocity.x, x_direction * SPEED, SPEED / 4)
 		
 		# Get NEXT next node and check if it is valid
-		var path = navigation_agent_2d.get_current_navigation_path()
-		var next_index = navigation_agent_2d.get_current_navigation_path_index() + 1
-		if (next_index < path.size()):
-			var next_node = path[next_index]
-		
-			var next_node_angle: float = (current_node - next_node).normalized().angle()
-			var next_node_degrees: float = rad_to_deg(next_node_angle)
-			
-			# If NPC is at the next node, calculate the angle to the NEXT next node to see if a jump is necessary
-			if (abs(x_distance) < NEAR_DISTANCE and 
-				next_node_degrees > 40 and 
-				next_node_degrees < 140 and 
-				is_on_floor()):
-				
-				# Jump
-				jump()
-		
-		if (velocity.y < 0): # Stay still while jumping, just helps to not stray too far off the path
-			velocity.x = move_toward(velocity.x, 0, SPEED / 4)
+		#var path = navigation_agent_2d.get_current_navigation_path()
+		#var next_index = navigation_agent_2d.get_current_navigation_path_index() + 1
+		#if (next_index < path.size()):
+			#var next_node = path[next_index]
+		#
+			#var next_node_angle: float = (current_node - next_node).normalized().angle()
+			#var next_node_degrees: float = rad_to_deg(next_node_angle)
+			#
+			## If NPC is at the next node, calculate the angle to the NEXT next node to see if a jump is necessary
+			#if (abs(x_distance) < NEAR_DISTANCE and 
+				#next_node_degrees > 40 and 
+				#next_node_degrees < 140 and 
+				#is_on_floor()):
+				#
+				## Jump
+				#jump()
+		#
+		#if (velocity.y < 0): # Stay still while jumping, just helps to not stray too far off the path
+			#velocity.x = move_toward(velocity.x, 0, SPEED / 4)
 		
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED / 4)
-	
-	if (velocity.x > 0):
-		sprite_2d.flip_h = false
-	elif (velocity.x < 0):
-		sprite_2d.flip_h = true
 		
 	move_and_slide()
 
@@ -229,8 +244,12 @@ func jump():
 
 # Call this to navigate your NPC to the desired position (position must be within a LocationRoom's area)
 func navigate_to(target_position: Vector2):
+	update_current_location()
+	clear_navigation_agent_connections()
 	var location_manager = get_tree().get_nodes_in_group("location_manager")[0]
+	var unreachable_locations = get_tree().get_nodes_in_group("unreachable_locations")
 	var locations = location_manager.get_children()
+	locations.append_array(unreachable_locations)
 	
 	# Get target location
 	var target_location: Location
@@ -252,10 +271,12 @@ func navigate_to(target_position: Vector2):
 			
 			var next_door: BackgroundDoor = current_room_path.pop_front()
 			navigation_agent_2d.target_position = next_door.global_position
+			
 			navigation_agent_2d.navigation_finished.connect(enter_door.bind(next_door, target_position))
 			return
 		else: # If current_room == location_exit_room, navigate to location_exit and teleport to target_location
 			navigation_agent_2d.target_position = current_location.location_exit.global_position
+			
 			navigation_agent_2d.navigation_finished.connect(move_to_location.bind(target_location, target_position))
 			return
 	else: # If target_location == current_location, navigate to target_room
@@ -272,6 +293,7 @@ func navigate_to(target_position: Vector2):
 			
 			var next_door: BackgroundDoor = current_room_path.pop_front()
 			navigation_agent_2d.target_position = next_door.global_position
+			
 			navigation_agent_2d.navigation_finished.connect(enter_door.bind(next_door, target_position))
 			return
 		else: # If current_room == target_room, navigate to target_position
@@ -279,23 +301,25 @@ func navigate_to(target_position: Vector2):
 			return
 
 func enter_door(door: BackgroundDoor, target_position: Vector2):
+	await get_tree().create_timer(MOVE_ROOMS_WAIT_TIME).timeout
 	global_position = door.destination_door.global_position
 	current_room = current_location.get_room_of_position(global_position)
-	
+
 	navigate_to(target_position)
-	
-	if (navigation_agent_2d.navigation_finished.is_connected(enter_door)):
-		navigation_agent_2d.navigation_finished.disconnect(enter_door)
 
 func move_to_location(location: Location, target_position: Vector2):
+	await get_tree().create_timer(MOVE_ROOMS_WAIT_TIME).timeout
+	collision_mask = 0
 	global_position = location.location_exit.global_position
 	current_location = location
 	current_room = location.location_exit_room
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	collision_mask = 1
 	
 	navigate_to(target_position)
-	
-	if (navigation_agent_2d.navigation_finished.is_connected(move_to_location)):
-		navigation_agent_2d.navigation_finished.disconnect(move_to_location)
 
-
+func clear_navigation_agent_connections():
+	for connection in navigation_agent_2d.navigation_finished.get_connections():
+		navigation_agent_2d.navigation_finished.disconnect(connection["callable"])
 

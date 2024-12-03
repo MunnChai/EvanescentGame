@@ -1,7 +1,41 @@
-[gd_scene load_steps=3 format=3 uid="uid://bxbvkxcifqhbv"]
+[gd_scene load_steps=6 format=3 uid="uid://bxbvkxcifqhbv"]
 
 [ext_resource type="Script" path="res://ui/main_menu/main_menu.gd" id="1_a42ny"]
 [ext_resource type="FontFile" uid="uid://cwi0n3kesweuw" path="res://ui/fonts/EBGaramond-Bold.ttf" id="2_aoit1"]
+[ext_resource type="PackedScene" uid="uid://bgdbiubpob2jv" path="res://ui/in_game_menus/pause_menu/options_menu/options_menu.tscn" id="3_f26tb"]
+
+[sub_resource type="Animation" id="Animation_qxjdo"]
+resource_name = "slide_out"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuNodes:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(350, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MenuNodes:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2evii"]
+_data = {
+"slide_out": SubResource("Animation_qxjdo")
+}
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -16,8 +50,48 @@ offset_right = 349.0
 offset_bottom = 196.0
 color = Color(0, 0, 0, 1)
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
+[node name="OptionsMenu" parent="." instance=ExtResource("3_f26tb")]
+visible = false
+layout_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2evii")
+}
+
+[node name="MenuNodes" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 39.9999
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuNodes"]
+layout_mode = 2
+offset_left = 112.0
+offset_top = 82.0
+offset_right = 250.0
+offset_bottom = 180.0
+scale = Vector2(0.75, 0.75)
+
+[node name="PlayButton" type="Button" parent="MenuNodes/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_aoit1")
+text = "Play"
+metadata/_edit_lock_ = true
+
+[node name="OptionsButton" type="Button" parent="MenuNodes/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_aoit1")
+text = "Options"
+metadata/_edit_lock_ = true
+
+[node name="QuitButton" type="Button" parent="MenuNodes/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_aoit1")
+text = "Quit"
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="MenuNodes"]
+layout_mode = 2
 offset_left = 132.0
 offset_top = 23.0
 offset_right = 205.0
@@ -27,13 +101,6 @@ text = "Evanescent"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 122.0
-offset_top = 96.0
-offset_right = 214.0
-offset_bottom = 136.0
-theme_override_fonts/font = ExtResource("2_aoit1")
-text = "Play"
-
-[connection signal="pressed" from="Button" to="." method="start_game"]
+[connection signal="pressed" from="MenuNodes/VBoxContainer/PlayButton" to="." method="start_game"]
+[connection signal="pressed" from="MenuNodes/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="MenuNodes/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
