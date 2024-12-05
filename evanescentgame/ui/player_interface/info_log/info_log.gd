@@ -22,6 +22,7 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	
 	_init()
+	$Entries.hide()
 	
 	print(json_entries)
 
@@ -43,6 +44,14 @@ const INFO_LOG_ENTRY = preload("info_log_entry.tscn")
 
 var json_entries: Array[InfoLogEntry] = []
 var unlocked_json_entries: Array[InfoLogEntry] = []
+
+const SIDE_BAR_BUTTON_PREFAB = preload("side_bar/side_bar_button.tscn")
+
+@onready var people_entries = %PeopleEntries
+@onready var places_entries = %PlacesEntries
+@onready var things_entries = %ThingsEntries
+
+var loaded := false
 
 func load_all_json_entries_from_dir() -> void:
 	var dir = DirAccess.open(INFO_ENTRIES_PATH)
@@ -100,6 +109,29 @@ func open() -> void:
 	
 	is_open = true
 	get_tree().paused = true
+	
+	if loaded:
+		return
+	loaded = true
+	
+	## LOAD IN TO ENTRY NODES
+	for entry: InfoLogEntry in json_entries:
+		var new_side_bar_btn: SideBarButton = SIDE_BAR_BUTTON_PREFAB.instantiate()
+		new_side_bar_btn.button_entry_title = entry.title
+		new_side_bar_btn.entry = entry
+		new_side_bar_btn.text = entry.sidebar_title
+		new_side_bar_btn.selected.connect(_on_entry_selected)
+		print("here")
+		match entry.category:
+			"people":
+				people_entries.add_child(new_side_bar_btn)
+			"places":
+				places_entries.add_child(new_side_bar_btn)
+			"things":
+				things_entries.add_child(new_side_bar_btn)
+			_:
+				pass
+
 ## Open to a specific page or category, if it exists...
 func open_to_entry(entry_id: String) -> void:
 	open()
@@ -149,3 +181,20 @@ func go_to_category(category_id: String) -> void:
 	pass
 
 #endregion
+
+func _on_entry_selected(entry: InfoLogEntry) -> void:
+	%Title.text = entry.title
+	%Description.text = entry.description
+
+func _on_people_btn_pressed():
+	people_entries.show()
+	places_entries.hide()
+	things_entries.hide()
+func _on_places_btn_pressed():
+	people_entries.hide()
+	places_entries.show()
+	things_entries.hide()
+func _on_things_btn_pressed():
+	people_entries.hide()
+	places_entries.hide()
+	things_entries.show()
