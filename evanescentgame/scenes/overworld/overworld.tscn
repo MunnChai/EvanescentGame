@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cpiebxlknogvc"]
+[gd_scene load_steps=28 format=3 uid="uid://cpiebxlknogvc"]
 
 [ext_resource type="Script" path="res://scenes/overworld/overworld_manager.gd" id="1_5y34q"]
 [ext_resource type="PackedScene" uid="uid://brm7k4yr1lcxw" path="res://characters/player/player.tscn" id="1_juc8k"]
@@ -25,6 +25,8 @@
 [ext_resource type="Resource" uid="uid://bxf53hnns3p22" path="res://decision_tree_logic/save_data/act1/side_characters/act1_hana.tres" id="16_tnkbj"]
 [ext_resource type="Resource" uid="uid://dnmsqtmoal0j4" path="res://decision_tree_logic/save_data/act1/side_characters/act1_samuel.tres" id="17_j7ao7"]
 [ext_resource type="Texture2D" uid="uid://coo8346yigqbu" path="res://characters/npc/side_characters/police_officer_2/sprites/police_officer_2-Sheet.png" id="17_p2rkf"]
+[ext_resource type="PackedScene" uid="uid://cl5gkwuo31l6q" path="res://characters/npc/side_characters/security_guard/security_guard.tscn" id="20_80hk3"]
+[ext_resource type="Texture2D" uid="uid://038gtuwjy82v" path="res://characters/npc/side_characters/office_worker_1/sprites/office_worker_1-Sheet.png" id="20_tyuru"]
 
 [node name="Overworld" type="Node"]
 script = ExtResource("1_5y34q")
@@ -147,26 +149,53 @@ texture = ExtResource("16_kby61")
 [node name="FrontDeskWorker" parent="World/NPCs/Organization" instance=ExtResource("7_ow5sy")]
 position = Vector2(57, 2055)
 
+[node name="Sprite2D" parent="World/NPCs/Organization/FrontDeskWorker" index="0"]
+texture = ExtResource("20_tyuru")
+
 [node name="Floor2Worker1" parent="World/NPCs/Organization" instance=ExtResource("7_ow5sy")]
 position = Vector2(-46, 1736)
+
+[node name="Sprite2D" parent="World/NPCs/Organization/Floor2Worker1" index="0"]
+texture = ExtResource("20_tyuru")
 
 [node name="Floor2Worker2" parent="World/NPCs/Organization" instance=ExtResource("7_ow5sy")]
 position = Vector2(574, 1735)
 
+[node name="Sprite2D" parent="World/NPCs/Organization/Floor2Worker2" index="0"]
+texture = ExtResource("20_tyuru")
+
 [node name="Floor2Worker3" parent="World/NPCs/Organization" instance=ExtResource("7_ow5sy")]
 position = Vector2(16, 1736)
+
+[node name="Sprite2D" parent="World/NPCs/Organization/Floor2Worker3" index="0"]
+texture = ExtResource("20_tyuru")
 
 [node name="Floor2Worker4" parent="World/NPCs/Organization" instance=ExtResource("7_ow5sy")]
 position = Vector2(83, 1735)
 
+[node name="Sprite2D" parent="World/NPCs/Organization/Floor2Worker4" index="0"]
+texture = ExtResource("20_tyuru")
+
 [node name="Floor11Worker1" parent="World/NPCs/Organization" instance=ExtResource("7_ow5sy")]
 position = Vector2(-45, 1417)
+
+[node name="Sprite2D" parent="World/NPCs/Organization/Floor11Worker1" index="0"]
+texture = ExtResource("20_tyuru")
 
 [node name="Floor11Worker2" parent="World/NPCs/Organization" instance=ExtResource("7_ow5sy")]
 position = Vector2(544, 1413)
 
+[node name="Sprite2D" parent="World/NPCs/Organization/Floor11Worker2" index="0"]
+texture = ExtResource("20_tyuru")
+
 [node name="Floor11Worker3" parent="World/NPCs/Organization" instance=ExtResource("7_ow5sy")]
 position = Vector2(514, 1414)
+
+[node name="Sprite2D" parent="World/NPCs/Organization/Floor11Worker3" index="0"]
+texture = ExtResource("20_tyuru")
+
+[node name="SecurityGuard" parent="World/NPCs/Organization" instance=ExtResource("20_80hk3")]
+position = Vector2(216, 2060)
 
 [node name="Items" type="Node2D" parent="World"]
 
@@ -201,4 +230,12 @@ location_manager = NodePath("../../World/LocationManager")
 [editable path="World/NPCs/PoliceStation/PoliceOfficer1"]
 [editable path="World/NPCs/PoliceStation/PoliceOfficer2"]
 [editable path="World/NPCs/PoliceStation/PoliceOfficer3"]
+[editable path="World/NPCs/Organization/FrontDeskWorker"]
+[editable path="World/NPCs/Organization/Floor2Worker1"]
+[editable path="World/NPCs/Organization/Floor2Worker2"]
+[editable path="World/NPCs/Organization/Floor2Worker3"]
+[editable path="World/NPCs/Organization/Floor2Worker4"]
+[editable path="World/NPCs/Organization/Floor11Worker1"]
+[editable path="World/NPCs/Organization/Floor11Worker2"]
+[editable path="World/NPCs/Organization/Floor11Worker3"]
 [editable path="World/Items/Item"]

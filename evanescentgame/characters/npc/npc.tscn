@@ -125,7 +125,7 @@ stream_3/weight = 1.0
 stream_4/stream = ExtResource("12_3fhf7")
 stream_4/weight = 1.0
 
-[node name="Npc" type="CharacterBody2D"]
+[node name="SecurityGuard" type="CharacterBody2D"]
 collision_layer = 4
 script = ExtResource("1_0upfg")
 

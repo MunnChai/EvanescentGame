@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cl5gkwuo31l6q"]
+
+[ext_resource type="PackedScene" uid="uid://ccwc4s7e5nmbf" path="res://characters/npc/npc.tscn" id="1_07fr3"]
+[ext_resource type="Script" path="res://characters/npc/side_characters/security_guard/security_guard.gd" id="2_oicl3"]
+
+[node name="Npc" instance=ExtResource("1_07fr3")]
+script = ExtResource("2_oicl3")
+current_dialogue_title = null
