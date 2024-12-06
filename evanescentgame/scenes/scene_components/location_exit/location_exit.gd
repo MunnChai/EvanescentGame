@@ -17,4 +17,5 @@ func _process(delta):
 func _on_interactable_player_interacted():
 	#get_tree().change_scene_to_file("res://ui/navigation_panel/navigation_panel.tscn")
 	#pause()
+	print("Exit Interacted!")
 	player_interacted.emit()

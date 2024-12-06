@@ -15,8 +15,6 @@ extends Area2D
 
 var already_triggered := false
 
-
-
 func _ready() -> void:
 	# Assign dialogue resource to the DialogueEmitter
 	dialogue_emitter.dialogue_resource = dialogue_resource

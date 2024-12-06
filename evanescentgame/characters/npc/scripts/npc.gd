@@ -24,7 +24,7 @@ const MOVE_ROOMS_WAIT_TIME: float = 0.5
 var starting_location: Location
 var starting_room: LocationRoom
 
-var is_possessed: bool = false
+
 var current_location: Location
 var current_room: LocationRoom
 var current_room_path: Array
@@ -43,23 +43,11 @@ func _ready():
 		slot.connect("drop_item", drop_from_inventory)
 
 func _physics_process(delta):
-	if (is_possessed):
-		if (player.is_input_active):
-			handle_input(delta)
-		
-		handle_player_movement(delta)
-	else:
-		handle_npc_movement(delta)
-	
+	handle_npc_movement(delta)
 	handle_animation()
 
 func on_player_interacted():
-	if (player.is_possessing):
-		dialogue_emitter.show_dialogue(current_dialogue_title)
-	else:
-		player.possess(self)
-	
-	#dialogue_emitter.show_dialogue(current_dialogue_title)
+	dialogue_emitter.show_dialogue(current_dialogue_title)
 
 
 # Dialogue Things
@@ -73,19 +61,6 @@ func set_dialogue_title(title: String):
 
 
 
-
-func become_possessed():
-	is_possessed = true
-	interactable_area.disable()
-	inventory.visible = true
-	clear_navigation_agent_connections()
-	update_current_location()
-
-func become_unpossessed():
-	is_possessed = false
-	interactable_area.enable()
-	inventory.visible = false
-	update_current_location()
 
 
 

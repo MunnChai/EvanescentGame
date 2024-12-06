@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://bno7b40dxfj5p"
+path="res://.godot/imported/player_entered_trigger.dialogue-38e931e4e0f8d25cd0e85f7c1cdf31dc.tres"
+
+[deps]
+
+source_file="res://characters/npc/side_characters/security_guard/dialogue/player_entered_trigger.dialogue"
+dest_files=["res://.godot/imported/player_entered_trigger.dialogue-38e931e4e0f8d25cd0e85f7c1cdf31dc.tres"]
+
+[params]
+
+defaults=true
