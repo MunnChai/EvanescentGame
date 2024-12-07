@@ -55,7 +55,7 @@ func handle_input(delta: float):
 
 func become_possessed():
 	is_possessed = true
-	interactable_area.disable()
+	disable_interactable()
 	inventory.visible = true
 	clear_navigation_agent_connections()
 	update_current_location()

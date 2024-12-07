@@ -7,7 +7,7 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	options_menu.hide()
-	#self.hide()
+	self.hide()
 	animation_player.play("RESET")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

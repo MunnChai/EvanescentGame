@@ -19,6 +19,8 @@ const SPRINT_MULTIPLIER: float = 1.75
 const JUMP_VELOCITY: float = 250
 const GRAVITY: float = 1000
 
+const UNREACHABLE_LOCATION_COORDS: Vector2 = Vector2(2000, 2000)
+
 const MOVE_ROOMS_WAIT_TIME: float = 0.5
 const NPC_PIVOT_OFFSET = Vector2(0, 30)
 
@@ -61,7 +63,11 @@ func set_dialogue_resource(path: String):
 func set_dialogue_title(title: String):
 	current_dialogue_title = title
 
+func disable_interactable():
+	interactable_area.disable()
 
+func enable_interactable():
+	interactable_area.enable()
 
 
 

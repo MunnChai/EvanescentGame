@@ -1,10 +1,12 @@
-[gd_scene load_steps=21 format=3 uid="uid://iecgb5paqxrh"]
+[gd_scene load_steps=24 format=3 uid="uid://iecgb5paqxrh"]
 
 [ext_resource type="PackedScene" uid="uid://blp4jjwokkgxj" path="res://scenes/overworld/locations/location.tscn" id="1_j8ev2"]
 [ext_resource type="Texture2D" uid="uid://bor3vfgg6wbrn" path="res://scenes/overworld/locations/police_station/sprites/police_station_decor.png" id="2_q3688"]
 [ext_resource type="Texture2D" uid="uid://b11uhincsxon" path="res://scenes/overworld/locations/police_station/tilesets/police_station_tiles.png" id="3_53h3k"]
+[ext_resource type="PackedScene" uid="uid://bha8jx12sacir" path="res://scenes/scene_components/inspectable_area/inspectable_area.tscn" id="4_3mymf"]
 [ext_resource type="Script" path="res://scenes/overworld/locations/scripts/location_room.gd" id="4_px7d4"]
 [ext_resource type="PackedScene" uid="uid://cl8kobrguc04e" path="res://scenes/scene_components/background_door/background_door.tscn" id="5_73nhw"]
+[ext_resource type="Resource" uid="uid://ddkk3fuom83fb" path="res://scenes/overworld/locations/police_station/dialogue/act1/kai_computer.dialogue" id="5_pw5um"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vw146"]
 texture = ExtResource("2_q3688")
@@ -142,6 +144,8 @@ sources/2 = SubResource("TileSetAtlasSource_o35h5")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w4xol"]
 size = Vector2(45, 37.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j5dfh"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gqev3"]
 size = Vector2(882, 637)
 
@@ -211,12 +215,7 @@ position = Vector2(-220, 240)
 position = Vector2(-0.5, -3.25)
 shape = SubResource("RectangleShape2D_w4xol")
 
-[node name="LocationArea" type="CollisionShape2D" parent="." index="4"]
-visible = false
-position = Vector2(119, 0.5)
-shape = SubResource("RectangleShape2D_gqev3")
-
-[node name="Sprites" type="Node2D" parent="." index="5"]
+[node name="Sprites" type="Node2D" parent="." index="4"]
 
 [node name="Lobby" type="Node2D" parent="Sprites" index="0"]
 
@@ -365,7 +364,7 @@ region_rect = Rect2(112, 120, 8, 8)
 [node name="BossOffice" type="Node2D" parent="Sprites" index="3"]
 
 [node name="Mug" type="Sprite2D" parent="Sprites/BossOffice" index="0"]
-position = Vector2(414, -186)
+position = Vector2(416, -187)
 texture = ExtResource("2_q3688")
 region_enabled = true
 region_rect = Rect2(208, 208, 8, 8)
@@ -382,7 +381,26 @@ texture = ExtResource("2_q3688")
 region_enabled = true
 region_rect = Rect2(224, 208, 16, 8)
 
-[node name="Inspectables" type="Node2D" parent="." index="6"]
+[node name="Monitor6" type="Sprite2D" parent="Sprites/BossOffice" index="3"]
+position = Vector2(398, -188)
+texture = ExtResource("2_q3688")
+region_enabled = true
+region_rect = Rect2(112, 8, 16, 16)
+
+[node name="Inspectables" type="Node2D" parent="." index="5"]
+
+[node name="InspectableArea" parent="Inspectables" index="0" instance=ExtResource("4_3mymf")]
+position = Vector2(400, -181)
+dialogue_resource = ExtResource("5_pw5um")
+dialogue_title = "kai_computer"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inspectables/InspectableArea/InteractableArea" index="1"]
+shape = SubResource("RectangleShape2D_j5dfh")
+
+[node name="LocationArea" type="CollisionShape2D" parent="." index="6"]
+visible = false
+position = Vector2(119, 0.5)
+shape = SubResource("RectangleShape2D_gqev3")
 
 [node name="Rooms" type="Node2D" parent="." index="7"]
 
@@ -470,6 +488,7 @@ position = Vector2(552, -424)
 navigation_polygon = SubResource("NavigationPolygon_7iuov")
 
 [editable path="LocationExit"]
+[editable path="Inspectables/InspectableArea"]
 [editable path="Rooms/Lobby/Elevator"]
 [editable path="Rooms/WorkArea/Elevator"]
 [editable path="Rooms/WorkArea/BreakRoom"]

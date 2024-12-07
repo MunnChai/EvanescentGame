@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://ddkk3fuom83fb"
+path="res://.godot/imported/kai_computer.dialogue-957cf615ea39a8a775df665320430058.tres"
+
+[deps]
+
+source_file="res://scenes/overworld/locations/police_station/dialogue/act1/kai_computer.dialogue"
+dest_files=["res://.godot/imported/kai_computer.dialogue-957cf615ea39a8a775df665320430058.tres"]
+
+[params]
+
+defaults=true

@@ -13,12 +13,6 @@ var is_enabled: bool = true
 func _ready():
 	hide_interact_symbol()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
-	
-	if not is_enabled:
-		return
-
 func interact():
 	if not is_enabled:
 		return

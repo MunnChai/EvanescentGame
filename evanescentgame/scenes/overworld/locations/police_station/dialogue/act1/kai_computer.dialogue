@@ -1,0 +1,13 @@
+~ kai_computer
+Evan: There's a big red button here...
+- Press it
+	Evan: ...
+	Evan: Did that do anything?
+	do EventHandler.security_guard_text_sent.emit()
+- Leave it
+	Evan: Let's not do anything stupid, now.
+=> END
+
+~ kai_computer_repeat
+Evan: It's busted...
+=> END

@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmkxuretreki0"]
+
+[ext_resource type="Script" path="res://scenes/scene_components/act_1_end/act_1_end.gd" id="1_cah16"]
+[ext_resource type="PackedScene" uid="uid://cfx3wanmlsj0" path="res://general_components/interactable_area/interactable_area.tscn" id="2_xko5s"]
+[ext_resource type="PackedScene" uid="uid://cemmf570s8hey" path="res://general_components/dialogue_emitter/dialogue_emitter.tscn" id="3_umg5q"]
+
+[node name="Act1End" type="Node2D"]
+script = ExtResource("1_cah16")
+
+[node name="InteractableArea" parent="." instance=ExtResource("2_xko5s")]
+
+[node name="DialogueEmitter" parent="." instance=ExtResource("3_umg5q")]
