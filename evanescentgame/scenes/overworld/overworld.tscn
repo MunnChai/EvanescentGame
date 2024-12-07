@@ -63,6 +63,7 @@ position = Vector2(61, 18)
 graph_data = ExtResource("8_0wrch")
 starting_dialogue_resource = ExtResource("7_hwc6d")
 current_dialogue_title = "dawn_and_kids_mingling"
+possessable_outline_color = null
 
 [node name="Sprite2D" parent="World/NPCs/Dawn" index="0"]
 texture = ExtResource("11_a5jny")
@@ -75,6 +76,7 @@ position = Vector2(320, 18)
 graph_data = ExtResource("12_y8m01")
 starting_dialogue_resource = ExtResource("7_hwc6d")
 current_dialogue_title = "colleague_and_cousin_mingling"
+possessable_outline_color = null
 
 [node name="Sprite2D" parent="World/NPCs/Kai" index="0"]
 texture = ExtResource("12_hu1qa")
@@ -84,6 +86,7 @@ position = Vector2(347, 17)
 graph_data = ExtResource("13_lqkwk")
 starting_dialogue_resource = ExtResource("7_hwc6d")
 current_dialogue_title = "colleague_and_cousin_mingling"
+possessable_outline_color = null
 
 [node name="Sprite2D" parent="World/NPCs/Carlos" index="0"]
 texture = ExtResource("13_gasgw")
@@ -194,6 +197,9 @@ texture = ExtResource("20_tyuru")
 
 [node name="SecurityGuard" parent="World/NPCs/Organization" instance=ExtResource("20_80hk3")]
 position = Vector2(216, 2062)
+
+[node name="Sprite2D" parent="World/NPCs/Organization/SecurityGuard" index="0"]
+material = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/NPCs/Organization/SecurityGuard/SecurityGuardDialogueTrigger" index="1"]
 position = Vector2(-19, -39.5)

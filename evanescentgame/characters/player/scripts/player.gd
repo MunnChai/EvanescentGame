@@ -84,6 +84,9 @@ func handle_movement(delta: float):
 	move_and_slide()
 
 func possess(npc: PossessableNPC):
+	if (npc.already_possessed):
+		return
+	
 	in_possessing_animation = true
 	
 	const DISTANCE_THRESHOLD: float = 5

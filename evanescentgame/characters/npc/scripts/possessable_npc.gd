@@ -5,6 +5,7 @@ extends NPC
 var is_possessed: bool = false
 
 var will_resume_navigation: bool = false
+var already_possessed: bool = false
 
 func _ready():
 	super._ready()
@@ -62,6 +63,8 @@ func become_possessed():
 	
 	if (is_navigating):
 		will_resume_navigation = true
+	
+	already_possessed = true
 
 func become_unpossessed():
 	is_possessed = false
@@ -77,7 +80,8 @@ func on_player_interacted():
 	dialogue_emitter.show_dialogue(current_dialogue_title)
 
 func show_possession_effect():
-	sprite_2d.material.set_shader_parameter("color", possessable_outline_color)
+	if (not player.is_possessing and not already_possessed):
+		sprite_2d.material.set_shader_parameter("color", possessable_outline_color)
 
 func hide_possession_effect():
-	sprite_2d.material.set_shader_parameter("color", Color.TRANSPARENT)
+	sprite_2d.material.set_shader_parameter("color", OUTLINE_COLOUR)

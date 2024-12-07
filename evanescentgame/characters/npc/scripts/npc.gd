@@ -18,6 +18,7 @@ const SPEED: float = 40.0
 const SPRINT_MULTIPLIER: float = 1.75
 const JUMP_VELOCITY: float = 250
 const GRAVITY: float = 1000
+const OUTLINE_COLOUR: Color = Color(0.2, 0.2, 0.2)
 
 const UNREACHABLE_LOCATION_COORDS: Vector2 = Vector2(2000, 2000)
 
@@ -36,6 +37,10 @@ var current_room_path: Array
 signal signal_dialogue(title) # REMOVE AT SOME POINT, PLS DON'T USE THIS, INSTEAD CALL dialogue_emitter.show_dialogue(title)
 
 func _ready():
+	if (sprite_2d.material):
+		sprite_2d.material.set_shader_parameter("number_of_images", Vector2(sprite_2d.hframes, sprite_2d.vframes))
+		sprite_2d.material.set_shader_parameter("color", OUTLINE_COLOUR)
+	
 	dialogue_emitter.dialogue_resource = starting_dialogue_resource
 	if (!interactable_area.player_interacted.is_connected(on_player_interacted)): 
 		interactable_area.player_interacted.connect(on_player_interacted)
