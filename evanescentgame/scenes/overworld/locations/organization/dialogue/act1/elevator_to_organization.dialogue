@@ -1,4 +1,13 @@
 ~ elevator_to_organization
-Evan: There's an elevator...
-Lady Devil: Yes... an elevator...
+Evan: An elevator???? They hid an elevator behind the vending machine???????????????
+Lady Devil: Astute observation, Evan.
+Evan: Let's go in.
+do OverlayPanelManager.fade_out_scene(1.0)
+Evan: ...
+Evan: I can't see anything.
+Lady Devil: Hmm. Something is wrong. The scene isn't rendering here.
+Evan: Scene? Rendering???
+Lady Devil: I'll explain it later. We're going back. 
+do SceneLoader.load_underworld()
+do OverlayPanelManager.fade_in_to_scene(1.0)
 => END

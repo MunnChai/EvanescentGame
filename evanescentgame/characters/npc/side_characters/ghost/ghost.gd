@@ -7,6 +7,8 @@ var has_talked := false
 @onready var starting_y := position.y
 
 func _ready():
+	inventory.visible = false
+	
 	if (!interactable_area.player_interacted.is_connected(on_player_interacted)): 
 		interactable_area.player_interacted.connect(on_player_interacted)
 	
