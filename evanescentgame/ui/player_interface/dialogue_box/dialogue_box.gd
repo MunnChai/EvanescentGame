@@ -258,16 +258,17 @@ func _on_dialogue_label_spoke(letter, letter_index, speed):
 	if letter == " " or letter == ".":
 		return
 	
-	match (true_character_name):
-		"Evan":
-			audio_manager.play_sfx("Evan", false, true, 0, 0, 0.9, 1.1)
-		"Lady Devil":
-			audio_manager.play_sfx("LadyDevil", false, true, 0, 0, 0.9, 1.1)
-		"Ghost":
-			audio_manager.play_sfx("Ghost", false, true, 0, 0, 0.9, 1.1)
-		_:
-			pass
-			#print("Invalid character set: ", true_character_name) # suppress a billion print statements
+	audio_manager.play_sfx(true_character_name, false, true, 0, 0, 0.9, 1.1)
+	#match (true_character_name):
+		#"Evan":
+			#audio_manager.play_sfx("Evan", false, true, 0, 0, 0.9, 1.1)
+		#"Lady Devil":
+			#audio_manager.play_sfx("LadyDevil", false, true, 0, 0, 0.9, 1.1)
+		#"Ghost":
+			#audio_manager.play_sfx("Ghost", false, true, 0, 0, 0.9, 1.1)
+		#_:
+			#pass
+			##print("Invalid character set: ", true_character_name) # suppress a billion print statements
 	
 
 
