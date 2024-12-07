@@ -1,7 +1,6 @@
 extends Control
 @onready var canvas_layer = $".."
 
-@onready var button_container = $Panel/ButtonContainer
 @onready var player: Player = get_tree().get_nodes_in_group("player")[0]
 
 @export var location_manager: Node2D

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cpiebxlknogvc"]
+[gd_scene load_steps=31 format=3 uid="uid://cpiebxlknogvc"]
 
 [ext_resource type="Script" path="res://scenes/overworld/overworld_manager.gd" id="1_5y34q"]
 [ext_resource type="PackedScene" uid="uid://brm7k4yr1lcxw" path="res://characters/player/player.tscn" id="1_juc8k"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://coo8346yigqbu" path="res://characters/npc/side_characters/police_officer_2/sprites/police_officer_2-Sheet.png" id="17_p2rkf"]
 [ext_resource type="PackedScene" path="res://characters/npc/side_characters/security_guard/security_guard.tscn" id="20_80hk3"]
 [ext_resource type="Texture2D" uid="uid://038gtuwjy82v" path="res://characters/npc/side_characters/office_worker_1/sprites/office_worker_1-Sheet.png" id="20_tyuru"]
+[ext_resource type="PackedScene" uid="uid://bwsvbhi5lv3pd" path="res://ui/player_interface/info_log/info_log.tscn" id="29_m3j4v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g7oad"]
 size = Vector2(54, 77)
@@ -249,6 +250,8 @@ location_manager = NodePath("../../World/LocationManager")
 dawn = NodePath("../../World/NPCs/Dawn")
 cousin = NodePath("../../World/NPCs/Carlos")
 colleague = NodePath("../../World/NPCs/Kai")
+
+[node name="InfoLog" parent="UI" instance=ExtResource("29_m3j4v")]
 
 [editable path="World/NPCs/Dawn"]
 [editable path="World/NPCs/Kai"]
