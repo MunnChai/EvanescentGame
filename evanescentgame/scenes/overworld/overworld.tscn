@@ -239,10 +239,16 @@ position = Vector2(795, -53)
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Ingame" parent="UI" instance=ExtResource("11_coct2")]
+mouse_filter = 1
+
+[node name="InfoLog" parent="UI" instance=ExtResource("16_vdqw3")]
+mouse_filter = 1
 
 [node name="OverworldPause" parent="UI" instance=ExtResource("12_fi7rw")]
+mouse_filter = 1
 
 [node name="NavigationPanel" parent="UI" node_paths=PackedStringArray("location_manager") instance=ExtResource("9_e1fk3")]
+mouse_filter = 1
 location_manager = NodePath("../../World/LocationManager")
 
 [editable path="World/NPCs/Dawn"]

@@ -1,0 +1,17 @@
+{
+  "title": "Funeral Venue",
+  "sidebar_title": "Funeral",
+  "category": "places",
+  "description": "Space of death.",
+  "unlock_flags": ["saw_funeral"],
+  "jot_notes": [
+	{
+	  "content": "Has people.",
+	  "unlock_flags": []
+	},
+	{
+	  "content": "Has coffin.",
+	  "unlock_flags": ["checked_coffin"]
+	}
+  ]
+}
