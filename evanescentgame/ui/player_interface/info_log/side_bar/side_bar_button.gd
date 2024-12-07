@@ -1,7 +1,7 @@
 class_name SideBarButton
 extends Button
 
-var entry: InfoLogEntry = null
+var entry: InfoLogEntryData = null
 var button_entry_title: String = ""
 
 signal selected(_entry)

@@ -155,21 +155,21 @@ theme_override_constants/margin_bottom = 22
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="SideBarScroll" type="ScrollContainer" parent="Entries/MainColumns"]
+[node name="SideBar" type="ScrollContainer" parent="Entries/MainColumns"]
 custom_minimum_size = Vector2(60.13, 2.08165e-12)
 layout_mode = 2
 horizontal_scroll_mode = 0
 
-[node name="PeopleEntries" type="VBoxContainer" parent="Entries/MainColumns/SideBarScroll"]
+[node name="PeopleEntries" type="VBoxContainer" parent="Entries/MainColumns/SideBar"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="PlacesEntries" type="VBoxContainer" parent="Entries/MainColumns/SideBarScroll"]
+[node name="PlacesEntries" type="VBoxContainer" parent="Entries/MainColumns/SideBar"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="ThingsEntries" type="VBoxContainer" parent="Entries/MainColumns/SideBarScroll"]
+[node name="ThingsEntries" type="VBoxContainer" parent="Entries/MainColumns/SideBar"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -184,6 +184,7 @@ custom_minimum_size = Vector2(2.08165e-12, 18.63)
 layout_mode = 2
 
 [node name="PeopleBtn" type="Button" parent="Entries/MainColumns/RightColumn/TopBar"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("38_5y8kh")
@@ -193,6 +194,7 @@ text = "People"
 flat = true
 
 [node name="PlacesBtn" type="Button" parent="Entries/MainColumns/RightColumn/TopBar"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("38_5y8kh")
@@ -202,6 +204,7 @@ text = "Places"
 flat = true
 
 [node name="ThingsBtn" type="Button" parent="Entries/MainColumns/RightColumn/TopBar"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("38_5y8kh")
@@ -210,39 +213,55 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_svql5")
 text = "Things"
 flat = true
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Entries/MainColumns/RightColumn"]
+[node name="ScrollableEntry" type="ScrollContainer" parent="Entries/MainColumns/RightColumn"]
 custom_minimum_size = Vector2(2.08165e-12, 103.85)
 layout_mode = 2
 horizontal_scroll_mode = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="Entries/MainColumns/RightColumn/ScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Entries/MainColumns/RightColumn/ScrollableEntry"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Entries/MainColumns/RightColumn/ScrollContainer/MarginContainer"]
+[node name="EntryContent" type="VBoxContainer" parent="Entries/MainColumns/RightColumn/ScrollableEntry/MarginContainer"]
 custom_minimum_size = Vector2(107.5, 46.35)
 layout_mode = 2
 
-[node name="Title" type="RichTextLabel" parent="Entries/MainColumns/RightColumn/ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="Title" type="RichTextLabel" parent="Entries/MainColumns/RightColumn/ScrollableEntry/MarginContainer/EntryContent"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(2.08165e-12, 57.74)
+custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("27_qsnxt")
-theme_override_font_sizes/normal_font_size = 42
-text = "Evan"
+theme_override_font_sizes/normal_font_size = 12
+text = "Title"
+fit_content = true
+scroll_active = false
 
-[node name="Description" type="RichTextLabel" parent="Entries/MainColumns/RightColumn/ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="Description" type="RichTextLabel" parent="Entries/MainColumns/RightColumn/ScrollableEntry/MarginContainer/EntryContent"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(2.08165e-12, 57.74)
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("38_5y8kh")
-theme_override_font_sizes/normal_font_size = 16
-text = "Evan"
+theme_override_font_sizes/normal_font_size = 8
+text = "Desc"
+fit_content = true
+scroll_active = false
+
+[node name="JotNotes" type="RichTextLabel" parent="Entries/MainColumns/RightColumn/ScrollableEntry/MarginContainer/EntryContent"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("38_5y8kh")
+theme_override_font_sizes/normal_font_size = 8
+text = "Jot Notes"
+fit_content = true
+scroll_active = false
+
+[node name="EntryData" type="Node" parent="."]
+unique_name_in_owner = true
 
 [connection signal="animation_finished" from="FileFolder" to="." method="_on_file_folder_animation_finished"]
 [connection signal="pressed" from="Entries/MainColumns/RightColumn/TopBar/PeopleBtn" to="." method="_on_people_btn_pressed"]

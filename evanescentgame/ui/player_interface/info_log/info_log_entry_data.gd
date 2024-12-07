@@ -1,10 +1,11 @@
-class_name InfoLogEntry
+class_name InfoLogEntryData
 extends Node
 
 ## An instance of a InfoLog entry
 
 ## SAMPLE JSON
 #{
+  #"id": "evan",	snake_case ID to track entries, unique!
   #"title": "Evan",	Name to show in ENTRY
   #"sidebar_title": "Evan",	Name to show in SIDEBAR navigation
   #“category”: “people”,	Name of the CATEGORY this entry belongs in 
@@ -23,6 +24,7 @@ extends Node
 #}
 
 func init_from_json(data: Dictionary) -> void:
+	id = data["id"]
 	title = data["title"]
 	sidebar_title = data["sidebar_title"]
 	category = data["category"]
@@ -43,6 +45,7 @@ func is_unlocked() -> bool:
 
 
 
+var id: String = ""
 var title: String = ""
 var sidebar_title: String = ""
 var category: String = ""
