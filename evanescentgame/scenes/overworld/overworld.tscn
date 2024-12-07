@@ -189,8 +189,15 @@ position = Vector2(795, -53)
 
 [node name="OverworldPause" parent="UI" instance=ExtResource("12_fi7rw")]
 
-[node name="NavigationPanel" parent="UI" node_paths=PackedStringArray("location_manager") instance=ExtResource("9_e1fk3")]
+[node name="NavigationPanel" parent="UI" node_paths=PackedStringArray("location_manager", "dawn", "cousin", "colleague") instance=ExtResource("9_e1fk3")]
 location_manager = NodePath("../../World/LocationManager")
+dawn = NodePath("../../World/NPCs/Dawn")
+cousin = NodePath("../../World/NPCs/Cousin")
+colleague = NodePath("../../World/NPCs/Colleague")
+
+[connection signal="location_updated" from="World/NPCs/Dawn" to="UI/NavigationPanel" method="_on_dawn_location_updated"]
+[connection signal="location_updated" from="World/NPCs/Colleague" to="UI/NavigationPanel" method="_on_colleague_location_updated"]
+[connection signal="location_updated" from="World/NPCs/Cousin" to="UI/NavigationPanel" method="_on_cousin_location_updated"]
 
 [editable path="World/NPCs/Dawn"]
 [editable path="World/NPCs/Colleague"]

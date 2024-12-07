@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgdbiubpob2jv"]
+[gd_scene load_steps=9 format=3 uid="uid://bgdbiubpob2jv"]
 
 [ext_resource type="Script" path="res://ui/in_game_menus/pause_menu/options_menu/options_menu.gd" id="1_ia525"]
 [ext_resource type="Script" path="res://ui/in_game_menus/pause_menu/options_menu/GraphicsOptions.gd" id="2_5mnjn"]
+[ext_resource type="Theme" uid="uid://jd7ot0ssesa0" path="res://ui/themes/general_theme.tres" id="2_ed8fp"]
 [ext_resource type="Script" path="res://ui/in_game_menus/pause_menu/options_menu/SoundOptions.gd" id="2_slshr"]
+[ext_resource type="FontFile" uid="uid://cwi0n3kesweuw" path="res://ui/fonts/EBGaramond-Bold.ttf" id="4_tn8j0"]
 
 [sub_resource type="Animation" id="Animation_83a0w"]
 length = 0.001
@@ -100,6 +102,7 @@ offset_top = 20.0
 offset_right = 63.5
 offset_bottom = 43.0
 grow_horizontal = 2
+theme = ExtResource("2_ed8fp")
 text = "OPTIONS MENU:"
 
 [node name="Button" type="Button" parent="ColorRect"]
@@ -116,27 +119,34 @@ offset_bottom = -15.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.75, 0.75)
+theme = ExtResource("2_ed8fp")
 text = "Return"
 
 [node name="GraphicsOptions" type="VBoxContainer" parent="ColorRect"]
 layout_mode = 0
 offset_left = 19.0
 offset_top = 60.0
-offset_right = 189.0
+offset_right = 130.0
 offset_bottom = 169.0
-scale = Vector2(0.5, 0.5)
 script = ExtResource("2_5mnjn")
 
 [node name="GSettingsLabel" type="Label" parent="ColorRect/GraphicsOptions"]
 layout_mode = 2
+theme = ExtResource("2_ed8fp")
+theme_override_fonts/font = ExtResource("4_tn8j0")
+theme_override_font_sizes/font_size = 12
 text = "Graphics Settings:"
 
 [node name="ResLabel" type="Label" parent="ColorRect/GraphicsOptions"]
 layout_mode = 2
+theme = ExtResource("2_ed8fp")
+theme_override_font_sizes/font_size = 9
 text = "Window Resolution"
 
 [node name="ResOptions" type="OptionButton" parent="ColorRect/GraphicsOptions"]
 layout_mode = 2
+theme = ExtResource("2_ed8fp")
+theme_override_font_sizes/font_size = 12
 item_count = 2
 selected = 0
 popup/item_0/text = "640x360"
@@ -146,6 +156,8 @@ popup/item_1/id = 1
 
 [node name="FScreenCheck" type="CheckBox" parent="ColorRect/GraphicsOptions"]
 layout_mode = 2
+theme = ExtResource("2_ed8fp")
+theme_override_font_sizes/font_size = 12
 text = "Fullscreen"
 
 [node name="SoundOptions" type="VBoxContainer" parent="ColorRect"]
@@ -159,11 +171,13 @@ script = ExtResource("2_slshr")
 
 [node name="SSetingsLabel" type="Label" parent="ColorRect/SoundOptions"]
 layout_mode = 2
+theme = ExtResource("2_ed8fp")
 text = "Audio Options"
 metadata/_edit_lock_ = true
 
 [node name="MasterLabel" type="Label" parent="ColorRect/SoundOptions"]
 layout_mode = 2
+theme = ExtResource("2_ed8fp")
 text = "Master"
 metadata/_edit_lock_ = true
 
@@ -175,6 +189,7 @@ metadata/_edit_lock_ = true
 
 [node name="MusicLabel" type="Label" parent="ColorRect/SoundOptions"]
 layout_mode = 2
+theme = ExtResource("2_ed8fp")
 text = "Music"
 metadata/_edit_lock_ = true
 
@@ -186,6 +201,7 @@ metadata/_edit_lock_ = true
 
 [node name="SFXLabel" type="Label" parent="ColorRect/SoundOptions"]
 layout_mode = 2
+theme = ExtResource("2_ed8fp")
 text = "SFX"
 metadata/_edit_lock_ = true
 
@@ -197,8 +213,16 @@ metadata/_edit_lock_ = true
 
 [node name="MuteCheck" type="CheckBox" parent="ColorRect/SoundOptions"]
 layout_mode = 2
+theme = ExtResource("2_ed8fp")
 text = "Mute All"
 metadata/_edit_lock_ = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ColorRect"]
+layout_mode = 0
+offset_left = 195.0
+offset_top = 54.0
+offset_right = 280.0
+offset_bottom = 132.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

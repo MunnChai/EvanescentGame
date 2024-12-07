@@ -6,17 +6,27 @@ extends Control
 
 @export var location_manager: Node2D
 
+@export var dawn: NPC
+@export var cousin: NPC
+@export var colleague: NPC
+
+var funeralChars : Array
+var houseChars : Array
+var cHouseChars : Array
+var stationChars : Array
+var orgChars : Array
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	hide()
 	
+	#initializing the location values manually since the location_updated signal hasn't been called by any of the NPCs yet
+	update_location_info("Dawn", dawn.current_location.name, "h")
+	update_location_info("Carlos", cousin.current_location.name, "h")
+	update_location_info("Kai", colleague.current_location.name, "h")
+	
 	for location in location_manager.get_children():
 		location.get_node("LocationExit").player_interacted.connect(show_ui)
-		var button = Button.new()
-		button.pressed.connect(teleport_to_location.bind(location))
-		button.text = location.name
-		button.add_theme_font_size_override("font_size", 6)
-		button_container.call_deferred("add_child", button)
 
 func show_ui():
 	show()
@@ -48,3 +58,98 @@ func _on_exit_pressed():
 
 func resume():
 	hide()
+
+
+func _on_dawn_location_updated():
+	if dawn.current_location and dawn.prev_location:
+		update_location_info("Dawn", dawn.current_location.name, dawn.prev_location.name)
+
+func _on_colleague_location_updated():
+	if cousin.current_location and colleague.prev_location:
+		update_location_info("Kai", colleague.current_location.name, colleague.prev_location.name)
+
+
+func _on_cousin_location_updated():
+	if cousin.current_location and cousin.prev_location:
+		update_location_info("Carlos", cousin.current_location.name, cousin.prev_location.name)
+
+
+func update_location_info(npcName, current, previous):
+	match current:
+		"Funeral Venue":
+			print(npcName)
+			funeralChars.append(npcName)
+			displayCharLocations($Panel/GridContainer/FuneralLabel, funeralChars)
+		"Evan's House":
+			houseChars.append(npcName)
+			displayCharLocations($Panel/GridContainer/HouseLabel, houseChars)
+		"Cousin's House":
+			cHouseChars.append(npcName)
+			displayCharLocations($Panel/GridContainer/CHouseLabel, cHouseChars)
+		"Police Station":
+			stationChars.append(npcName)
+			displayCharLocations($Panel/GridContainer/StationLabel, stationChars)
+		"The Organization":
+			orgChars.append(npcName)
+			displayCharLocations($Panel/GridContainer/OrgLabel, orgChars)
+			
+	match previous:
+		"Funeral Venue":
+			funeralChars.erase(npcName)
+			displayCharLocations($Panel/GridContainer/FuneralLabel, funeralChars)
+		"Evan's House":
+			houseChars.erase(npcName)
+			displayCharLocations($Panel/GridContainer/HouseLabel, houseChars)
+		"Cousin's House":
+			cHouseChars.erase(npcName)
+			displayCharLocations($Panel/GridContainer/CHouseLabel, cHouseChars)
+		"Police Station":
+			stationChars.erase(npcName)
+			displayCharLocations($Panel/GridContainer/StationLabel, stationChars)
+		"The Organization":
+			orgChars.erase(npcName)
+			displayCharLocations($Panel/GridContainer/OrgLabel, orgChars)
+
+
+func displayCharLocations(label, chrArray):
+	if len(chrArray) == 0:
+		label.text = ""
+	elif len(chrArray) == 1:
+		label.text = chrArray[0] + " is here"
+	elif len(chrArray) == 2:
+		label.text = chrArray[0] + " and " + chrArray[1] + " are here"
+	else:
+		var textToDisplay = ""
+		
+		for i in len(chrArray):
+			textToDisplay += chrArray[i]
+			if i == len(chrArray) - 2:
+				textToDisplay += ", and "
+			elif i == len(chrArray) - 1:
+				textToDisplay += " are here"
+			else:
+				textToDisplay += ", "
+
+		label.text = textToDisplay
+
+
+
+
+func _on_funeral_button_pressed():
+	teleport_to_location(location_manager.get_children()[0])
+
+
+func _on_house_button_pressed():
+	teleport_to_location(location_manager.get_children()[1])
+
+
+func _on_c_house_button_pressed():
+	teleport_to_location(location_manager.get_children()[2])
+
+
+func _on_station_button_pressed():
+	teleport_to_location(location_manager.get_children()[3])
+
+
+func _on_org_button_pressed():
+	teleport_to_location(location_manager.get_children()[4])

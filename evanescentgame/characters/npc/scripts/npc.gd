@@ -26,10 +26,12 @@ var starting_room: LocationRoom
 
 var is_possessed: bool = false
 var current_location: Location
+var prev_location: Location
 var current_room: LocationRoom
 var current_room_path: Array
 
 signal signal_dialogue(title) # REMOVE AT SOME POINT, PLS DON'T USE THIS, INSTEAD CALL dialogue_emitter.show_dialogue(title)
+signal location_updated
 
 func _ready():
 	dialogue_emitter.dialogue_resource = starting_dialogue_resource
@@ -159,7 +161,9 @@ func update_current_location():
 	
 	for location: Location in location_manager.get_children():
 		if (location.area_contains_position(global_position)):
+			prev_location = current_location
 			current_location = location
+			location_updated.emit()
 			break
 	
 	if (!current_location):
@@ -313,7 +317,9 @@ func move_to_location(location: Location, target_position: Vector2):
 	await get_tree().create_timer(MOVE_ROOMS_WAIT_TIME).timeout
 	collision_mask = 0
 	global_position = location.location_exit.global_position
+	prev_location = current_location
 	current_location = location
+	location_updated.emit()
 	current_room = location.location_exit_room
 	await get_tree().physics_frame
 	await get_tree().physics_frame
