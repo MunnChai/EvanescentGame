@@ -1,0 +1,13 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://jd7ot0ssesa0"]
+
+[ext_resource type="FontFile" uid="uid://byvk43qeri2e" path="res://ui/fonts/EBGaramond-Regular.ttf" id="1_m8igf"]
+
+[resource]
+Button/font_sizes/font_size = 9
+Button/fonts/font = ExtResource("1_m8igf")
+CheckBox/font_sizes/font_size = 9
+CheckBox/fonts/font = ExtResource("1_m8igf")
+Label/font_sizes/font_size = 9
+Label/fonts/font = ExtResource("1_m8igf")
+OptionButton/font_sizes/font_size = 9
+OptionButton/fonts/font = ExtResource("1_m8igf")
