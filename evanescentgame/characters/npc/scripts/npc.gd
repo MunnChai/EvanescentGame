@@ -31,10 +31,12 @@ var starting_location: Location
 var starting_room: LocationRoom
 
 var current_location: Location
+var prev_location: Location
 var current_room: LocationRoom
 var current_room_path: Array
 
 signal signal_dialogue(title) # REMOVE AT SOME POINT, PLS DON'T USE THIS, INSTEAD CALL dialogue_emitter.show_dialogue(title)
+signal location_updated
 
 func _ready():
 	if (sprite_2d.material):
@@ -140,7 +142,9 @@ func update_current_location():
 	
 	for location: Location in location_manager.get_children():
 		if (location.area_contains_position(global_position)):
+			prev_location = current_location
 			current_location = location
+			location_updated.emit()
 			break
 	
 	if (!current_location):
@@ -273,8 +277,9 @@ func move_to_location(location: Location, target_position: Vector2):
 	collision_mask = 0
 	sprite_2d.visible = false
 	global_position = location.location_exit.global_position
-	
+	prev_location = current_location
 	current_location = location
+	location_updated.emit()
 	current_room = location.location_exit_room
 	
 	await get_tree().physics_frame
