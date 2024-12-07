@@ -76,6 +76,7 @@ const SIDE_BAR_BUTTON_PREFAB = preload("side_bar/side_bar_button.tscn")
 @onready var things_entries = %ThingsEntries
 
 func open() -> void:
+	show()
 	## VISUALS
 	## Fade in BG panel
 	_reset_tween()
@@ -153,6 +154,7 @@ func _on_file_folder_animation_finished():
 	bg_fade_tween.tween_property($BgPanel, "modulate", Color(0, 0, 0, 0), FADE_BG_TIME)
 	
 	get_tree().paused = false
+	hide()
 
 func _reset_tween() -> void:
 	if bg_fade_tween != null:

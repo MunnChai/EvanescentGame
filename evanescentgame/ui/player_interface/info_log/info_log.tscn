@@ -114,7 +114,6 @@ animations = [{
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_svql5"]
 
 [node name="InfoLog" type="Control"]
-z_index = 3000
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

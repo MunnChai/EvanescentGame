@@ -242,9 +242,6 @@ position = Vector2(795, -53)
 [node name="Ingame" parent="UI" instance=ExtResource("11_coct2")]
 mouse_filter = 1
 
-[node name="OverworldPause" parent="UI" instance=ExtResource("12_fi7rw")]
-mouse_filter = 1
-
 [node name="NavigationPanel" parent="UI" node_paths=PackedStringArray("location_manager", "dawn", "cousin", "colleague") instance=ExtResource("9_e1fk3")]
 location_manager = NodePath("../../World/LocationManager")
 dawn = NodePath("../../World/NPCs/Dawn")
@@ -252,6 +249,9 @@ cousin = NodePath("../../World/NPCs/Carlos")
 colleague = NodePath("../../World/NPCs/Kai")
 
 [node name="InfoLog" parent="UI" instance=ExtResource("29_m3j4v")]
+
+[node name="OverworldPause" parent="UI" instance=ExtResource("12_fi7rw")]
+mouse_filter = 1
 
 [editable path="World/NPCs/Dawn"]
 [editable path="World/NPCs/Kai"]
