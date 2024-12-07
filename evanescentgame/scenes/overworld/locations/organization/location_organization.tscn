@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://blp4jjwokkgxj" path="res://scenes/overworld/locations/location.tscn" id="1_axd6r"]
 [ext_resource type="Texture2D" uid="uid://wcum77puehl7" path="res://scenes/overworld/locations/organization/sprites/organization_decor.png" id="2_eqbyb"]
 [ext_resource type="Texture2D" uid="uid://bcotb8jw303m2" path="res://scenes/overworld/locations/organization/tilesets/organization_tileset.png" id="3_ulsws"]
-[ext_resource type="PackedScene" uid="uid://bxdbyhghd8fs7" path="res://general_components/interactable_area/interactable_area_refactor.tscn" id="4_5mjwb"]
+[ext_resource type="PackedScene" path="res://general_components/interactable_area/interactable_area_refactor.tscn" id="4_5mjwb"]
 [ext_resource type="PackedScene" uid="uid://b4s5cc2v2c64b" path="res://scenes/scene_components/keypad/keypad.tscn" id="5_mb7ua"]
 [ext_resource type="PackedScene" uid="uid://cemmf570s8hey" path="res://general_components/dialogue_emitter/dialogue_emitter.tscn" id="5_s37kg"]
 [ext_resource type="Script" path="res://scenes/overworld/locations/scripts/location_room.gd" id="6_56ehl"]

@@ -60,10 +60,10 @@ position = Vector2(2000, 2000)
 
 [node name="Dawn" parent="World/NPCs" instance=ExtResource("8_bfd80")]
 position = Vector2(61, 18)
+possessable_outline_color = null
 graph_data = ExtResource("8_0wrch")
 starting_dialogue_resource = ExtResource("7_hwc6d")
 current_dialogue_title = "dawn_and_kids_mingling"
-possessable_outline_color = null
 
 [node name="Sprite2D" parent="World/NPCs/Dawn" index="0"]
 texture = ExtResource("11_a5jny")
@@ -77,10 +77,10 @@ volume_db = 0.0
 
 [node name="Kai" parent="World/NPCs" instance=ExtResource("8_bfd80")]
 position = Vector2(320, 18)
+possessable_outline_color = null
 graph_data = ExtResource("12_y8m01")
 starting_dialogue_resource = ExtResource("7_hwc6d")
 current_dialogue_title = "colleague_and_cousin_mingling"
-possessable_outline_color = null
 
 [node name="Sprite2D" parent="World/NPCs/Kai" index="0"]
 texture = ExtResource("12_hu1qa")
@@ -91,10 +91,10 @@ volume_db = 0.0
 
 [node name="Carlos" parent="World/NPCs" instance=ExtResource("8_bfd80")]
 position = Vector2(347, 17)
+possessable_outline_color = null
 graph_data = ExtResource("13_lqkwk")
 starting_dialogue_resource = ExtResource("7_hwc6d")
 current_dialogue_title = "colleague_and_cousin_mingling"
-possessable_outline_color = null
 
 [node name="Sprite2D" parent="World/NPCs/Carlos" index="0"]
 texture = ExtResource("13_gasgw")
@@ -244,9 +244,11 @@ mouse_filter = 1
 [node name="OverworldPause" parent="UI" instance=ExtResource("12_fi7rw")]
 mouse_filter = 1
 
-[node name="NavigationPanel" parent="UI" node_paths=PackedStringArray("location_manager", "dawn") instance=ExtResource("9_e1fk3")]
+[node name="NavigationPanel" parent="UI" node_paths=PackedStringArray("location_manager", "dawn", "cousin", "colleague") instance=ExtResource("9_e1fk3")]
 location_manager = NodePath("../../World/LocationManager")
 dawn = NodePath("../../World/NPCs/Dawn")
+cousin = NodePath("../../World/NPCs/Carlos")
+colleague = NodePath("../../World/NPCs/Kai")
 
 [editable path="World/NPCs/Dawn"]
 [editable path="World/NPCs/Kai"]
