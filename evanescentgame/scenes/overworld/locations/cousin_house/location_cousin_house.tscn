@@ -226,8 +226,7 @@ script = ExtResource("4_kywde")
 
 [node name="StairsDown" parent="Rooms/Upstairs" index="0" node_paths=PackedStringArray("destination_door") instance=ExtResource("5_k8x4c")]
 position = Vector2(37, 29)
-destination_door = NodePath("")
-fade_seconds = 0.3
+destination_door = NodePath("../../DownStairs/StairsUp")
 
 [node name="InteractableArea" parent="Rooms/Upstairs/StairsDown" index="0"]
 position = Vector2(-32, -9.5)
@@ -236,12 +235,11 @@ position = Vector2(-32, -9.5)
 position = Vector2(0, -19.5)
 shape = SubResource("RectangleShape2D_djl7i")
 
-[node name="EnterMasterBedroom" parent="Rooms/Upstairs" index="1" node_paths=PackedStringArray("destination_door") instance=ExtResource("6_cxpca")]
+[node name="EnterMasterBedroom" parent="Rooms/Upstairs" index="1" instance=ExtResource("6_cxpca")]
 position = Vector2(-56, -50)
 key_id = "master_bedroom"
 dialogue_resource = ExtResource("7_doqry")
 dialogue_title = "master_bedroom"
-destination_door = NodePath("")
 
 [node name="InteractableArea" parent="Rooms/Upstairs/EnterMasterBedroom" index="0"]
 position = Vector2(-29, -23.5)
@@ -259,8 +257,7 @@ script = ExtResource("4_kywde")
 
 [node name="StairsUp" parent="Rooms/DownStairs" index="0" node_paths=PackedStringArray("destination_door") instance=ExtResource("5_k8x4c")]
 position = Vector2(21, 31)
-destination_door = NodePath("")
-fade_seconds = 0.3
+destination_door = NodePath("../../Upstairs/StairsDown")
 
 [node name="InteractableArea" parent="Rooms/DownStairs/StairsUp" index="0"]
 position = Vector2(-23, 1)
