@@ -1,5 +1,7 @@
 extends Label
 
+@onready var timer: Timer = $Timer
+
 # Start time in in game hours (eg. 9 = 9:00am, 9.5 = 9:30am, 15 = 3:00pm)
 const START_TIME_IGT: float = 9 
 # End time in in game hours (24 + 3 = 3:00am, the next day)
@@ -11,13 +13,14 @@ const IGT_SECOND_MULTIPLIER: float = ((END_TIME_IGT - START_TIME_IGT) * 60 * 60)
 
 var timer_ended: bool = false
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if get_tree().current_scene.name == "Overworld": # change to (insert scene here)!!!
 		text = " 12:00am"
-		$Timer.wait_time = DAY_DURATION_IRL
-		$Timer.start()
-		$Timer.timeout.connect(load_underworld)
+		timer.wait_time = DAY_DURATION_IRL
+		timer.start()
+		timer.timeout.connect(load_underworld)
 	else:
 		# Maybe we can apply some funky effects here, like the numbers are constantly flipping through random times in the underworld?
 		text = " 0:00xm"
@@ -63,3 +66,9 @@ func _update_timer(time_left: float) -> void:
 		text = " " + h + ":" + m + "am"
 	else:
 		text = " " + h + ":" + m + "pm"
+
+func pause_time():
+	timer.paused = true
+
+func resume_time():
+	timer.paused = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://4r3quu36axff"]
+[gd_scene load_steps=28 format=3 uid="uid://4r3quu36axff"]
 
 [ext_resource type="PackedScene" uid="uid://blp4jjwokkgxj" path="res://scenes/overworld/locations/location.tscn" id="1_axd6r"]
 [ext_resource type="Texture2D" uid="uid://wcum77puehl7" path="res://scenes/overworld/locations/organization/sprites/organization_decor.png" id="2_eqbyb"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://scenes/overworld/locations/scripts/location_room.gd" id="6_56ehl"]
 [ext_resource type="Resource" uid="uid://cuk7sqbgiheqo" path="res://scenes/overworld/locations/organization/dialogue/act1/vending_machine.dialogue" id="6_f3mrb"]
 [ext_resource type="PackedScene" uid="uid://cl8kobrguc04e" path="res://scenes/scene_components/background_door/background_door.tscn" id="7_rs4n1"]
+[ext_resource type="PackedScene" uid="uid://cmkxuretreki0" path="res://scenes/scene_components/act_1_end/act_1_end.tscn" id="8_rnbc8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_852ps"]
 texture = ExtResource("2_eqbyb")
@@ -1207,6 +1208,8 @@ terrain_set_1/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_852ps")
 sources/1 = SubResource("TileSetAtlasSource_8py2o")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_44xt2"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xv06v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xmaof"]
@@ -1382,13 +1385,7 @@ texture = ExtResource("2_eqbyb")
 region_enabled = true
 region_rect = Rect2(126, 28, 14, 12)
 
-[node name="VendingMachine" type="Sprite2D" parent="SpritesInfront/GroundFloor" index="3"]
-position = Vector2(184, 41)
-texture = ExtResource("2_eqbyb")
-region_enabled = true
-region_rect = Rect2(216, 200, 24, 40)
-
-[node name="PosterCovering" type="Sprite2D" parent="SpritesInfront/GroundFloor" index="4"]
+[node name="PosterCovering" type="Sprite2D" parent="SpritesInfront/GroundFloor" index="3"]
 position = Vector2(184, 16)
 texture = ExtResource("2_eqbyb")
 region_enabled = true
@@ -1562,7 +1559,13 @@ region_rect = Rect2(216, 200, 24, 40)
 
 [node name="Inspectables" type="Node2D" parent="." index="5"]
 
-[node name="VendingMachine" parent="Inspectables" index="0" instance=ExtResource("4_5mjwb")]
+[node name="Act1End" parent="Inspectables" index="0" instance=ExtResource("8_rnbc8")]
+position = Vector2(184, 40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inspectables/Act1End/InteractableArea" index="1"]
+shape = SubResource("RectangleShape2D_44xt2")
+
+[node name="VendingMachine" parent="Inspectables" index="1" instance=ExtResource("4_5mjwb")]
 position = Vector2(184, 40)
 
 [node name="DialogueEmitter" parent="Inspectables/VendingMachine" index="0" instance=ExtResource("5_s37kg")]
@@ -1711,8 +1714,10 @@ navigation_polygon = SubResource("NavigationPolygon_sahpq")
 
 [connection signal="ghost_interacted" from="Inspectables/VendingMachine" to="Inspectables/VendingMachine/DialogueEmitter" method="show_dialogue"]
 [connection signal="human_interacted" from="Inspectables/VendingMachine" to="Inspectables/VendingMachine/Keypad" method="show_keypad"]
+[connection signal="correct_code_inputted" from="Inspectables/VendingMachine/Keypad" to="Inspectables/Act1End" method="move_vending_machine"]
 [connection signal="correct_code_inputted" from="Inspectables/VendingMachine/Keypad" to="Inspectables/VendingMachine" method="disable"]
 
+[editable path="Inspectables/Act1End"]
 [editable path="LocationExit"]
 [editable path="Rooms/GroundFloor/Up"]
 [editable path="Rooms/Floor2/Down"]

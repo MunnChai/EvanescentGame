@@ -60,10 +60,10 @@ position = Vector2(2000, 2000)
 
 [node name="Dawn" parent="World/NPCs" instance=ExtResource("8_bfd80")]
 position = Vector2(61, 18)
+possessable_outline_color = null
 graph_data = ExtResource("8_0wrch")
 starting_dialogue_resource = ExtResource("7_hwc6d")
 current_dialogue_title = "dawn_and_kids_mingling"
-possessable_outline_color = null
 
 [node name="Sprite2D" parent="World/NPCs/Dawn" index="0"]
 texture = ExtResource("11_a5jny")
@@ -73,20 +73,20 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Kai" parent="World/NPCs" instance=ExtResource("8_bfd80")]
 position = Vector2(320, 18)
+possessable_outline_color = null
 graph_data = ExtResource("12_y8m01")
 starting_dialogue_resource = ExtResource("7_hwc6d")
 current_dialogue_title = "colleague_and_cousin_mingling"
-possessable_outline_color = null
 
 [node name="Sprite2D" parent="World/NPCs/Kai" index="0"]
 texture = ExtResource("12_hu1qa")
 
 [node name="Carlos" parent="World/NPCs" instance=ExtResource("8_bfd80")]
 position = Vector2(347, 17)
+possessable_outline_color = null
 graph_data = ExtResource("13_lqkwk")
 starting_dialogue_resource = ExtResource("7_hwc6d")
 current_dialogue_title = "colleague_and_cousin_mingling"
-possessable_outline_color = null
 
 [node name="Sprite2D" parent="World/NPCs/Carlos" index="0"]
 texture = ExtResource("13_gasgw")

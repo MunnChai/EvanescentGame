@@ -1,12 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://cmkxuretreki0"]
+[gd_scene load_steps=6 format=3 uid="uid://cmkxuretreki0"]
 
 [ext_resource type="Script" path="res://scenes/scene_components/act_1_end/act_1_end.gd" id="1_cah16"]
 [ext_resource type="PackedScene" uid="uid://cfx3wanmlsj0" path="res://general_components/interactable_area/interactable_area.tscn" id="2_xko5s"]
 [ext_resource type="PackedScene" uid="uid://cemmf570s8hey" path="res://general_components/dialogue_emitter/dialogue_emitter.tscn" id="3_umg5q"]
+[ext_resource type="Texture2D" uid="uid://wcum77puehl7" path="res://scenes/overworld/locations/organization/sprites/organization_decor.png" id="4_vha31"]
+[ext_resource type="Resource" uid="uid://cbsf76lvkftl3" path="res://scenes/overworld/locations/organization/dialogue/act1/elevator_to_organization.dialogue" id="5_4io13"]
 
 [node name="Act1End" type="Node2D"]
+position = Vector2(0, 8)
 script = ExtResource("1_cah16")
 
+[node name="ElevatorSprite" type="Sprite2D" parent="."]
+texture = ExtResource("4_vha31")
+region_enabled = true
+region_rect = Rect2(216, 200, 24, 40)
+
 [node name="InteractableArea" parent="." instance=ExtResource("2_xko5s")]
+position = Vector2(0, 8)
 
 [node name="DialogueEmitter" parent="." instance=ExtResource("3_umg5q")]
+position = Vector2(0, 8)
+dialogue_resource = ExtResource("5_4io13")
+default_title = "elevator_to_organization"
+
+[connection signal="player_interacted" from="InteractableArea" to="." method="interact_with_elevator"]

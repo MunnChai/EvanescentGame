@@ -301,7 +301,7 @@ layer_0/tile_data = PackedInt32Array(327672, 196609, 5, 327673, 196609, 5, 32767
 [node name="SpriteTileMap" type="TileMap" parent="." index="2"]
 tile_set = SubResource("TileSet_00qyt")
 format = 2
-layer_0/tile_data = PackedInt32Array(-2424877, 65538, 4, -2359334, 655362, 6, -2359338, 393218, 6, -2424865, 1114114, 4, -2424839, 65538, 4, -2359298, 196610, 17, -2424831, 589826, 17, -2293764, 458754, 19, -2621439, 589826, 13, -2490333, 65538, 4, -2424801, 1966082, 17, -2424805, 1572866, 17, -2621414, 1507330, 12)
+layer_0/tile_data = PackedInt32Array(-2424877, 65538, 4, -2359334, 655362, 6, -2359338, 393218, 6, -2424865, 1114114, 4, -2424839, 65538, 4, -2359298, 196610, 17, -2424831, 589826, 17, -2293764, 458754, 19, -2621439, 589826, 13, -2490333, 65538, 4, -2424801, 1966082, 17, -2424805, 1572866, 17, -2621414, 1507330, 12, -2555942, 720898, 2)
 
 [node name="Sprites" type="Node2D" parent="." index="3"]
 
@@ -426,7 +426,7 @@ region_rect = Rect2(12, 185, 9, 15)
 [node name="LocationExit" parent="." index="4"]
 position = Vector2(-46, 4)
 
-[node name="CollisionShape2D" parent="LocationExit/InteractableArea" index="2"]
+[node name="CollisionShape2D" parent="LocationExit/InteractableArea" index="1"]
 position = Vector2(-1, 11)
 shape = SubResource("RectangleShape2D_53kmb")
 
@@ -511,7 +511,7 @@ destination_door = NodePath("../../Upstair/StairsDown")
 [node name="InteractableArea" parent="Rooms/Downstairs/StairsUp" index="0"]
 position = Vector2(0, -7)
 
-[node name="CollisionShape2D" parent="Rooms/Downstairs/StairsUp/InteractableArea" index="2"]
+[node name="CollisionShape2D" parent="Rooms/Downstairs/StairsUp/InteractableArea" index="1"]
 position = Vector2(0, -22)
 shape = SubResource("RectangleShape2D_hgquy")
 
@@ -527,7 +527,7 @@ destination_door = NodePath("../../Downstairs/StairsUp")
 [node name="InteractableArea" parent="Rooms/Upstair/StairsDown" index="0"]
 position = Vector2(0, -3)
 
-[node name="CollisionShape2D" parent="Rooms/Upstair/StairsDown/InteractableArea" index="2"]
+[node name="CollisionShape2D" parent="Rooms/Upstair/StairsDown/InteractableArea" index="1"]
 position = Vector2(0, -24)
 shape = SubResource("RectangleShape2D_g1qyi")
 
@@ -539,21 +539,21 @@ dialogue_title = "master_bedroom"
 destination_door = NodePath("../../MasterBed/ExitMasterBedroom")
 fade_seconds = 0.15
 
-[node name="CollisionShape2D" parent="Rooms/Upstair/EnterMasterBedroom/InteractableArea" index="2"]
+[node name="CollisionShape2D" parent="Rooms/Upstair/EnterMasterBedroom/InteractableArea" index="1"]
 position = Vector2(0, -16)
 
 [node name="EnterChild1" parent="Rooms/Upstair" index="2" node_paths=PackedStringArray("destination_door") instance=ExtResource("5_c27is")]
 position = Vector2(-7, 28)
 destination_door = NodePath("../../Child1Bed/ExitChild1")
 
-[node name="CollisionShape2D" parent="Rooms/Upstair/EnterChild1/InteractableArea" index="2"]
+[node name="CollisionShape2D" parent="Rooms/Upstair/EnterChild1/InteractableArea" index="1"]
 position = Vector2(0, -14)
 
 [node name="EnterChild2" parent="Rooms/Upstair" index="3" node_paths=PackedStringArray("destination_door") instance=ExtResource("5_c27is")]
 position = Vector2(57, 27)
 destination_door = NodePath("../../Child2Bed/ExitChild2")
 
-[node name="CollisionShape2D" parent="Rooms/Upstair/EnterChild2/InteractableArea" index="2"]
+[node name="CollisionShape2D" parent="Rooms/Upstair/EnterChild2/InteractableArea" index="1"]
 position = Vector2(0, -14)
 
 [node name="MasterBed" type="CollisionShape2D" parent="Rooms" index="2"]
@@ -565,7 +565,7 @@ script = ExtResource("4_pqqrp")
 position = Vector2(-52, 27.5)
 destination_door = NodePath("../../Upstair/EnterMasterBedroom")
 
-[node name="CollisionShape2D" parent="Rooms/MasterBed/ExitMasterBedroom/InteractableArea" index="2"]
+[node name="CollisionShape2D" parent="Rooms/MasterBed/ExitMasterBedroom/InteractableArea" index="1"]
 position = Vector2(0, -13)
 
 [node name="Child1Bed" type="CollisionShape2D" parent="Rooms" index="3"]
@@ -577,7 +577,7 @@ script = ExtResource("4_pqqrp")
 position = Vector2(-36, 28)
 destination_door = NodePath("../../Upstair/EnterChild1")
 
-[node name="CollisionShape2D" parent="Rooms/Child1Bed/ExitChild1/InteractableArea" index="2"]
+[node name="CollisionShape2D" parent="Rooms/Child1Bed/ExitChild1/InteractableArea" index="1"]
 position = Vector2(0, -13)
 
 [node name="Child2Bed" type="CollisionShape2D" parent="Rooms" index="4"]
@@ -589,7 +589,7 @@ script = ExtResource("4_pqqrp")
 position = Vector2(36, 29)
 destination_door = NodePath("../../Upstair/EnterChild2")
 
-[node name="CollisionShape2D" parent="Rooms/Child2Bed/ExitChild2/InteractableArea" index="2"]
+[node name="CollisionShape2D" parent="Rooms/Child2Bed/ExitChild2/InteractableArea" index="1"]
 position = Vector2(0, -13)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." index="8"]
