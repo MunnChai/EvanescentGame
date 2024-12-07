@@ -277,7 +277,7 @@ text = "Response Example"
 stream = ExtResource("7_a8rdg")
 bus = &"Voicelines"
 
-[node name="LadyDevil" type="AudioStreamPlayer" parent="AudioManager"]
+[node name="Lady Devil" type="AudioStreamPlayer" parent="AudioManager"]
 stream = ExtResource("8_s2fds")
 bus = &"Voicelines"
 

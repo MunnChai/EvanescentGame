@@ -1,14 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://dnwaf4gu81ddo"]
+[gd_scene load_steps=10 format=3 uid="uid://dnwaf4gu81ddo"]
 
 [ext_resource type="PackedScene" uid="uid://blp4jjwokkgxj" path="res://scenes/overworld/locations/location.tscn" id="1_05g46"]
 [ext_resource type="TileSet" uid="uid://b0ik5iqgovpsy" path="res://scenes/test/initial_gameplay_demo/demo_tiles.tres" id="2_kdcsj"]
 [ext_resource type="Script" path="res://scenes/overworld/locations/scripts/location_room.gd" id="3_tx8xd"]
+[ext_resource type="PackedScene" uid="uid://hkq87e11fer7" path="res://scenes/scene_components/audio_trigger/audio_trigger.tscn" id="4_kf0nl"]
+[ext_resource type="AudioStream" uid="uid://48eq1w2e2s1f" path="res://scenes/overworld/locations/cousin_house/audio/sfx/CousinHouse.mp3" id="5_rnlg2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1oan0"]
 size = Vector2(336, 240)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ul4my"]
 size = Vector2(367, 255)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_obd7q"]
+size = Vector2(336, 248)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_14sjd"]
 vertices = PackedVector2Array(158, 30, -158, 30, -158, 26, 158, 26)
@@ -41,5 +46,12 @@ shape = SubResource("RectangleShape2D_ul4my")
 disabled = true
 script = ExtResource("3_tx8xd")
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." index="4"]
+[node name="AudioTrigger" parent="." index="4" instance=ExtResource("4_kf0nl")]
+audio = ExtResource("5_rnlg2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AudioTrigger" index="0"]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_obd7q")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." index="5"]
 navigation_polygon = SubResource("NavigationPolygon_14sjd")

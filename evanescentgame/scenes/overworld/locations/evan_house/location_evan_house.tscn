@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://qxsjk3i2orwj"]
+[gd_scene load_steps=35 format=3 uid="uid://qxsjk3i2orwj"]
 
 [ext_resource type="PackedScene" uid="uid://blp4jjwokkgxj" path="res://scenes/overworld/locations/location.tscn" id="1_7ytg5"]
 [ext_resource type="Texture2D" uid="uid://cg2yfkgyo5n3v" path="res://scenes/overworld/locations/evan_house/sprites/evan_house_decor.png" id="2_reaws"]
@@ -8,7 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://bha8jx12sacir" path="res://scenes/scene_components/inspectable_area/inspectable_area.tscn" id="4_wg1l0"]
 [ext_resource type="PackedScene" uid="uid://cl8kobrguc04e" path="res://scenes/scene_components/background_door/background_door.tscn" id="5_c27is"]
 [ext_resource type="Resource" uid="uid://caddivrytwx6x" path="res://scenes/overworld/locations/evan_house/dialogue/act1/evan_house_inspectables.dialogue" id="5_fhpyn"]
+[ext_resource type="PackedScene" uid="uid://hkq87e11fer7" path="res://scenes/scene_components/audio_trigger/audio_trigger.tscn" id="7_rovqt"]
 [ext_resource type="PackedScene" uid="uid://4hqpq82crn7i" path="res://scenes/scene_components/background_door/locked_door/locked_door.tscn" id="8_vk5ok"]
+[ext_resource type="AudioStream" uid="uid://67rfsmca0rek" path="res://scenes/overworld/locations/evan_house/audio/sfx/EvanHouse.mp3" id="8_y4ms2"]
 [ext_resource type="Resource" uid="uid://b7hk2dcxiy2pp" path="res://scenes/overworld/locations/evan_house/dialogue/act1/evan_house_locked_doors.dialogue" id="9_j3it2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j5goi"]
@@ -243,6 +245,9 @@ size = Vector2(16, 31)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6pkxe"]
 size = Vector2(872, 600)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qscap"]
+size = Vector2(683, 408)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p2wgb"]
 size = Vector2(272, 80)
@@ -497,7 +502,15 @@ visible = false
 position = Vector2(-12, -108)
 shape = SubResource("RectangleShape2D_6pkxe")
 
-[node name="Rooms" type="Node2D" parent="." index="7"]
+[node name="AudioTrigger" parent="." index="7" instance=ExtResource("7_rovqt")]
+visible = false
+audio = ExtResource("8_y4ms2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AudioTrigger" index="0"]
+position = Vector2(-37.5, -156)
+shape = SubResource("RectangleShape2D_qscap")
+
+[node name="Rooms" type="Node2D" parent="." index="8"]
 
 [node name="Downstairs" type="CollisionShape2D" parent="Rooms" index="0"]
 position = Vector2(64, 0)
@@ -505,14 +518,14 @@ shape = SubResource("RectangleShape2D_p2wgb")
 script = ExtResource("4_pqqrp")
 
 [node name="StairsUp" parent="Rooms/Downstairs" index="0" node_paths=PackedStringArray("destination_door") instance=ExtResource("5_c27is")]
-position = Vector2(37, 29)
+position = Vector2(37, 24)
 destination_door = NodePath("../../Upstair/StairsDown")
 
 [node name="InteractableArea" parent="Rooms/Downstairs/StairsUp" index="0"]
 position = Vector2(0, -7)
 
 [node name="CollisionShape2D" parent="Rooms/Downstairs/StairsUp/InteractableArea" index="1"]
-position = Vector2(0, -22)
+position = Vector2(0, -17)
 shape = SubResource("RectangleShape2D_hgquy")
 
 [node name="Upstair" type="CollisionShape2D" parent="Rooms" index="1"]
@@ -521,14 +534,13 @@ shape = SubResource("RectangleShape2D_luly4")
 script = ExtResource("4_pqqrp")
 
 [node name="StairsDown" parent="Rooms/Upstair" index="0" node_paths=PackedStringArray("destination_door") instance=ExtResource("5_c27is")]
-position = Vector2(21, 25)
+position = Vector2(21, 19)
 destination_door = NodePath("../../Downstairs/StairsUp")
 
 [node name="InteractableArea" parent="Rooms/Upstair/StairsDown" index="0"]
 position = Vector2(0, -3)
 
 [node name="CollisionShape2D" parent="Rooms/Upstair/StairsDown/InteractableArea" index="1"]
-position = Vector2(0, -24)
 shape = SubResource("RectangleShape2D_g1qyi")
 
 [node name="EnterMasterBedroom" parent="Rooms/Upstair" index="1" node_paths=PackedStringArray("destination_door") instance=ExtResource("8_vk5ok")]
@@ -592,22 +604,22 @@ destination_door = NodePath("../../Upstair/EnterChild2")
 [node name="CollisionShape2D" parent="Rooms/Child2Bed/ExitChild2/InteractableArea" index="1"]
 position = Vector2(0, -13)
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." index="8"]
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." index="9"]
 navigation_polygon = SubResource("NavigationPolygon_na036")
 
-[node name="NavigationRegion2D2" type="NavigationRegion2D" parent="." index="9"]
+[node name="NavigationRegion2D2" type="NavigationRegion2D" parent="." index="10"]
 position = Vector2(0, -80)
 navigation_polygon = SubResource("NavigationPolygon_e3kq1")
 
-[node name="NavigationRegion2D3" type="NavigationRegion2D" parent="." index="10"]
+[node name="NavigationRegion2D3" type="NavigationRegion2D" parent="." index="11"]
 position = Vector2(-312, -312)
 navigation_polygon = SubResource("NavigationPolygon_es3em")
 
-[node name="NavigationRegion2D4" type="NavigationRegion2D" parent="." index="11"]
+[node name="NavigationRegion2D4" type="NavigationRegion2D" parent="." index="12"]
 position = Vector2(-8, -312)
 navigation_polygon = SubResource("NavigationPolygon_kbqsl")
 
-[node name="NavigationRegion2D5" type="NavigationRegion2D" parent="." index="12"]
+[node name="NavigationRegion2D5" type="NavigationRegion2D" parent="." index="13"]
 position = Vector2(256, -312)
 navigation_polygon = SubResource("NavigationPolygon_kbqsl")
 

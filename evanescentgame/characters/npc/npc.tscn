@@ -146,6 +146,7 @@ position = Vector2(0, -16)
 texture = ExtResource("2_58pc0")
 hframes = 4
 vframes = 5
+frame = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -15)
@@ -185,5 +186,6 @@ libraries = {
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_siovh")
+volume_db = 18.0
 max_distance = 160.0
 bus = &"SFX"

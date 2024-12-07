@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://rviju0lx5pre"]
+[gd_scene load_steps=24 format=3 uid="uid://rviju0lx5pre"]
 
 [ext_resource type="PackedScene" uid="uid://blp4jjwokkgxj" path="res://scenes/overworld/locations/location.tscn" id="1_tf2o3"]
 [ext_resource type="Texture2D" uid="uid://bk1osrbrhqlv5" path="res://scenes/overworld/locations/funeral_venue/tilesets/funeral_tileset.png" id="2_ydhux"]
@@ -8,6 +8,8 @@
 [ext_resource type="Resource" uid="uid://mquk0gnbe1j4" path="res://scenes/overworld/locations/funeral_venue/dialogue/act1/funeral_inspectables.dialogue" id="5_gx36h"]
 [ext_resource type="Script" path="res://scenes/overworld/locations/scripts/location_room.gd" id="6_dhi4h"]
 [ext_resource type="PackedScene" uid="uid://dfnksobtsogiq" path="res://ui/player_interface/inventory/test_items/apple.tscn" id="6_mvcc4"]
+[ext_resource type="PackedScene" uid="uid://hkq87e11fer7" path="res://scenes/scene_components/audio_trigger/audio_trigger.tscn" id="7_6reti"]
+[ext_resource type="AudioStream" uid="uid://c5a1bndk5gdp3" path="res://scenes/overworld/locations/funeral_venue/audio/sfx/FuneralVenue.mp3" id="8_752db"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mklsf"]
 texture = ExtResource("2_ydhux")
@@ -240,6 +242,9 @@ size = Vector2(38, 19)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3a38o"]
 size = Vector2(896, 384)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1htkm"]
+size = Vector2(898, 390)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ndk4u"]
 size = Vector2(352, 136)
 
@@ -371,7 +376,16 @@ visible = false
 position = Vector2(128, -64)
 shape = SubResource("RectangleShape2D_3a38o")
 
-[node name="Rooms" type="Node2D" parent="." index="8"]
+[node name="AudioTrigger" parent="." index="8" instance=ExtResource("7_6reti")]
+visible = false
+position = Vector2(128, -64)
+audio = ExtResource("8_752db")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AudioTrigger" index="0"]
+position = Vector2(1, 2)
+shape = SubResource("RectangleShape2D_1htkm")
+
+[node name="Rooms" type="Node2D" parent="." index="9"]
 
 [node name="Room1" type="CollisionShape2D" parent="Rooms" index="0"]
 position = Vector2(0, -36)
@@ -399,10 +413,10 @@ destination_door = NodePath("../../Room1/BackgroundDoor")
 position = Vector2(0, -11)
 shape = SubResource("RectangleShape2D_qcdqt")
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." index="9"]
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." index="10"]
 navigation_polygon = SubResource("NavigationPolygon_i76jj")
 
-[node name="NavigationRegion2D2" type="NavigationRegion2D" parent="." index="10"]
+[node name="NavigationRegion2D2" type="NavigationRegion2D" parent="." index="11"]
 navigation_polygon = SubResource("NavigationPolygon_2yiyi")
 
 [editable path="Inspectables/Obituary"]

@@ -7,6 +7,8 @@ var has_talked := false
 @onready var starting_y := position.y
 
 func _ready():
+	sprite_2d.material = null
+	
 	inventory.visible = false
 	
 	if (!interactable_area.player_interacted.is_connected(on_player_interacted)): 

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://hkq87e11fer7"]
+
+[ext_resource type="Script" path="res://scenes/scene_components/audio_trigger/audio_trigger.gd" id="1_e7deo"]
+
+[node name="AudioTrigger" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_e7deo")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

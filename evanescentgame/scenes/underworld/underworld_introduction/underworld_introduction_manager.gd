@@ -29,10 +29,7 @@ func _process(_delta: float) -> void:
 	if end_intro:
 		end_underworld_intro()
 
-func start_underworld_initial_intro() -> void:
-	AmbientAudioManager.call_deferred("play_track", "res://scenes/underworld/audio/sfx/underground_creek.mp3") # Ideally we don't hard code this: set an export variable?
-	AmbientAudioManager.call_deferred("set_pitch", 0.6)
-	AmbientAudioManager.call_deferred("set_volume", 5)
+func start_underworld_initial_intro() -> void: 
 	
 	OverlayPanelManager.set_opacity(1.0) # Show panels
 	%VignettePanel.show()
@@ -55,7 +52,7 @@ func start_underworld_initial_intro() -> void:
 	
 	await get_tree().create_timer(0.5).timeout # Wait a little...
 	
-	MusicManager.play_track("res://scenes/underworld/audio/music/3-Chimes_loop.mp3") # Ideally we don't hard code this: set an export variable?
+	#MusicManager.play_track("res://scenes/underworld/audio/music/3-Chimes_loop.mp3") # Ideally we don't hard code this: set an export variable?
 	
 	while not rise:
 		await get_tree().process_frame

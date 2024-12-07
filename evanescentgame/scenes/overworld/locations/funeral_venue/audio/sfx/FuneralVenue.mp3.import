@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/FuneralVenue.mp3-8743f0f75b4a205fc06a0b64cfa2
 
 [params]
 
-loop=false
-loop_offset=0
-bpm=0
+loop=true
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

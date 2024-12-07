@@ -67,9 +67,13 @@ current_dialogue_title = "dawn_and_kids_mingling"
 
 [node name="Sprite2D" parent="World/NPCs/Dawn" index="0"]
 texture = ExtResource("11_a5jny")
+frame = 0
 
 [node name="Inventory" parent="World/NPCs/Dawn/CanvasLayer" index="0"]
 metadata/_edit_use_anchors_ = true
+
+[node name="AudioStreamPlayer2D" parent="World/NPCs/Dawn" index="9"]
+volume_db = 0.0
 
 [node name="Kai" parent="World/NPCs" instance=ExtResource("8_bfd80")]
 position = Vector2(320, 18)
@@ -80,6 +84,10 @@ current_dialogue_title = "colleague_and_cousin_mingling"
 
 [node name="Sprite2D" parent="World/NPCs/Kai" index="0"]
 texture = ExtResource("12_hu1qa")
+frame = 0
+
+[node name="AudioStreamPlayer2D" parent="World/NPCs/Kai" index="9"]
+volume_db = 0.0
 
 [node name="Carlos" parent="World/NPCs" instance=ExtResource("8_bfd80")]
 position = Vector2(347, 17)
@@ -90,6 +98,10 @@ current_dialogue_title = "colleague_and_cousin_mingling"
 
 [node name="Sprite2D" parent="World/NPCs/Carlos" index="0"]
 texture = ExtResource("13_gasgw")
+frame = 0
+
+[node name="AudioStreamPlayer2D" parent="World/NPCs/Carlos" index="9"]
+volume_db = 0.0
 
 [node name="Police1" parent="World/NPCs" instance=ExtResource("7_ow5sy")]
 position = Vector2(-44, 18)
@@ -200,6 +212,10 @@ position = Vector2(216, 2062)
 
 [node name="Sprite2D" parent="World/NPCs/Organization/SecurityGuard" index="0"]
 material = null
+frame = 0
+
+[node name="AudioStreamPlayer2D" parent="World/NPCs/Organization/SecurityGuard" index="9"]
+volume_db = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/NPCs/Organization/SecurityGuard/SecurityGuardDialogueTrigger" index="1"]
 position = Vector2(-19, -39.5)
