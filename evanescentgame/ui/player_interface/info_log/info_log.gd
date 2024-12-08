@@ -27,6 +27,7 @@ func _ready() -> void:
 	load_all_json_entries_from_dir()
 	$Entries.hide()
 	clear_entry_view()
+	hide()
 
 func _process(delta: float) -> void:
 	_process_animation()

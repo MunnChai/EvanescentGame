@@ -253,6 +253,10 @@ colleague = NodePath("../../World/NPCs/Kai")
 [node name="OverworldPause" parent="UI" instance=ExtResource("12_fi7rw")]
 mouse_filter = 1
 
+[connection signal="location_updated" from="World/NPCs/Dawn" to="UI/NavigationPanel" method="_on_dawn_location_updated"]
+[connection signal="location_updated" from="World/NPCs/Kai" to="UI/NavigationPanel" method="_on_colleague_location_updated"]
+[connection signal="location_updated" from="World/NPCs/Carlos" to="UI/NavigationPanel" method="_on_cousin_location_updated"]
+
 [editable path="World/NPCs/Dawn"]
 [editable path="World/NPCs/Kai"]
 [editable path="World/NPCs/Carlos"]
