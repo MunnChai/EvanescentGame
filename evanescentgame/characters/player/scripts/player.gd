@@ -55,10 +55,15 @@ func _physics_process(delta: float):
 		update_closest_interactable()
 
 func handle_input(delta: float):
-	if (Input.is_action_just_pressed("exit_possessee") and is_possessing):
-		stop_possessing()
+	if (not is_input_active):
+		return
 	
-	if (Input.is_action_just_pressed("interact") and is_input_active):
+	if (Input.is_action_just_pressed("possess")):
+		if (is_possessing):
+			stop_possessing()
+		else:
+			possess_closest_possessable()
+	elif (Input.is_action_just_pressed("interact")):
 		interact_with_closest_interactable()
 
 func handle_movement(delta: float):
@@ -78,7 +83,10 @@ func handle_movement(delta: float):
 	
 	move_and_slide()
 
-func possess(npc: NPC):
+func possess(npc: PossessableNPC):
+	if (npc.already_possessed):
+		return
+	
 	in_possessing_animation = true
 	
 	const DISTANCE_THRESHOLD: float = 5
@@ -119,13 +127,18 @@ static func increment_branches():
 
 
 func update_closest_interactable():
+	if (closest_interactable):
+		closest_interactable.hide_interact_symbol()
+		
+		var interactable_parent = closest_interactable.get_parent()
+		if (interactable_parent is PossessableNPC):
+			interactable_parent.hide_possession_effect()
+	
 	if (current_interactables.size() == 0): 
 		closest_interactable = null
 		return
 	
 	var current_closest_distance: float = INF
-	if (closest_interactable):
-		closest_interactable.hide_interact_symbol()
 	
 	for interactable in current_interactables:
 		if (!closest_interactable):
@@ -138,10 +151,23 @@ func update_closest_interactable():
 				current_closest_distance = distance
 	
 	closest_interactable.show_interact_symbol()
+	
+	var interactable_parent = closest_interactable.get_parent()
+	if (interactable_parent is PossessableNPC):
+		interactable_parent.show_possession_effect()
 
 func interact_with_closest_interactable():
 	if (closest_interactable):
 		closest_interactable.interact()
+
+func possess_closest_possessable():
+	if (not closest_interactable):
+		return
+	
+	var npc = closest_interactable.get_parent()
+	
+	if (npc is PossessableNPC):
+		possess(npc)
 
 func add_interactable(interactable: InteractableArea):
 	current_interactables.append(interactable)

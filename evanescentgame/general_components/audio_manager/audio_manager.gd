@@ -5,6 +5,9 @@ extends Node
 func play_sfx(sfx_name: String, is_randomize_volume: bool = false, is_randomize_pitch: bool = false, volume_min: float = 0, volume_max: float = 0, pitch_min: float = 0, pitch_max: float = 0):
 	var sfx = get_node(sfx_name) as AudioStreamPlayer
 	
+	if (not sfx):
+		return
+	
 	if is_randomize_volume:
 		randomize_volume(sfx, volume_min, volume_max)
 	if is_randomize_pitch:

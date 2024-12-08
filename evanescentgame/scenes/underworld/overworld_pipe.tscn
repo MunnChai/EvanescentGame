@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://dy16sc7tslnpc"]
+
+[ext_resource type="PackedScene" uid="uid://cfx3wanmlsj0" path="res://general_components/interactable_area/interactable_area.tscn" id="1_npdy8"]
+[ext_resource type="Script" path="res://scenes/underworld/overworld_teleport.gd" id="1_xbjlu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hlyqd"]
+
+[node name="OverworldPipe" type="Node2D"]
+script = ExtResource("1_xbjlu")
+
+[node name="InteractableArea" parent="." instance=ExtResource("1_npdy8")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableArea"]
+shape = SubResource("RectangleShape2D_hlyqd")

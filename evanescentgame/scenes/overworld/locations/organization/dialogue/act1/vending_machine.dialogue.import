@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://cuk7sqbgiheqo"
+path="res://.godot/imported/vending_machine.dialogue-4063598b87c7165af2c72679ae43e1ec.tres"
+
+[deps]
+
+source_file="res://scenes/overworld/locations/organization/dialogue/act1/vending_machine.dialogue"
+dest_files=["res://.godot/imported/vending_machine.dialogue-4063598b87c7165af2c72679ae43e1ec.tres"]
+
+[params]
+
+defaults=true

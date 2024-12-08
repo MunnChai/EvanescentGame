@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://h5oxlt67k8c7"]
+[gd_scene load_steps=10 format=3 uid="uid://h5oxlt67k8c7"]
 
 [ext_resource type="Script" path="res://ui/in_game_menus/pause_menu/pause_menu.gd" id="1_xw5h1"]
 [ext_resource type="Shader" path="res://ui/in_game_menus/pause_menu/pause_menu.gdshader" id="2_xcgu1"]
+[ext_resource type="Theme" uid="uid://jd7ot0ssesa0" path="res://ui/themes/general_theme.tres" id="3_pit4n"]
 [ext_resource type="PackedScene" uid="uid://bgdbiubpob2jv" path="res://ui/in_game_menus/pause_menu/options_menu/options_menu.tscn" id="3_u0vgy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k7iej"]
@@ -50,6 +51,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id="Animation_7gqkh"]
 resource_name = "blur"
 length = 0.1
+step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -73,6 +75,23 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.01),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"hide"
+}, {
+"args": [],
+"method": &"show"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_kk42v"]
@@ -153,6 +172,7 @@ size_flags_vertical = 4
 [node name="Resume" type="Button" parent="PanelContainer/VBoxContainer"]
 process_mode = 2
 layout_mode = 2
+theme = ExtResource("3_pit4n")
 theme_override_font_sizes/font_size = 5
 text = "Resume"
 icon_alignment = 1
@@ -160,12 +180,14 @@ icon_alignment = 1
 [node name="Options" type="Button" parent="PanelContainer/VBoxContainer"]
 process_mode = 2
 layout_mode = 2
+theme = ExtResource("3_pit4n")
 theme_override_font_sizes/font_size = 5
 text = "Options"
 
 [node name="Quit" type="Button" parent="PanelContainer/VBoxContainer"]
 process_mode = 2
 layout_mode = 2
+theme = ExtResource("3_pit4n")
 theme_override_font_sizes/font_size = 5
 text = "Quit"
 

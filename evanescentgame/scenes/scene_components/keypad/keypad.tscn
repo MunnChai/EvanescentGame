@@ -1,0 +1,126 @@
+[gd_scene load_steps=6 format=3 uid="uid://b4s5cc2v2c64b"]
+
+[ext_resource type="Script" path="res://scenes/scene_components/keypad/keypad.gd" id="1_84g87"]
+[ext_resource type="FontFile" uid="uid://cwi0n3kesweuw" path="res://ui/fonts/EBGaramond-Bold.ttf" id="2_12fx8"]
+
+[sub_resource type="Gradient" id="Gradient_wyap3"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_sy3qp"]
+gradient = SubResource("Gradient_wyap3")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hcoji"]
+texture = SubResource("GradientTexture1D_sy3qp")
+
+[node name="Keypad" type="CanvasLayer"]
+script = ExtResource("1_84g87")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -80.0
+offset_right = 60.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_hcoji")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="PanelMargin" type="MarginContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer/PanelMargin"]
+layout_mode = 2
+
+[node name="KeypadText" type="Label" parent="PanelContainer/VBoxContainer/PanelMargin/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_12fx8")
+horizontal_alignment = 1
+
+[node name="GridMargin" type="MarginContainer" parent="PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="KeypadGrid" type="GridContainer" parent="PanelContainer/VBoxContainer/GridMargin"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+columns = 3
+
+[node name="Button1" type="Button" parent="PanelContainer/VBoxContainer/GridMargin/KeypadGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_12fx8")
+text = "1"
+
+[node name="Button2" type="Button" parent="PanelContainer/VBoxContainer/GridMargin/KeypadGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_12fx8")
+text = "2"
+
+[node name="Button3" type="Button" parent="PanelContainer/VBoxContainer/GridMargin/KeypadGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_12fx8")
+text = "3"
+
+[node name="Button4" type="Button" parent="PanelContainer/VBoxContainer/GridMargin/KeypadGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_12fx8")
+text = "4"
+
+[node name="Button5" type="Button" parent="PanelContainer/VBoxContainer/GridMargin/KeypadGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_12fx8")
+text = "5"
+
+[node name="Button6" type="Button" parent="PanelContainer/VBoxContainer/GridMargin/KeypadGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_12fx8")
+text = "6"
+
+[node name="Button7" type="Button" parent="PanelContainer/VBoxContainer/GridMargin/KeypadGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_12fx8")
+text = "7"
+
+[node name="Button8" type="Button" parent="PanelContainer/VBoxContainer/GridMargin/KeypadGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_12fx8")
+text = "8"
+
+[node name="Button9" type="Button" parent="PanelContainer/VBoxContainer/GridMargin/KeypadGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_12fx8")
+text = "9"

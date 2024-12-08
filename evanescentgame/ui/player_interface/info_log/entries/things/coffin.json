@@ -1,0 +1,14 @@
+{
+  "id": "coffin",
+  "title": "Coffin",
+  "sidebar_title": "Coffin",
+  "category": "things",
+  "description": "Ship across a dark sea.",
+  "unlock_flags": ["checked_coffin"],
+  "jot_notes": [
+	{
+	  "content": "Is wooden.",
+	  "unlock_flags": []
+	}
+  ]
+}

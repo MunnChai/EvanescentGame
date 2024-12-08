@@ -1,0 +1,7 @@
+~ normal_player_entered
+Security Guard: Scram, bucko.
+=> END
+
+~ colleague_entered
+Security Guard: You got the goods?
+=> END

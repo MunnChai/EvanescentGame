@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://cbsf76lvkftl3"
+path="res://.godot/imported/elevator_to_organization.dialogue-0174004a39396f34888f5d5d1e29a1e6.tres"
+
+[deps]
+
+source_file="res://scenes/overworld/locations/organization/dialogue/act1/elevator_to_organization.dialogue"
+dest_files=["res://.godot/imported/elevator_to_organization.dialogue-0174004a39396f34888f5d5d1e29a1e6.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpcq8sylmmit3"]
+
+[ext_resource type="PackedScene" uid="uid://ccwc4s7e5nmbf" path="res://characters/npc/npc.tscn" id="1_uq0sb"]
+[ext_resource type="Script" path="res://characters/npc/scripts/possessable_npc.gd" id="2_33q74"]
+[ext_resource type="Shader" path="res://characters/npc/main_characters/shaders/outline_shader.gdshader" id="3_4xg7h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bqmm7"]
+shader = ExtResource("3_4xg7h")
+shader_parameter/color = Color(0, 0.788235, 1, 1)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+shader_parameter/alpha = 1.0
+
+[node name="NPC" instance=ExtResource("1_uq0sb")]
+script = ExtResource("2_33q74")
+possessable_outline_color = Color(0, 200, 255, 1)
+
+[node name="Sprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_bqmm7")

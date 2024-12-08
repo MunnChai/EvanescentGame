@@ -1,0 +1,14 @@
+{
+  "id": "wife",
+  "title": "Wife",
+  "sidebar_title": "Wife",
+  "category": "people",
+  "description": "Your wife.",
+  "unlock_flags": ["met_wife"],
+  "jot_notes": [
+	{
+	  "content": "Wife.",
+	  "unlock_flags": []
+	}
+  ]
+}

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cpiebxlknogvc"]
+[gd_scene load_steps=31 format=3 uid="uid://cpiebxlknogvc"]
 
 [ext_resource type="Script" path="res://scenes/overworld/overworld_manager.gd" id="1_5y34q"]
 [ext_resource type="PackedScene" uid="uid://brm7k4yr1lcxw" path="res://characters/player/player.tscn" id="1_juc8k"]
@@ -7,10 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://dnwaf4gu81ddo" path="res://scenes/overworld/locations/cousin_house/location_cousin_house.tscn" id="5_daq0y"]
 [ext_resource type="PackedScene" uid="uid://4r3quu36axff" path="res://scenes/overworld/locations/organization/location_organization.tscn" id="6_ctbqy"]
 [ext_resource type="PackedScene" uid="uid://iecgb5paqxrh" path="res://scenes/overworld/locations/police_station/location_police_station.tscn" id="6_speeq"]
-[ext_resource type="PackedScene" path="res://scenes/overworld/locations/location_unreachable.tscn" id="7_giuv0"]
+[ext_resource type="PackedScene" uid="uid://bxbmxcih206f7" path="res://scenes/overworld/locations/location_unreachable.tscn" id="7_giuv0"]
 [ext_resource type="Resource" uid="uid://dxdju7sarntae" path="res://scenes/overworld/locations/funeral_venue/dialogue/act1/mingling.dialogue" id="7_hwc6d"]
 [ext_resource type="PackedScene" uid="uid://ccwc4s7e5nmbf" path="res://characters/npc/npc.tscn" id="7_ow5sy"]
 [ext_resource type="Resource" uid="uid://ew26bouaxm54" path="res://decision_tree_logic/save_data/act1/main_characters/act1_wife.tres" id="8_0wrch"]
+[ext_resource type="PackedScene" path="res://characters/npc/main_characters/possessable_npc.tscn" id="8_bfd80"]
 [ext_resource type="PackedScene" uid="uid://bpqo103lmn4jo" path="res://scenes/scene_components/item/item.tscn" id="9_5budk"]
 [ext_resource type="PackedScene" uid="uid://cg1rc471stkkl" path="res://ui/in_game_menus/navigation_panel/navigation_panel.tscn" id="9_e1fk3"]
 [ext_resource type="Texture2D" uid="uid://exgq5mtiik4j" path="res://ui/player_interface/inventory/test_items/apple-icon.png" id="10_ckte3"]
@@ -25,6 +26,12 @@
 [ext_resource type="Resource" uid="uid://bxf53hnns3p22" path="res://decision_tree_logic/save_data/act1/side_characters/act1_hana.tres" id="16_tnkbj"]
 [ext_resource type="Resource" uid="uid://dnmsqtmoal0j4" path="res://decision_tree_logic/save_data/act1/side_characters/act1_samuel.tres" id="17_j7ao7"]
 [ext_resource type="Texture2D" uid="uid://coo8346yigqbu" path="res://characters/npc/side_characters/police_officer_2/sprites/police_officer_2-Sheet.png" id="17_p2rkf"]
+[ext_resource type="PackedScene" path="res://characters/npc/side_characters/security_guard/security_guard.tscn" id="20_80hk3"]
+[ext_resource type="Texture2D" uid="uid://038gtuwjy82v" path="res://characters/npc/side_characters/office_worker_1/sprites/office_worker_1-Sheet.png" id="20_tyuru"]
+[ext_resource type="PackedScene" uid="uid://bwsvbhi5lv3pd" path="res://ui/player_interface/info_log/info_log.tscn" id="29_m3j4v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7oad"]
+size = Vector2(54, 77)
 
 [node name="Overworld" type="Node"]
 script = ExtResource("1_5y34q")
@@ -52,41 +59,50 @@ position = Vector2(2000, 2000)
 
 [node name="NPCs" type="Node2D" parent="World"]
 
-[node name="Dawn" parent="World/NPCs" instance=ExtResource("7_ow5sy")]
-position = Vector2(57, 19)
+[node name="Dawn" parent="World/NPCs" instance=ExtResource("8_bfd80")]
+position = Vector2(61, 18)
+possessable_outline_color = null
 graph_data = ExtResource("8_0wrch")
 starting_dialogue_resource = ExtResource("7_hwc6d")
 current_dialogue_title = "dawn_and_kids_mingling"
 
 [node name="Sprite2D" parent="World/NPCs/Dawn" index="0"]
 texture = ExtResource("11_a5jny")
+frame = 0
 
 [node name="Inventory" parent="World/NPCs/Dawn/CanvasLayer" index="0"]
 metadata/_edit_use_anchors_ = true
 
-[node name="Colleague" parent="World/NPCs" instance=ExtResource("7_ow5sy")]
-position = Vector2(372, 18)
+[node name="AudioStreamPlayer2D" parent="World/NPCs/Dawn" index="9"]
+volume_db = 0.0
+
+[node name="Kai" parent="World/NPCs" instance=ExtResource("8_bfd80")]
+position = Vector2(320, 18)
+possessable_outline_color = null
 graph_data = ExtResource("12_y8m01")
 starting_dialogue_resource = ExtResource("7_hwc6d")
 current_dialogue_title = "colleague_and_cousin_mingling"
 
-[node name="Sprite2D" parent="World/NPCs/Colleague" index="0"]
+[node name="Sprite2D" parent="World/NPCs/Kai" index="0"]
 texture = ExtResource("12_hu1qa")
+frame = 0
 
-[node name="Inventory" parent="World/NPCs/Colleague/CanvasLayer" index="0"]
-metadata/_edit_use_anchors_ = true
+[node name="AudioStreamPlayer2D" parent="World/NPCs/Kai" index="9"]
+volume_db = 0.0
 
-[node name="Cousin" parent="World/NPCs" instance=ExtResource("7_ow5sy")]
-position = Vector2(356, 18)
+[node name="Carlos" parent="World/NPCs" instance=ExtResource("8_bfd80")]
+position = Vector2(347, 17)
+possessable_outline_color = null
 graph_data = ExtResource("13_lqkwk")
 starting_dialogue_resource = ExtResource("7_hwc6d")
 current_dialogue_title = "colleague_and_cousin_mingling"
 
-[node name="Sprite2D" parent="World/NPCs/Cousin" index="0"]
+[node name="Sprite2D" parent="World/NPCs/Carlos" index="0"]
 texture = ExtResource("13_gasgw")
+frame = 0
 
-[node name="Inventory" parent="World/NPCs/Cousin/CanvasLayer" index="0"]
-metadata/_edit_use_anchors_ = true
+[node name="AudioStreamPlayer2D" parent="World/NPCs/Carlos" index="9"]
+volume_db = 0.0
 
 [node name="Police1" parent="World/NPCs" instance=ExtResource("7_ow5sy")]
 position = Vector2(-44, 18)
@@ -147,26 +163,64 @@ texture = ExtResource("16_kby61")
 [node name="FrontDeskWorker" parent="World/NPCs/Organization" instance=ExtResource("7_ow5sy")]
 position = Vector2(57, 2055)
 
+[node name="Sprite2D" parent="World/NPCs/Organization/FrontDeskWorker" index="0"]
+texture = ExtResource("20_tyuru")
+
 [node name="Floor2Worker1" parent="World/NPCs/Organization" instance=ExtResource("7_ow5sy")]
 position = Vector2(-46, 1736)
+
+[node name="Sprite2D" parent="World/NPCs/Organization/Floor2Worker1" index="0"]
+texture = ExtResource("20_tyuru")
 
 [node name="Floor2Worker2" parent="World/NPCs/Organization" instance=ExtResource("7_ow5sy")]
 position = Vector2(574, 1735)
 
+[node name="Sprite2D" parent="World/NPCs/Organization/Floor2Worker2" index="0"]
+texture = ExtResource("20_tyuru")
+
 [node name="Floor2Worker3" parent="World/NPCs/Organization" instance=ExtResource("7_ow5sy")]
 position = Vector2(16, 1736)
+
+[node name="Sprite2D" parent="World/NPCs/Organization/Floor2Worker3" index="0"]
+texture = ExtResource("20_tyuru")
 
 [node name="Floor2Worker4" parent="World/NPCs/Organization" instance=ExtResource("7_ow5sy")]
 position = Vector2(83, 1735)
 
+[node name="Sprite2D" parent="World/NPCs/Organization/Floor2Worker4" index="0"]
+texture = ExtResource("20_tyuru")
+
 [node name="Floor11Worker1" parent="World/NPCs/Organization" instance=ExtResource("7_ow5sy")]
 position = Vector2(-45, 1417)
+
+[node name="Sprite2D" parent="World/NPCs/Organization/Floor11Worker1" index="0"]
+texture = ExtResource("20_tyuru")
 
 [node name="Floor11Worker2" parent="World/NPCs/Organization" instance=ExtResource("7_ow5sy")]
 position = Vector2(544, 1413)
 
+[node name="Sprite2D" parent="World/NPCs/Organization/Floor11Worker2" index="0"]
+texture = ExtResource("20_tyuru")
+
 [node name="Floor11Worker3" parent="World/NPCs/Organization" instance=ExtResource("7_ow5sy")]
 position = Vector2(514, 1414)
+
+[node name="Sprite2D" parent="World/NPCs/Organization/Floor11Worker3" index="0"]
+texture = ExtResource("20_tyuru")
+
+[node name="SecurityGuard" parent="World/NPCs/Organization" instance=ExtResource("20_80hk3")]
+position = Vector2(216, 2062)
+
+[node name="Sprite2D" parent="World/NPCs/Organization/SecurityGuard" index="0"]
+material = null
+frame = 0
+
+[node name="AudioStreamPlayer2D" parent="World/NPCs/Organization/SecurityGuard" index="9"]
+volume_db = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/NPCs/Organization/SecurityGuard/SecurityGuardDialogueTrigger" index="1"]
+position = Vector2(-19, -39.5)
+shape = SubResource("RectangleShape2D_g7oad")
 
 [node name="Items" type="Node2D" parent="World"]
 
@@ -186,19 +240,39 @@ position = Vector2(795, -53)
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Ingame" parent="UI" instance=ExtResource("11_coct2")]
+mouse_filter = 1
+
+[node name="NavigationPanel" parent="UI" node_paths=PackedStringArray("location_manager", "dawn", "cousin", "colleague") instance=ExtResource("9_e1fk3")]
+location_manager = NodePath("../../World/LocationManager")
+dawn = NodePath("../../World/NPCs/Dawn")
+cousin = NodePath("../../World/NPCs/Carlos")
+colleague = NodePath("../../World/NPCs/Kai")
+
+[node name="InfoLog" parent="UI" instance=ExtResource("29_m3j4v")]
 
 [node name="OverworldPause" parent="UI" instance=ExtResource("12_fi7rw")]
+mouse_filter = 1
 
-[node name="NavigationPanel" parent="UI" node_paths=PackedStringArray("location_manager") instance=ExtResource("9_e1fk3")]
-location_manager = NodePath("../../World/LocationManager")
+[connection signal="location_updated" from="World/NPCs/Dawn" to="UI/NavigationPanel" method="_on_dawn_location_updated"]
+[connection signal="location_updated" from="World/NPCs/Kai" to="UI/NavigationPanel" method="_on_colleague_location_updated"]
+[connection signal="location_updated" from="World/NPCs/Carlos" to="UI/NavigationPanel" method="_on_cousin_location_updated"]
 
 [editable path="World/NPCs/Dawn"]
-[editable path="World/NPCs/Colleague"]
-[editable path="World/NPCs/Cousin"]
+[editable path="World/NPCs/Kai"]
+[editable path="World/NPCs/Carlos"]
 [editable path="World/NPCs/Police1"]
 [editable path="World/NPCs/Police2"]
 [editable path="World/NPCs/PoliceStation/FrontDeskWorker"]
 [editable path="World/NPCs/PoliceStation/PoliceOfficer1"]
 [editable path="World/NPCs/PoliceStation/PoliceOfficer2"]
 [editable path="World/NPCs/PoliceStation/PoliceOfficer3"]
+[editable path="World/NPCs/Organization/FrontDeskWorker"]
+[editable path="World/NPCs/Organization/Floor2Worker1"]
+[editable path="World/NPCs/Organization/Floor2Worker2"]
+[editable path="World/NPCs/Organization/Floor2Worker3"]
+[editable path="World/NPCs/Organization/Floor2Worker4"]
+[editable path="World/NPCs/Organization/Floor11Worker1"]
+[editable path="World/NPCs/Organization/Floor11Worker2"]
+[editable path="World/NPCs/Organization/Floor11Worker3"]
+[editable path="World/NPCs/Organization/SecurityGuard"]
 [editable path="World/Items/Item"]

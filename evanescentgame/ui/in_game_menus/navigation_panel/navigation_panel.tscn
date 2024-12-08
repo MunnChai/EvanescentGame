@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cg1rc471stkkl"]
+[gd_scene load_steps=3 format=3 uid="uid://cg1rc471stkkl"]
 
 [ext_resource type="Script" path="res://ui/in_game_menus/navigation_panel/navigation_panel.gd" id="1_tyrlj"]
+[ext_resource type="Theme" uid="uid://jd7ot0ssesa0" path="res://ui/themes/general_theme.tres" id="2_jv8x4"]
 
 [node name="NavigationPanel" type="Control"]
 process_mode = 3
@@ -25,11 +26,7 @@ offset_right = 91.0
 offset_bottom = 55.5
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="ButtonContainer" type="VBoxContainer" parent="Panel"]
-layout_mode = 0
-offset_right = 182.0
-offset_bottom = 111.0
+color = Color(0.611765, 0.611765, 0.611765, 1)
 
 [node name="Exit" type="Button" parent="Panel"]
 layout_mode = 0
@@ -37,6 +34,64 @@ offset_left = 138.0
 offset_top = 80.5
 offset_right = 182.0
 offset_bottom = 111.5
+theme = ExtResource("2_jv8x4")
 text = "Exit"
 
+[node name="GridContainer" type="GridContainer" parent="Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.5, 0.5)
+columns = 2
+
+[node name="FuneralButton" type="Button" parent="Panel/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_jv8x4")
+text = "Funeral Parlor"
+
+[node name="FuneralLabel" type="Label" parent="Panel/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_jv8x4")
+
+[node name="HouseButton" type="Button" parent="Panel/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_jv8x4")
+text = "Evan's House"
+
+[node name="HouseLabel" type="Label" parent="Panel/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_jv8x4")
+
+[node name="CHouseButton" type="Button" parent="Panel/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_jv8x4")
+text = "Cousin's House"
+
+[node name="CHouseLabel" type="Label" parent="Panel/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_jv8x4")
+
+[node name="StationButton" type="Button" parent="Panel/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_jv8x4")
+text = "Police Station"
+
+[node name="StationLabel" type="Label" parent="Panel/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_jv8x4")
+
+[node name="OrgButton" type="Button" parent="Panel/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_jv8x4")
+text = "The Organization"
+
+[node name="OrgLabel" type="Label" parent="Panel/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_jv8x4")
+
 [connection signal="pressed" from="Panel/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Panel/GridContainer/FuneralButton" to="." method="_on_funeral_button_pressed"]
+[connection signal="pressed" from="Panel/GridContainer/HouseButton" to="." method="_on_house_button_pressed"]
+[connection signal="pressed" from="Panel/GridContainer/CHouseButton" to="." method="_on_c_house_button_pressed"]
+[connection signal="pressed" from="Panel/GridContainer/StationButton" to="." method="_on_station_button_pressed"]
+[connection signal="pressed" from="Panel/GridContainer/OrgButton" to="." method="_on_org_button_pressed"]

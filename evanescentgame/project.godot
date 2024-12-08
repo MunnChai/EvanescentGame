@@ -28,6 +28,9 @@ AmbientAudioManager="*res://singletons/ambient_audio_manager.gd"
 DTConditionManager="*res://singletons/DT_condition_manager.gd"
 OverlayPanelManager="*res://singletons/overlay_panel/overlay_panel_manager.gd"
 EvanMemory="*res://singletons/evan_memory.gd"
+EventHandler="*res://singletons/event_handler.gd"
+GameClock="*res://singletons/game_clock.gd"
+SaveManager="*res://singletons/save_manager.gd"
 
 [dialogue_manager]
 
@@ -83,7 +86,7 @@ move_down={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"key_label":0,"unicode":115,"echo":false,"script":null)
 ]
 }
-exit_possessee={
+possess={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":81,"key_label":0,"unicode":113,"echo":false,"script":null)
 ]
@@ -93,10 +96,15 @@ esc={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
+toggle_log={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194306,"key_label":0,"unicode":0,"echo":false,"script":null)
+]
+}
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://scenes/underworld/underworld_introduction/dialogue/cutscenes/evan_underworld_badfeeling.dialogue", "res://scenes/underworld/underworld_introduction/dialogue/cutscenes/evan_underworld_beenhere.dialogue", "res://scenes/underworld/underworld_introduction/dialogue/cutscenes/evan_underworld_door.dialogue", "res://scenes/underworld/underworld_introduction/dialogue/cutscenes/evan_underworld_intro.dialogue", "res://scenes/test/initial_gameplay_demo/test_dialogue.dialogue", "res://characters/npc/main_characters/lady_devil/dialogue/devil_first_encounter.dialogue", "res://characters/npc/side_characters/ghost/dialogue/ghost.dialogue", "res://scenes/overworld/locations/funeral_venue/dialogue/act1/funeral_inspectables.dialogue", "res://scenes/overworld/locations/funeral_venue/dialogue/act1/mingling.dialogue", "res://scenes/overworld/locations/evan_house/dialogue/act1/evan_house_inspectables.dialogue", "res://characters/npc/main_characters/wife/dialogue/act1/wife_during_moving.dialogue", "res://scenes/overworld/locations/evan_house/dialogue/act1/evan_house_locked_doors.dialogue")
+locale/translations_pot_files=PackedStringArray("res://scenes/underworld/underworld_introduction/dialogue/cutscenes/evan_underworld_badfeeling.dialogue", "res://scenes/underworld/underworld_introduction/dialogue/cutscenes/evan_underworld_beenhere.dialogue", "res://scenes/underworld/underworld_introduction/dialogue/cutscenes/evan_underworld_door.dialogue", "res://scenes/underworld/underworld_introduction/dialogue/cutscenes/evan_underworld_intro.dialogue", "res://scenes/test/initial_gameplay_demo/test_dialogue.dialogue", "res://characters/npc/main_characters/lady_devil/dialogue/devil_first_encounter.dialogue", "res://characters/npc/side_characters/ghost/dialogue/ghost.dialogue", "res://scenes/overworld/locations/funeral_venue/dialogue/act1/funeral_inspectables.dialogue", "res://scenes/overworld/locations/funeral_venue/dialogue/act1/mingling.dialogue", "res://scenes/overworld/locations/evan_house/dialogue/act1/evan_house_inspectables.dialogue", "res://characters/npc/main_characters/wife/dialogue/act1/wife_during_moving.dialogue", "res://scenes/overworld/locations/evan_house/dialogue/act1/evan_house_locked_doors.dialogue", "res://characters/npc/side_characters/security_guard/dialogue/player_entered_trigger.dialogue", "res://scenes/overworld/locations/organization/dialogue/act1/elevator_to_organization.dialogue", "res://scenes/overworld/locations/organization/dialogue/act1/vending_machine.dialogue", "res://scenes/overworld/locations/police_station/dialogue/act1/kai_computer.dialogue")
 
 [layer_names]
 

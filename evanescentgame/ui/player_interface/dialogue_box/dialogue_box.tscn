@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://13s5spsk34qu"]
+[gd_scene load_steps=29 format=3 uid="uid://13s5spsk34qu"]
 
 [ext_resource type="Script" path="res://ui/player_interface/dialogue_box/dialogue_box.gd" id="1_dwrcf"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_q7lnr"]
@@ -10,6 +10,15 @@
 [ext_resource type="AudioStream" uid="uid://g8ruygt22ap5" path="res://characters/player/audio/sfx/voice/default_voice.mp3" id="7_a8rdg"]
 [ext_resource type="AudioStream" uid="uid://ba0pe5y28bfcg" path="res://characters/npc/side_characters/ghost/audio/sfx/voice/chief_bear.mp3" id="8_dyulh"]
 [ext_resource type="AudioStream" uid="uid://m17ykdnq1anq" path="res://characters/npc/main_characters/lady_devil/audio/sfx/voice/lady_devil.wav" id="8_s2fds"]
+[ext_resource type="AudioStream" uid="uid://16emotp5rt88" path="res://characters/npc/main_characters/colleague/audio/sfx/colleague.mp3" id="10_073x7"]
+[ext_resource type="AudioStream" uid="uid://bnjq1rihqig31" path="res://characters/npc/main_characters/cousin/audio/sfx/cousin.mp3" id="11_swwa2"]
+[ext_resource type="AudioStream" uid="uid://dn1pgs30f2x1v" path="res://characters/npc/main_characters/wife/audio/sfx/wife.mp3" id="12_bbat6"]
+[ext_resource type="AudioStream" uid="uid://w3rlu66d5ucp" path="res://characters/npc/side_characters/hana/audio/hana.mp3" id="13_36d6p"]
+[ext_resource type="AudioStream" uid="uid://lur1axfr1lpf" path="res://characters/npc/side_characters/office_worker_1/audio/office_worker.mp3" id="14_osavi"]
+[ext_resource type="AudioStream" uid="uid://chuugdcctb2eg" path="res://characters/npc/side_characters/samuel/audio/samuel.mp3" id="14_s5vvt"]
+[ext_resource type="AudioStream" uid="uid://u7vjgy34e6qy" path="res://characters/npc/side_characters/police_officer_1/audio/police_officer_1.mp3" id="15_pc2ds"]
+[ext_resource type="AudioStream" uid="uid://bgjtu538j3l1y" path="res://characters/npc/side_characters/security_guard/audio/security_guard.mp3" id="16_2w7cl"]
+[ext_resource type="AudioStream" uid="uid://cmv5ron0dbq01" path="res://characters/npc/side_characters/police_officer_2/audio/police_officer_2.mp3" id="18_igixh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_235ry"]
 content_margin_left = 6.0
@@ -268,12 +277,48 @@ text = "Response Example"
 stream = ExtResource("7_a8rdg")
 bus = &"Voicelines"
 
-[node name="LadyDevil" type="AudioStreamPlayer" parent="AudioManager"]
+[node name="Lady Devil" type="AudioStreamPlayer" parent="AudioManager"]
 stream = ExtResource("8_s2fds")
+bus = &"Voicelines"
+
+[node name="Kai" type="AudioStreamPlayer" parent="AudioManager"]
+stream = ExtResource("10_073x7")
+bus = &"Voicelines"
+
+[node name="Carlos" type="AudioStreamPlayer" parent="AudioManager"]
+stream = ExtResource("11_swwa2")
+bus = &"Voicelines"
+
+[node name="Dawn" type="AudioStreamPlayer" parent="AudioManager"]
+stream = ExtResource("12_bbat6")
+bus = &"Voicelines"
+
+[node name="Hana" type="AudioStreamPlayer" parent="AudioManager"]
+stream = ExtResource("13_36d6p")
+bus = &"Voicelines"
+
+[node name="Samuel" type="AudioStreamPlayer" parent="AudioManager"]
+stream = ExtResource("14_s5vvt")
 bus = &"Voicelines"
 
 [node name="Ghost" type="AudioStreamPlayer" parent="AudioManager"]
 stream = ExtResource("8_dyulh")
+bus = &"Voicelines"
+
+[node name="OfficeWorker" type="AudioStreamPlayer" parent="AudioManager"]
+stream = ExtResource("14_osavi")
+bus = &"Voicelines"
+
+[node name="Police Officer 1" type="AudioStreamPlayer" parent="AudioManager"]
+stream = ExtResource("15_pc2ds")
+bus = &"Voicelines"
+
+[node name="Police Officer 2" type="AudioStreamPlayer" parent="AudioManager"]
+stream = ExtResource("18_igixh")
+bus = &"Voicelines"
+
+[node name="Security Guard" type="AudioStreamPlayer" parent="AudioManager"]
+stream = ExtResource("16_2w7cl")
 bus = &"Voicelines"
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]

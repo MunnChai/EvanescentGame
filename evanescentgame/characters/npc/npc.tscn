@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://ccwc4s7e5nmbf"]
+[gd_scene load_steps=22 format=3 uid="uid://ccwc4s7e5nmbf"]
 
 [ext_resource type="Script" path="res://characters/npc/scripts/npc.gd" id="1_0upfg"]
-[ext_resource type="Texture2D" path="res://characters/npc/placeholder/sprites/placeholder-Sheet.png" id="2_58pc0"]
+[ext_resource type="Texture2D" uid="uid://cd0hki25wrnhm" path="res://characters/npc/placeholder/sprites/placeholder-Sheet.png" id="2_58pc0"]
+[ext_resource type="Shader" path="res://characters/npc/main_characters/shaders/outline_shader.gdshader" id="2_ktr2n"]
 [ext_resource type="PackedScene" uid="uid://cfx3wanmlsj0" path="res://general_components/interactable_area/interactable_area.tscn" id="2_mnng2"]
 [ext_resource type="PackedScene" uid="uid://cemmf570s8hey" path="res://general_components/dialogue_emitter/dialogue_emitter.tscn" id="3_kdiqa"]
 [ext_resource type="Resource" uid="uid://8ctajnr773an" path="res://scenes/test/initial_gameplay_demo/test_dialogue.dialogue" id="5_5k2ni"]
@@ -13,11 +14,21 @@
 [ext_resource type="AudioStream" uid="uid://bnf1hmb47l76v" path="res://characters/npc/audio_test_npc/audio/sfx/footstep2/walking2-04.wav" id="11_2l08e"]
 [ext_resource type="AudioStream" uid="uid://cya13gs6pi1hb" path="res://characters/npc/audio_test_npc/audio/sfx/footstep2/walking2-05.wav" id="12_3fhf7"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c536q"]
+shader = ExtResource("2_ktr2n")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+shader_parameter/alpha = 1.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o2g0p"]
 size = Vector2(9, 29)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b5w7d"]
-size = Vector2(29, 40.5156)
+size = Vector2(36, 40.5156)
 
 [sub_resource type="Animation" id="Animation_ase62"]
 resource_name = "idle"
@@ -125,16 +136,17 @@ stream_3/weight = 1.0
 stream_4/stream = ExtResource("12_3fhf7")
 stream_4/weight = 1.0
 
-[node name="Npc" type="CharacterBody2D"]
+[node name="NPC" type="CharacterBody2D"]
 collision_layer = 4
 script = ExtResource("1_0upfg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_c536q")
 position = Vector2(0, -16)
 texture = ExtResource("2_58pc0")
 hframes = 4
 vframes = 5
-frame = 15
+frame = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -15)
@@ -174,5 +186,6 @@ libraries = {
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_siovh")
+volume_db = 18.0
 max_distance = 160.0
 bus = &"SFX"
