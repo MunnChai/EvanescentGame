@@ -77,7 +77,6 @@ func _on_cousin_location_updated():
 func update_location_info(npcName, current, previous):
 	match current:
 		"Funeral Venue":
-			print(npcName)
 			funeralChars.append(npcName)
 			displayCharLocations($Panel/GridContainer/FuneralLabel, funeralChars)
 		"Evan's House":

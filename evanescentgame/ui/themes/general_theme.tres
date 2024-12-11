@@ -11,3 +11,5 @@ Label/font_sizes/font_size = 9
 Label/fonts/font = ExtResource("1_m8igf")
 OptionButton/font_sizes/font_size = 9
 OptionButton/fonts/font = ExtResource("1_m8igf")
+PopupMenu/font_sizes/font_size = 16
+PopupMenu/fonts/font = ExtResource("1_m8igf")
