@@ -240,19 +240,21 @@ tile_set = ExtResource("22_s6joj")
 format = 2
 layer_0/tile_data = PackedInt32Array(-524101, 0, 1, -720701, 589824, 0, -393014, 1048576, 10, -786230, 1048576, 1, -786224, 1048576, 1, -393008, 1048576, 10, -786218, 1048576, 1, -393002, 1048576, 10, -786212, 1048576, 1, -392996, 1048576, 10, -786206, 1048576, 1, -392990, 1048576, 10, -786200, 1048576, 1, -392984, 1048576, 10, -786194, 1048576, 1, -392978, 1048576, 10, -786188, 1048576, 1, -392972, 1048576, 10, -720646, 589824, 0, -458494, 1441792, 8, -1048318, 1441792, 14, -130954, 0, 1)
 
-[node name="BackgroundDoor2" parent="World/LadyDevilOffice" instance=ExtResource("27_5eoon")]
+[node name="OutsideOffice" parent="World/LadyDevilOffice" node_paths=PackedStringArray("destination_door") instance=ExtResource("27_5eoon")]
 position = Vector2(948, 14)
+destination_door = NodePath("../InsideOffice")
 
-[node name="CollisionShape2D" parent="World/LadyDevilOffice/BackgroundDoor2/InteractableArea" index="1"]
+[node name="CollisionShape2D" parent="World/LadyDevilOffice/OutsideOffice/InteractableArea" index="1"]
 shape = SubResource("RectangleShape2D_60abv")
 
-[node name="BackgroundDoor" parent="World/LadyDevilOffice" instance=ExtResource("27_5eoon")]
+[node name="InsideOffice" parent="World/LadyDevilOffice" node_paths=PackedStringArray("destination_door") instance=ExtResource("27_5eoon")]
 position = Vector2(1500, -37)
+destination_door = NodePath("../OutsideOffice")
 
-[node name="InteractableArea" parent="World/LadyDevilOffice/BackgroundDoor" index="0"]
+[node name="InteractableArea" parent="World/LadyDevilOffice/InsideOffice" index="0"]
 position = Vector2(0, -12)
 
-[node name="CollisionShape2D" parent="World/LadyDevilOffice/BackgroundDoor/InteractableArea" index="1"]
+[node name="CollisionShape2D" parent="World/LadyDevilOffice/InsideOffice/InteractableArea" index="1"]
 position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_huq7v")
 
@@ -301,6 +303,6 @@ shape = SubResource("RectangleShape2D_yxpar")
 [editable path="World/Outdoor/LostSoul"]
 [editable path="World/Outdoor/SweeperGhost"]
 [editable path="World/OfficeArea/OfficeGhost"]
-[editable path="World/LadyDevilOffice/BackgroundDoor2"]
-[editable path="World/LadyDevilOffice/BackgroundDoor"]
+[editable path="World/LadyDevilOffice/OutsideOffice"]
+[editable path="World/LadyDevilOffice/InsideOffice"]
 [editable path="World/LadyDevilOffice/Devil"]
