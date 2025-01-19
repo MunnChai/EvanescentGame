@@ -19,8 +19,53 @@ static func unlock_flag(flag: String) -> void:
 static func lock_flag(flag: String) -> void:
 	unlock_flags[flag] = false
 	SaveManager.save_game()
+static func clear() -> void:
+	unlock_flags = {}
+	SaveManager.save_game()
 
 #endregion
+
+## DEBUG COMMANDS
+func _setup_debug() -> void:
+	var info_log_cmd = func (args: PackedStringArray):
+		if len(args) < 1:
+			Logger.log("infolog expects subcommand: lock, unlock, flags, clear")
+			return
+		var sub_cmd := args[0]
+		match sub_cmd:
+			"lock":
+				if len(args) < 2:
+					Logger.log_error("infolog lock needs at least one flag: infolog lock <flag1> <flag2> ...")
+				else:
+					var remaining_args := args.slice(1)
+					for arg in remaining_args:
+						InfoLogLogic.lock_flag(arg)
+						Logger.log("Locked InfoLog flag: " + arg + ".")
+			"unlock":
+				if len(args) < 2:
+					Logger.log_error("infolog unlock needs at least one flag: infolog unlock <flag1> <flag2> ...")
+				else:
+					var remaining_args := args.slice(1)
+					for arg in remaining_args:
+						InfoLogLogic.unlock_flag(arg)
+						Logger.log("Unlocked InfoLog flag: " + arg + ".")
+			"flags": ## PRINT FLAGS
+				Logger.log("InfoLog Unlock Flags:")
+				var output := ""
+				var dict = InfoLogLogic.unlock_flags
+				for flag in dict:
+					var pair: String = flag + ": " + str(dict[flag])
+					if output.is_empty():
+						output += pair
+					else:
+						output += "\n%s" % pair
+				if not output.is_empty():
+					Logger.log(output)
+			"clear": ## CLEAR FLAGS
+				InfoLogLogic.clear()
+				Logger.log("Cleared InfoLog Unlock Flags.")
+	
+	DebugConsole.register("infolog", info_log_cmd)
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS # No pausing!
@@ -29,29 +74,7 @@ func _ready() -> void:
 	clear_entry_view()
 	hide()
 	
-	## DEBUG COMMANDS
-	var unlock_command = func(args: PackedStringArray):
-		if len(args) < 1:
-			Logger.log("Need InfoLog flag ID(s) to unlock.")
-		else:
-			for arg in args:
-				InfoLogLogic.unlock_flag(arg)
-				Logger.log("Unlocked InfoLog flag " + arg + ".")
-	var lock_command = func(args: PackedStringArray):
-		if len(args) < 1:
-			Logger.log("Need InfoLog flag ID(s) to lock.")
-		else:
-			for arg in args:
-				InfoLogLogic.lock_flag(arg)
-				Logger.log("Locked InfoLog flag " + arg + ".")
-	DebugConsole.register("iunlock", unlock_command)
-	DebugConsole.register("ilock", lock_command)
-	
-	DebugConsole.register.call_deferred("iflags", func(args):
-		Logger.log("Info Log State:")
-		var dict = InfoLogLogic.unlock_flags
-		for flag in dict:
-			Logger.log(flag + ": " + str(dict[flag])))
+	_setup_debug()
 
 func _process(delta: float) -> void:
 	_process_animation()

@@ -16,24 +16,11 @@ var cHouseChars : Array
 var stationChars : Array
 var orgChars : Array
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	hide()
-	
-	#initializing the location values manually since the location_updated signal hasn't been called by any of the NPCs yet
-	update_location_info("Dawn", dawn.current_location.name, "h")
-	update_location_info("Carlos", cousin.current_location.name, "h")
-	update_location_info("Kai", colleague.current_location.name, "h")
-	
-	for location in location_manager.get_children():
-		location.get_node("LocationExit").player_interacted.connect(show_ui)
-	
-	
-	## DEBUG COMMANDS
-	
-	var teleport_to: Callable = func(args: PackedStringArray):
+## DEBUG COMMANDS
+func _setup_debug() -> void:
+	var tp_cmd: Callable = func(args: PackedStringArray):
 		if len(args) <  1:
-			Logger.log("No destination provided, please call tp with destination id")
+			Logger.log("tp expects destination id: tp <funeral/house/chouse/station/org>")
 		else:
 			var dest_id = args[0]
 			match dest_id:
@@ -53,8 +40,23 @@ func _ready():
 					teleport_to_location(location_manager.get_children()[4])
 					Logger.log("Teleported to Organization.")
 				_:
-					Logger.log("Unknown destination.")
-	DebugConsole.register("tp", teleport_to)
+					Logger.log("Unknown destination. Valid ids are <funeral/house/chouse/station/org>")
+	
+	DebugConsole.register("tp", tp_cmd)
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	hide()
+	
+	#initializing the location values manually since the location_updated signal hasn't been called by any of the NPCs yet
+	update_location_info("Dawn", dawn.current_location.name, "h")
+	update_location_info("Carlos", cousin.current_location.name, "h")
+	update_location_info("Kai", colleague.current_location.name, "h")
+	
+	for location in location_manager.get_children():
+		location.get_node("LocationExit").player_interacted.connect(show_ui)
+	
+	_setup_debug()
 
 func show_ui():
 	player.is_input_active = false

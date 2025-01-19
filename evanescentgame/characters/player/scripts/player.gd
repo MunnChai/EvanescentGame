@@ -29,32 +29,39 @@ var debug_speed_multiplier := 1.0
 
 @onready var starting_sprite_position : Vector2 = $Sprite2D.position
 
+## DEBUG COMMANDS
+func _setup_debug() -> void:
+	var speedx_cmd: Callable = func(args: PackedStringArray):
+		if len(args) <  1:
+			Logger.log("speedx needs a float value: speedx <float>, e.g. speedx 2.0")
+			debug_speed_multiplier = 1.0
+		else:
+			if args[0].is_valid_float():
+				debug_speed_multiplier = args[0].to_float()
+				Logger.log("Set player speed multiplier to [b]%s[/b]." % debug_speed_multiplier)
+			else:
+				Logger.log_error("speedx expects a valid float.")
+	
+	DebugConsole.register("speedx", speedx_cmd)
+	
+	var togglecoll_cmd: Callable = func(args: PackedStringArray):
+		## NOTE: This currently also disables interactions.
+		if not $CollisionShape2D.disabled:
+			$CollisionShape2D.set_disabled(true)
+			Logger.log("Player collision [b]disabled[/b].")
+		else:
+			$CollisionShape2D.set_disabled(false)
+			Logger.log("Player collision [b]enabled[/b].")
+	
+	DebugConsole.register("togglecoll", togglecoll_cmd)
+
 func _ready():
 	DialogueManager.dialogue_ended.connect(
 		func(dialogue_resource: Resource):
 			is_input_active = true
 	)
 	
-	
-	
-	## DEBUG COMMANDS
-	var set_speed_callable: Callable = func(args: PackedStringArray):
-		if len(args) <  1:
-			Logger.log("No multiplier arg. Resetting to default speed multiplier.")
-			debug_speed_multiplier = 1.0
-		else:
-			debug_speed_multiplier = args[0].to_float()
-			Logger.log("Set player speed multiplier to %s." % debug_speed_multiplier)
-	DebugConsole.register("speedx", set_speed_callable)
-	
-	var toggle_collision: Callable = func(args: PackedStringArray):
-		if not $CollisionShape2D.disabled:
-			$CollisionShape2D.set_disabled(true)
-			Logger.log("Player collision disabled.")
-		else:
-			$CollisionShape2D.set_disabled(false)
-			Logger.log("Player collision enabled.")
-	DebugConsole.register("tcoll", toggle_collision)
+	_setup_debug()
 
 func show_sprite() -> void:
 	sprite_2d.show()
