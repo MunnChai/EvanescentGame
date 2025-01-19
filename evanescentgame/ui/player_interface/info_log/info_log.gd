@@ -28,6 +28,24 @@ func _ready() -> void:
 	$Entries.hide()
 	clear_entry_view()
 	hide()
+	
+	## DEBUG COMMANDS
+	var unlock_command = func(args: PackedStringArray):
+		if len(args) < 1:
+			Logger.log("Need InfoLog flag ID(s) to unlock.")
+		else:
+			for arg in args:
+				InfoLogLogic.unlock_flag(arg)
+				Logger.log("Unlocked InfoLog flag " + arg + ".")
+	var lock_command = func(args: PackedStringArray):
+		if len(args) < 1:
+			Logger.log("Need InfoLog flag ID(s) to lock.")
+		else:
+			for arg in args:
+				InfoLogLogic.lock_flag(arg)
+				Logger.log("Locked InfoLog flag " + arg + ".")
+	DebugConsole.register("iunlock", unlock_command)
+	DebugConsole.register("ilock", lock_command)
 
 func _process(delta: float) -> void:
 	_process_animation()

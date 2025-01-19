@@ -27,6 +27,34 @@ func _ready():
 	
 	for location in location_manager.get_children():
 		location.get_node("LocationExit").player_interacted.connect(show_ui)
+	
+	
+	## DEBUG COMMANDS
+	
+	var teleport_to: Callable = func(args: PackedStringArray):
+		if len(args) <  1:
+			Logger.log("No destination provided, please call tp with destination id")
+		else:
+			var dest_id = args[0]
+			match dest_id:
+				"funeral":
+					teleport_to_location(location_manager.get_children()[0])
+					Logger.log("Teleported to Funeral Venue.")
+				"house":
+					teleport_to_location(location_manager.get_children()[1])
+					Logger.log("Teleported to Evan's House.")
+				"chouse":
+					teleport_to_location(location_manager.get_children()[2])
+					Logger.log("Teleported to Cousin's House.")
+				"station":
+					teleport_to_location(location_manager.get_children()[3])
+					Logger.log("Teleported to Police Station.")
+				"org":
+					teleport_to_location(location_manager.get_children()[4])
+					Logger.log("Teleported to Organization.")
+				_:
+					Logger.log("Unknown destination.")
+	DebugConsole.register("tp", teleport_to)
 
 func show_ui():
 	player.is_input_active = false

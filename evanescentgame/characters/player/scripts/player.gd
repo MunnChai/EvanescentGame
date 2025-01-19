@@ -24,6 +24,9 @@ static var num_branches_chosen = 0;
 var current_interactables: Array[InteractableArea]
 var closest_interactable: InteractableArea
 
+# DEBUG DETAILS...
+var debug_speed_multiplier := 1.0
+
 @onready var starting_sprite_position : Vector2 = $Sprite2D.position
 
 func _ready():
@@ -31,6 +34,27 @@ func _ready():
 		func(dialogue_resource: Resource):
 			is_input_active = true
 	)
+	
+	
+	
+	## DEBUG COMMANDS
+	var set_speed_callable: Callable = func(args: PackedStringArray):
+		if len(args) <  1:
+			Logger.log("No multiplier arg. Resetting to default speed multiplier.")
+			debug_speed_multiplier = 1.0
+		else:
+			debug_speed_multiplier = args[0].to_float()
+			Logger.log("Set player speed multiplier to %s." % debug_speed_multiplier)
+	DebugConsole.register("speedx", set_speed_callable)
+	
+	var toggle_collision: Callable = func(args: PackedStringArray):
+		if not $CollisionShape2D.disabled:
+			$CollisionShape2D.set_disabled(true)
+			Logger.log("Player collision disabled.")
+		else:
+			$CollisionShape2D.set_disabled(false)
+			Logger.log("Player collision enabled.")
+	DebugConsole.register("tcoll", toggle_collision)
 
 func show_sprite() -> void:
 	sprite_2d.show()
@@ -74,7 +98,7 @@ func handle_movement(delta: float):
 		direction_y = Input.get_axis("move_up", "move_down")
 	
 	# velocity = velocity.move_toward(Vector2(direction_x, direction_y).normalized() * SPEED, SPEED)
-	velocity = Vector2(MathUtil.decay(velocity, Vector2(direction_x, direction_y).normalized() * SPEED, ACCEL_DECAY_CONST, delta))
+	velocity = Vector2(MathUtil.decay(velocity, Vector2(direction_x, direction_y).normalized() * SPEED * debug_speed_multiplier, ACCEL_DECAY_CONST, delta))
 	
 	if velocity.x > 0:
 		($Sprite2D as Sprite2D).flip_h = false
