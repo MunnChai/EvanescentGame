@@ -1,0 +1,115 @@
+[gd_scene load_steps=8 format=3 uid="uid://c2pbxjvlt7den"]
+
+[ext_resource type="Script" path="res://addons/debug_console/console_ui/console_ui.gd" id="1_4d4ab"]
+[ext_resource type="FontFile" uid="uid://c6ior61knt1fx" path="res://addons/debug_console/console_ui/fonts/RobotoMono-Regular.ttf" id="2_r51cm"]
+[ext_resource type="FontFile" uid="uid://l1ljjagpvplk" path="res://addons/debug_console/console_ui/fonts/RobotoMono-Bold.ttf" id="3_x2dns"]
+[ext_resource type="FontFile" uid="uid://bcafaacjxols3" path="res://addons/debug_console/console_ui/fonts/RobotoMono-Italic.ttf" id="4_kqhf6"]
+[ext_resource type="FontFile" uid="uid://bhv3b1vkcvqy1" path="res://addons/debug_console/console_ui/fonts/RobotoMono-BoldItalic.ttf" id="5_kndp4"]
+[ext_resource type="Script" path="res://addons/debug_console/console_ui/components/enter_button.gd" id="6_iu3pc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yp0bh"]
+bg_color = Color(0, 0, 0, 0.501961)
+
+[node name="ConsoleUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4d4ab")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 124
+
+[node name="ConsoleUIRoot" type="Control" parent="CanvasLayer"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackgroundPanel" type="Panel" parent="CanvasLayer/ConsoleUIRoot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yp0bh")
+
+[node name="ConsoleMargin" type="MarginContainer" parent="CanvasLayer/ConsoleUIRoot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ConsoleVerticalContainer" type="VBoxContainer" parent="CanvasLayer/ConsoleUIRoot/ConsoleMargin"]
+layout_mode = 2
+
+[node name="OutputMargin" type="MarginContainer" parent="CanvasLayer/ConsoleUIRoot/ConsoleMargin/ConsoleVerticalContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="OutputText" type="RichTextLabel" parent="CanvasLayer/ConsoleUIRoot/ConsoleMargin/ConsoleVerticalContainer/OutputMargin"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_r51cm")
+theme_override_fonts/bold_font = ExtResource("3_x2dns")
+theme_override_fonts/italics_font = ExtResource("4_kqhf6")
+theme_override_fonts/bold_italics_font = ExtResource("5_kndp4")
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+bbcode_enabled = true
+scroll_following = true
+selection_enabled = true
+
+[node name="BottomBarHorizontalContainer" type="HBoxContainer" parent="CanvasLayer/ConsoleUIRoot/ConsoleMargin/ConsoleVerticalContainer"]
+layout_mode = 2
+
+[node name="TextInput" type="LineEdit" parent="CanvasLayer/ConsoleUIRoot/ConsoleMargin/ConsoleVerticalContainer/BottomBarHorizontalContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_r51cm")
+theme_override_font_sizes/font_size = 24
+placeholder_text = "> Enter a command..."
+clear_button_enabled = true
+caret_blink = true
+caret_blink_interval = 0.3
+
+[node name="EnterButton" type="Button" parent="CanvasLayer/ConsoleUIRoot/ConsoleMargin/ConsoleVerticalContainer/BottomBarHorizontalContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_r51cm")
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "Submit"
+script = ExtResource("6_iu3pc")
+
+[node name="CloseButton" type="Button" parent="CanvasLayer/ConsoleUIRoot/ConsoleMargin"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_r51cm")
+theme_override_font_sizes/font_size = 24
+text = "Close Console"

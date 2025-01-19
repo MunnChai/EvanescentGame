@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DebugConsoleConfig" load_steps=2 format=3 uid="uid://b4xops5wtuss4"]
+
+[ext_resource type="Script" path="res://addons/debug_console/config/debug_console_config.gd" id="1_o7uyg"]
+
+[resource]
+script = ExtResource("1_o7uyg")
+studio_name = "UBCTeam15"
+log_file_name_prefix = "debug_log"
+default_logs_directory_path = "res://debug_logs"
+print_to_godot_console = false
+strip_bbcode = true
+max_entries_before_cutoff = 1000
+font_size = 8
+pause_tree_when_open = true
