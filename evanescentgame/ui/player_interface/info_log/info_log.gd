@@ -46,6 +46,12 @@ func _ready() -> void:
 				Logger.log("Locked InfoLog flag " + arg + ".")
 	DebugConsole.register("iunlock", unlock_command)
 	DebugConsole.register("ilock", lock_command)
+	
+	DebugConsole.register.call_deferred("iflags", func(args):
+		Logger.log("Info Log State:")
+		var dict = InfoLogLogic.unlock_flags
+		for flag in dict:
+			Logger.log(flag + ": " + str(dict[flag])))
 
 func _process(delta: float) -> void:
 	_process_animation()
