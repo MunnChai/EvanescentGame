@@ -10,10 +10,12 @@ const VERSION = "0.0.2" # DEBUG CONSOLE PLUGIN VERSION
 #region PUBLIC INTERFACE
 
 ## Easy-access public "forwarders" for the registry
-func register(name: String, callable: Callable) -> void:
-	command_parser.register(name, callable)
+func register(name: String, callable: Callable, short_help_desc: String = "", long_help_desc: String = "") -> void:
+	command_parser.register(name, callable, short_help_desc, long_help_desc)
 func unregister(name: String) -> void:
 	command_parser.unregister(name)
+func register_cmd(name: String, cmd: DebugConsoleCommand) -> void:
+	command_parser.register_cmd(name, cmd)
 
 #region CONFIG
 
@@ -55,6 +57,7 @@ func _ready():
 	Logger.log.call_deferred("Debugging started at %s\n" % Time.get_datetime_string_from_system(false))
 	# Logger.log.call_deferred("Dumped at " + Time.get_datetime_string_from_system(false) + " | Maximum " + str(Logger.MAX_ENTRIES) + " lines before cutoff")
 	# Logger.log.call_deferred("-- BEGIN LOG --\n")
+	Logger.log.call_deferred("For a list of commands, type [b]cmdlist[/b] or [b]help[/b].")
 
 func setup_command_parser() -> void:
 	command_parser = DebugConsoleCommandParser.new()
@@ -70,55 +73,51 @@ func setup_console_ui() -> void:
 	## ??? Should logger be instanced?
 
 func register_default_commands() -> void:
-	## TESTING
-	var hello_callable: Callable = func (args: PackedStringArray):
-		var all_args = ""
-		for str: String in args:
-			all_args += " " + str
-		Logger.log("Hello" + all_args + "!")
-	
-	command_parser.register("hello", hello_callable)
-	
-	## HELP..?
-	command_parser.register("help", func(args): Logger.log("Unfortunately, there is no help."))
-	
 	## CLEAR CONSOLE
-	var clear_callable: Callable = func (args: PackedStringArray):
+	var clear_cmd: Callable = func (args: PackedStringArray):
 		console_ui.clear()
 		Logger.log("Console cleared.\n")
-	command_parser.register("clear", clear_callable)
+	command_parser.register("clear", clear_cmd, "Clears the console", """Usage: clear
+	Clears the console and prints \"Console cleared.\"""")
 	
 	## TOGGLE PAUSE/SET PAUSE
-	var toggle_pause_callable: Callable = func (args: PackedStringArray):
-		get_tree().paused = !get_tree().paused
-		Logger.log("[b]GAME PAUSED[/b]: " + str(get_tree().paused) + ". Type toggle-pause to toggle back.")
-	command_parser.register("toggle-pause", toggle_pause_callable)
-	
-	var set_pause_callable: Callable = func (args: PackedStringArray):
-		if len(args) < 1 or (not args[0] == "true" and not args[0] == "false"):
-			Logger.log_error("set-pause expects an argument of either true or false.")
+	var pause_cmd: Callable = func(args: PackedStringArray):
+		if len(args) < 1:
+			get_tree().paused = not get_tree().paused
+			if get_tree().paused:
+				Logger.log("[b]Game paused.[/b] Type pause to unpause.")
+			else:
+				Logger.log("[b]Game unpaused.[/b] Type pause to pause.")
+		elif (not args[0] == "true" and not args[0] == "false"):
+			## Invalid argument
+			Logger.log_error("Invalid argument: pause expects either true or false.")
 		else:
 			if args[0] == "true":
 				get_tree().paused = true
-				Logger.log("[b]Game paused.[/b] Use set-pause or toggle-pause to unpause.")
+				Logger.log("[b]Game paused.[/b] Type pause to unpause.")
 			elif args[0] == "false":
 				get_tree().paused = false
-				Logger.log("[b]Game unpaused.[/b] Use set-pause or toggle-pause to pause.")
-	command_parser.register("set-pause", set_pause_callable)
+				Logger.log("[b]Game unpaused.[/b] Type pause to pause.")
+	command_parser.register("pause", pause_cmd, "Controls pause state of the tree", """Usage: pause [true/false]
+	If no argument, toggles paused state of the SceneTree.
+	If given true or false, sets paused state of the SceneTree to given value.""")
 	
 	## CLOSE CONSOLE
-	command_parser.register("close", func(args): console_ui.close())
+	command_parser.register("close", func(args): console_ui.close(), "Closes the console", """Usage: close
+	Closes the console in the same manner as the Close Console button.""")
 	## QUIT GAME
-	command_parser.register("quit", func(args): get_tree().quit())
+	command_parser.register("quit", func(args): get_tree().quit(), "Quits the application", """Usage: quit
+	Calls quit() on the current SceneTree.""")
 	
 	## DUMP LOG
-	var dump_callable: Callable = func (args: PackedStringArray):
+	var dump_cmd: Callable = func (args: PackedStringArray):
 		if len(args) < 1 or args[0].is_empty():
 			Logger.dump_to_file(CONFIG.default_logs_directory_path)
 		else:
 			Logger.dump_to_file(args[0])
-	command_parser.register("dump", dump_callable)
-	command_parser.register("dump-log", dump_callable)
+	command_parser.register("dump", dump_cmd, "Dumps the console log to a file", """Usage: dump [destination_directory]
+	If no destination is provided, dumps a log file with all console entries to the CONFIG's default logs folder.
+	If a destination is provided, attempts to dump a log file to the given folder path.""")
 
 #endregion
 

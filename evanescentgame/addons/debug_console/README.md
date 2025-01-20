@@ -38,10 +38,10 @@ The shortcut, `F3` or `fn + F3` (depending on system), is equivalent to the beha
 
 The Debug Console comes with a few built-in commands.
 
-- `hello <arg1> <arg2> ...`
-
-	Prints `Hello <all-arguments>!` to the console.
-- `command-list`
+- `help`
+	
+	Prints a list of commands and their short help entries.
+- `cmdlist`
 
 	Prints a list of all currently registered commands to the console.
 - `clear`
@@ -53,15 +53,14 @@ The Debug Console comes with a few built-in commands.
 - `quit` 
 
 	Quits the game using `get_tree().quit()`
-- `set-pause <true/false>` 
+- `pause [true/false]` 
 
-	Sets the `paused` flag of the current `get_tree()` SceneTree to the input.
-- `toggle-pause` 
+	Sets the `paused` flag of the current `get_tree()` SceneTree to the argument. If no argument, toggles the `paused` flag.
+- `dump [destination-dir]`
 
-	Toggles the `paused`flag of the current `get_tree()` SceneTree.
-- `dump <destination-dir>` or `dump-log <destination-dir>`
+	Dumps the current log, with no filter, to a file at the destination directory with the name `<log_file_name_prefix>_<iteration>.txt`. If no `[destination-dir]` is provided, the default directory is used.
 
-	Dumps the current log, with no filter, to a file at the destination directory with the name `<log_file_name_prefix>_<iteration>.txt`. If no `<destination-dir>` is provided, the default directory is used.
+## Registering Custom Commands
 
 The console's backend uses a command registry. To register your own commands from your codebase:
 
@@ -77,12 +76,34 @@ The console's backend uses a command registry. To register your own commands fro
 
 **NOTE: The registration only persists per runtime. This means that your command(s) should be added at the loading stage of your game.**
 
+## Unregistering
+
 To remove a command from the registry, use `DebugConsole.unregister()` with your command's name. e.g. `unregister("hello1")`.
+
+## Help Entries
+
+In the call to `register()`, you can include two more arguments for a short help blurb and a long help description entry. For example:
+
+```
+DebugConsole.register("hello1", hello_cmd, "Prints hi!", """Usage: hello1
+	Prints hi! to the Godot Output console.""")
+```
+
+Which registers `hello1` with a short help message and a detailed help entry.
+
+The short message shows up next to the command name when the `help` command is called.
+
+The longer entry shows up when `help` is called with the command name as the argument. E.g. `help hello1`.
+
+## Registering DebugConsoleCommand Objects
+
+Instead of calling `register` with all four arguments (name, callable, short blurb, long entry), you can also create a `DebugConsoleCommand` object. Then, you can assign the latter three arguments (callable, short blurb, long entry). 
+
+To register the object, simply call `DebugConsole.register_cmd(name, command_object)` with your command's name keyword and DebugConsoleCommand instance.
 
 # TODO
 
 Here is a list of features that are planned:
 - Stack trace in the Logger
-- Separate Logger instances?
-- `help` command for the Console. Prints brief summaries for all commands by using another `summary` registry. Prints longer description when called with a command keyword, using `description` registry.
+- Multiple Logger instances
 - Separate console log and event log for easier filtering/selection.

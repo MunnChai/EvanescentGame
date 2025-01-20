@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://addons/debug_console/console_ui/components/enter_button.gd" id="6_iu3pc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yp0bh"]
-bg_color = Color(0, 0, 0, 0.501961)
+bg_color = Color(0, 0, 0, 0.827451)
 
 [node name="ConsoleUI" type="Control"]
 layout_mode = 3
