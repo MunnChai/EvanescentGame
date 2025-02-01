@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://eb3jwd75antu"
-path="res://.godot/imported/ladydevil_embarassed.png-d99a7b1b0bd42aa555f4fabb5e910186.ctex"
+path="res://.godot/imported/ladydevil_embarrassed.png-ea1f9c77c67465887287f16727fce710.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/portraits/ladydevil/ladydevil_embarassed.png"
-dest_files=["res://.godot/imported/ladydevil_embarassed.png-d99a7b1b0bd42aa555f4fabb5e910186.ctex"]
+source_file="res://characters/portraits/ladydevil/ladydevil_embarrassed.png"
+dest_files=["res://.godot/imported/ladydevil_embarrassed.png-ea1f9c77c67465887287f16727fce710.ctex"]
 
 [params]
 

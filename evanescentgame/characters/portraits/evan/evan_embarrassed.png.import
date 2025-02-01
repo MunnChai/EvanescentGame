@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://owktfv5nqr5r"
-path="res://.godot/imported/evan_embarassed.png-4732a684ac5cb237095fc3081aea89c6.ctex"
+path="res://.godot/imported/evan_embarrassed.png-6777ab570eb46affcd26ad7beb173e21.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/portraits/evan/evan_embarassed.png"
-dest_files=["res://.godot/imported/evan_embarassed.png-4732a684ac5cb237095fc3081aea89c6.ctex"]
+source_file="res://characters/portraits/evan/evan_embarrassed.png"
+dest_files=["res://.godot/imported/evan_embarrassed.png-6777ab570eb46affcd26ad7beb173e21.ctex"]
 
 [params]
 

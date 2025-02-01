@@ -226,6 +226,7 @@ theme_override_fonts/normal_font = ExtResource("2_vtkqp")
 theme_override_fonts/bold_font = ExtResource("2_y3hkj")
 theme_override_font_sizes/normal_font_size = 36
 text = "Dialogue... "
+seconds_per_step = 0.04
 pause_at_characters = ".?!,:"
 
 [node name="MarginContainer2" type="MarginContainer" parent="Balloon/Panel/Dialogue/VBoxContainer/HBoxContainer"]

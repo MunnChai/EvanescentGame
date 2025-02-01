@@ -1,6 +1,6 @@
 extends Node
 
-const scene_duration = 540.0 # remade via UI timer
+#const scene_duration = 540.0 # remade via UI timer
 
 func load_underworld():
 	SceneLoader.load_underworld()
