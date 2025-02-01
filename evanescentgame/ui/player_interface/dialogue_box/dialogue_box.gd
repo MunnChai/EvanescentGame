@@ -97,6 +97,7 @@ var dialogue_line: DialogueLine:
 		
 		var character_path_name = true_character_name.to_lower()
 		character_path_name = character_path_name.replace(" ", "")
+		character_path_name = character_path_name.replace("_", "")
 		
 		# Get Portrait
 		var portrait_path = "res://characters/portraits/" + character_path_name + "/" + character_path_name
