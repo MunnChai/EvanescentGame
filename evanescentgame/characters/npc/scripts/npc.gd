@@ -37,6 +37,7 @@ var current_room_path: Array
 
 signal signal_dialogue(title) # REMOVE AT SOME POINT, PLS DON'T USE THIS, INSTEAD CALL dialogue_emitter.show_dialogue(title)
 signal location_updated
+signal completed_navigation
 
 func _ready():
 	if (sprite_2d.material):
@@ -62,10 +63,13 @@ func on_player_interacted():
 
 
 # Dialogue Things
-func set_dialogue_resource(path: String):
+func set_dialogue_resource(path: String, title: String = ""):
 	var dialogue_resource = load(path)
 	
 	dialogue_emitter.dialogue_resource = dialogue_resource
+	
+	if (title != ""):
+		current_dialogue_title = title
 
 func set_dialogue_title(title: String):
 	current_dialogue_title = title
@@ -91,7 +95,6 @@ func add_to_inventory(item: Item):
 	if (inventory.items.size() < 3):
 		inventory.items.append(item)
 		inventory.update_slots()
-		print(inventory.items)
 
 func remove_from_inventory(item: Item):
 	if (inventory.items.has(item)):
@@ -193,9 +196,19 @@ func jump():
 
 
 # Call this to navigate your NPC to the desired position (position must be within a LocationRoom's area)
-func navigate_to(target_position: Vector2):
+func navigate_to(target_position: Vector2, dialogue_resource_path: String = "", dialogue_title: String = ""):
 	is_navigating = true
 	end_target_position = target_position
+	
+	if (dialogue_resource_path != ""):
+		completed_navigation.connect(
+			func():
+				for connection in completed_navigation.get_connections():
+					completed_navigation.disconnect(connection["callable"])
+				
+				set_dialogue_resource(dialogue_resource_path)
+				set_dialogue_title(dialogue_title)
+		)
 	move_to(target_position)
 
 func move_to(target_position: Vector2):
@@ -256,6 +269,7 @@ func move_to(target_position: Vector2):
 			navigation_agent_2d.navigation_finished.connect(
 				func():
 					is_navigating = false
+					completed_navigation.emit()
 			)
 			return
 
@@ -313,7 +327,6 @@ func move_to_ground():
 	
 	if (raycast.is_colliding()):
 		global_position = raycast.get_collision_point()
-		print("Setting...")
 	
 	remove_child(raycast)
 	

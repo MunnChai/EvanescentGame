@@ -6,7 +6,6 @@ const DECISION_TREE_NODE = preload("./decision_tree_graph/decision_tree_node.tsc
 
 @export var graph_data_path: String
 
-
 # General node functions
 
 func _ready():

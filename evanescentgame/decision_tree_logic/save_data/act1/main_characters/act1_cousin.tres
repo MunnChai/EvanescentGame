@@ -3,11 +3,11 @@
 [ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_resource.gd" id="1_5vuwj"]
 [ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_node_resource.gd" id="1_xcfiv"]
 
-[sub_resource type="Resource" id="Resource_5xp1x"]
+[sub_resource type="Resource" id="Resource_re6l7"]
 script = ExtResource("1_xcfiv")
 name = "GraphNode2"
 position_offset = Vector2(0, 0)
-size = Vector2(180.013, 340.006)
+size = Vector2(180.017, 340.007)
 data = {
 "alt_paths": [],
 "description": "",
@@ -16,32 +16,45 @@ data = {
 "title": "Start"
 }
 
-[sub_resource type="Resource" id="Resource_8c1hb"]
+[sub_resource type="Resource" id="Resource_rx3na"]
 script = ExtResource("1_xcfiv")
 name = "GraphNode3"
 position_offset = Vector2(240, 0)
-size = Vector2(416.999, 606)
+size = Vector2(415.987, 924)
 data = {
-"alt_paths": [{
-"condition": "Condition1"
-}],
+"alt_paths": [],
 "description": "",
 "functions": [{
 "function_name": "navigate_to",
 "parameters": [{
 "type": 1,
-"value": "3100,0"
+"value": "3141,30"
+}, {
+"type": 0,
+"value": "res://characters/npc/main_characters/cousin/dialogue/act1/carlos_dialogue.dialogue"
+}, {
+"type": 0,
+"value": "carlos_before_work"
+}]
+}, {
+"function_name": "set_dialogue_resource",
+"parameters": [{
+"type": 0,
+"value": "res://characters/npc/main_characters/cousin/dialogue/act1/carlos_dialogue.dialogue"
+}, {
+"type": 0,
+"value": "carlos_moving"
 }]
 }],
 "next_function_time": 10.0,
 "title": "Go TO Cousin House"
 }
 
-[sub_resource type="Resource" id="Resource_okm3y"]
+[sub_resource type="Resource" id="Resource_3ft15"]
 script = ExtResource("1_xcfiv")
 name = "GraphNode4"
 position_offset = Vector2(720, 0)
-size = Vector2(383.642, 584)
+size = Vector2(383.641, 924)
 data = {
 "alt_paths": [],
 "description": "And go to his office",
@@ -50,36 +63,32 @@ data = {
 "parameters": [{
 "type": 1,
 "value": "50,1400"
+}, {
+"type": 0,
+"value": "res://characters/npc/main_characters/cousin/dialogue/act1/carlos_dialogue.dialogue"
+}, {
+"type": 0,
+"value": "carlos_during_work"
+}]
+}, {
+"function_name": "set_dialogue_resource",
+"parameters": [{
+"type": 0,
+"value": "res://characters/npc/main_characters/cousin/dialogue/act1/carlos_dialogue.dialogue"
+}, {
+"type": 0,
+"value": "carlos_moving"
 }]
 }],
 "next_function_time": 12.25,
 "title": "Go to Work"
 }
 
-[sub_resource type="Resource" id="Resource_eow4n"]
-script = ExtResource("1_xcfiv")
-name = "GraphNode6"
-position_offset = Vector2(1660, 0)
-size = Vector2(500.07, 590.83)
-data = {
-"alt_paths": [],
-"description": "",
-"functions": [{
-"function_name": "navigate_to",
-"parameters": [{
-"type": 1,
-"value": "3100,0"
-}]
-}],
-"next_function_time": 19.5,
-"title": "Go to Cousin House"
-}
-
-[sub_resource type="Resource" id="Resource_4vs5s"]
+[sub_resource type="Resource" id="Resource_d8lit"]
 script = ExtResource("1_xcfiv")
 name = "GraphNode5"
 position_offset = Vector2(1160, 0)
-size = Vector2(443.967, 570.835)
+size = Vector2(443.967, 836)
 data = {
 "alt_paths": [],
 "description": "",
@@ -89,16 +98,25 @@ data = {
 "type": 1,
 "value": "2000,2000"
 }]
+}, {
+"function_name": "set_dialogue_resource",
+"parameters": [{
+"type": 0,
+"value": "res://characters/npc/main_characters/cousin/dialogue/act1/carlos_dialogue.dialogue"
+}, {
+"type": 0,
+"value": "carlos_moving"
+}]
 }],
 "next_function_time": 18.0,
 "title": "Disappear"
 }
 
-[sub_resource type="Resource" id="Resource_vgwq3"]
+[sub_resource type="Resource" id="Resource_ogatr"]
 script = ExtResource("1_xcfiv")
 name = "GraphNode7"
 position_offset = Vector2(2280, 0)
-size = Vector2(432.89, 592.89)
+size = Vector2(432.891, 924)
 data = {
 "alt_paths": [],
 "description": "",
@@ -106,11 +124,51 @@ data = {
 "function_name": "navigate_to",
 "parameters": [{
 "type": 1,
-"value": "3110,0"
+"value": "3050,30"
+}, {
+"type": 0,
+"value": "res://characters/npc/main_characters/cousin/dialogue/act1/carlos_dialogue.dialogue"
+}, {
+"type": 0,
+"value": "carlos_phone_conversation"
+}]
+}, {
+"function_name": "set_dialogue_resource",
+"parameters": [{
+"type": 0,
+"value": "res://characters/npc/main_characters/cousin/dialogue/act1/carlos_dialogue.dialogue"
+}, {
+"type": 0,
+"value": "carlos_moving"
 }]
 }],
 "next_function_time": 0.0,
 "title": "Dad call"
+}
+
+[sub_resource type="Resource" id="Resource_4psh0"]
+script = ExtResource("1_xcfiv")
+name = "GraphNode6"
+position_offset = Vector2(1660, 0)
+size = Vector2(500.069, 652)
+data = {
+"alt_paths": [],
+"description": "",
+"functions": [{
+"function_name": "navigate_to",
+"parameters": [{
+"type": 1,
+"value": "3160,30"
+}, {
+"type": 0,
+"value": "res://characters/npc/main_characters/cousin/dialogue/act1/carlos_dialogue.dialogue"
+}, {
+"type": 0,
+"value": "carlos_cooking"
+}]
+}],
+"next_function_time": 19.5,
+"title": "Go to Cousin House"
 }
 
 [resource]
@@ -141,4 +199,4 @@ connections = [{
 "to_node": &"GraphNode7",
 "to_port": 0
 }]
-nodes = [SubResource("Resource_5xp1x"), SubResource("Resource_8c1hb"), SubResource("Resource_okm3y"), SubResource("Resource_eow4n"), SubResource("Resource_4vs5s"), SubResource("Resource_vgwq3")]
+nodes = [SubResource("Resource_re6l7"), SubResource("Resource_rx3na"), SubResource("Resource_3ft15"), SubResource("Resource_d8lit"), SubResource("Resource_ogatr"), SubResource("Resource_4psh0")]

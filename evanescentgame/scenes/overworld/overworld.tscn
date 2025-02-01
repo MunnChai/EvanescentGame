@@ -21,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://b7kllxxwxaaqt" path="res://characters/npc/main_characters/cousin/sprites/kai-Sheet.png" id="13_gasgw"]
 [ext_resource type="Resource" uid="uid://c12n1c4jcc111" path="res://decision_tree_logic/save_data/act1/main_characters/act1_cousin.tres" id="13_lqkwk"]
 [ext_resource type="Texture2D" uid="uid://djq8amhe72ugh" path="res://characters/npc/side_characters/police_officer_1/sprites/police_officer_1-Sheet.png" id="16_kby61"]
-[ext_resource type="Resource" uid="uid://bxf53hnns3p22" path="res://decision_tree_logic/save_data/act1/side_characters/act1_hana.tres" id="16_tnkbj"]
+[ext_resource type="Resource" uid="uid://dndf0r83nn4nc" path="res://decision_tree_logic/save_data/act1/side_characters/act1_hana.tres" id="16_tnkbj"]
 [ext_resource type="Resource" uid="uid://dnmsqtmoal0j4" path="res://decision_tree_logic/save_data/act1/side_characters/act1_samuel.tres" id="17_j7ao7"]
 [ext_resource type="Texture2D" uid="uid://coo8346yigqbu" path="res://characters/npc/side_characters/police_officer_2/sprites/police_officer_2-Sheet.png" id="17_p2rkf"]
 [ext_resource type="PackedScene" uid="uid://cl5gkwuo31l6q" path="res://characters/npc/side_characters/security_guard/security_guard.tscn" id="20_80hk3"]
@@ -229,7 +229,7 @@ shape = SubResource("RectangleShape2D_g7oad")
 position = Vector2(-151, -23)
 
 [node name="PositionHelper" type="Node2D" parent="World"]
-position = Vector2(795, -53)
+position = Vector2(3463, -16)
 
 [node name="UI" type="CanvasLayer" parent="."]
 

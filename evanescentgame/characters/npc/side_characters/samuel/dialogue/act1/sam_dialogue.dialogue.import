@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://dr5rjbfaodl7h"
+path="res://.godot/imported/sam_dialogue.dialogue-787c6c79122e135bcffedaaa6e43eb96.tres"
+
+[deps]
+
+source_file="res://characters/npc/side_characters/samuel/dialogue/act1/sam_dialogue.dialogue"
+dest_files=["res://.godot/imported/sam_dialogue.dialogue-787c6c79122e135bcffedaaa6e43eb96.tres"]
+
+[params]
+
+defaults=true

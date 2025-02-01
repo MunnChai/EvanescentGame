@@ -1589,6 +1589,7 @@ shape = SubResource("RectangleShape2D_xv06v")
 
 [node name="Keypad" parent="Inspectables/VendingMachine" index="3" instance=ExtResource("5_mb7ua")]
 visible = false
+correct_code = "4355"
 
 [node name="Floor2DeskPaper" parent="Inspectables" index="2" instance=ExtResource("9_nkn1l")]
 position = Vector2(-46, -281)

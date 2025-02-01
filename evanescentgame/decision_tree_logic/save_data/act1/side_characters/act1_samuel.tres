@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_resource.gd" id="1_auopb"]
 [ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_node_resource.gd" id="1_vkw5c"]
 
-[sub_resource type="Resource" id="Resource_7c4ot"]
+[sub_resource type="Resource" id="Resource_72fbu"]
 script = ExtResource("1_vkw5c")
 name = "GraphNode2"
 position_offset = Vector2(0, 0)
@@ -16,11 +16,11 @@ data = {
 "title": "Start"
 }
 
-[sub_resource type="Resource" id="Resource_k6lkg"]
+[sub_resource type="Resource" id="Resource_gmfg4"]
 script = ExtResource("1_vkw5c")
 name = "GraphNode4"
 position_offset = Vector2(400, 0)
-size = Vector2(407.819, 602.268)
+size = Vector2(525.023, 924)
 data = {
 "alt_paths": [],
 "description": "",
@@ -29,17 +29,32 @@ data = {
 "parameters": [{
 "type": 1,
 "value": "2016,-282"
+}, {
+"type": 0,
+"value": "res://characters/npc/side_characters/samuel/dialogue/act1/sam_dialogue.dialogue"
+}, {
+"type": 0,
+"value": "evan_inspect_samuel"
+}]
+}, {
+"function_name": "set_dialogue_resource",
+"parameters": [{
+"type": 0,
+"value": "res://characters/npc/side_characters/samuel/dialogue/act1/sam_dialogue.dialogue"
+}, {
+"type": 0,
+"value": "samuel_moving"
 }]
 }],
 "next_function_time": 18.0,
-"title": ""
+"title": "Go home to room"
 }
 
-[sub_resource type="Resource" id="Resource_racl1"]
+[sub_resource type="Resource" id="Resource_3eqng"]
 script = ExtResource("1_vkw5c")
 name = "GraphNode3"
 position_offset = Vector2(1000, 0)
-size = Vector2(400.64, 602.513)
+size = Vector2(537.04, 924)
 data = {
 "alt_paths": [],
 "description": "",
@@ -48,17 +63,32 @@ data = {
 "parameters": [{
 "type": 1,
 "value": "2140,27"
+}, {
+"type": 0,
+"value": "res://scenes/overworld/locations/evan_house/dialogue/act1/evan_house_dawn_dialogue.dialogue"
+}, {
+"type": 0,
+"value": "dinner_conversation"
+}]
+}, {
+"function_name": "set_dialogue_resource",
+"parameters": [{
+"type": 0,
+"value": "res://characters/npc/side_characters/samuel/dialogue/act1/sam_dialogue.dialogue"
+}, {
+"type": 0,
+"value": "samuel_moving"
 }]
 }],
 "next_function_time": 18.75,
-"title": ""
+"title": "Go to dinner"
 }
 
-[sub_resource type="Resource" id="Resource_sgigh"]
+[sub_resource type="Resource" id="Resource_lq0vo"]
 script = ExtResource("1_vkw5c")
 name = "GraphNode5"
 position_offset = Vector2(1600, 0)
-size = Vector2(400.79, 618.667)
+size = Vector2(400.79, 924)
 data = {
 "alt_paths": [],
 "description": "",
@@ -67,10 +97,25 @@ data = {
 "parameters": [{
 "type": 1,
 "value": "2016,-282"
+}, {
+"type": 0,
+"value": "res://characters/npc/side_characters/samuel/dialogue/act1/sam_dialogue.dialogue"
+}, {
+"type": 0,
+"value": "evan_inspect_samuel"
+}]
+}, {
+"function_name": "set_dialogue_resource",
+"parameters": [{
+"type": 0,
+"value": "res://characters/npc/side_characters/samuel/dialogue/act1/sam_dialogue.dialogue"
+}, {
+"type": 0,
+"value": "samuel_moving"
 }]
 }],
 "next_function_time": 19.0,
-"title": ""
+"title": "Go back to room"
 }
 
 [resource]
@@ -91,4 +136,4 @@ connections = [{
 "to_node": &"GraphNode5",
 "to_port": 0
 }]
-nodes = [SubResource("Resource_7c4ot"), SubResource("Resource_k6lkg"), SubResource("Resource_racl1"), SubResource("Resource_sgigh")]
+nodes = [SubResource("Resource_72fbu"), SubResource("Resource_gmfg4"), SubResource("Resource_3eqng"), SubResource("Resource_lq0vo")]

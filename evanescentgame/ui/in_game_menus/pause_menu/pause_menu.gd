@@ -24,8 +24,8 @@ func pause():
 	animation_player.play("blur")
 	animation_player.animation_finished.connect(
 		func():
-			for callback in animation_player.animation_finished.get_connections():
-				animation_player.animation_finished.disconnect(callback)
+			for callable in animation_player.animation_finished.get_connections():
+				animation_player.animation_finished.disconnect(callable["callable"])
 			
 			hide()
 	)

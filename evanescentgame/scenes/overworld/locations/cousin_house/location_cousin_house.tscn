@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dnwaf4gu81ddo"]
+[gd_scene load_steps=23 format=3 uid="uid://dnwaf4gu81ddo"]
 
 [ext_resource type="PackedScene" uid="uid://blp4jjwokkgxj" path="res://scenes/overworld/locations/location.tscn" id="1_05g46"]
 [ext_resource type="TileSet" uid="uid://b0ik5iqgovpsy" path="res://scenes/test/initial_gameplay_demo/demo_tiles.tres" id="2_kdcsj"]
@@ -200,6 +200,18 @@ size = Vector2(224, 76)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dgw85"]
 size = Vector2(14, 64)
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_w2xqo"]
+vertices = PackedVector2Array(190, 38, -6, 38, -6, 26, 190, 26, 190, -34, -14, -34, -14, -46, 190, -46)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-16, 16, -16, 48, 200, 48, 200, 16), PackedVector2Array(-24, -56, 200, -56, 200, -24, -24, -24)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_f62if"]
+vertices = PackedVector2Array(190, 38, -6, 38, -6, 26, 190, 26, 190, -34, -14, -34, -14, -46, 190, -46)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-16, 16, -16, 48, 200, 48, 200, 16), PackedVector2Array(-24, -56, 200, -56, 200, -24, -24, -24)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
 [node name="CousinHouse" instance=ExtResource("1_05g46")]
 
 [node name="TileMap" type="TileMap" parent="." index="0"]
@@ -327,6 +339,13 @@ destination_door = NodePath("../../Upstairs/StairsDown")
 [node name="CollisionShape2D" parent="Rooms/DownStairs/StairsUp/InteractableArea" index="1"]
 position = Vector2(0, -26)
 shape = SubResource("RectangleShape2D_dgw85")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." index="8"]
+navigation_polygon = SubResource("NavigationPolygon_w2xqo")
+
+[node name="NavigationRegion2D2" type="NavigationRegion2D" parent="." index="9"]
+position = Vector2(0, -8)
+navigation_polygon = SubResource("NavigationPolygon_f62if")
 
 [editable path="Inspectables/FamilyPhoto"]
 [editable path="Inspectables/Flower"]

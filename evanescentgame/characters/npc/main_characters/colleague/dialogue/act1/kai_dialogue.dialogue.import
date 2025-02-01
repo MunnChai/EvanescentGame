@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://c3tc27j16sprq"
+path="res://.godot/imported/kai_dialogue.dialogue-05be074dc614746790f814be9800b6df.tres"
+
+[deps]
+
+source_file="res://characters/npc/main_characters/colleague/dialogue/act1/kai_dialogue.dialogue"
+dest_files=["res://.godot/imported/kai_dialogue.dialogue-05be074dc614746790f814be9800b6df.tres"]
+
+[params]
+
+defaults=true

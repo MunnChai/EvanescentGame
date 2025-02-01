@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://bdmhw6s264rvy"
+path="res://.godot/imported/evan_house_dawn_dialogue.dialogue-b42c916d5071be41ff255cf88aff68c3.tres"
+
+[deps]
+
+source_file="res://scenes/overworld/locations/evan_house/dialogue/act1/evan_house_dawn_dialogue.dialogue"
+dest_files=["res://.godot/imported/evan_house_dawn_dialogue.dialogue-b42c916d5071be41ff255cf88aff68c3.tres"]
+
+[params]
+
+defaults=true

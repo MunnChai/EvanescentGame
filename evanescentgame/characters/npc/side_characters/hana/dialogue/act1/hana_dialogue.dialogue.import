@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://icum2l2s2grt"
+path="res://.godot/imported/hana_dialogue.dialogue-2fbae7e1f4ae03f10084cf1a7875f751.tres"
+
+[deps]
+
+source_file="res://characters/npc/side_characters/hana/dialogue/act1/hana_dialogue.dialogue"
+dest_files=["res://.godot/imported/hana_dialogue.dialogue-2fbae7e1f4ae03f10084cf1a7875f751.tres"]
+
+[params]
+
+defaults=true

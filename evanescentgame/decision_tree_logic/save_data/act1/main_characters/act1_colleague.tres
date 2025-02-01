@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="DecisionTreeGraphData" load_steps=8 format=3 uid="uid://c8hn8b6qhfcrc"]
+[gd_resource type="Resource" script_class="DecisionTreeGraphData" load_steps=8 format=3]
 
 [ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_node_resource.gd" id="1_6c8ny"]
 [ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_resource.gd" id="1_q6066"]
 
-[sub_resource type="Resource" id="Resource_i5kdg"]
+[sub_resource type="Resource" id="Resource_b5w1l"]
 script = ExtResource("1_6c8ny")
 name = "GraphNode2"
 position_offset = Vector2(0, 0)
@@ -16,30 +16,11 @@ data = {
 "title": "Start"
 }
 
-[sub_resource type="Resource" id="Resource_ong0t"]
-script = ExtResource("1_6c8ny")
-name = "GraphNode3"
-position_offset = Vector2(260, 0)
-size = Vector2(408.869, 564)
-data = {
-"alt_paths": [],
-"description": "",
-"functions": [{
-"function_name": "navigate_to",
-"parameters": [{
-"type": 1,
-"value": "4080,0"
-}]
-}],
-"next_function_time": 12.0,
-"title": "Go To Police Station"
-}
-
-[sub_resource type="Resource" id="Resource_c4boh"]
+[sub_resource type="Resource" id="Resource_qghho"]
 script = ExtResource("1_6c8ny")
 name = "GraphNode5"
 position_offset = Vector2(1400, 0)
-size = Vector2(404.4, 569.9)
+size = Vector2(475.79, 924)
 data = {
 "alt_paths": [],
 "description": "",
@@ -48,17 +29,103 @@ data = {
 "parameters": [{
 "type": 1,
 "value": "-12,1740"
+}, {
+"type": 0,
+"value": "res://characters/npc/main_characters/colleague/dialogue/act1/kai_dialogue.dialogue"
+}, {
+"type": 0,
+"value": "Kai_Organization_ID_Rejection"
+}]
+}, {
+"function_name": "set_dialogue_resource",
+"parameters": [{
+"type": 0,
+"value": "res://characters/npc/main_characters/colleague/dialogue/act1/kai_dialogue.dialogue"
+}, {
+"type": 0,
+"value": "kai_going_to_organization"
 }]
 }],
 "next_function_time": 19.0,
 "title": "Go To Organization"
 }
 
-[sub_resource type="Resource" id="Resource_tmy00"]
+[sub_resource type="Resource" id="Resource_ethsr"]
+script = ExtResource("1_6c8ny")
+name = "GraphNode4"
+position_offset = Vector2(800, 0)
+size = Vector2(440.151, 924)
+data = {
+"alt_paths": [],
+"description": "",
+"functions": [{
+"function_name": "navigate_to",
+"parameters": [{
+"type": 1,
+"value": "4405,-170"
+}, {
+"type": 0,
+"value": "res://characters/npc/main_characters/colleague/dialogue/act1/kai_dialogue.dialogue"
+}, {
+"type": 0,
+"value": "kai_office_idle_rambling"
+}]
+}, {
+"function_name": "set_dialogue_resource",
+"parameters": [{
+"type": 0,
+"value": "res://characters/npc/main_characters/colleague/dialogue/act1/kai_dialogue.dialogue"
+}, {
+"type": 0,
+"value": "kai_moving"
+}]
+}],
+"next_function_time": 18.0,
+"title": "Go To Boss Office"
+}
+
+[sub_resource type="Resource" id="Resource_nf6gi"]
+script = ExtResource("1_6c8ny")
+name = "GraphNode3"
+position_offset = Vector2(260, 0)
+size = Vector2(408.872, 1112)
+data = {
+"alt_paths": [],
+"description": "",
+"functions": [{
+"function_name": "navigate_to",
+"parameters": [{
+"type": 1,
+"value": "4080,0"
+}, {
+"type": 0,
+"value": "res://characters/npc/main_characters/colleague/dialogue/act1/kai_dialogue.dialogue"
+}, {
+"type": 0,
+"value": "kai_police_officer_calming"
+}]
+}, {
+"function_name": "set_dialogue_resource",
+"parameters": [{
+"type": 0,
+"value": "res://characters/npc/main_characters/colleague/dialogue/act1/kai_dialogue.dialogue"
+}, {
+"type": 0,
+"value": "kai_moving"
+}]
+}, {
+"function_name": "",
+"parameters": []
+}],
+"next_function_time": 12.0,
+"title": "Go To Police Station"
+}
+
+[sub_resource type="Resource" id="Resource_irgvj"]
 script = ExtResource("1_6c8ny")
 name = "GraphNode6"
-position_offset = Vector2(1900, 0)
-size = Vector2(451.701, 564)
+position_offset = Vector2(2000, 0)
+size = Vector2(451.701, 836)
 data = {
 "alt_paths": [],
 "description": "",
@@ -68,33 +135,23 @@ data = {
 "type": 1,
 "value": "2000,2000"
 }]
+}, {
+"function_name": "set_dialogue_resource",
+"parameters": [{
+"type": 0,
+"value": "res://characters/npc/main_characters/colleague/dialogue/act1/kai_dialogue.dialogue"
+}, {
+"type": 0,
+"value": "kai_office_forgot_badge"
+}]
 }],
 "next_function_time": 0.0,
 "title": "Go Home"
 }
 
-[sub_resource type="Resource" id="Resource_5eryg"]
-script = ExtResource("1_6c8ny")
-name = "GraphNode4"
-position_offset = Vector2(800, 0)
-size = Vector2(440.15, 578.37)
-data = {
-"alt_paths": [],
-"description": "",
-"functions": [{
-"function_name": "navigate_to",
-"parameters": [{
-"type": 1,
-"value": "4405,-170"
-}]
-}],
-"next_function_time": 18.0,
-"title": "Go To Boss Office"
-}
-
 [resource]
 script = ExtResource("1_q6066")
-connections = [{
+connections = Array[Dictionary]([{
 "from_node": &"GraphNode2",
 "from_port": 0,
 "to_node": &"GraphNode3",
@@ -114,5 +171,5 @@ connections = [{
 "from_port": 0,
 "to_node": &"GraphNode6",
 "to_port": 0
-}]
-nodes = [SubResource("Resource_i5kdg"), SubResource("Resource_ong0t"), SubResource("Resource_c4boh"), SubResource("Resource_tmy00"), SubResource("Resource_5eryg")]
+}])
+nodes = [SubResource("Resource_b5w1l"), SubResource("Resource_qghho"), SubResource("Resource_ethsr"), SubResource("Resource_nf6gi"), SubResource("Resource_irgvj")]
