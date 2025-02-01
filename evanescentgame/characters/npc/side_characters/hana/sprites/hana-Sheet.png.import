@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by36ty2vjt2b"
-path="res://.godot/imported/policeofficer3_neutral.png-97de651389fafc75c6a8c7e34467c7df.ctex"
+uid="uid://uaqndxgk6ced"
+path="res://.godot/imported/hana-Sheet.png-3810b70db78881b5db37172c1aac7017.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/portraits/policeofficer3/policeofficer3_neutral.png"
-dest_files=["res://.godot/imported/policeofficer3_neutral.png-97de651389fafc75c6a8c7e34467c7df.ctex"]
+source_file="res://characters/npc/side_characters/hana/sprites/hana-Sheet.png"
+dest_files=["res://.godot/imported/hana-Sheet.png-3810b70db78881b5db37172c1aac7017.ctex"]
 
 [params]
 

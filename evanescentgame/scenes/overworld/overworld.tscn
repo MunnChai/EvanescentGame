@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cpiebxlknogvc"]
+[gd_scene load_steps=31 format=3 uid="uid://cpiebxlknogvc"]
 
 [ext_resource type="Script" path="res://scenes/overworld/overworld_manager.gd" id="1_5y34q"]
 [ext_resource type="PackedScene" uid="uid://brm7k4yr1lcxw" path="res://characters/player/player.tscn" id="1_juc8k"]
@@ -26,6 +26,8 @@
 [ext_resource type="Texture2D" uid="uid://coo8346yigqbu" path="res://characters/npc/side_characters/police_officer_2/sprites/police_officer_2-Sheet.png" id="17_p2rkf"]
 [ext_resource type="PackedScene" uid="uid://cl5gkwuo31l6q" path="res://characters/npc/side_characters/security_guard/security_guard.tscn" id="20_80hk3"]
 [ext_resource type="Texture2D" uid="uid://038gtuwjy82v" path="res://characters/npc/side_characters/office_worker_1/sprites/office_worker_1-Sheet.png" id="20_tyuru"]
+[ext_resource type="Texture2D" uid="uid://uaqndxgk6ced" path="res://characters/npc/side_characters/hana/sprites/hana-Sheet.png" id="20_v8nts"]
+[ext_resource type="Texture2D" uid="uid://dv3y3r012y7v3" path="res://characters/npc/side_characters/samuel/sprites/samuel-Sheet.png" id="22_rvkyr"]
 [ext_resource type="PackedScene" uid="uid://bwsvbhi5lv3pd" path="res://ui/player_interface/info_log/info_log.tscn" id="29_m3j4v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g7oad"]
@@ -121,11 +123,17 @@ graph_data = ExtResource("16_tnkbj")
 starting_dialogue_resource = ExtResource("7_hwc6d")
 current_dialogue_title = "dawn_and_kids_mingling"
 
+[node name="Sprite2D" parent="World/NPCs/Hana" index="0"]
+texture = ExtResource("20_v8nts")
+
 [node name="Samuel" parent="World/NPCs" instance=ExtResource("7_ow5sy")]
 position = Vector2(96, 19)
 graph_data = ExtResource("17_j7ao7")
 starting_dialogue_resource = ExtResource("7_hwc6d")
 current_dialogue_title = "dawn_and_kids_mingling"
+
+[node name="Sprite2D" parent="World/NPCs/Samuel" index="0"]
+texture = ExtResource("22_rvkyr")
 
 [node name="PoliceStation" type="Node2D" parent="World/NPCs"]
 
@@ -248,6 +256,8 @@ mouse_filter = 1
 [editable path="World/NPCs/Carlos"]
 [editable path="World/NPCs/Police1"]
 [editable path="World/NPCs/Police2"]
+[editable path="World/NPCs/Hana"]
+[editable path="World/NPCs/Samuel"]
 [editable path="World/NPCs/PoliceStation/FrontDeskWorker"]
 [editable path="World/NPCs/PoliceStation/PoliceOfficer1"]
 [editable path="World/NPCs/PoliceStation/PoliceOfficer2"]
