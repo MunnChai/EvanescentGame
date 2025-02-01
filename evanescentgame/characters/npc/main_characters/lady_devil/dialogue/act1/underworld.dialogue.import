@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://dxsn1bxcnt7jv"
+path="res://.godot/imported/underworld.dialogue-55216b1f20c2f1b3a6f30ed15d740b41.tres"
+
+[deps]
+
+source_file="res://characters/npc/main_characters/lady_devil/dialogue/act1/underworld.dialogue"
+dest_files=["res://.godot/imported/underworld.dialogue-55216b1f20c2f1b3a6f30ed15d740b41.tres"]
+
+[params]
+
+defaults=true

@@ -1,22 +1,9 @@
-[gd_resource type="Resource" script_class="DecisionTreeGraphData" load_steps=8 format=3 uid="uid://c8hn8b6qhfcrc"]
+[gd_resource type="Resource" script_class="DecisionTreeGraphData" load_steps=9 format=3 uid="uid://c8hn8b6qhfcrc"]
 
 [ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_node_resource.gd" id="1_6c8ny"]
 [ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_resource.gd" id="1_q6066"]
 
-[sub_resource type="Resource" id="Resource_b5w1l"]
-script = ExtResource("1_6c8ny")
-name = "GraphNode2"
-position_offset = Vector2(0, 0)
-size = Vector2(180.003, 340)
-data = {
-"alt_paths": [],
-"description": "",
-"functions": [],
-"next_function_time": 9.5,
-"title": "Start"
-}
-
-[sub_resource type="Resource" id="Resource_qghho"]
+[sub_resource type="Resource" id="Resource_8un63"]
 script = ExtResource("1_6c8ny")
 name = "GraphNode5"
 position_offset = Vector2(1400, 0)
@@ -50,7 +37,7 @@ data = {
 "title": "Go To Organization"
 }
 
-[sub_resource type="Resource" id="Resource_ethsr"]
+[sub_resource type="Resource" id="Resource_xyg26"]
 script = ExtResource("1_6c8ny")
 name = "GraphNode4"
 position_offset = Vector2(800, 0)
@@ -84,7 +71,70 @@ data = {
 "title": "Go To Boss Office"
 }
 
-[sub_resource type="Resource" id="Resource_nf6gi"]
+[sub_resource type="Resource" id="Resource_7js5t"]
+script = ExtResource("1_6c8ny")
+name = "GraphNode6"
+position_offset = Vector2(2000, 0)
+size = Vector2(451.701, 836)
+data = {
+"alt_paths": [],
+"description": "",
+"functions": [{
+"function_name": "",
+"parameters": [{
+"type": 1,
+"value": "2000,2000"
+}]
+}, {
+"function_name": "set_dialogue_resource",
+"parameters": [{
+"type": 0,
+"value": "res://characters/npc/main_characters/colleague/dialogue/act1/kai_dialogue.dialogue"
+}, {
+"type": 0,
+"value": "kai_office_forgot_badge"
+}]
+}],
+"next_function_time": 0.0,
+"title": "Go Home"
+}
+
+[sub_resource type="Resource" id="Resource_u5fwe"]
+script = ExtResource("1_6c8ny")
+name = "GraphNode2"
+position_offset = Vector2(-600, 0)
+size = Vector2(180.006, 340)
+data = {
+"alt_paths": [],
+"description": "",
+"functions": [],
+"next_function_time": 9.25,
+"title": "Start"
+}
+
+[sub_resource type="Resource" id="Resource_hh0y4"]
+script = ExtResource("1_6c8ny")
+name = "GraphNode7"
+position_offset = Vector2(-360, 0)
+size = Vector2(474.238, 757.338)
+data = {
+"alt_paths": [],
+"description": "",
+"functions": [{
+"function_name": "set_dialogue_resource",
+"parameters": [{
+"type": 0,
+"value": "res://characters/npc/main_characters/colleague/dialogue/act1/kai_dialogue.dialogue"
+}, {
+"type": 0,
+"value": "kai_moving"
+}]
+}],
+"next_function_time": 9.5,
+"title": ""
+}
+
+[sub_resource type="Resource" id="Resource_v6sa2"]
 script = ExtResource("1_6c8ny")
 name = "GraphNode3"
 position_offset = Vector2(260, 0)
@@ -121,42 +171,9 @@ data = {
 "title": "Go To Police Station"
 }
 
-[sub_resource type="Resource" id="Resource_irgvj"]
-script = ExtResource("1_6c8ny")
-name = "GraphNode6"
-position_offset = Vector2(2000, 0)
-size = Vector2(451.701, 836)
-data = {
-"alt_paths": [],
-"description": "",
-"functions": [{
-"function_name": "",
-"parameters": [{
-"type": 1,
-"value": "2000,2000"
-}]
-}, {
-"function_name": "set_dialogue_resource",
-"parameters": [{
-"type": 0,
-"value": "res://characters/npc/main_characters/colleague/dialogue/act1/kai_dialogue.dialogue"
-}, {
-"type": 0,
-"value": "kai_office_forgot_badge"
-}]
-}],
-"next_function_time": 0.0,
-"title": "Go Home"
-}
-
 [resource]
 script = ExtResource("1_q6066")
 connections = [{
-"from_node": &"GraphNode2",
-"from_port": 0,
-"to_node": &"GraphNode3",
-"to_port": 0
-}, {
 "from_node": &"GraphNode3",
 "from_port": 0,
 "to_node": &"GraphNode4",
@@ -171,5 +188,15 @@ connections = [{
 "from_port": 0,
 "to_node": &"GraphNode6",
 "to_port": 0
+}, {
+"from_node": &"GraphNode2",
+"from_port": 0,
+"to_node": &"GraphNode7",
+"to_port": 0
+}, {
+"from_node": &"GraphNode7",
+"from_port": 0,
+"to_node": &"GraphNode3",
+"to_port": 0
 }]
-nodes = [SubResource("Resource_b5w1l"), SubResource("Resource_qghho"), SubResource("Resource_ethsr"), SubResource("Resource_nf6gi"), SubResource("Resource_irgvj")]
+nodes = [SubResource("Resource_8un63"), SubResource("Resource_xyg26"), SubResource("Resource_7js5t"), SubResource("Resource_u5fwe"), SubResource("Resource_hh0y4"), SubResource("Resource_v6sa2")]

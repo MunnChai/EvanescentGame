@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://pn7c6of06dtg"]
+[gd_scene load_steps=37 format=3 uid="uid://pn7c6of06dtg"]
 
 [ext_resource type="PackedScene" uid="uid://mongwlhd8cu0" path="res://ui/player_interface/ingame_clock/ingame_ui.tscn" id="1_6fnfr"]
 [ext_resource type="PackedScene" uid="uid://h5oxlt67k8c7" path="res://ui/in_game_menus/pause_menu/pause_menu.tscn" id="2_qpipa"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://bgi815od7dyhb" path="res://scenes/underworld/sprites/decorations/displays/display_03.png" id="20_cvuh5"]
 [ext_resource type="TileSet" uid="uid://b60fnsxwrj84a" path="res://scenes/underworld/tilesets/underworld_lady_devil.tres" id="21_6iyqw"]
 [ext_resource type="TileSet" uid="uid://5q5lp4i637d7" path="res://scenes/underworld/tilesets/underworld_lady_devil_decor.tres" id="22_s6joj"]
+[ext_resource type="Resource" uid="uid://dxsn1bxcnt7jv" path="res://characters/npc/main_characters/lady_devil/dialogue/act1/underworld.dialogue" id="25_4jhpt"]
 [ext_resource type="TileSet" uid="uid://d3xux7tri3eye" path="res://scenes/underworld/tilesets/underworld.tres" id="25_sl5y7"]
 [ext_resource type="PackedScene" uid="uid://cl8kobrguc04e" path="res://scenes/scene_components/background_door/background_door.tscn" id="27_5eoon"]
 [ext_resource type="PackedScene" uid="uid://ceyeqghg7xwnv" path="res://characters/npc/main_characters/lady_devil/devil.tscn" id="28_067ic"]
@@ -260,12 +261,17 @@ shape = SubResource("RectangleShape2D_huq7v")
 
 [node name="Devil" parent="World/LadyDevilOffice" instance=ExtResource("28_067ic")]
 position = Vector2(2069, -60)
+dialogue_key = "Loop_Back_Underworld"
+starting_dialogue_resource = ExtResource("25_4jhpt")
 
 [node name="Sprite2D" parent="World/LadyDevilOffice/Devil" index="0"]
 frame = 0
 
 [node name="CollisionShape2D" parent="World/LadyDevilOffice/Devil/InteractableArea" index="1"]
 position = Vector2(-13, 16.6563)
+
+[node name="DialogueEmitter" parent="World/LadyDevilOffice/Devil" index="3"]
+dialogue_resource = ExtResource("25_4jhpt")
 
 [node name="DevilPodium" type="StaticBody2D" parent="World/LadyDevilOffice"]
 visible = false
@@ -290,7 +296,7 @@ unique_name_in_owner = true
 position = Vector2(2003, -59)
 
 [node name="OverworldPipe" parent="World" instance=ExtResource("28_tqk4k")]
-position = Vector2(2004, -96)
+position = Vector2(2156, -192)
 
 [node name="AudioTrigger" parent="World" instance=ExtResource("29_kr2k2")]
 visible = false
