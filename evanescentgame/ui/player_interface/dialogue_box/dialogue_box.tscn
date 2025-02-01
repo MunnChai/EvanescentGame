@@ -118,9 +118,9 @@ fill_to = Vector2(0, 1)
 texture = SubResource("GradientTexture2D_46ymv")
 
 [node name="DialogueBox" type="CanvasLayer"]
-process_mode = 3
-layer = 100
+layer = 0
 script = ExtResource("1_dwrcf")
+skip_action = &"ui_accept"
 
 [node name="Hidden" type="Node2D" parent="."]
 position = Vector2(2.08165e-12, -87)

@@ -1,6 +1,6 @@
 extends Control
 
-@onready var animation_player = $AnimationPlayer
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var options_menu = $OptionsMenu
 @onready var panel_container = $PanelContainer
 
@@ -22,6 +22,13 @@ func pause():
 	get_tree().paused = true
 	#self.show()
 	animation_player.play("blur")
+	animation_player.animation_finished.connect(
+		func():
+			for callback in animation_player.animation_finished.get_connections():
+				animation_player.animation_finished.disconnect(callback)
+			
+			hide()
+	)
 
 func escPressed():
 	if Input.is_action_just_pressed("esc") and !get_tree().paused:

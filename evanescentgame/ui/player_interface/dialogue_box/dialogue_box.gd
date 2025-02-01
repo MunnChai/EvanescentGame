@@ -161,11 +161,15 @@ var true_character_name: String = ""
 @onready var responses_menu: DialogueResponsesMenu = %ResponsesMenu
 
 func _show_balloon() -> void:
+	var clock = get_tree().get_first_node_in_group("clock")
+	clock.pause_time()
 	get_tree().create_tween().tween_property(dialogue_box_control, "position", visible_anchor.position, 0.3).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 func _hide_balloon() -> void:
 	get_tree().create_tween().tween_property(dialogue_box_control, "position", hidden_anchor.position, 0.15).set_ease(Tween.EASE_OUT)
 	await get_tree().create_timer(0.15).timeout
 	queue_free()
+	var clock = get_tree().get_first_node_in_group("clock")
+	clock.resume_time()
 
 func _ready() -> void:
 	balloon.hide()
@@ -202,6 +206,7 @@ func start(dialogue_resource: DialogueResource, title: String, extra_game_states
 	# ANIMATE SHOW UP
 	balloon.show()
 	_show_balloon()
+	
 	
 	self.dialogue_line = await resource.get_next_dialogue_line(title, temporary_game_states)
 

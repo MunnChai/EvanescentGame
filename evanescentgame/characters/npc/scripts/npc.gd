@@ -158,6 +158,11 @@ func update_current_location():
 		return
 
 func handle_npc_movement(delta: float):
+	var clock = get_tree().get_first_node_in_group("clock")
+	if (clock.clock.timer.paused): # Munn: this line makes me want to HURL lol
+		velocity = Vector2(0, 0)
+		return
+	
 	# Apply gravity
 	if (not is_on_floor()):
 		velocity.y += GRAVITY * delta
