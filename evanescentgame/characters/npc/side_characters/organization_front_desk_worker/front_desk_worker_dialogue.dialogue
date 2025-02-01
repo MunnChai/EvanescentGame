@@ -1,0 +1,34 @@
+~ Front_Desk_Worker
+if PlayerInfo.get_currently_possessed_npc_name() == ""
+	Evan[neutral]: A front desk worker. He looks like he hates his job.
+	Lady Devil[neutral]: At least he’s not dead. [wait=0.25] Yet.
+	Evan[disappointed]: …
+	Lady Devil[neutral]: What? I’m just being realistic.
+elif PlayerInfo.get_currently_possessed_npc_name() == "Dawn"
+	Office_Worker~Front Desk Worker[neutral]: Greetings, customer! Welcome to the Organization!
+	Office_Worker~Front Desk Worker[neutral]: Oh, it’s just you. Hurry up and get back to work already. 
+	Lady Devil[disappointed]: What an attitude. I’m sure I’ll be meeting him soon. 
+elif PlayerInfo.get_currently_possessed_npc_name() == "Carlos"
+	Office_Worker~Front Desk Worker[neutral]: Greetings, customer! Welcome to the Organization!
+	Office_Worker~Front Desk Worker[neutral]: Oh, it’s just you. Hurry up and get back to work already. 
+	Lady Devil[disappointed]: What an attitude. I’m sure I’ll be meeting him soon. 
+elif PlayerInfo.get_currently_possessed_npc_name() == "Kai"
+	Office_Worker~Front Desk Worker[neutral]: Oh, it’s you again. Got your badge this time? 
+	Evan[neutral]: Badge? Uh…
+	- Here you go. [if PlayerInfo.is_currently_possessed_npc_holding("organization_badge")]
+		Office_Worker~Front Desk Worker[neutral]: Hmm… Looks about right. Head on in then. 
+	- Uhh… 
+		Office_Worker~Front Desk Worker[neutral]: That’s what I thought. Do you even work here?
+=> END
+
+~ Kai_Organization_ID_Trigger
+Office_Worker~Front Desk Worker[neutral]: Greetings, customer! Welcome to the Organization! How may I help you today?
+Kai[neutral]: Hello. I’m here for an appointment.
+Office_Worker~Front Desk Worker[neutral]: Of course! May I please scan your Organization ID?
+if PlayerInfo.is_currently_possessed_npc_holding("organization_badge")
+	Kai[neutral]: Of course. Here you go.
+	Office_Worker~Front Desk Worker[neutral]: Perfect! You’re good to go, sir. The Organization wishes you a pleasant evening!
+else
+	Kai[neutral]: I’m sorry, I don’t have one on me.
+	Office_Worker~Front Desk Worker[neutral]: My apologies, sir. We only provide service to those with sanctioned Organization IDs. Please return with a valid Organization ID.
+=> END

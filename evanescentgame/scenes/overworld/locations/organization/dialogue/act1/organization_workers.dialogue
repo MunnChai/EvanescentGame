@@ -1,26 +1,3 @@
-~ Front_Desk_Worker
-if PlayerInfo.get_currently_possessed_npc_name() == ""
-	Evan[neutral]: A front desk worker. He looks like he hates his job.
-	Lady Devil[neutral]: At least he’s not dead. [wait=0.25] Yet.
-	Evan[disappointed]: …
-	Lady Devil[neutral]: What? I’m just being realistic.
-elif PlayerInfo.get_currently_possessed_npc_name() == "Dawn"
-	Office_Worker~Front Desk Worker[neutral]: Greetings, customer! Welcome to the Organization!
-	Office_Worker~Front Desk Worker[neutral]: Oh, it’s just you. Hurry up and get back to work already. 
-	Lady Devil[disappointed]: What an attitude. I’m sure I’ll be meeting him soon. 
-elif PlayerInfo.get_currently_possessed_npc_name() == "Carlos"
-	Office_Worker~Front Desk Worker[neutral]: Greetings, customer! Welcome to the Organization!
-	Office_Worker~Front Desk Worker[neutral]: Oh, it’s just you. Hurry up and get back to work already. 
-	Lady Devil[disappointed]: What an attitude. I’m sure I’ll be meeting him soon. 
-elif PlayerInfo.get_currently_possessed_npc_name() == "Kai"
-	Office_Worker~Front Desk Worker[neutral]: Oh, it’s you again. Got your badge this time? 
-	Evan[neutral]: Badge? Uh…
-	- Here you go. [if PlayerInfo.is_currently_possessed_npc_holding("organization_badge")]
-		Office_Worker~Front Desk Worker[neutral]: Hmm… Looks about right. Head on in then. 
-	- Uhh… 
-		Office_Worker~Front Desk Worker[neutral]: That’s what I thought. Do you even work here?
-=> END
-
 ~ hustler_break
 Office_Worker~Resting Hustler[neutral]: Hmm... any protein bars in the vending machine?
 => END

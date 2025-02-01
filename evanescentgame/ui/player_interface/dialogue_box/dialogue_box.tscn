@@ -306,7 +306,7 @@ bus = &"Voicelines"
 stream = ExtResource("8_dyulh")
 bus = &"Voicelines"
 
-[node name="OfficeWorker" type="AudioStreamPlayer" parent="AudioManager"]
+[node name="Office_Worker" type="AudioStreamPlayer" parent="AudioManager"]
 stream = ExtResource("14_osavi")
 bus = &"Voicelines"
 

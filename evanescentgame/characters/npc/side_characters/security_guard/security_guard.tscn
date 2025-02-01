@@ -1,14 +1,16 @@
 [gd_scene load_steps=5 format=3 uid="uid://cl5gkwuo31l6q"]
 
 [ext_resource type="PackedScene" uid="uid://ccwc4s7e5nmbf" path="res://characters/npc/npc.tscn" id="1_07fr3"]
-[ext_resource type="Resource" uid="uid://bno7b40dxfj5p" path="res://characters/npc/side_characters/security_guard/dialogue/player_entered_trigger.dialogue" id="2_1nd6m"]
 [ext_resource type="PackedScene" uid="uid://bqgtjd0dskmjr" path="res://scenes/scene_components/locational_dialogue_trigger/security_guard_dialogue_trigger.tscn" id="2_61n5w"]
 [ext_resource type="Script" path="res://characters/npc/side_characters/security_guard/security_guard.gd" id="2_oicl3"]
+[ext_resource type="Resource" uid="uid://bno7b40dxfj5p" path="res://characters/npc/side_characters/security_guard/dialogue/security_guard.dialogue" id="3_5n3wc"]
 
 [node name="SecurityGuard" instance=ExtResource("1_07fr3")]
 script = ExtResource("2_oicl3")
-trigger_dialogue = ExtResource("2_1nd6m")
+trigger_dialogue = ExtResource("3_5n3wc")
 trigger_default_title = "normal_player_entered"
 push_direction = -1.0
+starting_dialogue_resource = ExtResource("3_5n3wc")
+current_dialogue_title = "evan_inspect"
 
 [node name="SecurityGuardDialogueTrigger" parent="." index="10" instance=ExtResource("2_61n5w")]
