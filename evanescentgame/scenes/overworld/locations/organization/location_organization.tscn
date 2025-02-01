@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://4r3quu36axff"]
+[gd_scene load_steps=35 format=3 uid="uid://4r3quu36axff"]
 
 [ext_resource type="PackedScene" uid="uid://blp4jjwokkgxj" path="res://scenes/overworld/locations/location.tscn" id="1_axd6r"]
 [ext_resource type="Texture2D" uid="uid://wcum77puehl7" path="res://scenes/overworld/locations/organization/sprites/organization_decor.png" id="2_eqbyb"]
@@ -10,7 +10,9 @@
 [ext_resource type="Resource" uid="uid://cuk7sqbgiheqo" path="res://scenes/overworld/locations/organization/dialogue/act1/vending_machine.dialogue" id="6_f3mrb"]
 [ext_resource type="PackedScene" uid="uid://cl8kobrguc04e" path="res://scenes/scene_components/background_door/background_door.tscn" id="7_rs4n1"]
 [ext_resource type="PackedScene" uid="uid://cmkxuretreki0" path="res://scenes/scene_components/act_1_end/act_1_end.tscn" id="8_rnbc8"]
+[ext_resource type="PackedScene" uid="uid://bha8jx12sacir" path="res://scenes/scene_components/inspectable_area/inspectable_area.tscn" id="9_nkn1l"]
 [ext_resource type="PackedScene" uid="uid://hkq87e11fer7" path="res://scenes/scene_components/audio_trigger/audio_trigger.tscn" id="9_whmpe"]
+[ext_resource type="Resource" uid="uid://cxn6v56osk4yc" path="res://scenes/overworld/locations/organization/dialogue/act1/organization_inspectables.dialogue" id="10_1idun"]
 [ext_resource type="AudioStream" uid="uid://dqo0jvbnxm2hc" path="res://scenes/overworld/locations/organization/audio/sfx/Organization.mp3" id="10_geitr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_852ps"]
@@ -1214,6 +1216,11 @@ sources/1 = SubResource("TileSetAtlasSource_8py2o")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xv06v"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tgwwh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3uhm7"]
+size = Vector2(46, 31)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xmaof"]
 size = Vector2(47, 40.5)
 
@@ -1583,6 +1590,31 @@ shape = SubResource("RectangleShape2D_xv06v")
 [node name="Keypad" parent="Inspectables/VendingMachine" index="3" instance=ExtResource("5_mb7ua")]
 visible = false
 
+[node name="Floor2DeskPaper" parent="Inspectables" index="2" instance=ExtResource("9_nkn1l")]
+position = Vector2(-46, -281)
+dialogue_resource = ExtResource("10_1idun")
+dialogue_title = "desk_paper_stack"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inspectables/Floor2DeskPaper/InteractableArea" index="1"]
+shape = SubResource("RectangleShape2D_tgwwh")
+
+[node name="Floor2Posters" parent="Inspectables" index="3" instance=ExtResource("9_nkn1l")]
+position = Vector2(36, -312)
+dialogue_resource = ExtResource("10_1idun")
+dialogue_title = "floor_two_posters"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inspectables/Floor2Posters/InteractableArea" index="1"]
+shape = SubResource("RectangleShape2D_tgwwh")
+
+[node name="Floor11Window" parent="Inspectables" index="4" instance=ExtResource("9_nkn1l")]
+position = Vector2(-20, -626)
+dialogue_resource = ExtResource("10_1idun")
+dialogue_title = "floor_eleven_window"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inspectables/Floor11Window/InteractableArea" index="1"]
+position = Vector2(-1, -4.5)
+shape = SubResource("RectangleShape2D_3uhm7")
+
 [node name="Items" type="Node2D" parent="." index="6"]
 
 [node name="LocationExit" parent="." index="7"]
@@ -1732,6 +1764,9 @@ navigation_polygon = SubResource("NavigationPolygon_sahpq")
 [connection signal="correct_code_inputted" from="Inspectables/VendingMachine/Keypad" to="Inspectables/VendingMachine" method="disable"]
 
 [editable path="Inspectables/Act1End"]
+[editable path="Inspectables/Floor2DeskPaper"]
+[editable path="Inspectables/Floor2Posters"]
+[editable path="Inspectables/Floor11Window"]
 [editable path="LocationExit"]
 [editable path="Rooms/GroundFloor/Up"]
 [editable path="Rooms/Floor2/Down"]

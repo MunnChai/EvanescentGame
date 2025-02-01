@@ -414,6 +414,7 @@ region_rect = Rect2(112, 8, 16, 16)
 position = Vector2(400, -181)
 dialogue_resource = ExtResource("5_pw5um")
 dialogue_title = "kai_computer"
+requires_human = true
 
 [node name="InteractableArea" parent="Inspectables/KaiComputer" index="0"]
 position = Vector2(-2, 0)
@@ -484,7 +485,6 @@ position = Vector2(-68.5, -2.5)
 shape = SubResource("RectangleShape2D_0w1ir")
 
 [node name="Rooms" type="Node2D" parent="." index="8"]
-visible = false
 
 [node name="Lobby" type="CollisionShape2D" parent="Rooms" index="0"]
 position = Vector2(-160, 224)

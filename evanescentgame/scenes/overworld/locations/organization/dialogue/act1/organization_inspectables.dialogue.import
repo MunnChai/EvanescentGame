@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://cxn6v56osk4yc"
+path="res://.godot/imported/organization_inspectables.dialogue-02815db381345bec42d003eafe08c996.tres"
+
+[deps]
+
+source_file="res://scenes/overworld/locations/organization/dialogue/act1/organization_inspectables.dialogue"
+dest_files=["res://.godot/imported/organization_inspectables.dialogue-02815db381345bec42d003eafe08c996.tres"]
+
+[params]
+
+defaults=true

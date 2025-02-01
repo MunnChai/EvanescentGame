@@ -1,0 +1,16 @@
+~ desk_paper_stack
+Evan[neutral]: That’s a lot of paperwork. 
+Lady Devil[neutral]: Last time I had that much paperwork was when that big asteroid hit Earth 60 million years ago. What a mess.
+Evan[neutral]: You mean… the dinosaurs?
+Lady Devil[disappointed]: What, you think only humans go to the underworld after they die? 
+=> END
+
+~ floor_two_posters
+Evan[neutral]: These posters on the wall are truly… 
+Lady Devil[neutral]: Inspiring! Whoever made these should come work for me. 
+Evan[disappointed]: I was going to say depressing, but I suppose it’s only normal that we have slightly differing perspectives.
+=> END
+
+~ floor_eleven_window
+Evan[neutral]: What a nice view. We’re really high up. 
+=> END
