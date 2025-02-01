@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://qxsjk3i2orwj"]
+[gd_scene load_steps=42 format=3 uid="uid://qxsjk3i2orwj"]
 
 [ext_resource type="PackedScene" uid="uid://blp4jjwokkgxj" path="res://scenes/overworld/locations/location.tscn" id="1_7ytg5"]
 [ext_resource type="Texture2D" uid="uid://cg2yfkgyo5n3v" path="res://scenes/overworld/locations/evan_house/sprites/evan_house_decor.png" id="2_reaws"]
@@ -10,10 +10,11 @@
 [ext_resource type="Resource" uid="uid://caddivrytwx6x" path="res://scenes/overworld/locations/evan_house/dialogue/act1/evan_house_inspectables.dialogue" id="5_fhpyn"]
 [ext_resource type="PackedScene" uid="uid://bpqo103lmn4jo" path="res://scenes/scene_components/item/item.tscn" id="7_of7jl"]
 [ext_resource type="PackedScene" uid="uid://hkq87e11fer7" path="res://scenes/scene_components/audio_trigger/audio_trigger.tscn" id="7_rovqt"]
-[ext_resource type="Texture2D" uid="uid://exgq5mtiik4j" path="res://ui/player_interface/inventory/test_items/apple-icon.png" id="8_tgev4"]
+[ext_resource type="Texture2D" uid="uid://box1ruceqk20s" path="res://scenes/overworld/locations/evan_house/sprites/key.png" id="8_hhscf"]
 [ext_resource type="PackedScene" uid="uid://4hqpq82crn7i" path="res://scenes/scene_components/background_door/locked_door/locked_door.tscn" id="8_vk5ok"]
 [ext_resource type="AudioStream" uid="uid://67rfsmca0rek" path="res://scenes/overworld/locations/evan_house/audio/sfx/EvanHouse.mp3" id="8_y4ms2"]
 [ext_resource type="Resource" uid="uid://b7hk2dcxiy2pp" path="res://scenes/overworld/locations/evan_house/dialogue/act1/evan_house_locked_doors.dialogue" id="9_j3it2"]
+[ext_resource type="Texture2D" uid="uid://klmrifx6qbww" path="res://scenes/overworld/locations/evan_house/sprites/organization_badge.png" id="9_p82bq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j5goi"]
 texture = ExtResource("2_reaws")
@@ -551,12 +552,12 @@ position = Vector2(1, 3)
 position = Vector2(148, 70)
 
 [node name="DawnRoomKey" parent="Items" index="0" instance=ExtResource("7_of7jl")]
-position = Vector2(-15, -57)
+position = Vector2(-15, -55)
 item_id = "master_bedroom"
 dialogue_key = "dawn_room_key"
 
 [node name="Sprite2D" parent="Items/DawnRoomKey" index="0"]
-texture = ExtResource("8_tgev4")
+texture = ExtResource("8_hhscf")
 
 [node name="DialogueEmitter" parent="Items/DawnRoomKey" index="2"]
 dialogue_resource = ExtResource("5_fhpyn")
@@ -567,7 +568,7 @@ position = Vector2(-448, -352)
 dialogue_key = "organization_badge"
 
 [node name="Sprite2D" parent="Items/OrganizationBadge" index="0"]
-texture = ExtResource("8_tgev4")
+texture = ExtResource("9_p82bq")
 
 [node name="DialogueEmitter" parent="Items/OrganizationBadge" index="2"]
 dialogue_resource = ExtResource("5_fhpyn")
@@ -587,6 +588,7 @@ position = Vector2(-37.5, -156)
 shape = SubResource("RectangleShape2D_qscap")
 
 [node name="Rooms" type="Node2D" parent="." index="9"]
+visible = false
 
 [node name="Downstairs" type="CollisionShape2D" parent="Rooms" index="0"]
 position = Vector2(64, 0)
