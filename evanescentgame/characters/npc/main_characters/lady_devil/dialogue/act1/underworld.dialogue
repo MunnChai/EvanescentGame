@@ -3,7 +3,6 @@ Lady Devil[neutral]: What is it?
 - What the hell was that? => Overworld_Exposition
 - Why am I back here? => Loop_Exposition
 - Let me go back. => Start_Loop
-- Nothing. => END
 
 ~ Overworld_Exposition
 Lady Devil[neutral]: It was the Overworld, duh.
