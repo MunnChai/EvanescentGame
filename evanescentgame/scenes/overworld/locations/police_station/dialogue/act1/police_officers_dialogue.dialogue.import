@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://bod5pmgdc2i4m"
+path="res://.godot/imported/police_officers_dialogue.dialogue-2380fbe9d08a9cab5f51f946e8551513.tres"
+
+[deps]
+
+source_file="res://scenes/overworld/locations/police_station/dialogue/act1/police_officers_dialogue.dialogue"
+dest_files=["res://.godot/imported/police_officers_dialogue.dialogue-2380fbe9d08a9cab5f51f946e8551513.tres"]
+
+[params]
+
+defaults=true

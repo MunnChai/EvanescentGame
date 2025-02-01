@@ -1,0 +1,21 @@
+~ front_desk_worker
+Police Officer 2~Front Desk Worker[neutral]: I can’t believe Evan’s really gone. He was always so… passionate. 
+Lady Devil[disappointed]: You? Passionate? I’m not sure I totally believe that. 
+Evan[neutral]: Hey, I’m sure I was plenty passionate when I was alive!
+Lady Devil[neutral]: Maybe when you were alive, but these days it’s looking a little rough…
+=> END
+
+~ break_room_police_officer
+Police Officer 1~Resting Police Officer[neutral]: Wow, it sure is hectic out there.
+Police Officer 1~Resting Police Officer[neutral]: But I need to focus on the important things… 
+Police Officer 1~Resting Police Officer[neutral]: What chips should I get?
+=> END
+
+~ panicked_officer_1
+Police Officer 2~Police Officer[neutral]: I can’t believe he’s dead! What are we gonna do??? 
+=> END
+
+~ panicked_officer_2
+Police Officer 1~Police Officer[neutral]: The cases are piling up, we don’t have enough officers, and worst of all…
+Police Officer 1~Police Officer[neutral]: I’m missing out on the 50% off everything sale at the grocery store!!!
+=> END

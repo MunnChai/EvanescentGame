@@ -1,7 +1,10 @@
 ~ master_bedroom_locked
-Evan[neutral]: It's locked...
+Evan[neutral]: It's locked... 
+Evan[neutral]: I'm a ghost. Can't I go through walls or something?
+Lady Devil[neutral]: Listen, you might be dead, but that doesn't mean you don't have to obey the laws of physics. 
 => END
 
 ~ master_bedroom_unlocked
 Evan[excited]: It unlocked!
+Evan[neutral]: I wonder what's in this room...
 => END

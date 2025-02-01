@@ -1,13 +1,13 @@
-[gd_resource type="Resource" script_class="DecisionTreeGraphData" load_steps=7 format=3 uid="uid://bxf53hnns3p22"]
+[gd_resource type="Resource" script_class="DecisionTreeGraphData" load_steps=7 format=3 uid="uid://dndf0r83nn4nc"]
 
 [ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_resource.gd" id="1_1ci4a"]
 [ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_node_resource.gd" id="1_fbh4p"]
 
-[sub_resource type="Resource" id="Resource_7l38f"]
+[sub_resource type="Resource" id="Resource_tadkw"]
 script = ExtResource("1_fbh4p")
 name = "GraphNode2"
 position_offset = Vector2(0, 0)
-size = Vector2(180, 340)
+size = Vector2(180.003, 340)
 data = {
 "alt_paths": [],
 "description": "",
@@ -16,11 +16,11 @@ data = {
 "title": "Start"
 }
 
-[sub_resource type="Resource" id="Resource_j2r6v"]
+[sub_resource type="Resource" id="Resource_blun4"]
 script = ExtResource("1_fbh4p")
 name = "GraphNode3"
 position_offset = Vector2(400, 0)
-size = Vector2(399.61, 609.395)
+size = Vector2(399.612, 1028)
 data = {
 "alt_paths": [],
 "description": "And to the room",
@@ -29,17 +29,32 @@ data = {
 "parameters": [{
 "type": 1,
 "value": "2249,-282"
+}, {
+"type": 0,
+"value": "res://characters/npc/side_characters/hana/dialogue/act1/hana_dialogue.dialogue"
+}, {
+"type": 0,
+"value": "evan_inspect_hana"
+}]
+}, {
+"function_name": "set_dialogue_resource",
+"parameters": [{
+"type": 0,
+"value": "res://characters/npc/side_characters/hana/dialogue/act1/hana_dialogue.dialogue"
+}, {
+"type": 0,
+"value": "hana_moving"
 }]
 }],
 "next_function_time": 18.0,
 "title": "Go Home"
 }
 
-[sub_resource type="Resource" id="Resource_xm7b2"]
+[sub_resource type="Resource" id="Resource_8lfsg"]
 script = ExtResource("1_fbh4p")
 name = "GraphNode4"
 position_offset = Vector2(1000, 0)
-size = Vector2(389.94, 611.44)
+size = Vector2(389.94, 924)
 data = {
 "alt_paths": [],
 "description": "",
@@ -48,17 +63,32 @@ data = {
 "parameters": [{
 "type": 1,
 "value": "2120,27"
+}, {
+"type": 0,
+"value": "res://scenes/overworld/locations/evan_house/dialogue/act1/evan_house_dawn_dialogue.dialogue"
+}, {
+"type": 0,
+"value": "dinner_conversation"
+}]
+}, {
+"function_name": "set_dialogue_resource",
+"parameters": [{
+"type": 0,
+"value": "res://characters/npc/side_characters/hana/dialogue/act1/hana_dialogue.dialogue"
+}, {
+"type": 0,
+"value": "hana_moving"
 }]
 }],
 "next_function_time": 18.5,
-"title": ""
+"title": "Go to kitchen"
 }
 
-[sub_resource type="Resource" id="Resource_3uw77"]
+[sub_resource type="Resource" id="Resource_4sa5y"]
 script = ExtResource("1_fbh4p")
 name = "GraphNode5"
 position_offset = Vector2(1600, 0)
-size = Vector2(396.953, 608.862)
+size = Vector2(396.953, 924)
 data = {
 "alt_paths": [],
 "description": "",
@@ -67,10 +97,25 @@ data = {
 "parameters": [{
 "type": 1,
 "value": "2249,-282"
+}, {
+"type": 0,
+"value": "res://characters/npc/side_characters/hana/dialogue/act1/hana_dialogue.dialogue"
+}, {
+"type": 0,
+"value": "evan_inspect_hana"
+}]
+}, {
+"function_name": "set_dialogue_resource",
+"parameters": [{
+"type": 0,
+"value": "res://characters/npc/side_characters/hana/dialogue/act1/hana_dialogue.dialogue"
+}, {
+"type": 0,
+"value": "hana_moving"
 }]
 }],
 "next_function_time": 0.0,
-"title": ""
+"title": "Go back to the room"
 }
 
 [resource]
@@ -91,4 +136,4 @@ connections = [{
 "to_node": &"GraphNode5",
 "to_port": 0
 }]
-nodes = [SubResource("Resource_7l38f"), SubResource("Resource_j2r6v"), SubResource("Resource_xm7b2"), SubResource("Resource_3uw77")]
+nodes = [SubResource("Resource_tadkw"), SubResource("Resource_blun4"), SubResource("Resource_8lfsg"), SubResource("Resource_4sa5y")]

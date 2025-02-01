@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://dhxibi0ndbdhy"
+path="res://.godot/imported/police_station_inspectables.dialogue-4fca4de567cf6931d91d73bef41efcc0.tres"
+
+[deps]
+
+source_file="res://scenes/overworld/locations/police_station/dialogue/act1/police_station_inspectables.dialogue"
+dest_files=["res://.godot/imported/police_station_inspectables.dialogue-4fca4de567cf6931d91d73bef41efcc0.tres"]
+
+[params]
+
+defaults=true

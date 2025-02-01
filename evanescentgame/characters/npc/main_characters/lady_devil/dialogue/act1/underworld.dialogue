@@ -1,0 +1,29 @@
+~ Loop_Back_Underworld
+Lady Devil[neutral]: What is it?
+- What the hell was that? => Overworld_Exposition
+- Why am I back here? => Loop_Exposition
+- Let me go back. => Start_Loop
+
+~ Overworld_Exposition
+Lady Devil[neutral]: It was the Overworld, duh.
+Evan[neutral]: Well, I know that. 
+Evan[disappointed]: But why could I… possess people?
+Lady Devil[excited]: Ha! Fun, isn’t it? Just one of the many benefits of being a ghost.
+Evan[disappointed]: I would argue that it’s the ONLY benefit of being a ghost, actually.
+Lady Devil[excited]: Okay, but you have to admit it’s kind of fun.
+Evan[neutral]: …
+Evan[disappointed]: Fine. It is kind of fun.
+Lady Devil[excited]: KNEW IT!
+=> END
+
+~ Loop_Exposition
+Lady Devil[neutral]: Your time ran out.
+Evan[disappointed]: Time ran out? I’m a ghost! Don’t I have infinite time?
+Lady Devil[neutral]: Well, after the cutoff is just hours of everyone sleeping. Not like you could get anything worthwhile done in the nighttime, anyway.
+Lady Devil[neutral]: Besides, if you ask nicely enough, I might just let you go back…
+=> END
+
+~ Start_Loop
+Lady Devil[neutral]: Alright, off you go.
+do SceneLoader.load_overworld()
+=> END

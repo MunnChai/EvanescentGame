@@ -2,6 +2,7 @@ class_name Item
 extends Node2D
 
 @export var item_id: String = ""
+@export var dialogue_key: String = ""
 
 @onready var player: Player = get_tree().get_nodes_in_group("player")[0]
 @onready var interactable_area = $InteractableArea
@@ -17,11 +18,11 @@ func on_player_interacted():
 		show_ghost_dialogue()
 
 func show_human_dialogue():
-	signal_dialogue.emit("test_item_human")
+	signal_dialogue.emit(dialogue_key + "_human")
 	DialogueManager.dialogue_ended.connect(on_dialogue_ended)
 
 func show_ghost_dialogue():
-	signal_dialogue.emit("test_item_ghost")
+	signal_dialogue.emit(dialogue_key + "_ghost")
 
 func on_dialogue_ended(dialogue_resource: Resource):
 	pick_up()

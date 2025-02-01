@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://dwtdyidkjbl6d"
+path="res://.godot/imported/carlos_dialogue.dialogue-d69aae2d3d969a3d5ec14491853c89ff.tres"
+
+[deps]
+
+source_file="res://characters/npc/main_characters/cousin/dialogue/act1/carlos_dialogue.dialogue"
+dest_files=["res://.godot/imported/carlos_dialogue.dialogue-d69aae2d3d969a3d5ec14491853c89ff.tres"]
+
+[params]
+
+defaults=true

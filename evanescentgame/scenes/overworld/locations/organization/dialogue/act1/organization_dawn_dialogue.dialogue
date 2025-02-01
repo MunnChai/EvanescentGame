@@ -1,0 +1,42 @@
+~ morning_working_idle
+Dawn[neutral]: Almost time for lunch. I hope he shows up so we can talk.
+=> END
+
+~ lunch
+if PlayerInfo.get_currently_possessed_npc_name() != "Carlos"
+	Dawn[disappointed]: He hasn’t shown up yet… did he not see my email?
+else
+	Carlos[neutral]: Hi, Dawn. You wanted to see me for something?
+	Dawn[excited]: Carlos! You’re here.
+	Dawn[embarrassed]: I actually didn’t summon you for any specific reason…
+	Dawn[embarrassed]: I just wanted company. If you don’t mind.
+	Dawn[disappointed]: These past few days have been a lot. And you and Evan were always close.
+	Carlos[excited]: Oh. Yes. Of course. It’s the least I can do.
+	Carlos[disappointed]: … I’m sorry for your loss.
+	Dawn[happy]: It’s okay. Time goes on.
+	Dawn[neutral]: So how has work been for you recently?
+	Carlos[excited]: !
+	Carlos[disappointed]: …
+	Dawn[disappointed]: Not great?
+	Carlos[embarrassed]: You could say that.
+	Dawn[neutral]: Is anything in particular bothering you?
+	Carlos[disappointed]: No. Nothing in particular. Just lots of demanding bosses. Lots of… deadlines to meet.
+	Dawn[happy]: Tell me about it.
+	Carlos[embarrassed]: No! I can’t tell you anything about work.
+	Dawn[disappointed]: Huh? Carlos, it’s just a figure of speech.
+	Carlos[embarrassed]: Oh. Yes. I knew that.
+	Dawn[happy]: Hah… you must be pretty stressed, huh.
+	Carlos[embarrassed]: Yes. Sorry. My apologies.
+	Carlos[neutral]: I was assigned a new task just recently and it’s in a few minutes. I’m just a little nervous.
+	Dawn[excited]: Oh! I’m sorry, I had no idea. Don’t let me keep you.
+	Dawn[happy]: I’m sure you’ll do great though. You’ve got tons of experience! You’ll be fine.
+	Carlos[neutral]: …
+	Dawn[happy]: Thank you for stopping by regardless.
+	Carlos[neutral]: Anytime.
+	Carlos[neutral]: I’ll be heading off now.
+	Dawn[happy]: See you around!
+=> END
+
+~ afternoon_working_idle
+Dawn[neutral]: I can go home soon… this day has gone on for forever.
+=> END

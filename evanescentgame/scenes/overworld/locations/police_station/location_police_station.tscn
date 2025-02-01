@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://iecgb5paqxrh"]
+[gd_scene load_steps=33 format=3 uid="uid://iecgb5paqxrh"]
 
 [ext_resource type="PackedScene" uid="uid://blp4jjwokkgxj" path="res://scenes/overworld/locations/location.tscn" id="1_j8ev2"]
 [ext_resource type="Texture2D" uid="uid://bor3vfgg6wbrn" path="res://scenes/overworld/locations/police_station/sprites/police_station_decor.png" id="2_q3688"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scenes/overworld/locations/scripts/location_room.gd" id="4_px7d4"]
 [ext_resource type="PackedScene" uid="uid://cl8kobrguc04e" path="res://scenes/scene_components/background_door/background_door.tscn" id="5_73nhw"]
 [ext_resource type="Resource" uid="uid://ddkk3fuom83fb" path="res://scenes/overworld/locations/police_station/dialogue/act1/kai_computer.dialogue" id="5_pw5um"]
+[ext_resource type="Resource" uid="uid://dhxibi0ndbdhy" path="res://scenes/overworld/locations/police_station/dialogue/act1/police_station_inspectables.dialogue" id="6_h3xcm"]
 [ext_resource type="PackedScene" uid="uid://hkq87e11fer7" path="res://scenes/scene_components/audio_trigger/audio_trigger.tscn" id="6_xvw3w"]
 [ext_resource type="AudioStream" uid="uid://cykqdtwnlwm2l" path="res://scenes/overworld/locations/police_station/audio/sfx/PoliceStation.mp3" id="7_nii2e"]
 
@@ -147,6 +148,21 @@ sources/2 = SubResource("TileSetAtlasSource_o35h5")
 size = Vector2(45, 37.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j5dfh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_njxim"]
+size = Vector2(14, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nlagn"]
+size = Vector2(32, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xohix"]
+size = Vector2(24, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jmymi"]
+size = Vector2(17, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tuepn"]
+size = Vector2(17, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gqev3"]
 size = Vector2(882, 637)
@@ -394,13 +410,65 @@ region_rect = Rect2(112, 8, 16, 16)
 
 [node name="Inspectables" type="Node2D" parent="." index="5"]
 
-[node name="InspectableArea" parent="Inspectables" index="0" instance=ExtResource("4_3mymf")]
+[node name="KaiComputer" parent="Inspectables" index="0" instance=ExtResource("4_3mymf")]
 position = Vector2(400, -181)
 dialogue_resource = ExtResource("5_pw5um")
 dialogue_title = "kai_computer"
+requires_human = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Inspectables/InspectableArea/InteractableArea" index="1"]
+[node name="InteractableArea" parent="Inspectables/KaiComputer" index="0"]
+position = Vector2(-2, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inspectables/KaiComputer/InteractableArea" index="1"]
+position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_j5dfh")
+
+[node name="KaiCaseFile" parent="Inspectables" index="1" instance=ExtResource("4_3mymf")]
+position = Vector2(400, -181)
+dialogue_resource = ExtResource("6_h3xcm")
+dialogue_title = "kai_cold_case_file"
+
+[node name="InteractableArea" parent="Inspectables/KaiCaseFile" index="0"]
+position = Vector2(23, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inspectables/KaiCaseFile/InteractableArea" index="1"]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_njxim")
+
+[node name="BreakRoomPoster" parent="Inspectables" index="2" instance=ExtResource("4_3mymf")]
+position = Vector2(-76, -197)
+dialogue_resource = ExtResource("6_h3xcm")
+dialogue_title = "break_room_poster"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inspectables/BreakRoomPoster/InteractableArea" index="1"]
+shape = SubResource("RectangleShape2D_nlagn")
+
+[node name="VendingMachine" parent="Inspectables" index="3" instance=ExtResource("4_3mymf")]
+position = Vector2(-119, -192)
+dialogue_resource = ExtResource("6_h3xcm")
+dialogue_title = "break_room_vendine_machine"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inspectables/VendingMachine/InteractableArea" index="1"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_xohix")
+
+[node name="KaiDesk" parent="Inspectables" index="4" instance=ExtResource("4_3mymf")]
+position = Vector2(139, 20)
+dialogue_resource = ExtResource("6_h3xcm")
+dialogue_title = "kai_desk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inspectables/KaiDesk/InteractableArea" index="1"]
+position = Vector2(0.5, 4)
+shape = SubResource("RectangleShape2D_jmymi")
+
+[node name="KaiMedal" parent="Inspectables" index="5" instance=ExtResource("4_3mymf")]
+position = Vector2(184, 8)
+dialogue_resource = ExtResource("6_h3xcm")
+dialogue_title = "kai_medal"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inspectables/KaiMedal/InteractableArea" index="1"]
+position = Vector2(0.5, 4)
+shape = SubResource("RectangleShape2D_tuepn")
 
 [node name="LocationArea" type="CollisionShape2D" parent="." index="6"]
 visible = false
@@ -502,7 +570,12 @@ position = Vector2(552, -424)
 navigation_polygon = SubResource("NavigationPolygon_7iuov")
 
 [editable path="LocationExit"]
-[editable path="Inspectables/InspectableArea"]
+[editable path="Inspectables/KaiComputer"]
+[editable path="Inspectables/KaiCaseFile"]
+[editable path="Inspectables/BreakRoomPoster"]
+[editable path="Inspectables/VendingMachine"]
+[editable path="Inspectables/KaiDesk"]
+[editable path="Inspectables/KaiMedal"]
 [editable path="Rooms/Lobby/Elevator"]
 [editable path="Rooms/WorkArea/Elevator"]
 [editable path="Rooms/WorkArea/BreakRoom"]

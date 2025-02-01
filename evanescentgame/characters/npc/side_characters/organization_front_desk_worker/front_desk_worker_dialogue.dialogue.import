@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://g7en3fh3b8a4"
+path="res://.godot/imported/front_desk_worker_dialogue.dialogue-e50844f0f3d0286c38d37ec86cb86666.tres"
+
+[deps]
+
+source_file="res://characters/npc/side_characters/organization_front_desk_worker/front_desk_worker_dialogue.dialogue"
+dest_files=["res://.godot/imported/front_desk_worker_dialogue.dialogue-e50844f0f3d0286c38d37ec86cb86666.tres"]
+
+[params]
+
+defaults=true

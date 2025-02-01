@@ -10,13 +10,12 @@ Evan: Ah, the Devil, ever the optimist.
 Evan: Wow... I'm really dead, huh? 
 Lady Devil: Not as painful as you expected it to be? 
 Evan: I'm sure it would've been more painful if I remembered it.
-Lady Devil: ADD MORE EXPOSITION
 => END
 
 
 ~ portrait
-Evan: So that's what I look like.
-Lady Devil: You don't know what you look like?
-Evan: Well a certain someone chose to commission 70 portraits instead of one mirror, so...
-Lady Devil: Has anyone ever told you not to get on the Devil's bad side?
+Evan[excited]: So that's what I look like.
+Lady Devil[disappointed]: You don't know what you look like?
+Evan[disappointed]: Well a certain someone chose to commission 70 portraits instead of one mirror, so...
+Lady Devil[angry]: Has anyone ever told you not to get on the Devil's bad side?
 => END

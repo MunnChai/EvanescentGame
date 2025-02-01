@@ -1,0 +1,27 @@
+~ hustler_break
+Office_Worker~Resting Hustler[neutral]: Hmm... any protein bars in the vending machine?
+=> END
+
+~ Hustler_One
+Office_Worker~Hustler 1[neutral]: Surely if I just work 10 more hours overtime I’ll get a raise, right?
+=> END
+
+~ Hustler_Two
+Office_Worker~Hustler 2[neutral]: I must grind… I must hustle… I can be a millionaire if I just work harder!!!!
+=> END
+
+~ Hustler_Three
+Office_Worker~Hustler 3?[neutral]: … I want to see my kids. 
+=> END
+
+~ Higher_Up_One
+Office_Worker~Manager 1[neutral]: Ah, another day, another dollar. 
+=> END
+
+~ Higher_Up_Two/Three
+Office_Worker~Manager 2[neutral]: Hey, did you notice that Carlos had an email from one of those lower floor office workers?
+Office_Worker~Manager 3[neutral]: Yeah, I saw it when I walked past his desk! I wonder what kind of suspicious stuff he’s up to this time…
+Office_Worker~Manager 2[neutral]: Hey, as long as it doesn’t interfere with my vacation days, I don’t really care! Haha!
+Office_Worker~Manager 3[neutral]: Haha!
+Evan[neutral]: (A suspicious email?)
+=> END

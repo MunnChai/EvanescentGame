@@ -2,6 +2,7 @@ extends CanvasLayer
 
 @onready var keypad_text = %KeypadText
 @onready var keypad_grid = %KeypadGrid
+@onready var player: Player = get_tree().get_first_node_in_group("player")
 
 @export var correct_code: String = "1111"
 @export var code_length: int = 4
@@ -60,9 +61,11 @@ func is_code_correct() -> bool:
 	return false
 
 func show_keypad():
+	player.is_input_active = false
 	show()
 
 func hide_keypad():
+	player.is_input_active = true
 	hide()
 
 func disable_input():
