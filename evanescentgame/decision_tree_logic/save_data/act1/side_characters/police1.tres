@@ -1,8 +1,55 @@
-[gd_resource type="Resource" script_class="DecisionTreeGraphData" load_steps=2 format=3 uid="uid://bwbshkpsy3535"]
+[gd_resource type="Resource" script_class="DecisionTreeGraphData" load_steps=5 format=3 uid="uid://bwbshkpsy3535"]
 
 [ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_resource.gd" id="1_03fij"]
+[ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_node_resource.gd" id="1_iyoo1"]
+
+[sub_resource type="Resource" id="Resource_cic13"]
+script = ExtResource("1_iyoo1")
+name = "GraphNode2"
+position_offset = Vector2(0, 0)
+size = Vector2(249.086, 425.455)
+data = {
+"alt_paths": [],
+"description": "",
+"functions": [],
+"next_function_time": 9.5,
+"title": "start"
+}
+
+[sub_resource type="Resource" id="Resource_83gag"]
+script = ExtResource("1_iyoo1")
+name = "GraphNode3"
+position_offset = Vector2(400, 0)
+size = Vector2(385.7, 836)
+data = {
+"alt_paths": [],
+"description": "",
+"functions": [{
+"function_name": "navigate_to",
+"parameters": [{
+"type": 1,
+"value": "2000,2000"
+}]
+}, {
+"function_name": "set_dialogue_resource",
+"parameters": [{
+"type": 0,
+"value": "res://characters/npc/side_characters/police_officer_1/dialogue/act1/police_officer_dialogue.dialogue"
+}, {
+"type": 0,
+"value": "officer_moving"
+}]
+}],
+"next_function_time": 10.0,
+"title": "disappear"
+}
 
 [resource]
 script = ExtResource("1_03fij")
-connections = []
-nodes = []
+connections = [{
+"from_node": &"GraphNode2",
+"from_port": 0,
+"to_node": &"GraphNode3",
+"to_port": 0
+}]
+nodes = [SubResource("Resource_cic13"), SubResource("Resource_83gag")]

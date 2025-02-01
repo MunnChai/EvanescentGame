@@ -437,24 +437,24 @@ shape = SubResource("RectangleShape2D_njxim")
 
 [node name="BreakRoomPoster" parent="Inspectables" index="2" instance=ExtResource("4_3mymf")]
 position = Vector2(-76, -197)
-dialogue_resource = ExtResource("5_pw5um")
+dialogue_resource = ExtResource("6_h3xcm")
 dialogue_title = "break_room_poster"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Inspectables/BreakRoomPoster/InteractableArea" index="1"]
 shape = SubResource("RectangleShape2D_nlagn")
 
-[node name="BreakRoomPoster2" parent="Inspectables" index="3" instance=ExtResource("4_3mymf")]
+[node name="VendingMachine" parent="Inspectables" index="3" instance=ExtResource("4_3mymf")]
 position = Vector2(-119, -192)
-dialogue_resource = ExtResource("5_pw5um")
+dialogue_resource = ExtResource("6_h3xcm")
 dialogue_title = "break_room_vendine_machine"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Inspectables/BreakRoomPoster2/InteractableArea" index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inspectables/VendingMachine/InteractableArea" index="1"]
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_xohix")
 
 [node name="KaiDesk" parent="Inspectables" index="4" instance=ExtResource("4_3mymf")]
 position = Vector2(139, 20)
-dialogue_resource = ExtResource("5_pw5um")
+dialogue_resource = ExtResource("6_h3xcm")
 dialogue_title = "kai_desk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Inspectables/KaiDesk/InteractableArea" index="1"]
@@ -463,7 +463,7 @@ shape = SubResource("RectangleShape2D_jmymi")
 
 [node name="KaiMedal" parent="Inspectables" index="5" instance=ExtResource("4_3mymf")]
 position = Vector2(184, 8)
-dialogue_resource = ExtResource("5_pw5um")
+dialogue_resource = ExtResource("6_h3xcm")
 dialogue_title = "kai_medal"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Inspectables/KaiMedal/InteractableArea" index="1"]
@@ -573,7 +573,7 @@ navigation_polygon = SubResource("NavigationPolygon_7iuov")
 [editable path="Inspectables/KaiComputer"]
 [editable path="Inspectables/KaiCaseFile"]
 [editable path="Inspectables/BreakRoomPoster"]
-[editable path="Inspectables/BreakRoomPoster2"]
+[editable path="Inspectables/VendingMachine"]
 [editable path="Inspectables/KaiDesk"]
 [editable path="Inspectables/KaiMedal"]
 [editable path="Rooms/Lobby/Elevator"]

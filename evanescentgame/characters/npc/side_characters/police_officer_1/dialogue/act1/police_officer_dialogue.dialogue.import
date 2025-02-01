@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://bi2n6a3ba08p"
+path="res://.godot/imported/police_officer_dialogue.dialogue-3953b0865be88cc71a69295a7b2c1a99.tres"
+
+[deps]
+
+source_file="res://characters/npc/side_characters/police_officer_1/dialogue/act1/police_officer_dialogue.dialogue"
+dest_files=["res://.godot/imported/police_officer_dialogue.dialogue-3953b0865be88cc71a69295a7b2c1a99.tres"]
+
+[params]
+
+defaults=true

@@ -29,7 +29,7 @@ func _ready():
 	DTConditionManager.init_condition_map(npc_name, graph_data)
 	
 	for node in nodes_data:
-		if (node.get_title() == "Start"):
+		if (node.get_title() == "Start" || node.get_title() == "start"):
 			current_node = node
 	
 	if (!current_node):

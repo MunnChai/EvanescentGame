@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cpiebxlknogvc"]
+[gd_scene load_steps=34 format=3 uid="uid://cpiebxlknogvc"]
 
 [ext_resource type="Script" path="res://scenes/overworld/overworld_manager.gd" id="1_5y34q"]
 [ext_resource type="PackedScene" uid="uid://brm7k4yr1lcxw" path="res://characters/player/player.tscn" id="1_juc8k"]
@@ -23,11 +23,14 @@
 [ext_resource type="Texture2D" uid="uid://djq8amhe72ugh" path="res://characters/npc/side_characters/police_officer_1/sprites/police_officer_1-Sheet.png" id="16_kby61"]
 [ext_resource type="Resource" uid="uid://dndf0r83nn4nc" path="res://decision_tree_logic/save_data/act1/side_characters/act1_hana.tres" id="16_tnkbj"]
 [ext_resource type="Resource" uid="uid://dnmsqtmoal0j4" path="res://decision_tree_logic/save_data/act1/side_characters/act1_samuel.tres" id="17_j7ao7"]
+[ext_resource type="Resource" uid="uid://bwbshkpsy3535" path="res://decision_tree_logic/save_data/act1/side_characters/police1.tres" id="17_opi38"]
 [ext_resource type="Texture2D" uid="uid://coo8346yigqbu" path="res://characters/npc/side_characters/police_officer_2/sprites/police_officer_2-Sheet.png" id="17_p2rkf"]
 [ext_resource type="PackedScene" uid="uid://cl5gkwuo31l6q" path="res://characters/npc/side_characters/security_guard/security_guard.tscn" id="20_80hk3"]
 [ext_resource type="Texture2D" uid="uid://038gtuwjy82v" path="res://characters/npc/side_characters/office_worker_1/sprites/office_worker_1-Sheet.png" id="20_tyuru"]
 [ext_resource type="Texture2D" uid="uid://uaqndxgk6ced" path="res://characters/npc/side_characters/hana/sprites/hana-Sheet.png" id="20_v8nts"]
 [ext_resource type="Texture2D" uid="uid://dv3y3r012y7v3" path="res://characters/npc/side_characters/samuel/sprites/samuel-Sheet.png" id="22_rvkyr"]
+[ext_resource type="Resource" uid="uid://bod5pmgdc2i4m" path="res://scenes/overworld/locations/police_station/dialogue/act1/police_officers_dialogue.dialogue" id="24_cny1t"]
+[ext_resource type="Resource" uid="uid://b5pnh43ioltqd" path="res://scenes/overworld/locations/organization/dialogue/act1/organization_workers.dialogue" id="25_uac36"]
 [ext_resource type="PackedScene" uid="uid://bwsvbhi5lv3pd" path="res://ui/player_interface/info_log/info_log.tscn" id="29_m3j4v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g7oad"]
@@ -103,6 +106,7 @@ volume_db = 0.0
 
 [node name="Police1" parent="World/NPCs" instance=ExtResource("7_ow5sy")]
 position = Vector2(-44, 18)
+graph_data = ExtResource("17_opi38")
 starting_dialogue_resource = ExtResource("7_hwc6d")
 current_dialogue_title = "police_mingling"
 
@@ -111,6 +115,7 @@ texture = ExtResource("16_kby61")
 
 [node name="Police2" parent="World/NPCs" instance=ExtResource("7_ow5sy")]
 position = Vector2(-19, 18)
+graph_data = ExtResource("17_opi38")
 starting_dialogue_resource = ExtResource("7_hwc6d")
 current_dialogue_title = "police_mingling"
 
@@ -139,24 +144,32 @@ texture = ExtResource("22_rvkyr")
 
 [node name="FrontDeskWorker" parent="World/NPCs/PoliceStation" instance=ExtResource("7_ow5sy")]
 position = Vector2(3848, 253)
+starting_dialogue_resource = ExtResource("24_cny1t")
+current_dialogue_title = "front_desk_worker"
 
 [node name="Sprite2D" parent="World/NPCs/PoliceStation/FrontDeskWorker" index="0"]
 texture = ExtResource("17_p2rkf")
 
 [node name="PoliceOfficer1" parent="World/NPCs/PoliceStation" instance=ExtResource("7_ow5sy")]
 position = Vector2(3960, 29)
+starting_dialogue_resource = ExtResource("24_cny1t")
+current_dialogue_title = "panicked_officer_1"
 
 [node name="Sprite2D" parent="World/NPCs/PoliceStation/PoliceOfficer1" index="0"]
 texture = ExtResource("16_kby61")
 
 [node name="PoliceOfficer2" parent="World/NPCs/PoliceStation" instance=ExtResource("7_ow5sy")]
 position = Vector2(4032, 29)
+starting_dialogue_resource = ExtResource("24_cny1t")
+current_dialogue_title = "panicked_officer_2"
 
 [node name="Sprite2D" parent="World/NPCs/PoliceStation/PoliceOfficer2" index="0"]
 texture = ExtResource("17_p2rkf")
 
 [node name="PoliceOfficer3" parent="World/NPCs/PoliceStation" instance=ExtResource("7_ow5sy")]
 position = Vector2(3912, -171)
+starting_dialogue_resource = ExtResource("24_cny1t")
+current_dialogue_title = "break_room_police_officer"
 
 [node name="Sprite2D" parent="World/NPCs/PoliceStation/PoliceOfficer3" index="0"]
 texture = ExtResource("16_kby61")
@@ -165,48 +178,64 @@ texture = ExtResource("16_kby61")
 
 [node name="FrontDeskWorker" parent="World/NPCs/Organization" instance=ExtResource("7_ow5sy")]
 position = Vector2(57, 2055)
+starting_dialogue_resource = ExtResource("25_uac36")
+current_dialogue_title = "Front_Desk_Worker"
 
 [node name="Sprite2D" parent="World/NPCs/Organization/FrontDeskWorker" index="0"]
 texture = ExtResource("20_tyuru")
 
 [node name="Floor2Worker1" parent="World/NPCs/Organization" instance=ExtResource("7_ow5sy")]
-position = Vector2(-46, 1736)
+position = Vector2(-12.27, 1736)
+starting_dialogue_resource = ExtResource("25_uac36")
+current_dialogue_title = "Hustler_Three"
 
 [node name="Sprite2D" parent="World/NPCs/Organization/Floor2Worker1" index="0"]
 texture = ExtResource("20_tyuru")
 
 [node name="Floor2Worker2" parent="World/NPCs/Organization" instance=ExtResource("7_ow5sy")]
 position = Vector2(574, 1735)
+starting_dialogue_resource = ExtResource("25_uac36")
+current_dialogue_title = "hustler_break"
 
 [node name="Sprite2D" parent="World/NPCs/Organization/Floor2Worker2" index="0"]
 texture = ExtResource("20_tyuru")
 
 [node name="Floor2Worker3" parent="World/NPCs/Organization" instance=ExtResource("7_ow5sy")]
-position = Vector2(16, 1736)
+position = Vector2(21.53, 1736)
+starting_dialogue_resource = ExtResource("25_uac36")
+current_dialogue_title = "Hustler_Two"
 
 [node name="Sprite2D" parent="World/NPCs/Organization/Floor2Worker3" index="0"]
 texture = ExtResource("20_tyuru")
 
 [node name="Floor2Worker4" parent="World/NPCs/Organization" instance=ExtResource("7_ow5sy")]
 position = Vector2(83, 1735)
+starting_dialogue_resource = ExtResource("25_uac36")
+current_dialogue_title = "Hustler_One"
 
 [node name="Sprite2D" parent="World/NPCs/Organization/Floor2Worker4" index="0"]
 texture = ExtResource("20_tyuru")
 
 [node name="Floor11Worker1" parent="World/NPCs/Organization" instance=ExtResource("7_ow5sy")]
 position = Vector2(-45, 1417)
+starting_dialogue_resource = ExtResource("25_uac36")
+current_dialogue_title = "Higher_Up_One"
 
 [node name="Sprite2D" parent="World/NPCs/Organization/Floor11Worker1" index="0"]
 texture = ExtResource("20_tyuru")
 
 [node name="Floor11Worker2" parent="World/NPCs/Organization" instance=ExtResource("7_ow5sy")]
 position = Vector2(544, 1413)
+starting_dialogue_resource = ExtResource("25_uac36")
+current_dialogue_title = "Higher_Up_Two/Three"
 
 [node name="Sprite2D" parent="World/NPCs/Organization/Floor11Worker2" index="0"]
 texture = ExtResource("20_tyuru")
 
 [node name="Floor11Worker3" parent="World/NPCs/Organization" instance=ExtResource("7_ow5sy")]
 position = Vector2(514, 1414)
+starting_dialogue_resource = ExtResource("25_uac36")
+current_dialogue_title = "Higher_Up_Two/Three"
 
 [node name="Sprite2D" parent="World/NPCs/Organization/Floor11Worker3" index="0"]
 texture = ExtResource("20_tyuru")
@@ -216,6 +245,7 @@ position = Vector2(216, 2062)
 
 [node name="Sprite2D" parent="World/NPCs/Organization/SecurityGuard" index="0"]
 material = null
+flip_h = true
 frame = 0
 
 [node name="AudioStreamPlayer2D" parent="World/NPCs/Organization/SecurityGuard" index="9"]

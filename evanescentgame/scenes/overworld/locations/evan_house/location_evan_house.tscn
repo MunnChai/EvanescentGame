@@ -500,7 +500,7 @@ dialogue_resource = ExtResource("5_fhpyn")
 dialogue_title = "wedding_photo"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Inspectables/WeddingPhoto/InteractableArea" index="1"]
-position = Vector2(0, 0.5)
+position = Vector2(0, -25)
 shape = SubResource("RectangleShape2D_v1wga")
 
 [node name="DawnDiary" parent="Inspectables" index="5" instance=ExtResource("4_wg1l0")]
@@ -565,6 +565,7 @@ default_title = "dawn_room_key"
 
 [node name="OrganizationBadge" parent="Items" index="1" instance=ExtResource("7_of7jl")]
 position = Vector2(-448, -352)
+item_id = "organization_badge"
 dialogue_key = "organization_badge"
 
 [node name="Sprite2D" parent="Items/OrganizationBadge" index="0"]

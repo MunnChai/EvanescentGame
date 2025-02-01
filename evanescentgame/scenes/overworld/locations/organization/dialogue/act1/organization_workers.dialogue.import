@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://b5pnh43ioltqd"
+path="res://.godot/imported/organization_workers.dialogue-77a63132b6f524ca1bc43f46e9e6e14c.tres"
+
+[deps]
+
+source_file="res://scenes/overworld/locations/organization/dialogue/act1/organization_workers.dialogue"
+dest_files=["res://.godot/imported/organization_workers.dialogue-77a63132b6f524ca1bc43f46e9e6e14c.tres"]
+
+[params]
+
+defaults=true
