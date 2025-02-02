@@ -1,13 +1,13 @@
-[gd_resource type="Resource" script_class="DecisionTreeGraphData" load_steps=7 format=3 uid="uid://dnmsqtmoal0j4"]
+[gd_resource type="Resource" script_class="DecisionTreeGraphData" load_steps=8 format=3 uid="uid://dnmsqtmoal0j4"]
 
 [ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_resource.gd" id="1_auopb"]
 [ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_node_resource.gd" id="1_vkw5c"]
 
-[sub_resource type="Resource" id="Resource_72fbu"]
+[sub_resource type="Resource" id="Resource_1bwxo"]
 script = ExtResource("1_vkw5c")
 name = "GraphNode2"
 position_offset = Vector2(0, 0)
-size = Vector2(180.001, 340)
+size = Vector2(179.99, 340)
 data = {
 "alt_paths": [],
 "description": "",
@@ -16,7 +16,7 @@ data = {
 "title": "Start"
 }
 
-[sub_resource type="Resource" id="Resource_gmfg4"]
+[sub_resource type="Resource" id="Resource_ger3h"]
 script = ExtResource("1_vkw5c")
 name = "GraphNode4"
 position_offset = Vector2(400, 0)
@@ -50,7 +50,7 @@ data = {
 "title": "Go home to room"
 }
 
-[sub_resource type="Resource" id="Resource_3eqng"]
+[sub_resource type="Resource" id="Resource_clgt3"]
 script = ExtResource("1_vkw5c")
 name = "GraphNode3"
 position_offset = Vector2(1000, 0)
@@ -80,14 +80,14 @@ data = {
 "value": "samuel_moving"
 }]
 }],
-"next_function_time": 18.75,
+"next_function_time": 18.5,
 "title": "Go to dinner"
 }
 
-[sub_resource type="Resource" id="Resource_lq0vo"]
+[sub_resource type="Resource" id="Resource_err6r"]
 script = ExtResource("1_vkw5c")
 name = "GraphNode5"
-position_offset = Vector2(1600, 0)
+position_offset = Vector2(2200, 0)
 size = Vector2(400.79, 924)
 data = {
 "alt_paths": [],
@@ -118,6 +118,28 @@ data = {
 "title": "Go back to room"
 }
 
+[sub_resource type="Resource" id="Resource_lef7i"]
+script = ExtResource("1_vkw5c")
+name = "GraphNode6"
+position_offset = Vector2(1600, 0)
+size = Vector2(479.459, 896.476)
+data = {
+"alt_paths": [],
+"description": "",
+"functions": [{
+"function_name": "set_dialogue_resource",
+"parameters": [{
+"type": 0,
+"value": "res://characters/npc/side_characters/samuel/dialogue/act1/sam_dialogue.dialogue"
+}, {
+"type": 0,
+"value": "samuel_moving"
+}]
+}],
+"next_function_time": 18.75,
+"title": "Stop Dialogue"
+}
+
 [resource]
 script = ExtResource("1_auopb")
 connections = [{
@@ -133,7 +155,12 @@ connections = [{
 }, {
 "from_node": &"GraphNode3",
 "from_port": 0,
+"to_node": &"GraphNode6",
+"to_port": 0
+}, {
+"from_node": &"GraphNode6",
+"from_port": 0,
 "to_node": &"GraphNode5",
 "to_port": 0
 }]
-nodes = [SubResource("Resource_72fbu"), SubResource("Resource_gmfg4"), SubResource("Resource_3eqng"), SubResource("Resource_lq0vo")]
+nodes = [SubResource("Resource_1bwxo"), SubResource("Resource_ger3h"), SubResource("Resource_clgt3"), SubResource("Resource_err6r"), SubResource("Resource_lef7i")]

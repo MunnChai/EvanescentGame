@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_resource.gd" id="1_1ci4a"]
 [ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_node_resource.gd" id="1_fbh4p"]
 
-[sub_resource type="Resource" id="Resource_tadkw"]
+[sub_resource type="Resource" id="Resource_116ab"]
 script = ExtResource("1_fbh4p")
 name = "GraphNode2"
 position_offset = Vector2(0, 0)
@@ -16,7 +16,7 @@ data = {
 "title": "Start"
 }
 
-[sub_resource type="Resource" id="Resource_blun4"]
+[sub_resource type="Resource" id="Resource_qv535"]
 script = ExtResource("1_fbh4p")
 name = "GraphNode3"
 position_offset = Vector2(400, 0)
@@ -50,7 +50,7 @@ data = {
 "title": "Go Home"
 }
 
-[sub_resource type="Resource" id="Resource_8lfsg"]
+[sub_resource type="Resource" id="Resource_25bux"]
 script = ExtResource("1_fbh4p")
 name = "GraphNode4"
 position_offset = Vector2(1000, 0)
@@ -84,7 +84,7 @@ data = {
 "title": "Go to kitchen"
 }
 
-[sub_resource type="Resource" id="Resource_4sa5y"]
+[sub_resource type="Resource" id="Resource_sbgd2"]
 script = ExtResource("1_fbh4p")
 name = "GraphNode5"
 position_offset = Vector2(1600, 0)
@@ -136,4 +136,4 @@ connections = [{
 "to_node": &"GraphNode5",
 "to_port": 0
 }]
-nodes = [SubResource("Resource_tadkw"), SubResource("Resource_blun4"), SubResource("Resource_8lfsg"), SubResource("Resource_4sa5y")]
+nodes = [SubResource("Resource_116ab"), SubResource("Resource_qv535"), SubResource("Resource_25bux"), SubResource("Resource_sbgd2")]

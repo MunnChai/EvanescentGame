@@ -57,6 +57,16 @@ Evan[neutral]: My police uniform is still hanging in the closet.
 Evan[neutral]: It looks like it’s been well-cleaned in my absence.
 => END
 
+~ Dawn_Wardrobe
+Evan[neutral]: Let’s see… what’s in this closet?
+Evan[neutral]: A few shirts, dresses, pants…
+Evan[excited]: Some papers? What are they doing here? 
+Evan[neutral]: These are… divorce papers?
+Lady Devil[neutral]: Looks like someone wasn’t too happy with their home life.
+Evan[embarrassed]: … 
+=> END 
+
+
 ~ dawn_diary
 Evan[neutral]: There’s a diary here.
 Lady Devil[neutral]: It has the name “Dawn” on the cover. Are you sure you want to read someone else’s private diary?
