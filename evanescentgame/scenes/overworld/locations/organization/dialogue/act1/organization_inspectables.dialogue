@@ -23,7 +23,6 @@ Evan[neutral]: (Carlos’ computer. Should I look through?)
 ~ carlos_computer_yes
 Evan[neutral]: (There are a number of apps and files on here I can access. What should I access?)
 - Email => carlos_computer_email
-- Calendar => carlos_computer_calendar
 - Files => carlos_computer_files
 - Exit => END
 

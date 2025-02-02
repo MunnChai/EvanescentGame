@@ -1656,7 +1656,6 @@ position = Vector2(-6, 6)
 shape = SubResource("RectangleShape2D_gxtyc")
 
 [node name="Rooms" type="Node2D" parent="." index="10"]
-visible = false
 
 [node name="GroundFloor" type="CollisionShape2D" parent="Rooms" index="0"]
 position = Vector2(88.5, 24.5)
