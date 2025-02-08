@@ -13,7 +13,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sun7k")
-graph_data_path = "res://decision_tree_logic/save_data/act1/main_characters/act1_colleague.tres"
+graph_data_path = "res://decision_tree_logic/save_data/act1/side_characters/act1_samuel.tres"
 
 [node name="DecisionTreeGraph" parent="." instance=ExtResource("2_s7u3b")]
 layout_mode = 0

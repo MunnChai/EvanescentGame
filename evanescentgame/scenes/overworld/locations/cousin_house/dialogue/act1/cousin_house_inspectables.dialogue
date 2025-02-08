@@ -15,7 +15,7 @@ Evan[neutral]: Compared to the rest of this house, it seems to be blooming.
 Evan[neutral]: There’s a pile of dirty dishes in the sink. It seems that everyone’s been too busy to properly take care of the chores…
 => END
 
-~ locked_door_broken
+~ locked_door_broken_locked
 Evan[disappointed]: This door is locked too... I wonder what could be in there. 
 => END
 

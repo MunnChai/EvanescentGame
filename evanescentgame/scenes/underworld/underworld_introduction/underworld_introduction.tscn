@@ -2552,6 +2552,7 @@ shape = SubResource("RectangleShape2D_5uysw")
 
 [node name="Devil" parent="World/LadyDevilOffice" instance=ExtResource("28_iiypf")]
 position = Vector2(2069, -60)
+dialogue_key = "talking_to_devil"
 
 [node name="Sprite2D" parent="World/LadyDevilOffice/Devil" index="0"]
 frame = 0

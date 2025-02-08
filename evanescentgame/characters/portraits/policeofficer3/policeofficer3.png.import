@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://np5x43pm80ix"
-path="res://.godot/imported/officeworker_neutral.png-ba6e213027b786d0db0bdf5a9f7592e0.ctex"
+uid="uid://by36ty2vjt2b"
+path="res://.godot/imported/policeofficer3.png-2e8f9e414c27958d37b4c18f7c0403fc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/portraits/officeworker/officeworker_neutral.png"
-dest_files=["res://.godot/imported/officeworker_neutral.png-ba6e213027b786d0db0bdf5a9f7592e0.ctex"]
+source_file="res://characters/portraits/policeofficer3/policeofficer3.png"
+dest_files=["res://.godot/imported/policeofficer3.png-2e8f9e414c27958d37b4c18f7c0403fc.ctex"]
 
 [params]
 

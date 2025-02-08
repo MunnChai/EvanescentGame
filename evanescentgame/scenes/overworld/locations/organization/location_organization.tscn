@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://4r3quu36axff"]
+[gd_scene load_steps=36 format=3 uid="uid://4r3quu36axff"]
 
 [ext_resource type="PackedScene" uid="uid://blp4jjwokkgxj" path="res://scenes/overworld/locations/location.tscn" id="1_axd6r"]
 [ext_resource type="Texture2D" uid="uid://wcum77puehl7" path="res://scenes/overworld/locations/organization/sprites/organization_decor.png" id="2_eqbyb"]
@@ -1221,6 +1221,9 @@ sources/1 = SubResource("TileSetAtlasSource_8py2o")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3uhm7"]
 size = Vector2(46, 31)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qahpj"]
+size = Vector2(28, 17)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xmaof"]
 size = Vector2(47, 40.5)
 
@@ -1616,6 +1619,15 @@ dialogue_title = "floor_eleven_window"
 position = Vector2(-1, -4.5)
 shape = SubResource("RectangleShape2D_3uhm7")
 
+[node name="CarlosDesk" parent="Inspectables" index="5" instance=ExtResource("9_nkn1l")]
+position = Vector2(57, -591)
+dialogue_resource = ExtResource("10_1idun")
+dialogue_title = "carlos_computer"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inspectables/CarlosDesk/InteractableArea" index="1"]
+position = Vector2(-5, 2)
+shape = SubResource("RectangleShape2D_qahpj")
+
 [node name="Items" type="Node2D" parent="." index="6"]
 
 [node name="LocationExit" parent="." index="7"]
@@ -1768,6 +1780,7 @@ navigation_polygon = SubResource("NavigationPolygon_sahpq")
 [editable path="Inspectables/Floor2DeskPaper"]
 [editable path="Inspectables/Floor2Posters"]
 [editable path="Inspectables/Floor11Window"]
+[editable path="Inspectables/CarlosDesk"]
 [editable path="LocationExit"]
 [editable path="Rooms/GroundFloor/Up"]
 [editable path="Rooms/Floor2/Down"]
