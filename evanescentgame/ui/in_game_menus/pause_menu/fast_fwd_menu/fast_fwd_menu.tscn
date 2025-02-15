@@ -1,0 +1,152 @@
+[gd_scene load_steps=6 format=3 uid="uid://bd2l7s55xatgs"]
+
+[ext_resource type="Script" path="res://ui/in_game_menus/pause_menu/fast_fwd_menu/fast_fwd_menu.gd" id="1_o1ehb"]
+[ext_resource type="Theme" uid="uid://jd7ot0ssesa0" path="res://ui/themes/general_theme.tres" id="2_51lrg"]
+
+[sub_resource type="Animation" id="Animation_83a0w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vqndx"]
+resource_name = "slide_in"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-320, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4yy0k"]
+_data = {
+"RESET": SubResource("Animation_83a0w"),
+"slide_in": SubResource("Animation_vqndx")
+}
+
+[node name="FastFwdMenu" type="Control" node_paths=PackedStringArray("h_slider")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o1ehb")
+h_slider = NodePath("ColorRect/FastFwdOptions/HSlider")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 320.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.392157)
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -63.5
+offset_top = 20.0
+offset_right = 63.5
+offset_bottom = 43.0
+grow_horizontal = 2
+theme = ExtResource("2_51lrg")
+text = "TIME STUUUFF:"
+
+[node name="Button" type="Button" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -23.0
+offset_top = -46.0
+offset_right = 38.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.75, 0.75)
+theme = ExtResource("2_51lrg")
+text = "Return"
+
+[node name="FastFwdOptions" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 2
+offset_left = 83.0
+offset_top = 51.0
+offset_right = 395.0
+offset_bottom = 203.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+
+[node name="Label" type="Label" parent="ColorRect/FastFwdOptions"]
+layout_mode = 2
+theme = ExtResource("2_51lrg")
+text = "Fast Forward"
+metadata/_edit_lock_ = true
+
+[node name="HSlider" type="HSlider" parent="ColorRect/FastFwdOptions"]
+layout_mode = 2
+min_value = 9.0
+max_value = 21.0
+value = 9.0
+tick_count = 13
+ticks_on_borders = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4yy0k")
+}
+
+[connection signal="pressed" from="ColorRect/Button" to="." method="_on_button_pressed"]
+[connection signal="value_changed" from="ColorRect/FastFwdOptions/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="ColorRect/FastFwdOptions/HSlider" to="ColorRect/FastFwdOptions" method="_on_h_slider_value_changed"]

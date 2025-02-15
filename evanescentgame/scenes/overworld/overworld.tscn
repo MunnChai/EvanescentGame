@@ -280,8 +280,9 @@ colleague = NodePath("../../World/NPCs/Kai")
 
 [node name="InfoLog" parent="UI" instance=ExtResource("29_m3j4v")]
 
-[node name="OverworldPause" parent="UI" instance=ExtResource("12_fi7rw")]
+[node name="OverworldPause" parent="UI" node_paths=PackedStringArray("in_game_ui") instance=ExtResource("12_fi7rw")]
 mouse_filter = 1
+in_game_ui = NodePath("../Ingame")
 
 [connection signal="location_updated" from="World/NPCs/Dawn" to="UI/NavigationPanel" method="_on_dawn_location_updated"]
 [connection signal="location_updated" from="World/NPCs/Kai" to="UI/NavigationPanel" method="_on_colleague_location_updated"]
