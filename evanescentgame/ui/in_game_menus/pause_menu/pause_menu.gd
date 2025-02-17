@@ -11,11 +11,10 @@ extends Control
 func _ready():
 	options_menu.hide()
 	fast_fwd_menu.hide()
+	fast_fwd_menu.in_game_ui = in_game_ui
 	self.hide()
 	animation_player.play("RESET")
-	
-	if in_game_ui:
-		fast_fwd_menu.clock = in_game_ui.clock
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -61,10 +60,14 @@ func _on_reset_pressed():
 	resume()
 	SceneLoader.load_underworld()
 
-func _on_test_fwd_pressed():
+func _on_f_fwd_pressed():
+	var curr_hour: float = floor(in_game_ui.get_current_IGT_s() / 60 / 60)
 	fast_fwd_menu.is_open = true
+	fast_fwd_menu.curr_hour = curr_hour
 	fast_fwd_menu.show()
-	fast_fwd_menu.h_slider.emit_signal("value_changed",9)
+	
+	fast_fwd_menu.h_slider.value = curr_hour
+	fast_fwd_menu.update_slider_label(curr_hour)
 	
 	fast_fwd_menu.animation_player.play("slide_in")
 	animation_player.play("slide_out")

@@ -64,27 +64,17 @@ _data = {
 "slide_in": SubResource("Animation_vqndx")
 }
 
-[node name="FastFwdMenu" type="Control" node_paths=PackedStringArray("h_slider")]
+[node name="FastFwdMenu" type="Control" node_paths=PackedStringArray("value_label", "h_slider")]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 script = ExtResource("1_o1ehb")
+value_label = NodePath("ColorRect/FastFwdOptions/HSlider/ValueLabel")
 h_slider = NodePath("ColorRect/FastFwdOptions/HSlider")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
 offset_right = 320.0
 offset_bottom = 180.0
-grow_horizontal = 2
-grow_vertical = 2
 color = Color(0, 0, 0, 0.392157)
 metadata/_edit_lock_ = true
 
@@ -119,20 +109,18 @@ theme = ExtResource("2_51lrg")
 text = "Return"
 
 [node name="FastFwdOptions" type="VBoxContainer" parent="ColorRect"]
-layout_mode = 2
-offset_left = 83.0
-offset_top = 51.0
-offset_right = 395.0
-offset_bottom = 203.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 80.0
+offset_top = 55.0
+offset_right = 80.0
+offset_bottom = -31.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
-
-[node name="Label" type="Label" parent="ColorRect/FastFwdOptions"]
-layout_mode = 2
-theme = ExtResource("2_51lrg")
-text = "Fast Forward"
-metadata/_edit_lock_ = true
+theme_override_constants/separation = 25
 
 [node name="HSlider" type="HSlider" parent="ColorRect/FastFwdOptions"]
 layout_mode = 2
@@ -142,6 +130,19 @@ value = 9.0
 tick_count = 13
 ticks_on_borders = true
 
+[node name="ValueLabel" type="Label" parent="ColorRect/FastFwdOptions/HSlider"]
+layout_mode = 0
+offset_top = -12.0
+offset_right = 26.0
+offset_bottom = 1.0
+theme = ExtResource("2_51lrg")
+
+[node name="FFwdButton" type="Button" parent="ColorRect/FastFwdOptions"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_51lrg")
+text = "Fast Forward"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_4yy0k")
@@ -150,3 +151,4 @@ libraries = {
 [connection signal="pressed" from="ColorRect/Button" to="." method="_on_button_pressed"]
 [connection signal="value_changed" from="ColorRect/FastFwdOptions/HSlider" to="." method="_on_h_slider_value_changed"]
 [connection signal="value_changed" from="ColorRect/FastFwdOptions/HSlider" to="ColorRect/FastFwdOptions" method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="ColorRect/FastFwdOptions/FFwdButton" to="." method="_on_f_fwd_button_pressed"]
