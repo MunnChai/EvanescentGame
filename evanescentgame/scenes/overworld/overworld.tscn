@@ -47,6 +47,9 @@ script = ExtResource("1_5y34q")
 
 [node name="World" type="Node2D" parent="."]
 
+[node name="DayNightCycle" parent="World" node_paths=PackedStringArray("in_game_ui") instance=ExtResource("35_7tqgk")]
+in_game_ui = NodePath("../../UI/Ingame")
+
 [node name="LocationManager" type="Node2D" parent="World" groups=["location_manager"]]
 
 [node name="Funeral Venue" parent="World/LocationManager" instance=ExtResource("3_qdm2x")]
@@ -267,9 +270,6 @@ position = Vector2(-151, -23)
 
 [node name="PositionHelper" type="Node2D" parent="World"]
 position = Vector2(3463, -16)
-
-[node name="DayNightCycle" parent="World" node_paths=PackedStringArray("in_game_ui") instance=ExtResource("35_7tqgk")]
-in_game_ui = NodePath("../../UI/Ingame")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
