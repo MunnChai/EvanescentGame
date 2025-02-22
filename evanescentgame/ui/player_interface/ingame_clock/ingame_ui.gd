@@ -1,3 +1,4 @@
+class_name InGameUI
 extends Control
 
 @onready var clock = $Clock

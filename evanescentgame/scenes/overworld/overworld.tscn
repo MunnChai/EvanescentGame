@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cpiebxlknogvc"]
+[gd_scene load_steps=38 format=3 uid="uid://cpiebxlknogvc"]
 
 [ext_resource type="Script" path="res://scenes/overworld/overworld_manager.gd" id="1_5y34q"]
 [ext_resource type="PackedScene" uid="uid://brm7k4yr1lcxw" path="res://characters/player/player.tscn" id="1_juc8k"]
@@ -34,6 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://chs3b715nlwf0" path="res://characters/npc/side_characters/organization_front_desk_worker/organization_front_desk.tscn" id="28_ydban"]
 [ext_resource type="PackedScene" uid="uid://bwsvbhi5lv3pd" path="res://ui/player_interface/info_log/info_log.tscn" id="29_m3j4v"]
 [ext_resource type="Resource" uid="uid://g7en3fh3b8a4" path="res://characters/npc/side_characters/organization_front_desk_worker/front_desk_worker_dialogue.dialogue" id="29_pohwf"]
+[ext_resource type="PackedScene" uid="uid://cs0runpig00em" path="res://ui/day_night_cycle/day_night_cycle.tscn" id="35_7tqgk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g7oad"]
 size = Vector2(54, 77)
@@ -45,6 +46,9 @@ size = Vector2(31, 56)
 script = ExtResource("1_5y34q")
 
 [node name="World" type="Node2D" parent="."]
+
+[node name="DayNightCycle" parent="World" node_paths=PackedStringArray("in_game_ui") instance=ExtResource("35_7tqgk")]
+in_game_ui = NodePath("../../UI/Ingame")
 
 [node name="LocationManager" type="Node2D" parent="World" groups=["location_manager"]]
 
