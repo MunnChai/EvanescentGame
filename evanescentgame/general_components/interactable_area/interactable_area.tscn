@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cfx3wanmlsj0"]
 
-[ext_resource type="Script" path="res://general_components/interactable_area/interactable_area.gd" id="1_740et"]
+[ext_resource type="Script" uid="uid://drgurwc2f1jxv" path="res://general_components/interactable_area/interactable_area.gd" id="1_740et"]
 [ext_resource type="Texture2D" uid="uid://v5n2vl3c76uj" path="res://ui/player_interface/interact_symbol.png" id="2_3q5a0"]
 
 [node name="InteractableArea" type="Area2D"]

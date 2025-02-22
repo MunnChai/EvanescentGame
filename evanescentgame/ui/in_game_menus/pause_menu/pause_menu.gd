@@ -29,11 +29,11 @@ func pause():
 	#self.show()
 	animation_player.play("blur")
 	animation_player.animation_finished.connect(
-		func():
+		func(animation_name):
 			for callable in animation_player.animation_finished.get_connections():
 				animation_player.animation_finished.disconnect(callable["callable"])
 			
-			hide()
+			#hide() 
 	)
 
 func escPressed():
@@ -41,6 +41,11 @@ func escPressed():
 		pause()
 	elif Input.is_action_just_pressed("esc") and get_tree().paused and !options_menu.is_open and !fast_fwd_menu.is_open:
 		resume()
+
+func hide_menu(): 
+	hide()
+	options_menu.hide()
+	fast_fwd_menu.hide()
 
 func _on_resume_pressed():
 	resume()

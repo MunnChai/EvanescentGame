@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://h5oxlt67k8c7"]
 
-[ext_resource type="Script" path="res://ui/in_game_menus/pause_menu/pause_menu.gd" id="1_xw5h1"]
-[ext_resource type="Shader" path="res://ui/in_game_menus/pause_menu/pause_menu.gdshader" id="2_xcgu1"]
+[ext_resource type="Script" uid="uid://djelrowv5ormo" path="res://ui/in_game_menus/pause_menu/pause_menu.gd" id="1_xw5h1"]
+[ext_resource type="Shader" uid="uid://iuse24rxu8yl" path="res://ui/in_game_menus/pause_menu/pause_menu.gdshader" id="2_xcgu1"]
 [ext_resource type="Theme" uid="uid://jd7ot0ssesa0" path="res://ui/themes/general_theme.tres" id="3_pit4n"]
 [ext_resource type="PackedScene" uid="uid://bgdbiubpob2jv" path="res://ui/in_game_menus/pause_menu/options_menu/options_menu.tscn" id="3_u0vgy"]
 [ext_resource type="PackedScene" uid="uid://bd2l7s55xatgs" path="res://ui/in_game_menus/pause_menu/fast_fwd_menu/fast_fwd_menu.tscn" id="5_ynotj"]
@@ -88,7 +88,7 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
-"method": &"hide"
+"method": &"hide_menu"
 }, {
 "args": [],
 "method": &"show"
@@ -125,9 +125,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g5o44"]
 _data = {
-"RESET": SubResource("Animation_n4v2i"),
-"blur": SubResource("Animation_7gqkh"),
-"slide_out": SubResource("Animation_kk42v")
+&"RESET": SubResource("Animation_n4v2i"),
+&"blur": SubResource("Animation_7gqkh"),
+&"slide_out": SubResource("Animation_kk42v")
 }
 
 [node name="OverworldPause" type="Control"]
@@ -157,10 +157,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 85.0
-offset_top = 39.5
-offset_right = 235.0
-offset_bottom = 140.5
+offset_left = -75.0
+offset_top = -50.5
+offset_right = 75.0
+offset_bottom = 50.5
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
@@ -210,7 +210,7 @@ icon_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_g5o44")
+&"": SubResource("AnimationLibrary_g5o44")
 }
 
 [node name="OptionsMenu" parent="." node_paths=PackedStringArray("pause_menu") instance=ExtResource("3_u0vgy")]

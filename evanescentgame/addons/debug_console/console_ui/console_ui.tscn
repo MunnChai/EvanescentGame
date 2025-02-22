@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://c2pbxjvlt7den"]
 
-[ext_resource type="Script" path="res://addons/debug_console/console_ui/console_ui.gd" id="1_4d4ab"]
+[ext_resource type="Script" uid="uid://b1bmueh6w6but" path="res://addons/debug_console/console_ui/console_ui.gd" id="1_4d4ab"]
 [ext_resource type="FontFile" uid="uid://c6ior61knt1fx" path="res://addons/debug_console/console_ui/fonts/RobotoMono-Regular.ttf" id="2_r51cm"]
 [ext_resource type="FontFile" uid="uid://l1ljjagpvplk" path="res://addons/debug_console/console_ui/fonts/RobotoMono-Bold.ttf" id="3_x2dns"]
 [ext_resource type="FontFile" uid="uid://bcafaacjxols3" path="res://addons/debug_console/console_ui/fonts/RobotoMono-Italic.ttf" id="4_kqhf6"]
 [ext_resource type="FontFile" uid="uid://bhv3b1vkcvqy1" path="res://addons/debug_console/console_ui/fonts/RobotoMono-BoldItalic.ttf" id="5_kndp4"]
-[ext_resource type="Script" path="res://addons/debug_console/console_ui/components/enter_button.gd" id="6_iu3pc"]
+[ext_resource type="Script" uid="uid://fcqqpxgj17e" path="res://addons/debug_console/console_ui/components/enter_button.gd" id="6_iu3pc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yp0bh"]
 bg_color = Color(0, 0, 0, 0.827451)

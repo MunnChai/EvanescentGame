@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bxdbyhghd8fs7"]
 
 [ext_resource type="PackedScene" uid="uid://cfx3wanmlsj0" path="res://general_components/interactable_area/interactable_area.tscn" id="1_v4hue"]
-[ext_resource type="Script" path="res://general_components/interactable_area/interactable_area_refactor.gd" id="2_71kta"]
+[ext_resource type="Script" uid="uid://c1aqhg1crgg6v" path="res://general_components/interactable_area/interactable_area_refactor.gd" id="2_71kta"]
 
 [node name="InteractableArea" instance=ExtResource("1_v4hue")]
 script = ExtResource("2_71kta")

@@ -1,13 +1,13 @@
 [gd_scene load_steps=22 format=3 uid="uid://ccwc4s7e5nmbf"]
 
-[ext_resource type="Script" path="res://characters/npc/scripts/npc.gd" id="1_0upfg"]
+[ext_resource type="Script" uid="uid://dpd5cf6rv623k" path="res://characters/npc/scripts/npc.gd" id="1_0upfg"]
 [ext_resource type="Texture2D" uid="uid://cd0hki25wrnhm" path="res://characters/npc/placeholder/sprites/placeholder-Sheet.png" id="2_58pc0"]
-[ext_resource type="Shader" path="res://characters/npc/main_characters/shaders/outline_shader.gdshader" id="2_ktr2n"]
+[ext_resource type="Shader" uid="uid://dtauo1vjscfgi" path="res://characters/npc/main_characters/shaders/outline_shader.gdshader" id="2_ktr2n"]
 [ext_resource type="PackedScene" uid="uid://cfx3wanmlsj0" path="res://general_components/interactable_area/interactable_area.tscn" id="2_mnng2"]
 [ext_resource type="PackedScene" uid="uid://cemmf570s8hey" path="res://general_components/dialogue_emitter/dialogue_emitter.tscn" id="3_kdiqa"]
 [ext_resource type="Resource" uid="uid://8ctajnr773an" path="res://scenes/test/initial_gameplay_demo/test_dialogue.dialogue" id="5_5k2ni"]
 [ext_resource type="PackedScene" uid="uid://c42lqbqc132h4" path="res://ui/player_interface/inventory/inventory.tscn" id="6_3vby5"]
-[ext_resource type="Script" path="res://characters/npc/scripts/npc_decision_maker.gd" id="6_s6v0q"]
+[ext_resource type="Script" uid="uid://ck068ggue5nuc" path="res://characters/npc/scripts/npc_decision_maker.gd" id="6_s6v0q"]
 [ext_resource type="AudioStream" uid="uid://ditl8qeniqaql" path="res://characters/npc/audio_test_npc/audio/sfx/footstep2/walking2-01.wav" id="8_uoq15"]
 [ext_resource type="AudioStream" uid="uid://cld8llqyeimph" path="res://characters/npc/audio_test_npc/audio/sfx/footstep2/walking2-02.wav" id="9_lkfsh"]
 [ext_resource type="AudioStream" uid="uid://do8lm8o0q0c60" path="res://characters/npc/audio_test_npc/audio/sfx/footstep2/walking2-03.wav" id="10_tvbok"]
@@ -118,23 +118,18 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h170s"]
 _data = {
-"idle": SubResource("Animation_ase62"),
-"run": SubResource("Animation_240ma"),
-"walk": SubResource("Animation_wc56y")
+&"idle": SubResource("Animation_ase62"),
+&"run": SubResource("Animation_240ma"),
+&"walk": SubResource("Animation_wc56y")
 }
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_siovh"]
 streams_count = 5
 stream_0/stream = ExtResource("8_uoq15")
-stream_0/weight = 1.0
 stream_1/stream = ExtResource("9_lkfsh")
-stream_1/weight = 1.0
 stream_2/stream = ExtResource("10_tvbok")
-stream_2/weight = 1.0
 stream_3/stream = ExtResource("11_2l08e")
-stream_3/weight = 1.0
 stream_4/stream = ExtResource("12_3fhf7")
-stream_4/weight = 1.0
 
 [node name="NPC" type="CharacterBody2D"]
 collision_layer = 4
@@ -181,7 +176,7 @@ layer = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_h170s")
+&"": SubResource("AnimationLibrary_h170s")
 }
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

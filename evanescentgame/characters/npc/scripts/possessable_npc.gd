@@ -56,7 +56,7 @@ func handle_input(delta: float):
 
 func become_possessed():
 	is_possessed = true
-	disable_interactable()
+	#disable_interactable()
 	inventory.visible = true
 	clear_navigation_agent_connections()
 	update_current_location()
@@ -64,7 +64,7 @@ func become_possessed():
 	if (is_navigating):
 		will_resume_navigation = true
 	
-	already_possessed = true
+	#already_possessed = true
 
 func become_unpossessed():
 	is_possessed = false

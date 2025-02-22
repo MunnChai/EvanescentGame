@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://drs6bo842ug57"]
 
-[ext_resource type="Script" path="res://characters/npc/side_characters/organization_front_desk_worker/front_desk_trigger.gd" id="1_yjtmn"]
+[ext_resource type="Script" uid="uid://blc0vp5827ksn" path="res://characters/npc/side_characters/organization_front_desk_worker/front_desk_trigger.gd" id="1_yjtmn"]
 [ext_resource type="PackedScene" uid="uid://cemmf570s8hey" path="res://general_components/dialogue_emitter/dialogue_emitter.tscn" id="2_0womx"]
 [ext_resource type="Resource" uid="uid://g7en3fh3b8a4" path="res://characters/npc/side_characters/organization_front_desk_worker/front_desk_worker_dialogue.dialogue" id="3_72usq"]
 

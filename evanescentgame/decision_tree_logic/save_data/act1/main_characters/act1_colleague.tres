@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="DecisionTreeGraphData" load_steps=9 format=3 uid="uid://c8hn8b6qhfcrc"]
 
-[ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_node_resource.gd" id="1_6c8ny"]
-[ext_resource type="Script" path="res://decision_tree_logic/save_logic/graph_resource.gd" id="1_q6066"]
+[ext_resource type="Script" uid="uid://bmj7viditxw5a" path="res://decision_tree_logic/save_logic/graph_node_resource.gd" id="1_6c8ny"]
+[ext_resource type="Script" uid="uid://dahs4p1fwvq0y" path="res://decision_tree_logic/save_logic/graph_resource.gd" id="1_q6066"]
 
 [sub_resource type="Resource" id="Resource_8un63"]
 script = ExtResource("1_6c8ny")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dec1686itnjia"]
 
-[ext_resource type="Script" path="res://scenes/overworld/locations/scripts/location.gd" id="1_5qs4x"]
+[ext_resource type="Script" uid="uid://b24862j528rsu" path="res://scenes/overworld/locations/scripts/location.gd" id="1_5qs4x"]
 [ext_resource type="TileSet" uid="uid://b0ik5iqgovpsy" path="res://scenes/test/initial_gameplay_demo/demo_tiles.tres" id="1_ogsqp"]
 
 [node name="Location" type="Node2D"]

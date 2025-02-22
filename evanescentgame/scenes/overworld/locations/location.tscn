@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://blp4jjwokkgxj"]
 
-[ext_resource type="Script" path="res://scenes/overworld/locations/scripts/location.gd" id="1_188if"]
+[ext_resource type="Script" uid="uid://b24862j528rsu" path="res://scenes/overworld/locations/scripts/location.gd" id="1_188if"]
 [ext_resource type="PackedScene" uid="uid://wflq4srocbke" path="res://scenes/scene_components/location_exit/location_exit.tscn" id="1_daxts"]
 
 [node name="Location" type="Node2D"]

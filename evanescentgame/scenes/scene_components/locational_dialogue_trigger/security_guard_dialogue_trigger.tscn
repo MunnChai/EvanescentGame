@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bqgtjd0dskmjr"]
 
-[ext_resource type="Script" path="res://scenes/scene_components/locational_dialogue_trigger/security_guard_dialogue_trigger.gd" id="1_0rsts"]
+[ext_resource type="Script" uid="uid://ubuwyy8xgvl" path="res://scenes/scene_components/locational_dialogue_trigger/security_guard_dialogue_trigger.gd" id="1_0rsts"]
 [ext_resource type="PackedScene" uid="uid://cemmf570s8hey" path="res://general_components/dialogue_emitter/dialogue_emitter.tscn" id="1_x0bjs"]
 [ext_resource type="Resource" uid="uid://bno7b40dxfj5p" path="res://characters/npc/side_characters/security_guard/dialogue/security_guard.dialogue" id="3_xro06"]
 

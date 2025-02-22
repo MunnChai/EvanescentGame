@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://b4s5cc2v2c64b"]
 
-[ext_resource type="Script" path="res://scenes/scene_components/keypad/keypad.gd" id="1_84g87"]
+[ext_resource type="Script" uid="uid://bucy0d8yqul27" path="res://scenes/scene_components/keypad/keypad.gd" id="1_84g87"]
 [ext_resource type="FontFile" uid="uid://cwi0n3kesweuw" path="res://ui/fonts/EBGaramond-Bold.ttf" id="2_12fx8"]
 [ext_resource type="Theme" uid="uid://jd7ot0ssesa0" path="res://ui/themes/general_theme.tres" id="3_xg58w"]
 

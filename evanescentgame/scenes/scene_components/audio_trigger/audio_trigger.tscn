@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://hkq87e11fer7"]
 
-[ext_resource type="Script" path="res://scenes/scene_components/audio_trigger/audio_trigger.gd" id="1_e7deo"]
+[ext_resource type="Script" uid="uid://brgt5fwq4sd50" path="res://scenes/scene_components/audio_trigger/audio_trigger.gd" id="1_e7deo"]
 
 [node name="AudioTrigger" type="Area2D"]
 collision_mask = 2
