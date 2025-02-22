@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dy16sc7tslnpc"]
 
 [ext_resource type="PackedScene" uid="uid://cfx3wanmlsj0" path="res://general_components/interactable_area/interactable_area.tscn" id="1_npdy8"]
-[ext_resource type="Script" path="res://scenes/underworld/overworld_teleport.gd" id="1_xbjlu"]
+[ext_resource type="Script" uid="uid://dnajagwxrjmi6" path="res://scenes/underworld/overworld_teleport.gd" id="1_xbjlu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hlyqd"]
 

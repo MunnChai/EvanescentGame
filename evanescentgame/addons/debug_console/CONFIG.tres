@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="DebugConsoleConfig" load_steps=2 format=3 uid="uid://b4xops5wtuss4"]
 
-[ext_resource type="Script" path="res://addons/debug_console/config/debug_console_config.gd" id="1_o7uyg"]
+[ext_resource type="Script" uid="uid://bsqa8krv0rnwe" path="res://addons/debug_console/config/debug_console_config.gd" id="1_o7uyg"]
 
 [resource]
 script = ExtResource("1_o7uyg")

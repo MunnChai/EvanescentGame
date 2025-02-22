@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cpcq8sylmmit3"]
 
 [ext_resource type="PackedScene" uid="uid://ccwc4s7e5nmbf" path="res://characters/npc/npc.tscn" id="1_uq0sb"]
-[ext_resource type="Script" path="res://characters/npc/scripts/possessable_npc.gd" id="2_33q74"]
-[ext_resource type="Shader" path="res://characters/npc/main_characters/shaders/outline_shader.gdshader" id="3_4xg7h"]
+[ext_resource type="Script" uid="uid://ci7uuc7x7jl57" path="res://characters/npc/scripts/possessable_npc.gd" id="2_33q74"]
+[ext_resource type="Shader" uid="uid://dtauo1vjscfgi" path="res://characters/npc/main_characters/shaders/outline_shader.gdshader" id="3_4xg7h"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bqmm7"]
 shader = ExtResource("3_4xg7h")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://c0j8q14q01gp7"]
 
-[ext_resource type="Script" path="res://characters/player/scripts/evan_suck_animation.gd" id="1_vu3cg"]
+[ext_resource type="Script" uid="uid://b21omg36nkukk" path="res://characters/player/scripts/evan_suck_animation.gd" id="1_vu3cg"]
 [ext_resource type="Texture2D" uid="uid://cvvsjlt6i5wpj" path="res://characters/player/sprites/player_tube_animation.png" id="2_t2wxm"]
 [ext_resource type="AudioStream" uid="uid://df2aegh7g5cqw" path="res://characters/player/audio/sfx/suck.mp3" id="3_42wko"]
 
@@ -37,8 +37,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vdff7"]
 _data = {
-"RESET": SubResource("Animation_dqbp2"),
-"tube_suck_1": SubResource("Animation_e71an")
+&"RESET": SubResource("Animation_dqbp2"),
+&"tube_suck_1": SubResource("Animation_e71an")
 }
 
 [node name="EvanSuckAnimation" type="Node2D"]

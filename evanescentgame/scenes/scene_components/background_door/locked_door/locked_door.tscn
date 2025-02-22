@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://4hqpq82crn7i"]
 
 [ext_resource type="PackedScene" uid="uid://cl8kobrguc04e" path="res://scenes/scene_components/background_door/background_door.tscn" id="1_fypca"]
-[ext_resource type="Script" path="res://scenes/scene_components/background_door/locked_door/locked_door.gd" id="2_5u6w5"]
+[ext_resource type="Script" uid="uid://cbhj3h7bqxsto" path="res://scenes/scene_components/background_door/locked_door/locked_door.gd" id="2_5u6w5"]
 [ext_resource type="PackedScene" uid="uid://cemmf570s8hey" path="res://general_components/dialogue_emitter/dialogue_emitter.tscn" id="3_embs7"]
 
 [node name="LockedDoor" instance=ExtResource("1_fypca")]

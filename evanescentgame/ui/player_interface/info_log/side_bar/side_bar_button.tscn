@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ks2hm3dad0ds"]
 
 [ext_resource type="FontFile" uid="uid://byvk43qeri2e" path="res://ui/fonts/EBGaramond-Regular.ttf" id="1_k7eiq"]
-[ext_resource type="Script" path="res://ui/player_interface/info_log/side_bar/side_bar_button.gd" id="2_3np7m"]
+[ext_resource type="Script" uid="uid://pah2xhchg41x" path="res://ui/player_interface/info_log/side_bar/side_bar_button.gd" id="2_3np7m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ung1"]
 

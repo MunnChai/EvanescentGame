@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bo73jk8xgay3l"]
 
 [ext_resource type="PackedScene" uid="uid://ccwc4s7e5nmbf" path="res://characters/npc/npc.tscn" id="1_j00tw"]
-[ext_resource type="Script" path="res://characters/npc/audio_test_npc/audio_npc.gd" id="2_pw0un"]
+[ext_resource type="Script" uid="uid://c34q3fnjf6qbv" path="res://characters/npc/audio_test_npc/audio_npc.gd" id="2_pw0un"]
 
 [node name="AudioTestNPC" instance=ExtResource("1_j00tw")]
 script = ExtResource("2_pw0un")

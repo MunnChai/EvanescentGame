@@ -61,7 +61,7 @@ func _update_timer(time_left: float) -> void:
 	if (fmod(h, 12) < 1):
 		h = "12"
 	else:
-		h = str(fmod(h, 12))
+		h = str(int(fmod(h, 12)))
 	if (fmod(time, 3600 * 24) < 3600 * 12):
 		text = " " + h + ":" + m + "am"
 	else:

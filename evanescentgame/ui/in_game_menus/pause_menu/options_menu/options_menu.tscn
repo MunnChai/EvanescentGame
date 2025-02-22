@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://bgdbiubpob2jv"]
 
-[ext_resource type="Script" path="res://ui/in_game_menus/pause_menu/options_menu/options_menu.gd" id="1_ia525"]
-[ext_resource type="Script" path="res://ui/in_game_menus/pause_menu/options_menu/GraphicsOptions.gd" id="2_5mnjn"]
+[ext_resource type="Script" uid="uid://jenpwnouocrx" path="res://ui/in_game_menus/pause_menu/options_menu/options_menu.gd" id="1_ia525"]
+[ext_resource type="Script" uid="uid://bsdbcnad7kqyn" path="res://ui/in_game_menus/pause_menu/options_menu/GraphicsOptions.gd" id="2_5mnjn"]
 [ext_resource type="Theme" uid="uid://jd7ot0ssesa0" path="res://ui/themes/general_theme.tres" id="2_ed8fp"]
-[ext_resource type="Script" path="res://ui/in_game_menus/pause_menu/options_menu/SoundOptions.gd" id="2_slshr"]
+[ext_resource type="Script" uid="uid://b0mq4f1eij1f7" path="res://ui/in_game_menus/pause_menu/options_menu/SoundOptions.gd" id="2_slshr"]
 [ext_resource type="FontFile" uid="uid://cwi0n3kesweuw" path="res://ui/fonts/EBGaramond-Bold.ttf" id="4_tn8j0"]
 
 [sub_resource type="Animation" id="Animation_83a0w"]
@@ -63,8 +63,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4yy0k"]
 _data = {
-"RESET": SubResource("Animation_83a0w"),
-"slide_in": SubResource("Animation_vqndx")
+&"RESET": SubResource("Animation_83a0w"),
+&"slide_in": SubResource("Animation_vqndx")
 }
 
 [node name="OptionsMenu" type="Control"]

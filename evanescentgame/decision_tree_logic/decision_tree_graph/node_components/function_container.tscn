@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bdvr3tnde7kia"]
 
-[ext_resource type="Script" path="res://decision_tree_logic/decision_tree_graph/node_components/function_container.gd" id="1_l3cjj"]
+[ext_resource type="Script" uid="uid://cgt1yt3d0nj7k" path="res://decision_tree_logic/decision_tree_graph/node_components/function_container.gd" id="1_l3cjj"]
 
 [node name="FunctionContainer" type="PanelContainer"]
 script = ExtResource("1_l3cjj")

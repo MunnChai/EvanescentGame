@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cg1rc471stkkl"]
 
-[ext_resource type="Script" path="res://ui/in_game_menus/navigation_panel/navigation_panel.gd" id="1_tyrlj"]
+[ext_resource type="Script" uid="uid://c00ln2ca6rt7x" path="res://ui/in_game_menus/navigation_panel/navigation_panel.gd" id="1_tyrlj"]
 [ext_resource type="Theme" uid="uid://jd7ot0ssesa0" path="res://ui/themes/general_theme.tres" id="2_jv8x4"]
 
 [node name="NavigationPanel" type="Control"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://fpq3ip5c3myx"]
 
-[ext_resource type="Script" path="res://decision_tree_logic/decision_tree_graph/decision_tree_node.gd" id="1_mcfk4"]
+[ext_resource type="Script" uid="uid://7be73g0qjuxn" path="res://decision_tree_logic/decision_tree_graph/decision_tree_node.gd" id="1_mcfk4"]
 
 [node name="DecisionTreeNode" type="GraphNode"]
 anchors_preset = 8

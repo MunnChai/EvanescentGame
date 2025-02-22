@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dslvd6fis82ts"]
 
-[ext_resource type="Script" path="res://ui/player_interface/info_log/info_log_entry_data.gd" id="1_lh82i"]
+[ext_resource type="Script" uid="uid://doiick1vbkc4y" path="res://ui/player_interface/info_log/info_log_entry_data.gd" id="1_lh82i"]
 
 [node name="InfoLogEntryData" type="Node"]
 script = ExtResource("1_lh82i")

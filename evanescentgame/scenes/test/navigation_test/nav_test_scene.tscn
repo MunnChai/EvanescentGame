@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b63tai0wim342" path="res://scenes/test/navigation_test/nav_test_location2.tscn" id="2_fes4b"]
 [ext_resource type="PackedScene" uid="uid://bvwy0smk7tc1n" path="res://scenes/test/navigation_test/nav_test_location3.tscn" id="3_2o2vj"]
 [ext_resource type="PackedScene" uid="uid://brm7k4yr1lcxw" path="res://characters/player/player.tscn" id="4_20k0b"]
-[ext_resource type="Script" path="res://scenes/test/navigation_test/navigation_tester.gd" id="4_a8vhn"]
+[ext_resource type="Script" uid="uid://bt8vch0boi68o" path="res://scenes/test/navigation_test/navigation_tester.gd" id="4_a8vhn"]
 [ext_resource type="PackedScene" uid="uid://ccwc4s7e5nmbf" path="res://characters/npc/npc.tscn" id="4_yaxwl"]
 
 [node name="NavTestScene" type="Node2D"]
