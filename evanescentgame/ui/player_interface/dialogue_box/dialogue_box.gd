@@ -271,9 +271,3 @@ func _on_dialogue_label_spoke(letter, letter_index, speed):
 	audio_manager.play_sfx(true_character_name, false, true, 0, 0, 0.9, 1.1)
 
 	
-
-
-
-
-
-
