@@ -24,13 +24,44 @@ static var num_branches_chosen = 0;
 var current_interactables: Array[InteractableArea]
 var closest_interactable: InteractableArea
 
+# DEBUG DETAILS...
+var debug_speed_multiplier := 1.0
+
 @onready var starting_sprite_position : Vector2 = $Sprite2D.position
+
+## DEBUG COMMANDS
+func _setup_debug() -> void:
+	var speedx_cmd: Callable = func(args: PackedStringArray):
+		if len(args) <  1:
+			Logger.log("speedx needs a float value: speedx <float>, e.g. speedx 2.0")
+			debug_speed_multiplier = 1.0
+		else:
+			if args[0].is_valid_float():
+				debug_speed_multiplier = args[0].to_float()
+				Logger.log("Set player speed multiplier to [b]%s[/b]." % debug_speed_multiplier)
+			else:
+				Logger.log_error("speedx expects a valid float.")
+	
+	DebugConsole.register("speedx", speedx_cmd)
+	
+	var togglecoll_cmd: Callable = func(args: PackedStringArray):
+		## NOTE: This currently also disables interactions.
+		if not $CollisionShape2D.disabled:
+			$CollisionShape2D.set_disabled(true)
+			Logger.log("Player collision [b]disabled[/b].")
+		else:
+			$CollisionShape2D.set_disabled(false)
+			Logger.log("Player collision [b]enabled[/b].")
+	
+	DebugConsole.register("togglecoll", togglecoll_cmd)
 
 func _ready():
 	DialogueManager.dialogue_ended.connect(
 		func(dialogue_resource: Resource):
 			is_input_active = true
 	)
+	
+	_setup_debug()
 
 func show_sprite() -> void:
 	sprite_2d.show()
@@ -74,7 +105,7 @@ func handle_movement(delta: float):
 		direction_y = Input.get_axis("move_up", "move_down")
 	
 	# velocity = velocity.move_toward(Vector2(direction_x, direction_y).normalized() * SPEED, SPEED)
-	velocity = Vector2(MathUtil.decay(velocity, Vector2(direction_x, direction_y).normalized() * SPEED, ACCEL_DECAY_CONST, delta))
+	velocity = Vector2(MathUtil.decay(velocity, Vector2(direction_x, direction_y).normalized() * SPEED * debug_speed_multiplier, ACCEL_DECAY_CONST, delta))
 	
 	if velocity.x > 0:
 		($Sprite2D as Sprite2D).flip_h = false

@@ -31,6 +31,7 @@ EvanMemory="*res://singletons/evan_memory.gd"
 EventHandler="*res://singletons/event_handler.gd"
 GameClock="*res://singletons/game_clock.gd"
 SaveManager="*res://singletons/save_manager.gd"
+DebugConsole="*res://addons/debug_console/debug_console_global.gd"
 PlayerInfo="*res://singletons/player_info.gd"
 
 [dialogue_manager]
@@ -49,7 +50,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+enabled=PackedStringArray("res://addons/debug_console/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg")
 
 [input]
 

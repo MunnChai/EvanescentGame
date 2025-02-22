@@ -1,0 +1,15 @@
+EvanescentGame v<no version> by Untitled Studio
+DebugConsole v0.0.2 | Debug Log
+Dumped at 2025-01-18T18:00:03 | Maximum 1000 entries before cutoff
+-- BEGIN LOG --
+EvanescentGame v<no version> by Untitled Studio
+DebugConsole v0.0.2 by felixrl
+Debugging started at 2025-01-18T17:59:52
+
+> font
+ERROR: Unknown command: font
+> pause
+ERROR: Unknown command: pause
+> dump
+Dumping log to res://debug_logs/debug_log_2025-01-18_1.txt...
+-- END LOG --
