@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://h5oxlt67k8c7"]
+[gd_scene load_steps=11 format=3 uid="uid://h5oxlt67k8c7"]
 
 [ext_resource type="Script" path="res://ui/in_game_menus/pause_menu/pause_menu.gd" id="1_xw5h1"]
 [ext_resource type="Shader" path="res://ui/in_game_menus/pause_menu/pause_menu.gdshader" id="2_xcgu1"]
 [ext_resource type="Theme" uid="uid://jd7ot0ssesa0" path="res://ui/themes/general_theme.tres" id="3_pit4n"]
 [ext_resource type="PackedScene" uid="uid://bgdbiubpob2jv" path="res://ui/in_game_menus/pause_menu/options_menu/options_menu.tscn" id="3_u0vgy"]
+[ext_resource type="PackedScene" uid="uid://bd2l7s55xatgs" path="res://ui/in_game_menus/pause_menu/fast_fwd_menu/fast_fwd_menu.tscn" id="5_ynotj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k7iej"]
 shader = ExtResource("2_xcgu1")
@@ -191,6 +192,22 @@ theme = ExtResource("3_pit4n")
 theme_override_font_sizes/font_size = 5
 text = "Quit"
 
+[node name="Reset" type="Button" parent="PanelContainer/VBoxContainer"]
+process_mode = 2
+layout_mode = 2
+theme = ExtResource("3_pit4n")
+theme_override_font_sizes/font_size = 5
+text = "Reset"
+icon_alignment = 1
+
+[node name="FFwd" type="Button" parent="PanelContainer/VBoxContainer"]
+process_mode = 2
+layout_mode = 2
+theme = ExtResource("3_pit4n")
+theme_override_font_sizes/font_size = 5
+text = "Fast Forward"
+icon_alignment = 1
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_g5o44")
@@ -205,6 +222,12 @@ grow_horizontal = 1
 grow_vertical = 1
 pause_menu = NodePath("..")
 
+[node name="FastFwdMenu" parent="." node_paths=PackedStringArray("pause_menu") instance=ExtResource("5_ynotj")]
+layout_mode = 1
+pause_menu = NodePath("..")
+
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Reset" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/FFwd" to="." method="_on_f_fwd_pressed"]
