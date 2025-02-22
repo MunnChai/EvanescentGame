@@ -1,0 +1,11 @@
+~ default_moving
+Dawn[neutral]: ... 
+=> END
+
+~ going_to_work
+Dawn[neutral]: Sigh... back to work. No rest for the weary. 
+=> END
+
+~ going_home
+Dawn[neutral]: I'm finally going home.
+=> END

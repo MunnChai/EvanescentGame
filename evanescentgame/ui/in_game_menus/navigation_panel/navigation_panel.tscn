@@ -47,47 +47,57 @@ columns = 2
 [node name="FuneralButton" type="Button" parent="Panel/GridContainer"]
 layout_mode = 2
 theme = ExtResource("2_jv8x4")
+theme_override_font_sizes/font_size = 14
 text = "Funeral Parlor"
 
 [node name="FuneralLabel" type="Label" parent="Panel/GridContainer"]
 layout_mode = 2
 theme = ExtResource("2_jv8x4")
+theme_override_font_sizes/font_size = 14
 
 [node name="HouseButton" type="Button" parent="Panel/GridContainer"]
 layout_mode = 2
 theme = ExtResource("2_jv8x4")
+theme_override_font_sizes/font_size = 14
 text = "Evan's House"
 
 [node name="HouseLabel" type="Label" parent="Panel/GridContainer"]
 layout_mode = 2
 theme = ExtResource("2_jv8x4")
+theme_override_font_sizes/font_size = 14
 
 [node name="CHouseButton" type="Button" parent="Panel/GridContainer"]
 layout_mode = 2
 theme = ExtResource("2_jv8x4")
+theme_override_font_sizes/font_size = 14
 text = "Cousin's House"
 
 [node name="CHouseLabel" type="Label" parent="Panel/GridContainer"]
 layout_mode = 2
 theme = ExtResource("2_jv8x4")
+theme_override_font_sizes/font_size = 14
 
 [node name="StationButton" type="Button" parent="Panel/GridContainer"]
 layout_mode = 2
 theme = ExtResource("2_jv8x4")
+theme_override_font_sizes/font_size = 14
 text = "Police Station"
 
 [node name="StationLabel" type="Label" parent="Panel/GridContainer"]
 layout_mode = 2
 theme = ExtResource("2_jv8x4")
+theme_override_font_sizes/font_size = 14
 
 [node name="OrgButton" type="Button" parent="Panel/GridContainer"]
 layout_mode = 2
 theme = ExtResource("2_jv8x4")
+theme_override_font_sizes/font_size = 14
 text = "The Organization"
 
 [node name="OrgLabel" type="Label" parent="Panel/GridContainer"]
 layout_mode = 2
 theme = ExtResource("2_jv8x4")
+theme_override_font_sizes/font_size = 14
 
 [connection signal="pressed" from="Panel/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="Panel/GridContainer/FuneralButton" to="." method="_on_funeral_button_pressed"]

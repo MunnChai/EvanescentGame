@@ -1,0 +1,23 @@
+~ normal_player_entered
+Office_Worker~Security Guard[neutral]: Sorry. This vending machine’s mine.
+=> END
+
+~ colleague_entered
+Office_Worker~Security Guard[neutral]: Took you long enough. I missed a donut sale for this, you know.
+Kai[neutral]: I’m fairly confident that I’m on time, sir.
+Kai[disappointed]: And a donut sale?
+Office_Worker~Security Guard[neutral]: Donuts, man! The bakery down the store never goes on sale. I was looking forward to that, but here I am, stuck waiting for your slow ass.
+Office_Worker~Security Guard[neutral]: Anyways, good work this week. Boss man’s impressed and no one suspects a thing.
+Office_Worker~Security Guard[neutral]: It must be because you’re a police officer, hey? You know how the law works. You know the loopholes.
+Kai[angry]: Do you have anything new for me or not.
+Office_Worker~Security Guard[neutral]: Old boss man says there’s nothing new. It’s an old case, man. Not much to go off of now.
+Kai[angry]: …
+Kai[neutral]: Okay. Thank you for your time.
+Office_Worker~Security Guard[neutral]: Yup. Hey, can you bring a donut next time? As compensation for making me wait.
+Kai[disappointed]: Maybe let up on the sugar addiction first.
+=> END
+
+~ evan_inspect
+Office_Worker~Security Guard[neutral]: When’s that guy gonna show up?
+Office_Worker~Security Guard[neutral]: I’m gonna miss the bakery’s donut sale…
+=> END

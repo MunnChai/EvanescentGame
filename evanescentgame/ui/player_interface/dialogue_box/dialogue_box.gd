@@ -63,22 +63,6 @@ var dialogue_line: DialogueLine:
 		var start_portrait_location = character_name.find("{")
 		var end_portrait_location = character_name.find("}")
 		
-		# Get Portrait
-		var portrait_path = "res://characters/npc/placeholder/portraits/"
-		var portrait: Texture2D
-		if (start_emotion == -1):
-			portrait = load(portrait_path + "placeholder_neutral.png")
-		else:
-			var emotion = character_name.substr(start_emotion + 1, end_emotion - start_emotion - 1)
-			
-			if (["neutral", "excited", "embarrassed", "disappointed"].has(emotion)):
-				portrait = load(portrait_path + "placeholder_" + emotion + ".png")
-			else:
-				print("WARNING: invalid emotion in dialogue: ", emotion)
-		
-		# Set Portrait on left or right
-		l_portrait.texture = portrait
-		
 		# Set Character Name
 		var display_name = ""
 		
@@ -103,13 +87,34 @@ var dialogue_line: DialogueLine:
 				display_name = character_name.substr(end_metadata + 1)
 			else:
 				display_name = character_name.substr(end_metadata + 1, start_emotion - end_metadata - 1)
-			
-		
 		
 		
 		#print("True Character Name: ", true_character_name)
 		#print("Shown Character Name: ", character_name)
 		character_label.text = display_name
+		
+		const EMOTION_KEYWORDS = ["neutral", "excited", "embarrassed", "disappointed", "relaxed", "angry"]
+		
+		var character_path_name = true_character_name.to_lower()
+		character_path_name = character_path_name.replace(" ", "")
+		character_path_name = character_path_name.replace("_", "")
+		
+		# Get Portrait
+		var portrait_path = "res://characters/portraits/" + character_path_name + "/" + character_path_name
+		var portrait: Texture2D
+		
+		if (start_emotion == -1):
+			portrait = load(portrait_path + "_neutral.png")
+		else:
+			var emotion = character_name.substr(start_emotion + 1, end_emotion - start_emotion - 1)
+			
+			if (EMOTION_KEYWORDS.has(emotion)):
+				portrait = load(portrait_path + "_" + emotion + ".png")
+			else:
+				print("WARNING: invalid emotion in dialogue: ", emotion)
+		
+		# Set Portrait on left or right
+		l_portrait.texture = portrait
 		
 		dialogue_label.hide()
 		dialogue_label.dialogue_line = dialogue_line
@@ -157,11 +162,15 @@ var true_character_name: String = ""
 @onready var responses_menu: DialogueResponsesMenu = %ResponsesMenu
 
 func _show_balloon() -> void:
+	var clock = get_tree().get_first_node_in_group("clock")
+	clock.pause_time()
 	get_tree().create_tween().tween_property(dialogue_box_control, "position", visible_anchor.position, 0.3).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 func _hide_balloon() -> void:
 	get_tree().create_tween().tween_property(dialogue_box_control, "position", hidden_anchor.position, 0.15).set_ease(Tween.EASE_OUT)
 	await get_tree().create_timer(0.15).timeout
 	queue_free()
+	var clock = get_tree().get_first_node_in_group("clock")
+	clock.resume_time()
 
 func _ready() -> void:
 	balloon.hide()
@@ -198,6 +207,7 @@ func start(dialogue_resource: DialogueResource, title: String, extra_game_states
 	# ANIMATE SHOW UP
 	balloon.show()
 	_show_balloon()
+	
 	
 	self.dialogue_line = await resource.get_next_dialogue_line(title, temporary_game_states)
 
@@ -259,16 +269,7 @@ func _on_dialogue_label_spoke(letter, letter_index, speed):
 		return
 	
 	audio_manager.play_sfx(true_character_name, false, true, 0, 0, 0.9, 1.1)
-	#match (true_character_name):
-		#"Evan":
-			#audio_manager.play_sfx("Evan", false, true, 0, 0, 0.9, 1.1)
-		#"Lady Devil":
-			#audio_manager.play_sfx("LadyDevil", false, true, 0, 0, 0.9, 1.1)
-		#"Ghost":
-			#audio_manager.play_sfx("Ghost", false, true, 0, 0, 0.9, 1.1)
-		#_:
-			#pass
-			##print("Invalid character set: ", true_character_name) # suppress a billion print statements
+
 	
 
 

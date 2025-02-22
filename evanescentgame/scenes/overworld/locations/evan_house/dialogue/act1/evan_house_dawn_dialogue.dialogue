@@ -1,0 +1,50 @@
+~ post_funeral_kitchen_idle
+Dawn[neutral]: I should make a quick lunch before work…
+=> END
+
+~ living_room_idle
+Dawn[neutral]: I wonder what’s on TV.
+=> END
+
+~ Cooking_Dinner_Idle
+Dawn[angry]: I’m so tired of cooking. 
+Dawn[neutral]: Maybe I should order pizza.
+=> END
+
+~ dinner_conversation
+Dawn[neutral]: Here’s your portion, Sam.
+Sam[excited]: Thanks, mom!
+Dawn[neutral]: And here’s your portion, Hana.
+Hana[neutral]: …
+Dawn[neutral]: Hana?
+Hana[neutral]: What.
+Dawn[disappointed]: Is there[wait=0.25]… something you want to say?
+Hana[neutral]: Something I want to say?
+Hana[angry]: Dad’s fucking dead. Is that what you wanted me to say?
+Dawn[angry]: Hana. You do not say that about your father.
+Hana[angry]: Why? What is he going to do? It’s not like he can hear me. It’s not like he can chastise me for being an angry hormonal teenager.
+Hana[angry]: That’s your job now.
+Dawn[disappointed]: …
+Sam[neutral]: …
+Hana[angry]: I’m going into my room to eat.
+=> END
+
+~ Kitchen_Cleaning_Idle
+Dawn[neutral]: Cooking, cleaning, working all day. 
+Dawn[disappointed]: Never a moment to rest these days.
+=> END
+
+~ moving_to_room
+Dawn[neutral]: I can’t wait to lie down.
+=> END
+
+~ inspecting_samuel
+Dawn[neutral]: ... He's sleeping.
+Dawn[neutral]: Sleep well, Sam.
+=> END
+
+~ inspecting_hana
+Dawn[neutral]: Hana, I’m home. 
+Hana[angry]: Whatever, Mom.
+Dawn[neutral]: …
+=> END

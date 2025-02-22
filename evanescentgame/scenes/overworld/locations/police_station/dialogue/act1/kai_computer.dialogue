@@ -1,9 +1,21 @@
-~ kai_computer
-Evan: There's a big red button here...
-- Press it
-	Evan: ...
-	Evan: Did that do anything?
+~ kai_computer_ghost
+Evan[excited]: Hey, this computer is still logged in! 
+Evan[neutral]: There’s a window open… “Free_Donut_Alert_System”. 
+Evan[neutral]: What does that even mean? 
+Evan[disappointed]: If only I could use the mouse… 
+=> END
+
+~ kai_computer_human
+Evan[excited]: Hey, this computer is still logged in! 
+Evan[neutral]: There’s a window open… “Free_Donut_Alert_System”. 
+Evan[neutral]: What does that even mean? 
+Lady Devil[neutral]: Only one way to find out. 
+Evan[neutral]: (There’s a button that says “Send Alert”... Should I click it?)
+- Press the button
 	do EventHandler.security_guard_text_sent.emit()
-- Leave it
-	Evan: Let's not do anything stupid, now.
+	Evan[excited]: …
+	Evan[neutral]: Surely that did something?
+- Leave
+	Evan[neutral]: Who knows what that could’ve done… 
+	Evan[neutral]: Better not touch it for now. 
 => END

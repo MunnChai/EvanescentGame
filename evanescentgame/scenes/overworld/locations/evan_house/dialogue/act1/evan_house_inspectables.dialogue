@@ -1,40 +1,197 @@
-~ couch
-Evan: Whoever lived here has good taste in furniture.
-=> END
-
 ~ piano
-Evan: A piano! I wonder if I could play when I was alive.
-Evan: ...
-Lady Devil: ... 
-Lady Devil: Did you just try to play something?
-Evan: Stupid ghost hands. 
+Evan[excited]: A piano! I wonder if I could play when I was alive.
+Evan[neutral]: ...
+Lady Devil[neutral]: ... 
+Lady Devil[disappointed]: Did you just try to play something?
+Evan[disappointed]: Stupid ghost hands. 
 => END
 
 ~ family_photo
-Lady Devil: Look at you in this photo. So happy, cheerful... alive...
-Evan: Happy, cheerful, and with two children, apparently.
-Lady Devil: A beautiful wife, too.
-Evan: Yeah... really beautiful.
-Lady Devil: Woah there big guy. Falling in love with your own wife? Mind your boundaries.
-Evan: Sorry, sorry.
+Evan[neutral]: (There’s a photo of four people hanging on the wall. A woman, two children, and…)
+Evan[excited]: Is that me?
+Lady Devil[neutral]: In all your middle-aged glory.
+Evan[excited]: I had a family?
+Lady Devil[neutral]: Hey, I’m just as surprised as the next lord of the underworld. But even a guy like you can have a happy family, it seems.
+Evan[neutral]: (I had a wife and children. One daughter, one son.)
+Evan[neutral]: (...)
+Evan[neutral]: (I looked happy.)
 => END
 
-~ chandelier
-Evan: Wow. This thing looks expensive.
-Evan: Who in their right mind would spend this much money on a light?
-Lady Devil: You did.
-Evan: ...
-Evan: Wow, this is such a good investment!
+~ family_photo_repeat
+Evan[neutral]: (A photo of me and my family.)
+Evan[neutral]: (I wonder how they’re doing without me.)
 => END
 
 
 ~ sink
-Evan: This sink is immaculate!
-Evan: If I had a reflection, I would definitely be able to see myself in this marble.
+Evan[excited]: This sink is immaculate!
+Evan[relaxed]: If I had a reflection, I would definitely be able to see myself in this marble.
 => END
 
 
 ~ flower
-Evan: This flower is thriving. 
-Lady Devil: Unlike someone I know. 
+Evan[neutral]: This flower is thriving. 
+Lady Devil[neutral]: Unlike someone I know. 
+=> END
+
+
+~ wedding_photo
+Lady Devil[neutral]: Look, it’s you and your wife. How cute.
+Evan[excited]: Ah[wait=0.25]... yeah, it is.
+Evan[neutral]: (We look young in this photo. I guess this must’ve been taken a long time ago.)
+Evan[neutral]: (I’ve been married for a long time, it seems.)
+=> END
+
+~ evan_uniform
+Evan[neutral]: Does it count as snooping if it’s my own closet?
+Lady Devil[neutral]: I’m sure past you wouldn’t mind.
+Lady Devil[neutral]: Although, your wife is a different story.
+Evan[neutral]: (Let’s see what’s in here…)
+Evan[excited]: (... !)
+Evan[excited]: There’s a police uniform here with my name on it.
+Evan[neutral]: Was I a police officer when I was alive?
+=> END
+
+~ evan_uniform_repeat
+Evan[neutral]: My police uniform is still hanging in the closet.
+Evan[neutral]: It looks like it’s been well-cleaned in my absence.
+=> END
+
+~ Dawn_Wardrobe
+Evan[neutral]: Let’s see… what’s in this closet?
+Evan[neutral]: A few shirts, dresses, pants…
+Evan[excited]: Some papers? What are they doing here? 
+Evan[neutral]: These are… divorce papers?
+Lady Devil[neutral]: Looks like someone wasn’t too happy with their home life.
+Evan[embarrassed]: … 
+=> END 
+
+
+~ dawn_diary
+Evan[neutral]: There’s a diary here.
+Lady Devil[neutral]: It has the name “Dawn” on the cover. Are you sure you want to read someone else’s private diary?
+- Yes => read_diary
+- No => do_not_read_diary
+=> END
+
+~ read_diary
+Evan[embarrassed]: It’s not like there are any real repercussions. Might as well milk the benefits of being a ghost.
+Lady Devil[disappointed]: Aren’t you just the pinnacle of high morals.
+Evan[neutral]: (Which entry should I read?)
+- First Entry => first_entry
+- Last Entry => last_entry
+- Stop Reading => END
+=> END
+
+~ first_entry
+Evan[neutral]: (The first entry in here is from six months ago.)
+Evan[neutral]: “It’s been many years since I’ve kept a diary, but recent events call for change.
+Evan[neutral]: “It’s difficult to stay positive these days. My life has turned into a perpetuating cycle of argue with Evan, argue with Hana, send the kids to school and cook and clean and cook and argue.
+Evan[neutral]: “All that on top of an endless inbox of job rejections…
+Evan[neutral]: “I could use a miracle right about now.”
+Evan[neutral]: (Should I keep reading?)
+- Next Entry => second_entry
+- Stop Reading => END
+=> END
+
+~ second_entry
+Evan[neutral]: (This entry is from four months ago.)
+Evan[neutral]: “A miracle has appeared!
+Evan[neutral]: “After what seems like years, I finally got an offer at the Organization. Carlos’ referral helped, of course. I’ll have to treat him to a nice dinner sometime.
+Evan[neutral]: “The good news seems to have lifted the spirits of the rest of the family, too.
+Evan[neutral]: “Hana no longer scrolls her phone during dinner. Sam made a card for me. Even Evan came home early yesterday to take us out for dinner.
+Evan[neutral]: “When was the last time the four of us went out together like that? I can hardly recall. Regardless, it was a lovely time.
+Evan[neutral]: “Perhaps this job offer was the final missing piece our family needed.”
+Evan[neutral]: (Should I keep reading?)
+- Next Entry => third_entry
+- Previous Entry => second_entry
+- Stop Reading => END
+=> END
+
+~ third_entry
+Evan[neutral]: (This entry is from three months ago.)
+Evan[neutral]: “The Organization is nice. I’d forgotten what it was like to be in others’ company for so long.
+Evan[neutral]: “Although, there are a few strange things about the Organization.
+Evan[neutral]: “Just today, I heard a rumour about some cursed vending machine. Apparently an employee was seen buying a snack and then disappearing?
+Evan[neutral]: “I wonder if it has anything to do with that security guard.”
+- Next Entry => fourth_entry
+- Previous Entry => third_entry
+- Stop Reading => END
+=> END
+
+~ fourth_entry
+Evan[neutral]: (The latest entry in here is from just two weeks ago.)
+Evan[neutral]: “The blessing was temporary, it seems.
+Evan[neutral]: “Hana has retreated to her fiery temperament. Evan has returned to his late working hours. And he seems more closed off than usual. Every time I ask him about his current case, he brushes it off as ‘something confidential’.
+Evan[neutral]: “Between work and the kids and Evan, it’d be impossible for me not to reach a breaking point. I thought that life would finally settle after I got this job. Why did it just get harder?
+Evan[neutral]: “Evan’s always worked so hard for the family. I just wanted to relieve him of that stress.
+Evan[neutral]: “But it seems my job has only made him work harder. He comes home so late. The amount of hours that the children have seen him this week could be counted on one hand.
+Evan[neutral]: “It’s tiring.”
+- Next Entry => last_entry
+- Previous Entry => fourth_entry
+- Stop Reading => END
+=> END
+
+~ last_entry
+Evan[neutral]: (This entry is from… yesterday.)
+Evan[neutral]: “He’s… oh Evan…
+Evan[neutral]: “It’s all so sudden. What are we to do now?
+Evan[neutral]: “Who is to fill the role of Hana and Sam’s father? Who is to fill the role of my husband, my life partner?
+Evan[neutral]: “I miss you.”
+Evan[neutral]: …
+- Previous Entry => last_entry
+- Stop Reading => END
+=> END
+
+~ do_not_read_diary
+Evan[embarrassed]: I suppose you’re right.
+=> END
+
+~ dawn_room_key_ghost
+Evan[neutral]: It’s some sort of key. 
+Evan[neutral]: Should I pick it up?
+- Grab the Key
+	Evan[neutral]: …
+	Evan[neutral]: Stupid ghost hands.
+- Leave it
+	Evan[neutral]: Best to not touch other people’s things. 
+=> END
+
+~ dawn_room_key_human
+Evan[neutral]: It’s some sort of key. 
+Evan[excited]: I'll take it with me. You never know when this kind of thing will come in handy!
+=> END
+
+~ organization_badge_ghost
+Evan[excited]: It looks like there’s something under the bed.
+Evan[neutral]: Is this a badge? It says “The Organization.”
+Evan[neutral]: There’s an ID here too. “00412314.”
+Lady Devil[neutral]: So shiny… it would look lovely in my office. Say, would you mind -
+Evan[disappointed]: No, I’m not bringing this back for you. I can’t even pick this up with my ghost hands.
+Lady Devil[disappointed]: Boooooooooo. You’re no fun.
+=> END
+
+~ organization_badge_human
+Evan[excited]: There's some sort of badge under the bed. 
+Evan[neutral]: It says "The Organization" on it.
+Evan[excited]: I'll take it with me. 
+Lady Devil[disappointed]: Do you always take random objects from people's houses??
+=> END
+
+~ family_photo_hana_drawer
+Evan[neutral]: There’s a family photo in the drawer.
+Lady Devil[neutral]: In the drawer? Isn’t a family photo usually something you display on a desk?
+Evan[neutral]: Huh. I suppose you’re right. What is this doing in here?
+=> END
+
+~ family_photo_hana_drawer_repeat
+Evan[neutral]: (In a dusty drawer… [wait=0.25]what an odd place for a family photo.)
+=> END
+
+~ sam_bookshelf
+Evan[neutral]: There’s some children’s books on the shelf. 
+Evan[neutral]: They all feature some sort of rat detective… “Geraldo Schmilton”?
+Lady Devil[neutral]: Oh, that’s a good one. I love the plot twist at the end.
+Evan[disappointed]: You’ve read this before?
+Lady Devil[embarrassed]: Look, there aren’t that many sources of entertainment down there. A devil’s gotta make do. 
 => END

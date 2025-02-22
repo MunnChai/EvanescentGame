@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://bwjx20nvpdwcn"
+path="res://.godot/imported/cousin_house_inspectables.dialogue-ece8282ee2b2968a6a13b22336d93106.tres"
+
+[deps]
+
+source_file="res://scenes/overworld/locations/cousin_house/dialogue/act1/cousin_house_inspectables.dialogue"
+dest_files=["res://.godot/imported/cousin_house_inspectables.dialogue-ece8282ee2b2968a6a13b22336d93106.tres"]
+
+[params]
+
+defaults=true

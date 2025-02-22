@@ -1,0 +1,24 @@
+~ break_room_poster
+Evan[excited]: Looks like there’s a soup thief in the office. 
+Evan[neutral]: Intriguing, but this seems like a mystery for another day… 
+=> END
+
+~ break_room_vending_machine
+Evan[excited]: There’s a bag of chips that’s almost fallen out!
+Lady Devil[neutral]: It says they’re ketchup flavoured. That sounds like an invention straight from the underworld. 
+Evan[embarrassed]: Hey, they’re not that bad…
+=> END
+
+~ kai_desk
+Evan[neutral]: The namecard says that this is Officer Kai’s desk.
+Evan[neutral]: The amount of papers here make it look like it should be a disorganized mess, but it seems that Kai somehow manages to keep everything in order. 
+=> END
+
+~ kai_medal
+Evan[neutral]: It’s a medal commemorating an ‘Officer Kai’ for his role in solving a case. From the looks of it, it seems that the case must have been a pretty big deal
+=> END
+
+~ kai_cold_case_file
+Evan[neutral]: There’s a case file about a girl who died under mysterious circumstances many years ago. Almost every page is completely covered in notes.
+Evan[neutral]: It seems like Kai has been working on this case for quite some time…
+=> END

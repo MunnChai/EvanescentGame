@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://bhj17m2lkajvv"
+path="res://.godot/imported/organization_dawn_dialogue.dialogue-125834ce451c224201fcd9b1a4538137.tres"
+
+[deps]
+
+source_file="res://scenes/overworld/locations/organization/dialogue/act1/organization_dawn_dialogue.dialogue"
+dest_files=["res://.godot/imported/organization_dawn_dialogue.dialogue-125834ce451c224201fcd9b1a4538137.tres"]
+
+[params]
+
+defaults=true

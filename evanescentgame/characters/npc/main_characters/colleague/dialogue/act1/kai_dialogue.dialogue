@@ -1,0 +1,48 @@
+~ kai_police_officer_calming
+Police Officer 2~Police Officer: Evan’s dead, we’re short on staff, what should we do??? 
+Kai[neutral]: It’ll be alright. We’re only missing 2 officers today, including Evan. All you need to do is focus on writing up those reports. 
+Police Officer 1~Other Police Officer: Who put you in charge?? Why do you get to tell us what to do?
+Kai[angry]: After Evan passed, I am now the highest ranking officer here, and the acting captain until we find a replacement.
+Kai[neutral]: Sit down, and do your paperwork. I expect that pile of paper to be cleared by tonight. 
+Police Officer 1~Other Police Officer: Y-yes sir. I’ll do that right away.
+Kai[neutral]: Good. I’m going to my office. I have some paperwork to sort out, so try not to disturb me unless it is urgent. Dismissed.
+=> END
+
+~ kai_office_idle_rambling
+Kai[angry]: It doesn’t make sense… Could she be…?
+Kai[disappointed]: No. I already checked that… 
+Kai[neutral]: That day…
+Kai[disappointed]: Did I make a mistake… ?
+Kai[neutral]: Maybe it’s in the case file…
+=> END
+
+~ kai_going_to_organization
+Kai[neutral]: Okay, I should go there now. He should be waiting for me with the information…
+=> END
+
+~ kai_office_forgot_badge
+Kai[angry]: Stupid, stupid, stupid! 
+Kai[angry]: How could I have forgotten the badge? I swear it was on me.
+Kai[neutral]: Whatever, I’ll just find it now and bring it to the organization.
+Kai[neutral]: But I swear I’ve looked everywhere…
+=> END
+
+~ kai_moving
+Kai[neutral]: ...
+=> END
+
+~ Kai_Organization_ID_Rejection
+Office_Worker~Front Desk Worker[neutral]: Greetings, customer! Welcome to the Organization! How may I help you today?
+Kai[neutral]: Hello. I’m here for an appointment.
+Office_Worker~Front Desk Worker[neutral]: Of course! May I please scan your Organization ID?
+Kai[neutral]: I’m sorry, I don’t have one on me.
+Office_Worker~Front Desk Worker[neutral]: My apologies, sir. We only provide service to those with sanctioned Organization IDs. Please return with a valid Organization ID.
+=> END
+
+~ Kai_Organization_ID_Approval
+Office_Worker~Front Desk Worker[neutral]: Greetings, customer! Welcome to the Organization! How may I help you today?
+Kai[neutral]: Hello. I’m here for an appointment.
+Office_Worker~Front Desk Worker[neutral]: Of course! May I please scan your Organization ID?
+Kai[neutral]: Of course. Here you go.
+Office_Worker~Front Desk Worker[neutral]: Perfect! You’re good to go, sir. The Organization wishes you a pleasant evening!
+=> END

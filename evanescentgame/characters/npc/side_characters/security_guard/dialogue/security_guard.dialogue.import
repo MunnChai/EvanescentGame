@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://bno7b40dxfj5p"
+path="res://.godot/imported/security_guard.dialogue-0f87ac0c47a6bd9ae84f202d0349fb04.tres"
+
+[deps]
+
+source_file="res://characters/npc/side_characters/security_guard/dialogue/security_guard.dialogue"
+dest_files=["res://.godot/imported/security_guard.dialogue-0f87ac0c47a6bd9ae84f202d0349fb04.tres"]
+
+[params]
+
+defaults=true

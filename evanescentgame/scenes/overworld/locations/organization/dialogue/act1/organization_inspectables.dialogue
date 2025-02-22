@@ -1,0 +1,84 @@
+~ desk_paper_stack
+Evan[neutral]: That’s a lot of paperwork. 
+Lady Devil[neutral]: Last time I had that much paperwork was when that big asteroid hit Earth 60 million years ago. What a mess.
+Evan[neutral]: You mean… the dinosaurs?
+Lady Devil[disappointed]: What, you think only humans go to the underworld after they die? 
+=> END
+
+~ floor_two_posters
+Evan[neutral]: These posters on the wall are truly… 
+Lady Devil[neutral]: Inspiring! Whoever made these should come work for me. 
+Evan[disappointed]: I was going to say depressing, but I suppose it’s only normal that we have slightly differing perspectives.
+=> END
+
+~ floor_eleven_window
+Evan[neutral]: What a nice view. We’re really high up. 
+=> END
+
+~ carlos_computer
+Evan[neutral]: (Carlos’ computer. Should I look through?)
+- Yes => carlos_computer_yes
+- No => END
+
+~ carlos_computer_yes
+Evan[neutral]: (There are a number of apps and files on here I can access. What should I access?)
+- Email => carlos_computer_email
+- Files => carlos_computer_files
+- Exit => END
+
+~ carlos_computer_email
+Lady Devil[excited]: Oooh, are we illegally looking through people’s mail now?
+Evan[embarrassed]: It’s just for research purposes!
+Evan[embarrassed]: Besides, I’m a ghost now. I’m untouchable by the law.
+Lady Devil[neutral]: That’s what you think.
+Evan[neutral]: On that lovely not-at-all-ominous note…
+Evan[excited]: Oh. There’s an unopened email from Dawn.
+Lady Devil[excited]: Yes!! The illegal trifling has paid off dividends.
+Evan[neutral]: She’s asking Carlos if he can meet up for lunch in the second floor break room at 12:00 PM.
+Lady Devil[excited]: A secret rendezvous?? Oh, this just gets better and better.
+Evan[neutral]: What are you getting so excited about? Carlos hasn’t even opened the email.
+Lady Devil[embarrassed]: Hey! Intel is intel. There isn’t much gossip in the underworld, you know. 
+Lady Devil[happy]: I have to live vicariously through you.
+Evan[disappointed]: …
+Evan[disappointed]: Fuck you.
+=> carlos_computer_yes
+
+~ carlos_computer_calendar
+Lady Devil[disappointed]: Booooooo. Calendars are lame. Schedules are lame.
+Evan[neutral]: Really? I had no idea you felt that way. Especially not from the mountain of papers on your desk.
+Lady Devil[happy]: I know you meant that as a slight, but I’ll have you know that I take pride in my disorganization.
+Evan[neutral]: (I really don’t think you should be.)
+Evan[neutral]: Man, Carlos’ calendar is packed. Does this guy leave any time for himself ever?
+Evan[neutral]: Even just today, he has some important work meeting scheduled for the entire afternoon.
+Evan[neutral]: (And to think he was still at my funeral this morning…)
+=> carlos_computer_yes
+
+~ carlos_computer_files
+Evan[neutral]: (There are only a few files saved on his desktop. Which one should I open?)
+- untitled.txt => carlos_computer_txt1
+- untitled1.txt => carlos_computer_txt2
+- untitled1 (1).txt => carlos_computer_codetxt
+- Exit => carlos_computer_yes
+
+~ carlos_computer_txt1
+Evan[neutral]: There’s a grocery list here.
+Evan[disappointed]: … Although, it’s not a very substantive grocery list.
+Lady Devil[neutral]: “Milk. Eggs (only if on sale). Painkillers.”
+Lady Devil[disappointed]: Wow. This guy seems more like a ghost than you do.
+Evan[neutral]: Maybe you should claim his soul instead of mine.
+=> carlos_computer_files
+
+~ carlos_computer_txt2
+Evan[neutral]: This file is just a series of math calculations.
+Evan[neutral]: Why didn’t he just use the calculator app for this?
+Lady Devil[disappointed]: Everyone knows that the calculator app is terrible. No one in their right mind can do math on that thing.
+Evan[neutral]: (Something even the Lord of the Underworld demeans? Was the calculator app built from the remnants of Tartarus?)
+=> carlos_computer_files
+
+# haha get it the code is “hell” because wow the organization is hell on earth what!!!!!! Thats crazy!!!!!! Do we have symbolism in our game or smth
+~ carlos_computer_codetxt
+Evan[neutral]: This file just has a series of numbers.
+Evan[neutral]: “4-3-5-5”
+Evan[disappointed]: Zero context. Maybe it’s a PIN for something? Or it’s some encoded message?
+Lady Devil[neutral]: 4355, huh…
+=> carlos_computer_files

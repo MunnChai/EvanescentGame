@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://cdfxhb8msyn0j"
+path="res://.godot/imported/wife_moving.dialogue-774287bca94cb3b426b07918ce7641bc.tres"
+
+[deps]
+
+source_file="res://characters/npc/main_characters/wife/dialogue/act1/wife_moving.dialogue"
+dest_files=["res://.godot/imported/wife_moving.dialogue-774287bca94cb3b426b07918ce7641bc.tres"]
+
+[params]
+
+defaults=true

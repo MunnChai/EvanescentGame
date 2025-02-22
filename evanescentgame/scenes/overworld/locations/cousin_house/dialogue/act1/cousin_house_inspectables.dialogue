@@ -1,0 +1,24 @@
+~ family_photo
+Evan[neutral]: There’s a photo on the wall. 
+Evan[neutral]: Looks like a boy and his mom and dad. 
+Lady Devil[neutral]: They seem quite happy. 
+Evan[disappointed]: Yeah… it’s definitely quite the contrast with the state of this house.
+=> END
+
+
+~ flower
+Evan[neutral]: This flower looks surprisingly healthy.
+Evan[neutral]: Compared to the rest of this house, it seems to be blooming. 
+=> END
+
+~ dirty_dishes
+Evan[neutral]: There’s a pile of dirty dishes in the sink. It seems that everyone’s been too busy to properly take care of the chores…
+=> END
+
+~ locked_door_broken_locked
+Evan[disappointed]: This door is locked too... I wonder what could be in there. 
+=> END
+
+~ locked_door
+Evan[disappointed]: The door is locked. 
+=> END

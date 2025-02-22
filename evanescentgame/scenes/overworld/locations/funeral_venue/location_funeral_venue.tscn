@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://rviju0lx5pre"]
+[gd_scene load_steps=23 format=3 uid="uid://rviju0lx5pre"]
 
 [ext_resource type="PackedScene" uid="uid://blp4jjwokkgxj" path="res://scenes/overworld/locations/location.tscn" id="1_tf2o3"]
 [ext_resource type="Texture2D" uid="uid://bk1osrbrhqlv5" path="res://scenes/overworld/locations/funeral_venue/tilesets/funeral_tileset.png" id="2_ydhux"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://bha8jx12sacir" path="res://scenes/scene_components/inspectable_area/inspectable_area.tscn" id="4_a7ys2"]
 [ext_resource type="Resource" uid="uid://mquk0gnbe1j4" path="res://scenes/overworld/locations/funeral_venue/dialogue/act1/funeral_inspectables.dialogue" id="5_gx36h"]
 [ext_resource type="Script" path="res://scenes/overworld/locations/scripts/location_room.gd" id="6_dhi4h"]
-[ext_resource type="PackedScene" uid="uid://dfnksobtsogiq" path="res://ui/player_interface/inventory/test_items/apple.tscn" id="6_mvcc4"]
 [ext_resource type="PackedScene" uid="uid://hkq87e11fer7" path="res://scenes/scene_components/audio_trigger/audio_trigger.tscn" id="7_6reti"]
 [ext_resource type="AudioStream" uid="uid://c5a1bndk5gdp3" path="res://scenes/overworld/locations/funeral_venue/audio/sfx/FuneralVenue.mp3" id="8_752db"]
 
@@ -361,9 +360,6 @@ position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_a11wo")
 
 [node name="Items" type="Node2D" parent="." index="5"]
-
-[node name="Apple" parent="Items" index="0" instance=ExtResource("6_mvcc4")]
-position = Vector2(-149, -9)
 
 [node name="LocationExit" parent="." index="6"]
 position = Vector2(404, 5)
