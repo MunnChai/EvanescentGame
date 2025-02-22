@@ -277,7 +277,6 @@ position = Vector2(3463, -16)
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Ingame" parent="UI" instance=ExtResource("11_coct2")]
-mouse_filter = 1
 
 [node name="NavigationPanel" parent="UI" node_paths=PackedStringArray("location_manager", "dawn", "cousin", "colleague") instance=ExtResource("9_e1fk3")]
 location_manager = NodePath("../../World/LocationManager")
@@ -288,7 +287,6 @@ colleague = NodePath("../../World/NPCs/Kai")
 [node name="InfoLog" parent="UI" instance=ExtResource("29_m3j4v")]
 
 [node name="OverworldPause" parent="UI" node_paths=PackedStringArray("in_game_ui") instance=ExtResource("12_fi7rw")]
-mouse_filter = 1
 in_game_ui = NodePath("../Ingame")
 
 [connection signal="location_updated" from="World/NPCs/Dawn" to="UI/NavigationPanel" method="_on_dawn_location_updated"]
