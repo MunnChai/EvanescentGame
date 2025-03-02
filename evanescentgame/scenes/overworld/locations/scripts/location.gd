@@ -42,8 +42,12 @@ func find_path_between(start_room: LocationRoom, end_room: LocationRoom):
 		
 		# Iterate through doors to find connected rooms, add them to rooms_to_traverse IF they have not already been traversed
 		var doors = current_room.get_children()
-		for door: BackgroundDoor in doors:
-			var connected_room = get_room_of_position(door.destination_door.global_position)
+		for door in doors:
+			var connected_room
+			if door is DoorConnector:
+				connected_room = get_room_of_position(door.destination_connector.global_position)
+			elif door is BackgroundDoor:
+				connected_room = get_room_of_position(door.destination_door.global_position)
 			
 			# Prevent infinite loops
 			if (traversed.has(connected_room)): 

@@ -237,7 +237,7 @@ func move_to(target_position: Vector2):
 			if (current_room_path.size() == 0):
 				current_room_path = current_location.find_path_between(current_room, current_location.location_exit_room)
 			
-			var next_door: BackgroundDoor = current_room_path.pop_front()
+			var next_door: DoorConnector = current_room_path.pop_front()
 			navigation_agent_2d.target_position = next_door.global_position
 			
 			navigation_agent_2d.navigation_finished.connect(enter_door.bind(next_door, target_position))
@@ -259,7 +259,7 @@ func move_to(target_position: Vector2):
 			if (current_room_path.size() == 0):
 				current_room_path = current_location.find_path_between(current_room, target_room)
 			
-			var next_door: BackgroundDoor = current_room_path.pop_front()
+			var next_door: DoorConnector = current_room_path.pop_front()
 			navigation_agent_2d.target_position = next_door.global_position
 			
 			navigation_agent_2d.navigation_finished.connect(enter_door.bind(next_door, target_position))
@@ -276,7 +276,7 @@ func move_to(target_position: Vector2):
 
 
 
-func enter_door(door: BackgroundDoor, target_position: Vector2):
+func enter_door(door: DoorConnector, target_position: Vector2):
 	await get_tree().create_timer(MOVE_ROOMS_WAIT_TIME).timeout
 	
 	global_position = door.destination_door.global_position

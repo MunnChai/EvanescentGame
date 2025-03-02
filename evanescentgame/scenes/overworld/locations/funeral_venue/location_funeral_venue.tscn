@@ -3,12 +3,13 @@
 [ext_resource type="PackedScene" uid="uid://blp4jjwokkgxj" path="res://scenes/overworld/locations/location.tscn" id="1_tf2o3"]
 [ext_resource type="Texture2D" uid="uid://bk1osrbrhqlv5" path="res://scenes/overworld/locations/funeral_venue/tilesets/funeral_tileset.png" id="2_ydhux"]
 [ext_resource type="Texture2D" uid="uid://t02s3n07dc4w" path="res://scenes/overworld/locations/funeral_venue/sprites/funeral_decor.png" id="3_sbocy"]
-[ext_resource type="PackedScene" uid="uid://cl8kobrguc04e" path="res://scenes/scene_components/background_door/background_door.tscn" id="4_4xyvu"]
 [ext_resource type="PackedScene" uid="uid://bha8jx12sacir" path="res://scenes/scene_components/inspectable_area/inspectable_area.tscn" id="4_a7ys2"]
 [ext_resource type="Resource" uid="uid://mquk0gnbe1j4" path="res://scenes/overworld/locations/funeral_venue/dialogue/act1/funeral_inspectables.dialogue" id="5_gx36h"]
-[ext_resource type="Script" uid="uid://cam5p47i3e5h1" path="res://scenes/overworld/locations/scripts/location_room.gd" id="6_dhi4h"]
+[ext_resource type="Script" uid="uid://dd8pdgosn7sxi" path="res://scenes/overworld/locations/scripts/location_room.gd" id="6_dhi4h"]
 [ext_resource type="PackedScene" uid="uid://hkq87e11fer7" path="res://scenes/scene_components/audio_trigger/audio_trigger.tscn" id="7_6reti"]
 [ext_resource type="AudioStream" uid="uid://c5a1bndk5gdp3" path="res://scenes/overworld/locations/funeral_venue/audio/sfx/FuneralVenue.mp3" id="8_752db"]
+[ext_resource type="PackedScene" uid="uid://cfx3wanmlsj0" path="res://general_components/interactable_area/interactable_area.tscn" id="10_1s551"]
+[ext_resource type="PackedScene" uid="uid://b2eqhamd24f1k" path="res://scenes/scene_components/room_connector/door/door.tscn" id="10_q1qik"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mklsf"]
 texture = ExtResource("2_ydhux")
@@ -197,14 +198,11 @@ size = Vector2(898, 390)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ndk4u"]
 size = Vector2(352, 136)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_csmf7"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ik183"]
 size = Vector2(24, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rdaq5"]
 size = Vector2(176, 120)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qcdqt"]
-size = Vector2(24, 30)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_i76jj"]
 vertices = PackedVector2Array(-50, 18, 166, 18, 166, 22, -166, 22, -166, 2, -50, 2)
@@ -338,26 +336,30 @@ position = Vector2(0, -36)
 shape = SubResource("RectangleShape2D_ndk4u")
 script = ExtResource("6_dhi4h")
 
-[node name="BackgroundDoor" parent="Rooms/Room1" index="0" node_paths=PackedStringArray("destination_door") instance=ExtResource("4_4xyvu")]
-position = Vector2(141, 48)
-destination_door = NodePath("../../Room2/BackgroundDoor2")
+[node name="Door" parent="Rooms/Room1" index="0" node_paths=PackedStringArray("destination_connector") instance=ExtResource("10_q1qik")]
+position = Vector2(140, 37)
+is_open = true
+destination_connector = NodePath("../../Room2/Door2")
 
-[node name="CollisionShape2D" parent="Rooms/Room1/BackgroundDoor/InteractableArea" index="1"]
-position = Vector2(-1, -11)
-shape = SubResource("RectangleShape2D_csmf7")
+[node name="InteractableArea" parent="Rooms/Room1/Door" index="0" instance=ExtResource("10_1s551")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Room1/Door/InteractableArea" index="1"]
+shape = SubResource("RectangleShape2D_ik183")
 
 [node name="Room2" type="CollisionShape2D" parent="Rooms" index="1"]
 position = Vector2(352, -28)
 shape = SubResource("RectangleShape2D_rdaq5")
 script = ExtResource("6_dhi4h")
 
-[node name="BackgroundDoor2" parent="Rooms/Room2" index="0" node_paths=PackedStringArray("destination_door") instance=ExtResource("4_4xyvu")]
-position = Vector2(-60, 40)
-destination_door = NodePath("../../Room1/BackgroundDoor")
+[node name="Door2" parent="Rooms/Room2" index="0" node_paths=PackedStringArray("destination_connector") instance=ExtResource("10_q1qik")]
+position = Vector2(-60, 29)
+is_open = true
+destination_connector = NodePath("../../Room1/Door")
 
-[node name="CollisionShape2D" parent="Rooms/Room2/BackgroundDoor2/InteractableArea" index="1"]
-position = Vector2(0, -11)
-shape = SubResource("RectangleShape2D_qcdqt")
+[node name="InteractableArea" parent="Rooms/Room2/Door2" index="0" instance=ExtResource("10_1s551")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Room2/Door2/InteractableArea" index="1"]
+shape = SubResource("RectangleShape2D_ik183")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." index="10"]
 navigation_polygon = SubResource("NavigationPolygon_i76jj")
@@ -369,5 +371,3 @@ navigation_polygon = SubResource("NavigationPolygon_2yiyi")
 [editable path="Inspectables/Coffin"]
 [editable path="Inspectables/Portrait"]
 [editable path="LocationExit"]
-[editable path="Rooms/Room1/BackgroundDoor"]
-[editable path="Rooms/Room2/BackgroundDoor2"]
