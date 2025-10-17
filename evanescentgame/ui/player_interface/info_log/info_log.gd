@@ -29,28 +29,28 @@ static func clear() -> void:
 func _setup_debug() -> void:
 	var info_log_cmd = func (args: PackedStringArray):
 		if len(args) < 1:
-			Logger.log("infolog expects subcommand: lock, unlock, flags, clear")
+			LoggerGlobal.log("infolog expects subcommand: lock, unlock, flags, clear")
 			return
 		var sub_cmd := args[0]
 		match sub_cmd:
 			"lock":
 				if len(args) < 2:
-					Logger.log_error("infolog lock needs at least one flag: infolog lock <flag1> <flag2> ...")
+					LoggerGlobal.log_error("infolog lock needs at least one flag: infolog lock <flag1> <flag2> ...")
 				else:
 					var remaining_args := args.slice(1)
 					for arg in remaining_args:
 						InfoLogLogic.lock_flag(arg)
-						Logger.log("Locked InfoLog flag: " + arg + ".")
+						LoggerGlobal.log("Locked InfoLog flag: " + arg + ".")
 			"unlock":
 				if len(args) < 2:
-					Logger.log_error("infolog unlock needs at least one flag: infolog unlock <flag1> <flag2> ...")
+					LoggerGlobal.log_error("infolog unlock needs at least one flag: infolog unlock <flag1> <flag2> ...")
 				else:
 					var remaining_args := args.slice(1)
 					for arg in remaining_args:
 						InfoLogLogic.unlock_flag(arg)
-						Logger.log("Unlocked InfoLog flag: " + arg + ".")
+						LoggerGlobal.log("Unlocked InfoLog flag: " + arg + ".")
 			"flags": ## PRINT FLAGS
-				Logger.log("InfoLog Unlock Flags:")
+				LoggerGlobal.log("InfoLog Unlock Flags:")
 				var output := ""
 				var dict = InfoLogLogic.unlock_flags
 				for flag in dict:
@@ -60,10 +60,10 @@ func _setup_debug() -> void:
 					else:
 						output += "\n%s" % pair
 				if not output.is_empty():
-					Logger.log(output)
+					LoggerGlobal.log(output)
 			"clear": ## CLEAR FLAGS
 				InfoLogLogic.clear()
-				Logger.log("Cleared InfoLog Unlock Flags.")
+				LoggerGlobal.log("Cleared InfoLog Unlock Flags.")
 	
 	DebugConsole.register("infolog", info_log_cmd)
 

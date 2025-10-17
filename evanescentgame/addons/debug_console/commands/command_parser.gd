@@ -25,15 +25,15 @@ func _register_default_commands() -> void:
 					output += line
 				else:
 					output += "\n%s" % line
-			Logger.log(output)
+			LoggerGlobal.log(output)
 		else:
 			if args[0] in command_dictionary:
 				if command_dictionary[args[0]].get_long_help_desc().is_empty():
-					Logger.log("[b]%s[/b]" % args[0] + " has no detailed help entry.")
+					LoggerGlobal.log("[b]%s[/b]" % args[0] + " has no detailed help entry.")
 				else:
-					Logger.log("[b]%s[/b]" % args[0] + "\n" + command_dictionary[args[0]].get_long_help_desc())
+					LoggerGlobal.log("[b]%s[/b]" % args[0] + "\n" + command_dictionary[args[0]].get_long_help_desc())
 			else:
-				Logger.log_error("help not found for %s: not a registered command" % args[0])
+				LoggerGlobal.log_error("help not found for %s: not a registered command" % args[0])
 	register("help", help_cmd, "Lists help for all registered commands", """Usage: help [cmd_name]
 	If no cmd_name is specified, prints a list of commands and their short descriptions.
 	If cmd_name, prints the detailed help entry for cmd_name.""")
@@ -46,7 +46,7 @@ func _register_default_commands() -> void:
 				output += command
 			else:
 				output += ", %s" % command
-		Logger.log(output)
+		LoggerGlobal.log(output)
 	register("cmdlist", cmdlist_cmd, "Lists all currently registered commands", """Usage: cmdlist
 	Lists all currently registered commmands in a comma-separated list.""")
 
@@ -88,7 +88,7 @@ func parse_and_try_execute(input_string: String) -> void:
 	## SPLIT INPUT STRING INTO SEGMENTS
 	var space_separated_strings: PackedStringArray = input_string.strip_edges().split(" ", false)
 	if len(space_separated_strings) == 0:
-		Logger.log_error("Attempted to parse command, but found no command or arguments.")
+		LoggerGlobal.log_error("Attempted to parse command, but found no command or arguments.")
 		return
 	
 	## ISOLATE COMMAND AND ARGUMENTS
@@ -97,12 +97,12 @@ func parse_and_try_execute(input_string: String) -> void:
 	var args: PackedStringArray = space_separated_strings
 	
 	## TRY CALL CORRESPONDING COMMAND
-	Logger.log("> %s" % input_string)
+	LoggerGlobal.log("> %s" % input_string)
 	var dictionary_entry = command_dictionary.get(command, null)
 	if dictionary_entry is DebugConsoleCommand:
-		# Logger.log("Command found: " + command + ", calling with arguments " + str(args))
+		# LoggerGlobal.log("Command found: " + command + ", calling with arguments " + str(args))
 		dictionary_entry.callable.call(args)
 	else:
-		Logger.log_error("Unknown command: " + command)
+		LoggerGlobal.log_error("Unknown command: " + command)
 
 #endregion

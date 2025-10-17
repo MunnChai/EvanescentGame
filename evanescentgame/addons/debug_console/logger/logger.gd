@@ -1,6 +1,6 @@
-class_name Logger
+class_name LoggerGlobal
 
-## LOGGER
+## LoggerGlobal
 ## A basic static interface for general logging
 ## Logged outputs go to console(s)
 
@@ -80,7 +80,7 @@ static func dump_to_file(dir_path: String, filter_pred: Callable = func(x): retu
 	
 	## OPEN FILE
 	
-	Logger.log("Dumping log to %s..." % file_path)
+	LoggerGlobal.log("Dumping log to %s..." % file_path)
 	
 	if not DirAccess.dir_exists_absolute(dir_path):
 		DirAccess.make_dir_recursive_absolute(dir_path)
@@ -88,7 +88,7 @@ static func dump_to_file(dir_path: String, filter_pred: Callable = func(x): retu
 	var new_file = FileAccess.open(file_path, FileAccess.WRITE)
 	if not new_file:
 		## ERROR opening new file!
-		Logger.log_error("LOGGER: Attempt to open " + file_path + " failed.")
+		LoggerGlobal.log_error("LoggerGlobal: Attempt to open " + file_path + " failed.")
 		return
 	
 	## STORE ENTRIES
@@ -108,7 +108,7 @@ static func dump_to_file(dir_path: String, filter_pred: Callable = func(x): retu
 	new_file.store_string("-- END LOG --")
 	new_file.close()
 	
-	Logger.log("Log successfully dumped to %s" % file_path)
+	LoggerGlobal.log("Log successfully dumped to %s" % file_path)
 
 #endregion
 

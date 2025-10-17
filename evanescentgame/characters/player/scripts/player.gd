@@ -33,14 +33,14 @@ var debug_speed_multiplier := 1.0
 func _setup_debug() -> void:
 	var speedx_cmd: Callable = func(args: PackedStringArray):
 		if len(args) <  1:
-			Logger.log("speedx needs a float value: speedx <float>, e.g. speedx 2.0")
+			LoggerGlobal.log("speedx needs a float value: speedx <float>, e.g. speedx 2.0")
 			debug_speed_multiplier = 1.0
 		else:
 			if args[0].is_valid_float():
 				debug_speed_multiplier = args[0].to_float()
-				Logger.log("Set player speed multiplier to [b]%s[/b]." % debug_speed_multiplier)
+				LoggerGlobal.log("Set player speed multiplier to [b]%s[/b]." % debug_speed_multiplier)
 			else:
-				Logger.log_error("speedx expects a valid float.")
+				LoggerGlobal.log_error("speedx expects a valid float.")
 	
 	DebugConsole.register("speedx", speedx_cmd)
 	
@@ -48,10 +48,10 @@ func _setup_debug() -> void:
 		## NOTE: This currently also disables interactions.
 		if not $CollisionShape2D.disabled:
 			$CollisionShape2D.set_disabled(true)
-			Logger.log("Player collision [b]disabled[/b].")
+			LoggerGlobal.log("Player collision [b]disabled[/b].")
 		else:
 			$CollisionShape2D.set_disabled(false)
-			Logger.log("Player collision [b]enabled[/b].")
+			LoggerGlobal.log("Player collision [b]enabled[/b].")
 	
 	DebugConsole.register("togglecoll", togglecoll_cmd)
 
